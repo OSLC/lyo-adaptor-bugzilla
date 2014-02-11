@@ -27,10 +27,10 @@ import javax.servlet.ServletContextEvent;
 import java.util.List;
 
 import se.kth.md.it.bcm.ServiceProviderInfo;
-		import se.kth.md.it.bcm.resources.Type;
-		import se.kth.md.it.bcm.resources.Person;
 		import se.kth.md.it.bcm.resources.BugzillaChangeRequest;
 		import se.kth.md.it.bcm.resources.ChangeRequest;
+		import se.kth.md.it.bcm.resources.Person;
+		import se.kth.md.it.bcm.resources.Type;
 
 // Start of user code imports
 import java.io.IOException;
