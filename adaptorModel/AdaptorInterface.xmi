@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ai:AdaptorInterface
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ai="org.eclipse.lyo.oslc4j.adaptorInterface"
+    xsi:schemaLocation="org.eclipse.lyo.oslc4j.adaptorInterface ../../org.eclipse.lyo.oslc4j.adaptormodel/model/adaptorInterface.ecore"
+    name="BugzillaAdaptor"
+    javaClassBaseNamespace="se.kth.md.it.bcm"
+    javaFilesBasePath="/src/"
+    jspFilesBasePath="/WebContent"
+    javascriptFilesBasePath="/WebContent">
+  <serviceProviderCatalog
+      title="OSLC Service Provider Catalog"
+      description="OSLC Service Provider Catalog">
+    <publisher
+        title="Bugzilla"
+        label=""
+        identifier="se.kth.md.it.cm"
+        icon="http://open-services.net/css/images/logo-forflip.png"/>
+    <serviceProviders
+        title="Service provider for the Bugzilla product"
+        description="Enables navigation to OSLC-CM Resource Creator and Selector Dialogs">
+      <publisher
+          title="Eclipse Lyo"
+          label=""
+          identifier="urn:oslc:ServiceProvider"/>
+      <services>
+        <domainSpecification
+            href="OSLCChangeManagementSpecification.xmi#//@domainSpecifications.0"/>
+        <creationFactories
+            title="Change Request Creation Factory"
+            label="Change Request Creation"
+            creationURI=""
+            resourceTypes="//@specification/@domainSpecifications.1/@resources.0"/>
+        <queryCapabilities
+            title="Change Request Query Capability"
+            label="Change Request Catalog Query"
+            resourceTypes="//@specification/@domainSpecifications.1/@resources.0"/>
+        <selectionDialogs
+            title="Change Request Selection Dialog"
+            label="Change Request Selection Dialog"
+            dialogURI="/{serviceProviderId}/bugzillaChangeRequests/selector"
+            hintWidth="525"
+            hintHeight="325"
+            resourceTypes="//@specification/@domainSpecifications.1/@resources.0"/>
+        <creationDialogs
+            title="Change Request Creation Dialog"
+            label="Change Request Creation Dialog"
+            dialogURI="/{serviceProviderId}/bugzillaChangeRequests/creator"
+            hintWidth="600"
+            hintHeight="375"
+            resourceTypes="//@specification/@domainSpecifications.1/@resources.0"/>
+      </services>
+    </serviceProviders>
+  </serviceProviderCatalog>
+  <specification>
+    <domainSpecifications
+        name="Quality_Management"
+        namespaceURI="http://open-services.net/ns/qm"
+        namespacePrefix="//@specification/@domainPrefixes.0"/>
+    <domainSpecifications
+        name="Bugzilla"
+        namespaceURI="http://www.bugzilla.org/rdf"
+        namespacePrefix="//@specification/@domainPrefixes.1">
+      <resources
+          name="BugzillaChangeRequest"
+          resourceProperties="//@specification/@domainSpecifications.1/@resourceProperties.0 //@specification/@domainSpecifications.1/@resourceProperties.1 //@specification/@domainSpecifications.1/@resourceProperties.2 //@specification/@domainSpecifications.1/@resourceProperties.3 //@specification/@domainSpecifications.1/@resourceProperties.4 //@specification/@domainSpecifications.1/@resourceProperties.5">
+        <extends
+            href="OSLCChangeManagementSpecification.xmi#//@domainSpecifications.0/@resources.0"/>
+      </resources>
+      <resourceProperties
+          name="product"
+          valueType="String"
+          description=""/>
+      <resourceProperties
+          title="Component"
+          name="component"
+          occurs="zeroOrOne"
+          valueType="String"
+          description="The Bugzilla product definition for this change request."/>
+      <resourceProperties
+          title="Version"
+          name="version"
+          occurs="zeroOrOne"
+          readOnly="true"
+          valueType="String"
+          description="The Bugzilla version for this change request."/>
+      <resourceProperties
+          title="Priority"
+          name="priority"
+          occurs="zeroOrOne"
+          valueType="String"
+          description="The Bugzilla priority for this change request."/>
+      <resourceProperties
+          title="Platform"
+          name="platform"
+          occurs="zeroOrOne"
+          valueType="String"
+          description="The Bugzilla platform for this change request."/>
+      <resourceProperties
+          title="Operating System"
+          name="operatingSystem"
+          occurs="zeroOrOne"
+          valueType="String"
+          description="The Bugzilla operating system for this change request."/>
+    </domainSpecifications>
+    <domainPrefixes
+        name="oslc_qm"/>
+    <domainPrefixes
+        name="bugz"/>
+  </specification>
+</ai:AdaptorInterface>

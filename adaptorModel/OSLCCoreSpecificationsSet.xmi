@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ai:Specification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ai="org.eclipse.lyo.oslc4j.adaptorInterface" xsi:schemaLocation="org.eclipse.lyo.oslc4j.adaptorInterface ../../org.eclipse.lyo.oslc4j.adaptormodel/model/adaptorInterface.ecore">
+  <domainSpecifications name="OSLC_CORE" namespaceURI="http://open-services.net/ns/core" namespacePrefix="//@domainPrefixes.0">
+    <resourceProperties title="" name="discussedBy" occurs="zeroOrOne" valueType="Resource" representation="either" description="A series of notes and comments about this change request."/>
+    <resourceProperties title="" name="instanceShape" occurs="zeroOrOne" valueType="Resource" description="Resource Shape that provides hints as to resource property value-types and allowed values."/>
+    <resourceProperties title="" name="serviceProvider" valueType="URI" description="The scope of a resource is a URI for the resource's OSLC Service Provider."/>
+    <resourceProperties title="" name="shortTitle" occurs="zeroOrOne" valueType="XMLLiteral" description="Short name identifying a resource, often used as an abbreviated identifier for presentation to end-users. SHOULD include only content that is valid inside an XHTML _span_ element."/>
+  </domainSpecifications>
+  <domainSpecifications name="FOAF" namespaceURI="http://xmlns.com/foaf/0.1" namespacePrefix="//@domainPrefixes.1">
+    <resources name="Person" resourceProperties="//@domainSpecifications.1/@resourceProperties.0 //@domainSpecifications.1/@resourceProperties.1 //@domainSpecifications.1/@resourceProperties.2"/>
+    <resourceProperties title="" name="name" valueType="String" description="The full name of a person expressed as simple text string."/>
+    <resourceProperties name="givenName" valueType="String" description="Given name of person expressed as simple text string."/>
+    <resourceProperties name="familyName" valueType="String" description="Family name of person expressed as simple text string."/>
+  </domainSpecifications>
+  <domainSpecifications name="Dublin Core" namespaceURI="http://purl.org/dc/terms" namespacePrefix="//@domainPrefixes.2">
+    <resources name="Type"/>
+    <resourceProperties title="" name="contributor" occurs="zeroOrMany" valueType="LocalResource" representation="either" range="//@domainSpecifications.1/@resources.0" description="The person(s) who are responsible for the work needed to complete the change request (reference: Dublin Core). It is likely that the target resource will be a foaf:Person but that is not necessarily the case."/>
+    <resourceProperties title="" name="creator" occurs="zeroOrMany" valueType="LocalResource" representation="either" range="//@domainSpecifications.1/@resources.0" description="Creator or creators of resource (reference: Dublin Core). It is likely that the target resource will be a foaf:Person but that is not necessarily the case."/>
+    <resourceProperties title="" name="type" occurs="zeroOrMany" valueType="LocalResource" range="//@domainSpecifications.2/@resources.0" description="A short string representation for the type, example 'Defect'."/>
+    <resourceProperties title="" name="subject" occurs="zeroOrMany" valueType="String" description="Tag or keyword for a resource. Each occurrence of a dcterms:subject property denotes an additional tag for the resource."/>
+    <resourceProperties title="" name="created" occurs="zeroOrOne" readOnly="true" valueType="DateTime" description="Timestamp of resource creation (reference: Dublin Core)."/>
+    <resourceProperties title="" name="description" occurs="zeroOrOne" valueType="XMLLiteral" description="Descriptive text (reference: Dublin Core) about resource represented as rich text in XHTML content. SHOULD include only content that is valid and suitable inside an XHTML _div_ element."/>
+    <resourceProperties title="" name="identifier" readOnly="true" valueType="String" description="A unique identifier for a resource. Assigned by the service provider when a resource is created. Not intended for end-user display."/>
+    <resourceProperties title="" name="modified" occurs="zeroOrOne" readOnly="true" valueType="DateTime" description="Timestamp last latest resource modification (reference: Dublin Core)."/>
+    <resourceProperties title="" name="title" valueType="XMLLiteral" description="Title (reference: Dublin Core) or often a single line summary of the resource represented as rich text in XHTML content. SHOULD include only content that is valid and suitable inside an XHTML _div_ element."/>
+  </domainSpecifications>
+  <domainSpecifications name="RDF" namespaceURI="http://www.w3.org/1999/02/22-rdf-syntax-ns" namespacePrefix="//@domainPrefixes.3">
+    <resourceProperties title="" name="type" occurs="zeroOrMany" valueType="URI" description="The resource type URIs. One of at least has the value of http://open-services.net/ns/cm#ChangeRequest"/>
+  </domainSpecifications>
+  <domainSpecifications name="RDFS" namespaceURI="http://www.w3.org/2000/01/rdf-schema" namespacePrefix="//@domainPrefixes.4"/>
+  <domainPrefixes name="oslc"/>
+  <domainPrefixes name="foaf"/>
+  <domainPrefixes name="dcterms"/>
+  <domainPrefixes name="rdf"/>
+  <domainPrefixes name="rdfs"/>
+</ai:Specification>
