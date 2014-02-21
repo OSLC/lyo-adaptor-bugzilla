@@ -314,7 +314,7 @@ public String toHtml()
 
    	@OslcName("contributor")
    	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "contributor")
-	@OslcDescription("The person(s) who are responsible for the work needed to complete the change request (reference: Dublin Core). It is likely that the target resource will be a foaf:Person but that is not necessarily the case.")
+	@OslcDescription("Contributor or contributors to the resource. It is likely that the target resource will be a foaf:Person but that is not necessarily the case. ")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.LocalResource)
 	
@@ -496,7 +496,7 @@ public String toHtml()
 
    	@OslcName("type")
    	@OslcPropertyDefinition(BugzillaAdaptorConstants.RDF_NAMSPACE + "type")
-	@OslcDescription("The resource type URIs. One of at least has the value of http://open-services.net/ns/cm#ChangeRequest")
+	@OslcDescription("The resource type URIs.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	
 	
@@ -552,7 +552,7 @@ public String toHtml()
 
    	@OslcName("created")
    	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "created")
-	@OslcDescription("Timestamp of resource creation (reference: Dublin Core).")
+	@OslcDescription("Timestamp of resource creation")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.DateTime)
 	
@@ -566,7 +566,7 @@ public String toHtml()
 
    	@OslcName("description")
    	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "description")
-	@OslcDescription("Descriptive text (reference: Dublin Core) about resource represented as rich text in XHTML content. SHOULD include only content that is valid and suitable inside an XHTML _div_ element.")
+	@OslcDescription("Descriptive text about resource represented as rich text in XHTML content. SHOULD include only content that is valid and suitable inside an XHTML <div> element. ")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.XMLLiteral)
 	
@@ -580,7 +580,7 @@ public String toHtml()
 
    	@OslcName("discussedBy")
    	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "discussedBy")
-	@OslcDescription("A series of notes and comments about this change request.")
+	@OslcDescription("A series of notes and comments about this resource.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Resource)
 	
@@ -608,7 +608,7 @@ public String toHtml()
 
    	@OslcName("identifier")
    	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "identifier")
-	@OslcDescription("A unique identifier for a resource. Assigned by the service provider when a resource is created. Not intended for end-user display.")
+	@OslcDescription("A unique identifier for a resource. Typically read-only and assigned by the service provider when a resource is created. Not typically intended for end-user display.")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.String)
 	
@@ -636,7 +636,7 @@ public String toHtml()
 
    	@OslcName("instanceShape")
    	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "instanceShape")
-	@OslcDescription("Resource Shape that provides hints as to resource property value-types and allowed values.")
+	@OslcDescription("The URI of a Resource Shape that describes the possible properties, occurrence, value types, allowed values and labels. This shape information is useful in displaying the subject resource as well as guiding clients in performing modifications. Instance shapes may be specific to the authenticated user associated with the request that retrieved the resource, the current state of the resource and other factors and thus should not be cached.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Resource)
 	
@@ -650,7 +650,7 @@ public String toHtml()
 
    	@OslcName("modified")
    	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "modified")
-	@OslcDescription("Timestamp last latest resource modification (reference: Dublin Core).")
+	@OslcDescription("Timestamp last latest resource modification")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.DateTime)
 	
@@ -678,7 +678,7 @@ public String toHtml()
 
    	@OslcName("serviceProvider")
    	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "serviceProvider")
-	@OslcDescription("The scope of a resource is a URI for the resource's OSLC Service Provider.")
+	@OslcDescription("A link to the resource's OSLC Service Provider. There may be cases when the subject resource is available from a service provider that implements multiple domain specifications, which could result in multiple values for this property. ")
 	@OslcOccurs(Occurs.ExactlyOne)
 	
 	
@@ -692,7 +692,7 @@ public String toHtml()
 
    	@OslcName("shortTitle")
    	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "shortTitle")
-	@OslcDescription("Short name identifying a resource, often used as an abbreviated identifier for presentation to end-users. SHOULD include only content that is valid inside an XHTML _span_ element.")
+	@OslcDescription("Shorter form of dcterms:title for the resource represented as rich text in XHTML content. SHOULD include only content that is valid inside an XHTML <span> element.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.XMLLiteral)
 	
@@ -720,7 +720,7 @@ public String toHtml()
 
    	@OslcName("title")
    	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "title")
-	@OslcDescription("Title (reference: Dublin Core) or often a single line summary of the resource represented as rich text in XHTML content. SHOULD include only content that is valid and suitable inside an XHTML _div_ element.")
+	@OslcDescription("Title of the resource represented as rich text in XHTML content. SHOULD include only content that is valid inside an XHTML <span> element. ")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.XMLLiteral)
 	

@@ -70,9 +70,9 @@ public class Application extends OslcWinkApplication {
     		RESOURCE_CLASSES.addAll(JenaProvidersRegistry.getProviders());
     		RESOURCE_CLASSES.addAll(Json4JProvidersRegistry.getProviders());
 			RESOURCE_CLASSES.add(BugzillaChangeRequestService.class);
-			RESOURCE_CLASSES.add(ChangeRequest.class);
+			RESOURCE_CLASSES.add(BugzillaChangeRequest.class);
+RESOURCE_CLASSES.add(ChangeRequest.class);
 RESOURCE_CLASSES.add(Person.class);
-RESOURCE_CLASSES.add(BugzillaChangeRequest.class);
 RESOURCE_CLASSES.add(Type.class);
     		RESOURCE_CLASSES.add(Class.forName("org.eclipse.lyo.server.oauth.webapp.services.ConsumersService"));
     		RESOURCE_CLASSES.add(Class.forName("org.eclipse.lyo.server.oauth.webapp.services.OAuthService"));
@@ -104,9 +104,9 @@ RESOURCE_CLASSES.add(Type.class);
     		System.err.println("Application failed to initialize");
     	}
 
+			RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP.put(BugzillaAdaptorConstants.PATH_BUGZILLACHANGEREQUEST, BugzillaChangeRequest.class);
 			RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP.put(BugzillaAdaptorConstants.PATH_CHANGEREQUEST, ChangeRequest.class);
 			RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP.put(BugzillaAdaptorConstants.PATH_PERSON, Person.class);
-			RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP.put(BugzillaAdaptorConstants.PATH_BUGZILLACHANGEREQUEST, BugzillaChangeRequest.class);
 			RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP.put(BugzillaAdaptorConstants.PATH_TYPE, Type.class);
     }
 

@@ -403,20 +403,29 @@ public class BugzillaChangeRequestService
 
     		String[] paramValues;
 
-				paramValues = httpServletRequest.getParameterValues("creator");
-				if (paramValues != null) {
-			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addCreator(new Person(new URI(paramValues[i])));
-						}
-				}			
-				paramValues = httpServletRequest.getParameterValues("title");
+				paramValues = httpServletRequest.getParameterValues("instanceShape");
 				if (paramValues != null) {
 						if (paramValues.length == 1) {
 							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setTitle(paramValues[0]);
+								aBugzillaChangeRequest.setInstanceShape(new Link(new URI(paramValues[0])));
 							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
 						} 
 					
+				}			
+				paramValues = httpServletRequest.getParameterValues("operatingSystem");
+				if (paramValues != null) {
+						if (paramValues.length == 1) {
+							if (paramValues[0].length() != 0)
+								aBugzillaChangeRequest.setOperatingSystem(paramValues[0]);
+							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+						} 
+					
+				}			
+				paramValues = httpServletRequest.getParameterValues("implementsRequirement");
+				if (paramValues != null) {
+			    		for(int i=0; i<paramValues.length; i++) {
+							aBugzillaChangeRequest.addImplementsRequirement(new Link(new URI(paramValues[i])));
+						}
 				}			
 				paramValues = httpServletRequest.getParameterValues("closeDate");
 				if (paramValues != null) {
@@ -427,77 +436,17 @@ public class BugzillaChangeRequestService
 						} 
 					
 				}			
-				paramValues = httpServletRequest.getParameterValues("platform");
-				if (paramValues != null) {
-						if (paramValues.length == 1) {
-							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setPlatform(paramValues[0]);
-							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-						} 
-					
-				}			
-				paramValues = httpServletRequest.getParameterValues("discussedBy");
-				if (paramValues != null) {
-						if (paramValues.length == 1) {
-							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setDiscussedBy(new Link(new URI(paramValues[0])));
-							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-						} 
-					
-				}			
-				paramValues = httpServletRequest.getParameterValues("closed");
-				if (paramValues != null) {
-						if (paramValues.length == 1) {
-							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setClosed(new Boolean(paramValues[0]));
-							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-						} 
-					
-				}			
-				paramValues = httpServletRequest.getParameterValues("affectsPlanItem");
+				paramValues = httpServletRequest.getParameterValues("relatedChangeRequest");
 				if (paramValues != null) {
 			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addAffectsPlanItem(new Link(new URI(paramValues[i])));
+							aBugzillaChangeRequest.addRelatedChangeRequest(new Link(new URI(paramValues[i])));
 						}
 				}			
-				paramValues = httpServletRequest.getParameterValues("affectedByDefect");
-				if (paramValues != null) {
-			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addAffectedByDefect(new Link(new URI(paramValues[i])));
-						}
-				}			
-				paramValues = httpServletRequest.getParameterValues("component");
+				paramValues = httpServletRequest.getParameterValues("approved");
 				if (paramValues != null) {
 						if (paramValues.length == 1) {
 							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setComponent(paramValues[0]);
-							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-						} 
-					
-				}			
-				paramValues = httpServletRequest.getParameterValues("fixed");
-				if (paramValues != null) {
-						if (paramValues.length == 1) {
-							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setFixed(new Boolean(paramValues[0]));
-							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-						} 
-					
-				}			
-				paramValues = httpServletRequest.getParameterValues("inprogress");
-				if (paramValues != null) {
-						if (paramValues.length == 1) {
-							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setInprogress(new Boolean(paramValues[0]));
-							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-						} 
-					
-				}			
-				paramValues = httpServletRequest.getParameterValues("identifier");
-				if (paramValues != null) {
-						if (paramValues.length == 1) {
-							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setIdentifier(paramValues[0]);
+								aBugzillaChangeRequest.setApproved(new Boolean(paramValues[0]));
 							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
 						} 
 					
@@ -511,44 +460,83 @@ public class BugzillaChangeRequestService
 						} 
 					
 				}			
-				paramValues = httpServletRequest.getParameterValues("created");
-				if (paramValues != null) {
-						if (paramValues.length == 1) {
-							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setCreated(new SimpleDateFormat().parse(paramValues[0]));
-							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-						} 
-					
-				}			
-				paramValues = httpServletRequest.getParameterValues("reviewed");
-				if (paramValues != null) {
-						if (paramValues.length == 1) {
-							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setReviewed(new Boolean(paramValues[0]));
-							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-						} 
-					
-				}			
-				paramValues = httpServletRequest.getParameterValues("serviceProvider");
-				if (paramValues != null) {
-						if (paramValues.length == 1) {
-							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setServiceProvider(new URI(paramValues[0]));
-							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-						} 
-					
-				}			
-				paramValues = httpServletRequest.getParameterValues("implementsRequirement");
+				paramValues = httpServletRequest.getParameterValues("affectsTestResult");
 				if (paramValues != null) {
 			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addImplementsRequirement(new Link(new URI(paramValues[i])));
+							aBugzillaChangeRequest.addAffectsTestResult(new Link(new URI(paramValues[i])));
 						}
 				}			
-				paramValues = httpServletRequest.getParameterValues("operatingSystem");
+				paramValues = httpServletRequest.getParameterValues("affectsRequirement");
+				if (paramValues != null) {
+			    		for(int i=0; i<paramValues.length; i++) {
+							aBugzillaChangeRequest.addAffectsRequirement(new Link(new URI(paramValues[i])));
+						}
+				}			
+				paramValues = httpServletRequest.getParameterValues("tracksChangeSet");
+				if (paramValues != null) {
+			    		for(int i=0; i<paramValues.length; i++) {
+							aBugzillaChangeRequest.addTracksChangeSet(new Link(new URI(paramValues[i])));
+						}
+				}			
+				paramValues = httpServletRequest.getParameterValues("modified");
 				if (paramValues != null) {
 						if (paramValues.length == 1) {
 							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setOperatingSystem(paramValues[0]);
+								aBugzillaChangeRequest.setModified(new SimpleDateFormat().parse(paramValues[0]));
+							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+						} 
+					
+				}			
+				paramValues = httpServletRequest.getParameterValues("product");
+				if (paramValues != null) {
+						if (paramValues.length == 1) {
+							if (paramValues[0].length() != 0)
+								aBugzillaChangeRequest.setProduct(paramValues[0]);
+							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+						} 
+					
+				}			
+				paramValues = httpServletRequest.getParameterValues("type");
+				if (paramValues != null) {
+			    		for(int i=0; i<paramValues.length; i++) {
+							aBugzillaChangeRequest.addType(new URI(paramValues[i]));
+						}
+				}			
+				paramValues = httpServletRequest.getParameterValues("relatedTestPlan");
+				if (paramValues != null) {
+			    		for(int i=0; i<paramValues.length; i++) {
+							aBugzillaChangeRequest.addRelatedTestPlan(new Link(new URI(paramValues[i])));
+						}
+				}			
+				paramValues = httpServletRequest.getParameterValues("shortTitle");
+				if (paramValues != null) {
+						if (paramValues.length == 1) {
+							if (paramValues[0].length() != 0)
+								aBugzillaChangeRequest.setShortTitle(paramValues[0]);
+							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+						} 
+					
+				}			
+				paramValues = httpServletRequest.getParameterValues("fixed");
+				if (paramValues != null) {
+						if (paramValues.length == 1) {
+							if (paramValues[0].length() != 0)
+								aBugzillaChangeRequest.setFixed(new Boolean(paramValues[0]));
+							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+						} 
+					
+				}			
+				paramValues = httpServletRequest.getParameterValues("tracksRequirement");
+				if (paramValues != null) {
+			    		for(int i=0; i<paramValues.length; i++) {
+							aBugzillaChangeRequest.addTracksRequirement(new Link(new URI(paramValues[i])));
+						}
+				}			
+				paramValues = httpServletRequest.getParameterValues("status");
+				if (paramValues != null) {
+						if (paramValues.length == 1) {
+							if (paramValues[0].length() != 0)
+								aBugzillaChangeRequest.setStatus(paramValues[0]);
 							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
 						} 
 					
@@ -562,29 +550,32 @@ public class BugzillaChangeRequestService
 						} 
 					
 				}			
-				paramValues = httpServletRequest.getParameterValues("contributor");
+				paramValues = httpServletRequest.getParameterValues("affectedByDefect");
 				if (paramValues != null) {
 			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addContributor(new Person(new URI(paramValues[i])));
+							aBugzillaChangeRequest.addAffectedByDefect(new Link(new URI(paramValues[i])));
 						}
 				}			
-				paramValues = httpServletRequest.getParameterValues("relatedChangeRequest");
+				paramValues = httpServletRequest.getParameterValues("type");
 				if (paramValues != null) {
 			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addRelatedChangeRequest(new Link(new URI(paramValues[i])));
+							aBugzillaChangeRequest.addType(new Type(new URI(paramValues[i])));
 						}
 				}			
-				paramValues = httpServletRequest.getParameterValues("relatedTestExecutionRecord");
-				if (paramValues != null) {
-			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addRelatedTestExecutionRecord(new Link(new URI(paramValues[i])));
-						}
-				}			
-				paramValues = httpServletRequest.getParameterValues("modified");
+				paramValues = httpServletRequest.getParameterValues("component");
 				if (paramValues != null) {
 						if (paramValues.length == 1) {
 							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setModified(new SimpleDateFormat().parse(paramValues[0]));
+								aBugzillaChangeRequest.setComponent(paramValues[0]);
+							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+						} 
+					
+				}			
+				paramValues = httpServletRequest.getParameterValues("closed");
+				if (paramValues != null) {
+						if (paramValues.length == 1) {
+							if (paramValues[0].length() != 0)
+								aBugzillaChangeRequest.setClosed(new Boolean(paramValues[0]));
 							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
 						} 
 					
@@ -598,10 +589,40 @@ public class BugzillaChangeRequestService
 						} 
 					
 				}			
-				paramValues = httpServletRequest.getParameterValues("tracksRequirement");
+				paramValues = httpServletRequest.getParameterValues("contributor");
 				if (paramValues != null) {
 			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addTracksRequirement(new Link(new URI(paramValues[i])));
+							aBugzillaChangeRequest.addContributor(new Person(new URI(paramValues[i])));
+						}
+				}			
+				paramValues = httpServletRequest.getParameterValues("title");
+				if (paramValues != null) {
+						if (paramValues.length == 1) {
+							if (paramValues[0].length() != 0)
+								aBugzillaChangeRequest.setTitle(paramValues[0]);
+							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+						} 
+					
+				}			
+				paramValues = httpServletRequest.getParameterValues("platform");
+				if (paramValues != null) {
+						if (paramValues.length == 1) {
+							if (paramValues[0].length() != 0)
+								aBugzillaChangeRequest.setPlatform(paramValues[0]);
+							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+						} 
+					
+				}			
+				paramValues = httpServletRequest.getParameterValues("creator");
+				if (paramValues != null) {
+			    		for(int i=0; i<paramValues.length; i++) {
+							aBugzillaChangeRequest.addCreator(new Person(new URI(paramValues[i])));
+						}
+				}			
+				paramValues = httpServletRequest.getParameterValues("subject");
+				if (paramValues != null) {
+			    		for(int i=0; i<paramValues.length; i++) {
+							aBugzillaChangeRequest.addSubject(paramValues[i]);
 						}
 				}			
 				paramValues = httpServletRequest.getParameterValues("testedByTestCase");
@@ -610,41 +631,11 @@ public class BugzillaChangeRequestService
 							aBugzillaChangeRequest.addTestedByTestCase(new Link(new URI(paramValues[i])));
 						}
 				}			
-				paramValues = httpServletRequest.getParameterValues("type");
-				if (paramValues != null) {
-			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addType(new Type(new URI(paramValues[i])));
-						}
-				}			
-				paramValues = httpServletRequest.getParameterValues("relatedTestScript");
-				if (paramValues != null) {
-			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addRelatedTestScript(new Link(new URI(paramValues[i])));
-						}
-				}			
-				paramValues = httpServletRequest.getParameterValues("shortTitle");
+				paramValues = httpServletRequest.getParameterValues("identifier");
 				if (paramValues != null) {
 						if (paramValues.length == 1) {
 							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setShortTitle(paramValues[0]);
-							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-						} 
-					
-				}			
-				paramValues = httpServletRequest.getParameterValues("verified");
-				if (paramValues != null) {
-						if (paramValues.length == 1) {
-							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setVerified(new Boolean(paramValues[0]));
-							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-						} 
-					
-				}			
-				paramValues = httpServletRequest.getParameterValues("approved");
-				if (paramValues != null) {
-						if (paramValues.length == 1) {
-							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setApproved(new Boolean(paramValues[0]));
+								aBugzillaChangeRequest.setIdentifier(paramValues[0]);
 							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
 						} 
 					
@@ -655,68 +646,77 @@ public class BugzillaChangeRequestService
 							aBugzillaChangeRequest.addBlocksTestExecutionRecord(new Link(new URI(paramValues[i])));
 						}
 				}			
-				paramValues = httpServletRequest.getParameterValues("affectsTestResult");
-				if (paramValues != null) {
-			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addAffectsTestResult(new Link(new URI(paramValues[i])));
-						}
-				}			
-				paramValues = httpServletRequest.getParameterValues("status");
+				paramValues = httpServletRequest.getParameterValues("serviceProvider");
 				if (paramValues != null) {
 						if (paramValues.length == 1) {
 							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setStatus(paramValues[0]);
+								aBugzillaChangeRequest.setServiceProvider(new URI(paramValues[0]));
 							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
 						} 
 					
 				}			
-				paramValues = httpServletRequest.getParameterValues("relatedTestPlan");
+				paramValues = httpServletRequest.getParameterValues("affectsPlanItem");
 				if (paramValues != null) {
 			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addRelatedTestPlan(new Link(new URI(paramValues[i])));
+							aBugzillaChangeRequest.addAffectsPlanItem(new Link(new URI(paramValues[i])));
 						}
 				}			
-				paramValues = httpServletRequest.getParameterValues("instanceShape");
+				paramValues = httpServletRequest.getParameterValues("reviewed");
 				if (paramValues != null) {
 						if (paramValues.length == 1) {
 							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setInstanceShape(new Link(new URI(paramValues[0])));
+								aBugzillaChangeRequest.setReviewed(new Boolean(paramValues[0]));
 							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
 						} 
 					
 				}			
-				paramValues = httpServletRequest.getParameterValues("affectsRequirement");
-				if (paramValues != null) {
-			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addAffectsRequirement(new Link(new URI(paramValues[i])));
-						}
-				}			
-				paramValues = httpServletRequest.getParameterValues("subject");
-				if (paramValues != null) {
-			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addSubject(paramValues[i]);
-						}
-				}			
-				paramValues = httpServletRequest.getParameterValues("type");
-				if (paramValues != null) {
-			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addType(new URI(paramValues[i]));
-						}
-				}			
-				paramValues = httpServletRequest.getParameterValues("product");
+				paramValues = httpServletRequest.getParameterValues("discussedBy");
 				if (paramValues != null) {
 						if (paramValues.length == 1) {
 							if (paramValues[0].length() != 0)
-								aBugzillaChangeRequest.setProduct(paramValues[0]);
+								aBugzillaChangeRequest.setDiscussedBy(new Link(new URI(paramValues[0])));
 							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
 						} 
 					
 				}			
-				paramValues = httpServletRequest.getParameterValues("tracksChangeSet");
+				paramValues = httpServletRequest.getParameterValues("created");
+				if (paramValues != null) {
+						if (paramValues.length == 1) {
+							if (paramValues[0].length() != 0)
+								aBugzillaChangeRequest.setCreated(new SimpleDateFormat().parse(paramValues[0]));
+							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+						} 
+					
+				}			
+				paramValues = httpServletRequest.getParameterValues("inprogress");
+				if (paramValues != null) {
+						if (paramValues.length == 1) {
+							if (paramValues[0].length() != 0)
+								aBugzillaChangeRequest.setInprogress(new Boolean(paramValues[0]));
+							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+						} 
+					
+				}			
+				paramValues = httpServletRequest.getParameterValues("relatedTestExecutionRecord");
 				if (paramValues != null) {
 			    		for(int i=0; i<paramValues.length; i++) {
-							aBugzillaChangeRequest.addTracksChangeSet(new Link(new URI(paramValues[i])));
+							aBugzillaChangeRequest.addRelatedTestExecutionRecord(new Link(new URI(paramValues[i])));
 						}
+				}			
+				paramValues = httpServletRequest.getParameterValues("relatedTestScript");
+				if (paramValues != null) {
+			    		for(int i=0; i<paramValues.length; i++) {
+							aBugzillaChangeRequest.addRelatedTestScript(new Link(new URI(paramValues[i])));
+						}
+				}			
+				paramValues = httpServletRequest.getParameterValues("verified");
+				if (paramValues != null) {
+						if (paramValues.length == 1) {
+							if (paramValues[0].length() != 0)
+								aBugzillaChangeRequest.setVerified(new Boolean(paramValues[0]));
+							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+						} 
+					
 				}			
 				paramValues = httpServletRequest.getParameterValues("relatedTestCase");
 				if (paramValues != null) {

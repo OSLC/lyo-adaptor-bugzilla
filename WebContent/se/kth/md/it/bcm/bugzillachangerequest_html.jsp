@@ -99,127 +99,127 @@ End of user code
 				<h2>Properties</h2>
 				<table style="clear: both;">
 					<tr>
-						<td><%= aBugzillaChangeRequest.creatorsToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.titleToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.closeDateToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.platformToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.discussedByToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.closedToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.affectsPlanItemsToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.affectedByDefectsToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.componentToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.fixedToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.inprogressToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.identifierToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.versionToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.createdToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.reviewedToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.serviceProviderToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.implementsRequirementsToHtml()%></td>
+						<td><%= aBugzillaChangeRequest.instanceShapeToHtml()%></td>
 					</tr>
 					<tr>
 						<td><%= aBugzillaChangeRequest.operatingSystemToHtml()%></td>
 					</tr>
 					<tr>
-						<td><%= aBugzillaChangeRequest.descriptionToHtml()%></td>
+						<td><%= aBugzillaChangeRequest.implementsRequirementsToHtml()%></td>
 					</tr>
 					<tr>
-						<td><%= aBugzillaChangeRequest.contributorsToHtml()%></td>
+						<td><%= aBugzillaChangeRequest.closeDateToHtml()%></td>
 					</tr>
 					<tr>
 						<td><%= aBugzillaChangeRequest.relatedChangeRequestsToHtml()%></td>
 					</tr>
 					<tr>
-						<td><%= aBugzillaChangeRequest.relatedTestExecutionRecordsToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.modifiedToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.priorityToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.tracksRequirementsToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.testedByTestCasesToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.dctermsTypesToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.relatedTestScriptsToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.shortTitleToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.verifiedToHtml()%></td>
-					</tr>
-					<tr>
 						<td><%= aBugzillaChangeRequest.approvedToHtml()%></td>
 					</tr>
 					<tr>
-						<td><%= aBugzillaChangeRequest.blocksTestExecutionRecordsToHtml()%></td>
+						<td><%= aBugzillaChangeRequest.versionToHtml()%></td>
 					</tr>
 					<tr>
 						<td><%= aBugzillaChangeRequest.affectsTestResultsToHtml()%></td>
 					</tr>
 					<tr>
-						<td><%= aBugzillaChangeRequest.statusToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.relatedTestPlansToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.instanceShapeToHtml()%></td>
-					</tr>
-					<tr>
 						<td><%= aBugzillaChangeRequest.affectsRequirementsToHtml()%></td>
 					</tr>
 					<tr>
-						<td><%= aBugzillaChangeRequest.subjectsToHtml()%></td>
+						<td><%= aBugzillaChangeRequest.tracksChangeSetsToHtml()%></td>
 					</tr>
 					<tr>
-						<td><%= aBugzillaChangeRequest.rdfTypesToHtml()%></td>
+						<td><%= aBugzillaChangeRequest.modifiedToHtml()%></td>
 					</tr>
 					<tr>
 						<td><%= aBugzillaChangeRequest.productToHtml()%></td>
 					</tr>
 					<tr>
-						<td><%= aBugzillaChangeRequest.tracksChangeSetsToHtml()%></td>
+						<td><%= aBugzillaChangeRequest.rdfTypesToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.relatedTestPlansToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.shortTitleToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.fixedToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.tracksRequirementsToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.statusToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.descriptionToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.affectedByDefectsToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.dctermsTypesToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.componentToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.closedToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.priorityToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.contributorsToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.titleToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.platformToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.creatorsToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.subjectsToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.testedByTestCasesToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.identifierToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.blocksTestExecutionRecordsToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.serviceProviderToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.affectsPlanItemsToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.reviewedToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.discussedByToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.createdToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.inprogressToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.relatedTestExecutionRecordsToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.relatedTestScriptsToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.verifiedToHtml()%></td>
 					</tr>
 					<tr>
 						<td><%= aBugzillaChangeRequest.relatedTestCasesToHtml()%></td>
