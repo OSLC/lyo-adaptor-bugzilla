@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
-<ai:AdaptorInterface xmi:version="2.0"
+<oslc4j_ai:AdaptorInterface xmi:version="2.0"
 	xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:ai="org.eclipse.lyo.oslc4j.adaptorInterface"
-	xsi:schemaLocation="org.eclipse.lyo.oslc4j.adaptorInterface ../../org.eclipse.lyo.oslc4j.adaptormodel/model/adaptorInterface.ecore"
+	xmlns:oslc4j_ai="http://org.eclipse.lyo/oslc4j/adaptorInterface"
+	xsi:schemaLocation="http://org.eclipse.lyo/oslc4j/adaptorInterface ../../org.eclipse.lyo.oslc4j.adaptormodel/model/adaptorInterface.ecore"
 	name="BugzillaAdaptor" javaClassBaseNamespace="se.kth.md.it.bcm"
 	javaFilesBasePath="/src/" jspFilesBasePath="/WebContent"
 	javascriptFilesBasePath="/WebContent">
@@ -16,7 +16,7 @@
 				identifier="urn:oslc:ServiceProvider" />
 			<services>
 				<domainSpecification
-					href="OSLCChangeManagementSpecification.xmi#//@domainSpecifications.0" />
+					href="platform:/resource/org.eclipse.lyo.oslc4j.adaptormodel/model/OSLCChangeManagementSpecification.xmi#//@domainSpecifications.0" />
 				<creationFactories title="Change Request Creation Factory"
 					label="Change Request Creation" creationURI=""
 					resourceTypes="//@specification/@domainSpecifications.1/@resources.0" />
@@ -41,7 +41,7 @@
 			<resources name="BugzillaChangeRequest"
 				resourceProperties="//@specification/@domainSpecifications.1/@resourceProperties.0 //@specification/@domainSpecifications.1/@resourceProperties.1 //@specification/@domainSpecifications.1/@resourceProperties.2 //@specification/@domainSpecifications.1/@resourceProperties.3 //@specification/@domainSpecifications.1/@resourceProperties.4 //@specification/@domainSpecifications.1/@resourceProperties.5">
 				<extends
-					href="OSLCChangeManagementSpecification.xmi#//@domainSpecifications.0/@resources.0" />
+					href="platform:/resource/org.eclipse.lyo.oslc4j.adaptormodel/model/OSLCChangeManagementSpecification.xmi#//@domainSpecifications.0/@resources.0" />
 			</resources>
 			<resourceProperties name="product" valueType="String"
 				description="" />
@@ -64,4 +64,4 @@
 		<domainPrefixes name="oslc_qm" />
 		<domainPrefixes name="bugz" />
 	</specification>
-</ai:AdaptorInterface>
+</oslc4j_ai:AdaptorInterface>
