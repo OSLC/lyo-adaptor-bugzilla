@@ -41,12 +41,12 @@ public static String BUGZILLA_NAMSPACE_PREFIX = "bugz";
 public static String CHANGE_MANAGEMENT_NAMSPACE = "http://open-services.net/ns/cm#";
 public static String CHANGE_MANAGEMENT_NAMSPACE_PREFIX = "oslc_cm";
 
-		public static String DUBLIN_CORE_DOMAIN = "http://purl.org/dc/terms#";
-public static String DUBLIN_CORE_NAMSPACE = "http://purl.org/dc/terms#";
+		public static String DUBLIN_CORE_DOMAIN = "http://purl.org/dc/terms/";
+public static String DUBLIN_CORE_NAMSPACE = "http://purl.org/dc/terms/";
 public static String DUBLIN_CORE_NAMSPACE_PREFIX = "dcterms";
 
-		public static String FOAF_DOMAIN = "http://xmlns.com/foaf/0.1#";
-public static String FOAF_NAMSPACE = "http://xmlns.com/foaf/0.1#";
+		public static String FOAF_DOMAIN = "http://xmlns.com/foaf/0.1/";
+public static String FOAF_NAMSPACE = "http://xmlns.com/foaf/0.1/";
 public static String FOAF_NAMSPACE_PREFIX = "foaf";
 
 		public static String OSLC_CORE_DOMAIN = "http://open-services.net/ns/core#";

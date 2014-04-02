@@ -58,6 +58,7 @@ import se.kth.md.it.bcm.resources.Type;
 import se.kth.md.it.bcm.BugzillaAdaptorConstants;
 import se.kth.md.it.bcm.services.BugzillaChangeRequestService;
 
+
 public class Application extends OslcWinkApplication {
 
     private static final Set<Class<?>>         RESOURCE_CLASSES                          = new HashSet<Class<?>>();

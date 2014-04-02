@@ -436,6 +436,15 @@ public class BugzillaAdaptorManager {
     {
 		BugzillaChangeRequest aBugzillaChangeRequest = null;
 		// Start of user code (MUST_FILL_IN) getResource userCode
+		try {
+	        final Bug bug = BugzillaAdaptorManager.getBugById(httpServletRequest, bugzillaChangeRequestId);
+	        if (bug != null) {
+	        	aBugzillaChangeRequest = BugzillaAdaptorManager.fromBug(bug, httpServletRequest, serviceProviderId);
+	        }
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new WebApplicationException(e,Status.INTERNAL_SERVER_ERROR);
+		}
 		// End of user code
 		return aBugzillaChangeRequest;
     }
@@ -444,6 +453,13 @@ public class BugzillaAdaptorManager {
     {
 		List<BugzillaChangeRequest> bugzillaChangeRequests = null;
 		// Start of user code (MUST_FILL_IN) getResources userCode
+		try {
+	        List<Bug> bugList = BugzillaAdaptorManager.getBugsByProduct(httpServletRequest, serviceProviderId, page, limit);      
+	        bugzillaChangeRequests = BugzillaAdaptorManager.changeRequestsFromBugList(httpServletRequest, bugList, serviceProviderId);		
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new WebApplicationException(e,Status.INTERNAL_SERVER_ERROR);
+		}
 		// End of user code
 		return bugzillaChangeRequests;
     }
@@ -452,6 +468,16 @@ public class BugzillaAdaptorManager {
     {
 		List<BugzillaChangeRequest> bugzillaChangeRequests = null;
 		// Start of user code (MUST_FILL_IN) searchResources userCode
+			try {
+				final BugzillaConnector bc = BugzillaAdaptorManager.getBugzillaConnector(httpServletRequest);
+				BugSearch bugSearch = createBugSearch(terms);
+				bc.executeMethod(bugSearch);
+				List<Bug> bugList = bugSearch.getSearchResults();
+				bugzillaChangeRequests = changeRequestsFromBugList(httpServletRequest, bugList, serviceProviderId);
+	
+			} catch (Exception e) {
+				throw new WebApplicationException(e);
+			}
 		// End of user code
 		return bugzillaChangeRequests;
     }
@@ -460,8 +486,77 @@ public class BugzillaAdaptorManager {
     {
 		BugzillaChangeRequest newBugzillaChangeRequest = null;
 		// Start of user code (MUST_FILL_IN) createResource userCode
+		//[comment TODO: We should actually enter ALL properties that the user set :-) and not just the 6 below!!!! /]
+		String newBugId = null;
+		try {
+			final BugzillaConnector bc = BugzillaAdaptorManager.getBugzillaConnector(httpServletRequest);
+			GetProduct getProducts = new GetProduct(Integer.parseInt(serviceProviderId));
+			bc.executeMethod(getProducts);
+			final Product product = getProducts.getProduct();
+
+			String summary = aBugzillaChangeRequest.getTitle();
+			String component = aBugzillaChangeRequest.getComponent();
+			String version = aBugzillaChangeRequest.getVersion();
+			String operatingSystem = aBugzillaChangeRequest.getOperatingSystem();
+			String platform = aBugzillaChangeRequest.getPlatform();
+			String description = aBugzillaChangeRequest.getDescription();
+
+			BugFactory factory = new BugFactory().newBug().setProduct(product.getName());
+			
+			if (summary != null) {
+				factory.setSummary(summary);
+			}
+			if (version != null) {
+				factory.setVersion(version);
+			}
+			if (component != null) {
+				factory.setComponent(component);
+			}
+			if (platform != null) {
+				factory.setPlatform(platform);
+			} else
+				factory.setPlatform("Other");
+
+			if (operatingSystem != null) {
+				factory.setOperatingSystem(operatingSystem);
+			} else
+				factory.setOperatingSystem("Other");
+
+			if (description != null) {
+				factory.setDescription(description);
+			}
+
+			Bug bug = factory.createBug();
+			ReportBug reportBug = new ReportBug(bug);
+			bc.executeMethod(reportBug);
+			newBugId = Integer.toString(reportBug.getID());
+    		final Bug newBug = BugzillaAdaptorManager.getBugById(httpServletRequest, newBugId);
+    		newBugzillaChangeRequest = BugzillaAdaptorManager.fromBug(newBug, httpServletRequest, serviceProviderId);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new WebApplicationException(e);
+		}
 		// End of user code
 		return newBugzillaChangeRequest;
+    }
+
+    public static String getETagFromBugzillaChangeRequest(final BugzillaChangeRequest aBugzillaChangeRequest)
+    {
+		String eTag = null;
+		// Start of user code (MUST_FILL_IN) getETagFromResource userCode
+    	Long eTagAsTime = null;
+    	
+    	if (aBugzillaChangeRequest.getModified() != null) {
+    		eTagAsTime = aBugzillaChangeRequest.getModified().getTime();
+    	} else if (aBugzillaChangeRequest.getCreated() != null) {
+    		eTagAsTime = aBugzillaChangeRequest.getCreated().getTime();
+    	} else {
+    		eTagAsTime = new Long(0);
+    	}
+		eTag = eTagAsTime.toString();
+		// End of user code
+		return eTag;
     }
 
 }

@@ -37,8 +37,7 @@ import org.eclipse.lyo.oslc4j.core.model.ServiceProvider;
 import org.eclipse.lyo.oslc4j.core.model.ServiceProviderFactory;
 
 import se.kth.md.it.bcm.BugzillaAdaptorConstants;
-import se.kth.md.it.bcm.services.BugzillaChangeRequestService;	
-
+import se.kth.md.it.bcm.services.BugzillaChangeRequestService;
 
 // Start of user code imports
 // End of user code
@@ -47,7 +46,7 @@ public class BugzillaAdaptorServiceProviderFactory
 {
     private static Class<?>[] RESOURCE_CLASSES =
     {
-		BugzillaChangeRequestService.class	
+		BugzillaChangeRequestService.class
     };
 
     private BugzillaAdaptorServiceProviderFactory()
