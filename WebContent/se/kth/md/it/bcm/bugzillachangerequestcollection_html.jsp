@@ -33,7 +33,6 @@ End of user code
 
 <%
     List<BugzillaChangeRequest> resources = (List<BugzillaChangeRequest>) request.getAttribute("resources");
-	ServiceProvider serviceProvider = (ServiceProvider) request.getAttribute("serviceProvider");
 	String queryUri = (String)request.getAttribute("queryUri");
 	String nextPageUri = (String)request.getAttribute("nextPageUri");
 %>
@@ -50,7 +49,7 @@ End of user code
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-		<title><%= serviceProvider.getTitle() %></title>
+		<title>BugzillaChangeRequest Query</title>
 		<%-- 
 Start of user code (RECOMMENDED) headStuff 
 		--%>
@@ -74,7 +73,7 @@ End of user code
 				<tr>
 					<td id="title">
 						<p>
-							<%= serviceProvider.getTitle() %>
+							BugzillaChangeRequest Query
 						</p>
 					</td>
 					<td id="information">

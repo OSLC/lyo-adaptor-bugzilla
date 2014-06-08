@@ -30,6 +30,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.List;
@@ -39,6 +41,7 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import javax.ws.rs.core.UriBuilder;
 
 import org.eclipse.lyo.oslc4j.core.annotation.OslcAllowedValue;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcDescription;
@@ -131,9 +134,17 @@ public ChangeRequest(final URI about)
 	// End of user code
 }
 
-public static URI constructURI(String serviceProviderId, String changeRequestId) throws URISyntaxException, UnsupportedEncodingException
+public static URI constructURI(final String serviceProviderId, final String changeRequestId)
 {
-	return new URI(ServletListener.getServicesBase() + "/" + serviceProviderId + "/changeRequests/"+ changeRequestId);
+    String basePath = ServletListener.getServicesBase();
+    Map<String, Object> pathParameters = new HashMap<String, Object>();
+    pathParameters.put("serviceProviderId", serviceProviderId);
+
+    pathParameters.put("changeRequestId", changeRequestId);
+    String instanceURI = "serviceProviders/{serviceProviderId}/changeRequests/{changeRequestId}";
+  
+    final UriBuilder builder = UriBuilder.fromUri(basePath);
+    return builder.path(instanceURI).buildFromMap(pathParameters);
 }
 
 public String toString()
@@ -1670,7 +1681,12 @@ public String toHtml()
 				Iterator<Link> itr = affectedByDefects.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -1700,7 +1716,12 @@ public String toHtml()
 				Iterator<Link> itr = affectsPlanItems.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -1730,7 +1751,12 @@ public String toHtml()
 				Iterator<Link> itr = affectsRequirements.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -1760,7 +1786,12 @@ public String toHtml()
 				Iterator<Link> itr = affectsTestResults.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -1790,7 +1821,12 @@ public String toHtml()
 				Iterator<Link> itr = blocksTestExecutionRecords.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -1910,7 +1946,12 @@ public String toHtml()
 				Iterator<Link> itr = implementsRequirements.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -1940,7 +1981,12 @@ public String toHtml()
 				Iterator<Link> itr = relatedChangeRequests.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -1970,7 +2016,12 @@ public String toHtml()
 				Iterator<Link> itr = relatedTestCases.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -2000,7 +2051,12 @@ public String toHtml()
 				Iterator<Link> itr = relatedTestExecutionRecords.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -2030,7 +2086,12 @@ public String toHtml()
 				Iterator<Link> itr = relatedTestPlans.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -2060,7 +2121,12 @@ public String toHtml()
 				Iterator<Link> itr = relatedTestScripts.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -2120,7 +2186,12 @@ public String toHtml()
 				Iterator<Link> itr = testedByTestCases.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -2150,7 +2221,12 @@ public String toHtml()
 				Iterator<Link> itr = tracksChangeSets.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -2180,7 +2256,12 @@ public String toHtml()
 				Iterator<Link> itr = tracksRequirements.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
-							s = s + itr.next().getValue().toString();
+                            if (itr.next().getValue() == null) {
+                                s= s + "<em>null</em>";             
+                            }
+                            else {
+                                s = s + itr.next().getValue().toString();
+                            }
 					s = s + "</li>";
 				}
 		        s = s + "</ul>";
@@ -2376,7 +2457,12 @@ public String toHtml()
 		// End of user code
 
 		try {
-					s = s + discussedBy.getValue().toString();
+                    if (discussedBy.getValue() == null) {
+                        s = s + "<em>null</em>";             
+                    }
+                    else {
+                        s = s + discussedBy.getValue().toString();                
+                    }
 
 
 	    } catch (Exception e) {
@@ -2485,7 +2571,12 @@ public String toHtml()
 		// End of user code
 
 		try {
-					s = s + instanceShape.getValue().toString();
+                    if (instanceShape.getValue() == null) {
+                        s = s + "<em>null</em>";             
+                    }
+                    else {
+                        s = s + instanceShape.getValue().toString();                
+                    }
 
 
 	    } catch (Exception e) {

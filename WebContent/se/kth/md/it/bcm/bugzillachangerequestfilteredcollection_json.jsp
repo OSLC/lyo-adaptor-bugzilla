@@ -33,7 +33,6 @@ End of user code
 
 {
 <%
-	ServiceProvider serviceProvider = (ServiceProvider) request.getAttribute("serviceProvider");
 	String selectionUri = (String) request.getAttribute("selectionUri");
     List<BugzillaChangeRequest> resources = (List<BugzillaChangeRequest>) request.getAttribute("resources");
 	String terms = (String) request.getAttribute("terms");

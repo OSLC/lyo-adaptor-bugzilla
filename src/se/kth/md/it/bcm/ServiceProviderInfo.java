@@ -27,8 +27,8 @@ package se.kth.md.it.bcm;
 
 public class ServiceProviderInfo {
 
-    public String serviceProviderId;
     public String name;
+    public String serviceProviderId;
 
 	// Start of user code class_attributes
 	// End of user code
