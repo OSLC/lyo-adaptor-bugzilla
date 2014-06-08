@@ -137,9 +137,9 @@ public class ServiceProviderCatalogService
     
 
     @GET
-    @Path("{serviceProviderId}")
+    @Path("{someId}")
     @Produces(MediaType.TEXT_HTML)
-    public void getHtmlServiceProvider(@PathParam("serviceProviderId") final String serviceProviderId)
+    public void getHtmlServiceProvider(@PathParam("someId") final String someId)
     {
     	ServiceProviderCatalog catalog = ServiceProviderCatalogSingleton.getServiceProviderCatalog(httpServletRequest);
     	

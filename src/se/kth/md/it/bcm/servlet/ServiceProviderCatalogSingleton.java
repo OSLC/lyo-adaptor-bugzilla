@@ -36,6 +36,7 @@ import java.util.TreeSet;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.UriBuilder;
 
 import org.eclipse.lyo.oslc4j.client.ServiceProviderRegistryURIs;
 import org.eclipse.lyo.oslc4j.core.model.Publisher;
@@ -113,19 +114,38 @@ public class ServiceProviderCatalogSingleton
         }
     }
 
+
+    private static URI constructServiceProviderURI(final String serviceProviderId)
+    {
+        String basePath = ServletListener.getServicesBase();
+        Map<String, Object> pathParameters = new HashMap<String, Object>();
+        pathParameters.put("serviceProviderId", serviceProviderId);
+        String instanceURI = "serviceProviders/{serviceProviderId}";
+      
+        final UriBuilder builder = UriBuilder.fromUri(basePath);
+        return builder.path(instanceURI).buildFromMap(pathParameters);
+    }
+
+    private static String serviceProviderIdentifier(final String serviceProviderId)
+    {
+        String identifier = "/" + serviceProviderId;
+        return identifier;
+    }
+
     public static ServiceProvider getServiceProvider(HttpServletRequest httpServletRequest, final String serviceProviderId) 
     {
         ServiceProvider serviceProvider;
 
         synchronized(serviceProviders)
         {     	
-            serviceProvider = serviceProviders.get(serviceProviderId);
+            String identifier = serviceProviderIdentifier(serviceProviderId);
+            serviceProvider = serviceProviders.get(identifier);
             
             //One retry refreshing the service providers
             if (serviceProvider == null)
             {
             	getServiceProviders(httpServletRequest);
-            	serviceProvider = serviceProviders.get(serviceProviderId);
+            	serviceProvider = serviceProviders.get(identifier);
             }
         }
 
@@ -139,21 +159,15 @@ public class ServiceProviderCatalogSingleton
 
     public static ServiceProvider registerServiceProvider(final HttpServletRequest httpServletRequest,
                                                           final ServiceProvider    serviceProvider,
-                                                          final String productId) throws URISyntaxException
+                                                          final String serviceProviderId) 
+                                                throws URISyntaxException
     {
         synchronized(serviceProviders)
         {
-            final URI serviceProviderURI = new URI(httpServletRequest.getScheme(),
-                                                   null,
-                                                   httpServletRequest.getServerName(),
-                                                   httpServletRequest.getServerPort(),
-                                                   httpServletRequest.getContextPath() + "/serviceProviders/" + productId,
-                                                   null,
-                                                   null);
-
+            final URI serviceProviderURI = constructServiceProviderURI(serviceProviderId);
             return registerServiceProviderNoSync(serviceProviderURI,
                                                  serviceProvider,
-                                                 productId);
+                                                 serviceProviderId);
         }
     }
 
@@ -167,39 +181,34 @@ public class ServiceProviderCatalogSingleton
  * @return
  */
     private static ServiceProvider registerServiceProviderNoSync(final URI             serviceProviderURI,
-                                                                 final ServiceProvider serviceProvider,
-                                                                 final String productId)
+                                                                 final ServiceProvider serviceProvider
+                                                                 , final String serviceProviderId)
     {
         final SortedSet<URI> serviceProviderDomains = getServiceProviderDomains(serviceProvider);
 
+        String identifier = serviceProviderIdentifier(serviceProviderId);
         serviceProvider.setAbout(serviceProviderURI);
-        serviceProvider.setIdentifier(productId);
+        serviceProvider.setIdentifier(identifier);
         serviceProvider.setCreated(new Date());
         serviceProvider.setDetails(new URI[] {serviceProviderURI});
 
         serviceProviderCatalog.addServiceProvider(serviceProvider);
         serviceProviderCatalog.addDomains(serviceProviderDomains);
 
-        serviceProviders.put(productId,
-                             serviceProvider);
-
+        serviceProviders.put(identifier, serviceProvider);
 
         return serviceProvider;
     }
     
     // This version is for self-registration and thus package-protected
-    static ServiceProvider registerServiceProvider(final String          baseURI,
-                                                   final ServiceProvider serviceProvider,
-                                                   final String productId)
-           throws URISyntaxException
+    static ServiceProvider registerServiceProvider(final ServiceProvider serviceProvider, final String serviceProviderId)
+                                            throws URISyntaxException
     {
         synchronized(serviceProviders)
         {
-            final URI serviceProviderURI = new URI(baseURI + "/serviceProviders/" + productId);
+            final URI serviceProviderURI = constructServiceProviderURI(serviceProviderId);
 
-            return registerServiceProviderNoSync(serviceProviderURI,
-                                                 serviceProvider,
-                                                 productId);
+            return registerServiceProviderNoSync(serviceProviderURI, serviceProvider, serviceProviderId);
         }
     }
 
@@ -207,7 +216,7 @@ public class ServiceProviderCatalogSingleton
     {
         synchronized(serviceProviders)
         {
-            final ServiceProvider deregisteredServiceProvider = serviceProviders.remove(serviceProviderId);
+            final ServiceProvider deregisteredServiceProvider = serviceProviders.remove(serviceProviderIdentifier(serviceProviderId));
 
             if (deregisteredServiceProvider != null)
             {
@@ -264,20 +273,20 @@ public class ServiceProviderCatalogSingleton
 			// End of user code
 
 	        String basePath = ServletListener.getServicesBase();
+
 	        ServiceProviderInfo [] serviceProviderInfos = BugzillaAdaptorManager.getServiceProviderInfos(httpServletRequest);
-	        
-	        //Register a service provider for each serviceProviderId
+	        //Register a service provider for each serviceProviderInfo
 	        for (ServiceProviderInfo serviceProviderInfo : serviceProviderInfos) {
-				String serviceProviderId = serviceProviderInfo.serviceProviderId;
-		        if (! serviceProviders.containsKey(serviceProviderId)) {
+				String identifier = serviceProviderIdentifier(serviceProviderInfo.serviceProviderId);
+		        if (! serviceProviders.containsKey(identifier)) {
 					String serviceProviderName = serviceProviderInfo.name;
-					String title = "Service provider for the Bugzilla product: " + serviceProviderName + "(" + serviceProviderId + ")";
-					String description = "Enables navigation to OSLC-CM Resource Creator and Selector Dialogs: " + serviceProviderName + "(" + serviceProviderId + ")";
+					String title = "Service provider for the Bugzilla product: " + serviceProviderName + "(" + identifier + ")";
+					String description = "Enables navigation to OSLC-CM Resource Creator and Selector Dialogs: " + serviceProviderName + "(" + identifier + ")";
 					Publisher publisher = new Publisher("Eclipse Lyo", "urn:oslc:ServiceProvider");
 		        	Map<String, Object> parameterMap = new HashMap<String, Object>();
-		        	parameterMap.put("serviceProviderId",serviceProviderId);
+                    parameterMap.put("serviceProviderId", serviceProviderInfo.serviceProviderId);
 		        	final ServiceProvider aServiceProvider = BugzillaAdaptorServiceProviderFactory.createServiceProvider(basePath, title, description, publisher, parameterMap);
-		            registerServiceProvider(basePath,aServiceProvider,serviceProviderId);
+		            registerServiceProvider(aServiceProvider, serviceProviderInfo.serviceProviderId);
 	        	}
 	        }
 		} catch (Exception e) {

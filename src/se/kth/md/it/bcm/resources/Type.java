@@ -30,6 +30,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.List;
@@ -39,6 +41,7 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import javax.ws.rs.core.UriBuilder;
 
 import org.eclipse.lyo.oslc4j.core.annotation.OslcAllowedValue;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcDescription;
@@ -92,9 +95,17 @@ public Type(final URI about)
 	// End of user code
 }
 
-public static URI constructURI(String serviceProviderId, String typeId) throws URISyntaxException, UnsupportedEncodingException
+public static URI constructURI(final String serviceProviderId, final String typeId)
 {
-	return new URI(ServletListener.getServicesBase() + "/" + serviceProviderId + "/types/"+ typeId);
+    String basePath = ServletListener.getServicesBase();
+    Map<String, Object> pathParameters = new HashMap<String, Object>();
+    pathParameters.put("serviceProviderId", serviceProviderId);
+
+    pathParameters.put("typeId", typeId);
+    String instanceURI = "serviceProviders/{serviceProviderId}/types/{typeId}";
+  
+    final UriBuilder builder = UriBuilder.fromUri(basePath);
+    return builder.path(instanceURI).buildFromMap(pathParameters);
 }
 
 public String toString()

@@ -21,6 +21,7 @@
 
 <%@page import="org.eclipse.lyo.oslc4j.core.model.ServiceProvider"%>
 <%@page import="se.kth.md.it.bcm.resources.BugzillaChangeRequest"%>
+<%@page import="se.kth.md.it.bcm.servlet.ServletListener"%>
 <%--
 Start of user code imports
 --%>
@@ -32,7 +33,6 @@ End of user code
 <%@ page contentType="text/html" language="java" pageEncoding="UTF-8" %>
 
 <%
-	ServiceProvider serviceProvider = (ServiceProvider) request.getAttribute("serviceProvider");
 	String selectionUri = (String) request.getAttribute("selectionUri");
 
 %>
@@ -65,7 +65,7 @@ Start of user code (RECOMMENDED) headStuff
 		<%-- 
 End of user code 
 		--%>
-		<script type="text/javascript" src="../../../delegatedUI.js"></script>
+		<script type="text/javascript" src="<%=ServletListener.getServletBase() %>/delegatedUI.js"></script>
 	</head>
 	<body style="padding: 10px;">
 		<div id="selector-body">

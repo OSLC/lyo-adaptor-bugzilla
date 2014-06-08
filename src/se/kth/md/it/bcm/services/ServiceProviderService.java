@@ -50,7 +50,6 @@ import se.kth.md.it.bcm.servlet.ServiceProviderCatalogSingleton;
 // Start of user code imports
 // End of user code
 
-
 @OslcService(OslcConstants.OSLC_CORE_DOMAIN)
 @Path("serviceProviders")
 public class ServiceProviderService
@@ -84,6 +83,7 @@ public class ServiceProviderService
          usages = {OslcConstants.OSLC_USAGE_DEFAULT}
     )
     @GET
+    
     @Produces({OslcMediaType.APPLICATION_RDF_XML, OslcMediaType.APPLICATION_XML, OslcMediaType.APPLICATION_JSON})
     public ServiceProvider[] getServiceProviders()
     {
@@ -109,7 +109,7 @@ public class ServiceProviderService
         return ServiceProviderCatalogSingleton.getServiceProvider(httpServletRequest, serviceProviderId);
     }
     
-  
+ 
     
     /**
      * HTML representation of a single OSLC Service Provider
