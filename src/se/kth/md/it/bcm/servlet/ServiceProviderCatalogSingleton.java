@@ -269,7 +269,7 @@ public class ServiceProviderCatalogSingleton
     {
 		try {
 
-			// Start of user code (MUST_FILL_IN) initServiceProviders
+			// Start of user code initServiceProviders
 			// End of user code
 
 	        String basePath = ServletListener.getServicesBase();

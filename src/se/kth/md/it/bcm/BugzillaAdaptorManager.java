@@ -25,6 +25,7 @@ import javax.servlet.ServletContextEvent;
 import java.util.List;
 
 import org.eclipse.lyo.oslc4j.core.model.ServiceProvider;
+import se.kth.md.it.bcm.servlet.ServiceProviderCatalogSingleton;
 
 import se.kth.md.it.bcm.ServiceProviderInfo;
 import se.kth.md.it.bcm.resources.BugzillaChangeRequest;
@@ -392,14 +393,14 @@ public class BugzillaAdaptorManager {
 
     public static void contextInitializeServletListener(final ServletContextEvent servletContextEvent)
     {
-		// Establish connection to data backbone etc ...
+		// TODO Implement code to establish connection to data backbone etc ...
 		// Start of user code contextInitializeServletListener
 		// End of user code
     }
 
 	public static void contextDestroyServletListener(ServletContextEvent servletContextEvent) 
 	{
-		// Shutdown connections to data backbone etc...
+		// TODO Implement code to shutdown connections to data backbone etc...
 		// Start of user code contextDestroyed
 		// End of user code
 	}
@@ -409,7 +410,8 @@ public class BugzillaAdaptorManager {
     public static ServiceProviderInfo [] getServiceProviderInfos(HttpServletRequest httpServletRequest)
     {
 		ServiceProviderInfo [] serviceProviderInfos = {};
-		// Start of user code (MUST_FILL_IN) getServiceProviderInfos userCode
+		// TODO Implement code to return the set of ServiceProviders
+		// Start of user code getServiceProviderInfos userCode
 		try {
 			BugzillaConnector bc = BugzillaAdaptorManager.getBugzillaConnector(httpServletRequest);
 			GetAccessibleProducts getProductIds = new GetAccessibleProducts();
@@ -437,7 +439,8 @@ public class BugzillaAdaptorManager {
     public static BugzillaChangeRequest getBugzillaChangeRequest(HttpServletRequest httpServletRequest, final String serviceProviderId, final String bugzillaChangeRequestId)
     {
 		BugzillaChangeRequest aBugzillaChangeRequest = null;
-		// Start of user code (MUST_FILL_IN) getBugzillaChangeRequest userCode
+		// TODO Implement code to return a resource
+		// Start of user code getBugzillaChangeRequest userCode
 		try {
 	        final Bug bug = BugzillaAdaptorManager.getBugById(httpServletRequest, bugzillaChangeRequestId);
 	        if (bug != null) {
@@ -454,7 +457,8 @@ public class BugzillaAdaptorManager {
     public static List<BugzillaChangeRequest> getBugzillaChangeRequests(HttpServletRequest httpServletRequest, final String serviceProviderId, int page, int limit)
     {
 		List<BugzillaChangeRequest> bugzillaChangeRequests = null;
-		// Start of user code (MUST_FILL_IN) getBugzillaChangeRequests userCode
+		// TODO Implement code to return a set of resources
+		// Start of user code getBugzillaChangeRequests userCode
 		try {
 	        List<Bug> bugList = BugzillaAdaptorManager.getBugsByProduct(httpServletRequest, serviceProviderId, page, limit);      
 	        bugzillaChangeRequests = BugzillaAdaptorManager.changeRequestsFromBugList(httpServletRequest, bugList, serviceProviderId);		
@@ -469,7 +473,8 @@ public class BugzillaAdaptorManager {
     public static List<BugzillaChangeRequest> searchBugzillaChangeRequests(HttpServletRequest httpServletRequest, final String serviceProviderId, String terms)
     {
 		List<BugzillaChangeRequest> bugzillaChangeRequests = null;
-		// Start of user code (MUST_FILL_IN) searchBugzillaChangeRequests userCode
+		// TODO Implement code to return a set of resources, based on search criteria 
+		// Start of user code searchBugzillaChangeRequests userCode
 			try {
 				final BugzillaConnector bc = BugzillaAdaptorManager.getBugzillaConnector(httpServletRequest);
 				BugSearch bugSearch = createBugSearch(terms);
@@ -487,7 +492,8 @@ public class BugzillaAdaptorManager {
     public static BugzillaChangeRequest createBugzillaChangeRequest(HttpServletRequest httpServletRequest, final BugzillaChangeRequest aBugzillaChangeRequest, final String serviceProviderId)
     {
 		BugzillaChangeRequest newBugzillaChangeRequest = null;
-		// Start of user code (MUST_FILL_IN) createBugzillaChangeRequest userCode
+		// TODO Implement code to create a resource
+		// Start of user code createBugzillaChangeRequest userCode
 		//[comment TODO: We should actually enter ALL properties that the user set :-) and not just the 6 below!!!! /]
 		String newBugId = null;
 		try {
@@ -546,7 +552,8 @@ public class BugzillaAdaptorManager {
     public static String getETagFromBugzillaChangeRequest(final BugzillaChangeRequest aBugzillaChangeRequest)
     {
 		String eTag = null;
-		// Start of user code (MUST_FILL_IN) getETagFromBugzillaChangeRequest userCode
+		// TODO Implement code to return an ETag for a particular resource
+		// Start of user code getETagFromBugzillaChangeRequest userCode
     	Long eTagAsTime = null;
     	
     	if (aBugzillaChangeRequest.getModified() != null) {
@@ -566,7 +573,8 @@ public class BugzillaAdaptorManager {
         ServiceProvider aServiceProvider = null;
         //aServiceProvider can be deduced automatically, since the resource's id is relative to that of its serviceProvider.
         aServiceProvider = ServiceProviderCatalogSingleton.getServiceProvider(httpServletRequest, serviceProviderId);
-        // Start of user code (MUST_FILL_IN) getBugzillaChangeRequestsManagingServiceProvider userCode
+		// TODO Implement code to return a resource's serviceProvider
+        // Start of user code getBugzillaChangeRequestsManagingServiceProvider userCode
         // End of user code
         return aServiceProvider;
     }

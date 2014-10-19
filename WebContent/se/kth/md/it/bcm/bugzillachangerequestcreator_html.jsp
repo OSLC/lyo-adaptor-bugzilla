@@ -76,130 +76,130 @@ End of user code
 				<table style="clear: both;">
 
 						<tr>
-							<td><%= BugzillaChangeRequest.identifierToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.createdToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.reviewedToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.testedByTestCasesToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.closedToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.shortTitleToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.tracksRequirementsToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.blocksTestExecutionRecordsToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.inprogressToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.fixedToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.modifiedToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.creatorsToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.relatedTestCasesToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
 							<td><%= BugzillaChangeRequest.rdfTypesToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.affectsPlanItemsToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
 							<td><%= BugzillaChangeRequest.implementsRequirementsToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
-							<td><%= BugzillaChangeRequest.instanceShapeToHtmlForCreation(request, serviceProviderId)%></td>
+							<td><%= BugzillaChangeRequest.modifiedToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
-							<td><%= BugzillaChangeRequest.productToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.relatedTestScriptsToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.affectsTestResultsToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.priorityToHtmlForCreation(request, serviceProviderId)%></td>
+							<td><%= BugzillaChangeRequest.createdToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
 							<td><%= BugzillaChangeRequest.dctermsTypesToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
-							<td><%= BugzillaChangeRequest.platformToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.discussedByToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.relatedTestExecutionRecordsToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.operatingSystemToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.affectedByDefectsToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.componentToHtmlForCreation(request, serviceProviderId)%></td>
-						</tr>
-						<tr>
-							<td><%= BugzillaChangeRequest.subjectsToHtmlForCreation(request, serviceProviderId)%></td>
+							<td><%= BugzillaChangeRequest.testedByTestCasesToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
 							<td><%= BugzillaChangeRequest.affectsRequirementsToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
-							<td><%= BugzillaChangeRequest.verifiedToHtmlForCreation(request, serviceProviderId)%></td>
+							<td><%= BugzillaChangeRequest.operatingSystemToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
-							<td><%= BugzillaChangeRequest.versionToHtmlForCreation(request, serviceProviderId)%></td>
+							<td><%= BugzillaChangeRequest.shortTitleToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
-							<td><%= BugzillaChangeRequest.approvedToHtmlForCreation(request, serviceProviderId)%></td>
+							<td><%= BugzillaChangeRequest.reviewedToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
-							<td><%= BugzillaChangeRequest.titleToHtmlForCreation(request, serviceProviderId)%></td>
+							<td><%= BugzillaChangeRequest.affectsPlanItemsToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
 							<td><%= BugzillaChangeRequest.descriptionToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
-							<td><%= BugzillaChangeRequest.contributorsToHtmlForCreation(request, serviceProviderId)%></td>
+							<td><%= BugzillaChangeRequest.platformToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
-							<td><%= BugzillaChangeRequest.tracksChangeSetsToHtmlForCreation(request, serviceProviderId)%></td>
+							<td><%= BugzillaChangeRequest.instanceShapeToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
-							<td><%= BugzillaChangeRequest.serviceProviderToHtmlForCreation(request, serviceProviderId)%></td>
+							<td><%= BugzillaChangeRequest.affectedByDefectsToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
 							<td><%= BugzillaChangeRequest.statusToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
+							<td><%= BugzillaChangeRequest.subjectsToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.versionToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.componentToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.verifiedToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
 							<td><%= BugzillaChangeRequest.relatedChangeRequestsToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.fixedToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.serviceProviderToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.relatedTestCasesToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.titleToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
 							<td><%= BugzillaChangeRequest.closeDateToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 						<tr>
+							<td><%= BugzillaChangeRequest.creatorsToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.approvedToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.blocksTestExecutionRecordsToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.priorityToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.relatedTestScriptsToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.inprogressToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.identifierToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.closedToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
 							<td><%= BugzillaChangeRequest.relatedTestPlansToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.productToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.tracksRequirementsToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.contributorsToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.affectsTestResultsToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.relatedTestExecutionRecordsToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.tracksChangeSetsToHtmlForCreation(request, serviceProviderId)%></td>
+						</tr>
+						<tr>
+							<td><%= BugzillaChangeRequest.discussedByToHtmlForCreation(request, serviceProviderId)%></td>
 						</tr>
 
 					

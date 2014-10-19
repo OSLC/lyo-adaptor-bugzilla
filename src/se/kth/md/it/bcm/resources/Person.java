@@ -98,6 +98,14 @@ public Person(final URI about)
 	// End of user code
 }
 
+public Person(final String serviceProviderId, final String personId)
+       throws URISyntaxException
+{
+	this (constructURI(serviceProviderId, personId));
+	// Start of user code constructor3
+	// End of user code
+}
+
 public static URI constructURI(final String serviceProviderId, final String personId)
 {
     String basePath = ServletListener.getServicesBase();
@@ -111,13 +119,35 @@ public static URI constructURI(final String serviceProviderId, final String pers
     return builder.path(instanceURI).buildFromMap(pathParameters);
 }
 
+public static Link constructLink(final String serviceProviderId, final String personId , final String label)
+{
+	return new Link(constructURI(serviceProviderId, personId), label);
+}
+
+public static Link constructLink(final String serviceProviderId, final String personId)
+{
+	return new Link(constructURI(serviceProviderId, personId));
+}
+
 public String toString()
+{
+	return toString(false);
+}
+
+public String toString(boolean asLocalResource)
 {
 		String result = "";
 		// Start of user code toString_init
 		// End of user code
 
-		result = getAbout().toString();
+		if (asLocalResource) {
+			result = result + "{a Local Person Resource} - update Person.toString() to present resource as desired.";
+			// Start of user code toString_bodyForLocalResource
+			// End of user code
+		}
+		else {
+			result = getAbout().toString();
+		}
 
 		// Start of user code toString_finalize
 		// End of user code
@@ -127,18 +157,29 @@ public String toString()
 
 public String toHtml()
 {
+	return toHtml(false);
+}
+
+public String toHtml(boolean asLocalResource)
+{
 		String result = "";
 		// Start of user code toHtml_init
 		// End of user code
 
-		result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
+		if (asLocalResource) {
+			result = toString(true);
+			// Start of user code toHtml_bodyForLocalResource
+			// End of user code
+		}
+		else {
+			result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
+		}
 
 		// Start of user code toHtml_finalize
 		// End of user code
 
 		return result;
 }
-
 
 
    	@OslcName("name")
