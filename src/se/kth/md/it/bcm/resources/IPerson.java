@@ -68,120 +68,49 @@ import se.kth.md.it.bcm.BugzillaAdaptorConstants;
 // Start of user code imports
 // End of user code
 
-@OslcNamespace(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE)
-@OslcName(BugzillaAdaptorConstants.TYPE) 
-@OslcResourceShape(title = "Type Resource Shape", describes = BugzillaAdaptorConstants.TYPE_TYPE)
-public class Type
-	extends AbstractResource
-	implements IType
+@OslcNamespace(BugzillaAdaptorConstants.FOAF_NAMSPACE)
+@OslcName(BugzillaAdaptorConstants.PERSON) 
+@OslcResourceShape(title = "Person Resource Shape", describes = BugzillaAdaptorConstants.TYPE_PERSON)
+public interface IPerson
 {
 
 
-public Type()
-       throws URISyntaxException
-{
-    super();
+   	@OslcName("name")
+   	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "name")
+	@OslcDescription("The full name of a person expressed as simple text string.")
+	@OslcOccurs(Occurs.ExactlyOne)
+	@OslcValueType(ValueType.String)
+	
+	
+	@OslcReadOnly(false)
+	@OslcTitle("")
+    public String getName();
 
-	// Start of user code constructor1
-	// End of user code
-}
+   	@OslcName("givenName")
+   	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "givenName")
+	@OslcDescription("Given name of person expressed as simple text string.")
+	@OslcOccurs(Occurs.ExactlyOne)
+	@OslcValueType(ValueType.String)
+	
+	
+	@OslcReadOnly(false)
+	
+    public String getGivenName();
 
-public Type(final URI about)
-       throws URISyntaxException
-{
-    super(about);
-
-	// Start of user code constructor2
-	// End of user code
-}
-
-public Type(final String serviceProviderId, final String typeId)
-       throws URISyntaxException
-{
-	this (constructURI(serviceProviderId, typeId));
-	// Start of user code constructor3
-	// End of user code
-}
-
-public static URI constructURI(final String serviceProviderId, final String typeId)
-{
-    String basePath = ServletListener.getServicesBase();
-    Map<String, Object> pathParameters = new HashMap<String, Object>();
-    pathParameters.put("serviceProviderId", serviceProviderId);
-
-    pathParameters.put("typeId", typeId);
-    String instanceURI = "serviceProviders/{serviceProviderId}/types/{typeId}";
-  
-    final UriBuilder builder = UriBuilder.fromUri(basePath);
-    return builder.path(instanceURI).buildFromMap(pathParameters);
-}
-
-public static Link constructLink(final String serviceProviderId, final String typeId , final String label)
-{
-	return new Link(constructURI(serviceProviderId, typeId), label);
-}
-
-public static Link constructLink(final String serviceProviderId, final String typeId)
-{
-	return new Link(constructURI(serviceProviderId, typeId));
-}
-
-public String toString()
-{
-	return toString(false);
-}
-
-public String toString(boolean asLocalResource)
-{
-		String result = "";
-		// Start of user code toString_init
-		// End of user code
-
-		if (asLocalResource) {
-			result = result + "{a Local Type Resource} - update Type.toString() to present resource as desired.";
-			// Start of user code toString_bodyForLocalResource
-			// End of user code
-		}
-		else {
-			result = getAbout().toString();
-		}
-
-		// Start of user code toString_finalize
-		// End of user code
-
-		return result;
-}
-
-public String toHtml()
-{
-	return toHtml(false);
-}
-
-public String toHtml(boolean asLocalResource)
-{
-		String result = "";
-		// Start of user code toHtml_init
-		// End of user code
-
-		if (asLocalResource) {
-			result = toString(true);
-			// Start of user code toHtml_bodyForLocalResource
-			// End of user code
-		}
-		else {
-			result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
-		}
-
-		// Start of user code toHtml_finalize
-		// End of user code
-
-		return result;
-}
+   	@OslcName("familyName")
+   	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "familyName")
+	@OslcDescription("Family name of person expressed as simple text string.")
+	@OslcOccurs(Occurs.ExactlyOne)
+	@OslcValueType(ValueType.String)
+	
+	
+	@OslcReadOnly(false)
+	
+    public String getFamilyName();
 
 
-
-
-
-
+    public void setName(final String name );
+    public void setGivenName(final String givenName );
+    public void setFamilyName(final String familyName );
 }
 

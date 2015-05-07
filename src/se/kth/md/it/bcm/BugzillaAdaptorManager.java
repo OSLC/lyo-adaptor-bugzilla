@@ -162,7 +162,7 @@ public class BugzillaAdaptorManager {
 			contributor.setAbout(new URI(ServletListener.getServletBase() + "/person?mbox=" + URLEncoder.encode(email, "UTF-8")));
 			HashSet<Person> contributors = new HashSet<Person>();
 			contributors.add(contributor);
-			changeRequest.setContributors(contributors);
+			changeRequest.setContributor(contributors);
 		}
 		
 		Date createdDate = (Date) bug.getParameterMap().get("creation_time");
@@ -372,19 +372,19 @@ public class BugzillaAdaptorManager {
 	protected static String getLinksComment(final BugzillaChangeRequest cr) {
 		final StringBuffer b = new StringBuffer();
 		
-		addLinkComment(b, "Affected by Defect", cr.getAffectedByDefects().toArray(new Link[cr.getAffectedByDefects().size()]));
-		addLinkComment(b, "Affects Plan Item", cr.getAffectsPlanItems().toArray(new Link[cr.getAffectsPlanItems().size()]));
-		addLinkComment(b, "Affects Requirement", cr.getAffectsRequirements().toArray(new Link[cr.getAffectsRequirements().size()]));
-		addLinkComment(b, "Affects Test Result", cr.getAffectsTestResults().toArray(new Link[cr.getAffectsTestResults().size()]));
-		addLinkComment(b, "Blocks Test Execution Record", cr.getBlocksTestExecutionRecords().toArray(new Link[cr.getBlocksTestExecutionRecords().size()]));
-		addLinkComment(b, "Implements Requirement", cr.getImplementsRequirements().toArray(new Link[cr.getImplementsRequirements().size()]));
-		addLinkComment(b, "Related Change Request", cr.getRelatedChangeRequests().toArray(new Link[cr.getRelatedChangeRequests().size()]));
-		addLinkComment(b, "Related Test Execution Record", cr.getRelatedTestExecutionRecords().toArray(new Link[cr.getRelatedTestExecutionRecords().size()]));
-		addLinkComment(b, "Related Test Plane", cr.getRelatedTestPlans().toArray(new Link[cr.getRelatedTestPlans().size()]));
-		addLinkComment(b, "Related Test Script", cr.getRelatedTestScripts().toArray(new Link[cr.getRelatedTestScripts().size()]));
-		addLinkComment(b, "Tested by Test Case", cr.getTestedByTestCases().toArray(new Link[cr.getTestedByTestCases().size()]));
-		addLinkComment(b, "Tracks Change Set", cr.getTracksChangeSets().toArray(new Link[cr.getTracksChangeSets().size()]));
-		addLinkComment(b, "Tracks Requirement", cr.getTracksRequirements().toArray(new Link[cr.getTracksRequirements().size()]));
+		addLinkComment(b, "Affected by Defect", cr.getAffectedByDefect().toArray(new Link[cr.getAffectedByDefect().size()]));
+		addLinkComment(b, "Affects Plan Item", cr.getAffectsPlanItem().toArray(new Link[cr.getAffectsPlanItem().size()]));
+		addLinkComment(b, "Affects Requirement", cr.getAffectsRequirement().toArray(new Link[cr.getAffectsRequirement().size()]));
+		addLinkComment(b, "Affects Test Result", cr.getAffectsTestResult().toArray(new Link[cr.getAffectsTestResult().size()]));
+		addLinkComment(b, "Blocks Test Execution Record", cr.getBlocksTestExecutionRecord().toArray(new Link[cr.getBlocksTestExecutionRecord().size()]));
+		addLinkComment(b, "Implements Requirement", cr.getImplementsRequirement().toArray(new Link[cr.getImplementsRequirement().size()]));
+		addLinkComment(b, "Related Change Request", cr.getRelatedChangeRequest().toArray(new Link[cr.getRelatedChangeRequest().size()]));
+		addLinkComment(b, "Related Test Execution Record", cr.getRelatedTestExecutionRecord().toArray(new Link[cr.getRelatedTestExecutionRecord().size()]));
+		addLinkComment(b, "Related Test Plane", cr.getRelatedTestPlan().toArray(new Link[cr.getRelatedTestPlan().size()]));
+		addLinkComment(b, "Related Test Script", cr.getRelatedTestScript().toArray(new Link[cr.getRelatedTestScript().size()]));
+		addLinkComment(b, "Tested by Test Case", cr.getTestedByTestCase().toArray(new Link[cr.getTestedByTestCase().size()]));
+		addLinkComment(b, "Tracks Change Set", cr.getTracksChangeSet().toArray(new Link[cr.getTracksChangeSet().size()]));
+		addLinkComment(b, "Tracks Requirement", cr.getTracksRequirement().toArray(new Link[cr.getTracksRequirement().size()]));
 		
 		return b.toString();
 	}

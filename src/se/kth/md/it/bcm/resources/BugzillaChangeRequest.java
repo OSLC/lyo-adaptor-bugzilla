@@ -81,8 +81,8 @@ import javax.ws.rs.WebApplicationException;
 @OslcName(BugzillaAdaptorConstants.BUGZILLACHANGEREQUEST) 
 @OslcResourceShape(title = "BugzillaChangeRequest Resource Shape", describes = BugzillaAdaptorConstants.TYPE_BUGZILLACHANGEREQUEST)
 public class BugzillaChangeRequest
-       extends ChangeRequest
-       
+	extends ChangeRequest
+	implements IBugzillaChangeRequest
 {
 
 private String product;  

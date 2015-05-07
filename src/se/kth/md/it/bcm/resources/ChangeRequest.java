@@ -75,29 +75,29 @@ import se.kth.md.it.bcm.resources.Type;
 @OslcName(BugzillaAdaptorConstants.CHANGEREQUEST) 
 @OslcResourceShape(title = "ChangeRequest Resource Shape", describes = BugzillaAdaptorConstants.TYPE_CHANGEREQUEST)
 public class ChangeRequest
-       extends AbstractResource
-       
+	extends AbstractResource
+	implements IChangeRequest
 {
 
-private HashSet<Link> affectedByDefects = new HashSet<Link>();  
-private HashSet<Link> affectsPlanItems = new HashSet<Link>();  
-private HashSet<Link> affectsRequirements = new HashSet<Link>();  
-private HashSet<Link> affectsTestResults = new HashSet<Link>();  
-private HashSet<Link> blocksTestExecutionRecords = new HashSet<Link>();  
-private HashSet<Person> contributors = new HashSet<Person>();  
-private HashSet<Person> creators = new HashSet<Person>();  
-private HashSet<Type> dctermsTypes = new HashSet<Type>();  
-private HashSet<Link> implementsRequirements = new HashSet<Link>();  
-private HashSet<Link> relatedChangeRequests = new HashSet<Link>();  
-private HashSet<Link> relatedTestCases = new HashSet<Link>();  
-private HashSet<Link> relatedTestExecutionRecords = new HashSet<Link>();  
-private HashSet<Link> relatedTestPlans = new HashSet<Link>();  
-private HashSet<Link> relatedTestScripts = new HashSet<Link>();  
-private HashSet<String> subjects = new HashSet<String>();  
-private HashSet<Link> testedByTestCases = new HashSet<Link>();  
-private HashSet<Link> tracksChangeSets = new HashSet<Link>();  
-private HashSet<Link> tracksRequirements = new HashSet<Link>();  
-private HashSet<URI> rdfTypes = new HashSet<URI>();  
+private HashSet<Link> affectedByDefect = new HashSet<Link>();  
+private HashSet<Link> affectsPlanItem = new HashSet<Link>();  
+private HashSet<Link> affectsRequirement = new HashSet<Link>();  
+private HashSet<Link> affectsTestResult = new HashSet<Link>();  
+private HashSet<Link> blocksTestExecutionRecord = new HashSet<Link>();  
+private HashSet<Person> contributor = new HashSet<Person>();  
+private HashSet<Person> creator = new HashSet<Person>();  
+private HashSet<Type> dctermsType = new HashSet<Type>();  
+private HashSet<Link> implementsRequirement = new HashSet<Link>();  
+private HashSet<Link> relatedChangeRequest = new HashSet<Link>();  
+private HashSet<Link> relatedTestCase = new HashSet<Link>();  
+private HashSet<Link> relatedTestExecutionRecord = new HashSet<Link>();  
+private HashSet<Link> relatedTestPlan = new HashSet<Link>();  
+private HashSet<Link> relatedTestScript = new HashSet<Link>();  
+private HashSet<String> subject = new HashSet<String>();  
+private HashSet<Link> testedByTestCase = new HashSet<Link>();  
+private HashSet<Link> tracksChangeSet = new HashSet<Link>();  
+private HashSet<Link> tracksRequirement = new HashSet<Link>();  
+private HashSet<URI> rdfType = new HashSet<URI>();  
 private Boolean approved;  
 private Boolean closed;  
 private Date closeDate;  
@@ -219,79 +219,79 @@ public String toHtml(boolean asLocalResource)
 
     public void addAffectedByDefect(final Link affectedByDefect )
     {
-        this.affectedByDefects.add(affectedByDefect);
+        this.affectedByDefect.add(affectedByDefect);
     }
     public void addAffectsPlanItem(final Link affectsPlanItem )
     {
-        this.affectsPlanItems.add(affectsPlanItem);
+        this.affectsPlanItem.add(affectsPlanItem);
     }
     public void addAffectsRequirement(final Link affectsRequirement )
     {
-        this.affectsRequirements.add(affectsRequirement);
+        this.affectsRequirement.add(affectsRequirement);
     }
     public void addAffectsTestResult(final Link affectsTestResult )
     {
-        this.affectsTestResults.add(affectsTestResult);
+        this.affectsTestResult.add(affectsTestResult);
     }
     public void addBlocksTestExecutionRecord(final Link blocksTestExecutionRecord )
     {
-        this.blocksTestExecutionRecords.add(blocksTestExecutionRecord);
+        this.blocksTestExecutionRecord.add(blocksTestExecutionRecord);
     }
     public void addContributor(final Person contributor )
     {
-        this.contributors.add(contributor);
+        this.contributor.add(contributor);
     }
     public void addCreator(final Person creator )
     {
-        this.creators.add(creator);
+        this.creator.add(creator);
     }
     public void addType(final Type type )
     {
-        this.dctermsTypes.add(type);
+        this.dctermsType.add(type);
     }
     public void addImplementsRequirement(final Link implementsRequirement )
     {
-        this.implementsRequirements.add(implementsRequirement);
+        this.implementsRequirement.add(implementsRequirement);
     }
     public void addRelatedChangeRequest(final Link relatedChangeRequest )
     {
-        this.relatedChangeRequests.add(relatedChangeRequest);
+        this.relatedChangeRequest.add(relatedChangeRequest);
     }
     public void addRelatedTestCase(final Link relatedTestCase )
     {
-        this.relatedTestCases.add(relatedTestCase);
+        this.relatedTestCase.add(relatedTestCase);
     }
     public void addRelatedTestExecutionRecord(final Link relatedTestExecutionRecord )
     {
-        this.relatedTestExecutionRecords.add(relatedTestExecutionRecord);
+        this.relatedTestExecutionRecord.add(relatedTestExecutionRecord);
     }
     public void addRelatedTestPlan(final Link relatedTestPlan )
     {
-        this.relatedTestPlans.add(relatedTestPlan);
+        this.relatedTestPlan.add(relatedTestPlan);
     }
     public void addRelatedTestScript(final Link relatedTestScript )
     {
-        this.relatedTestScripts.add(relatedTestScript);
+        this.relatedTestScript.add(relatedTestScript);
     }
     public void addSubject(final String subject )
     {
-        this.subjects.add(subject);
+        this.subject.add(subject);
     }
     public void addTestedByTestCase(final Link testedByTestCase )
     {
-        this.testedByTestCases.add(testedByTestCase);
+        this.testedByTestCase.add(testedByTestCase);
     }
     public void addTracksChangeSet(final Link tracksChangeSet )
     {
-        this.tracksChangeSets.add(tracksChangeSet);
+        this.tracksChangeSet.add(tracksChangeSet);
     }
     public void addTracksRequirement(final Link tracksRequirement )
     {
-        this.tracksRequirements.add(tracksRequirement);
+        this.tracksRequirement.add(tracksRequirement);
     }
     public void addType(final URI type )
     {
-        this.rdfTypes.add(type);
+        this.rdfType.add(type);
     }
 
    	@OslcName("affectedByDefect")
@@ -303,9 +303,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getAffectedByDefects()
+    public HashSet<Link> getAffectedByDefect()
     {
-        return affectedByDefects;
+        return affectedByDefect;
     }
 
    	@OslcName("affectsPlanItem")
@@ -317,9 +317,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getAffectsPlanItems()
+    public HashSet<Link> getAffectsPlanItem()
     {
-        return affectsPlanItems;
+        return affectsPlanItem;
     }
 
    	@OslcName("affectsRequirement")
@@ -331,9 +331,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getAffectsRequirements()
+    public HashSet<Link> getAffectsRequirement()
     {
-        return affectsRequirements;
+        return affectsRequirement;
     }
 
    	@OslcName("affectsTestResult")
@@ -345,9 +345,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getAffectsTestResults()
+    public HashSet<Link> getAffectsTestResult()
     {
-        return affectsTestResults;
+        return affectsTestResult;
     }
 
    	@OslcName("blocksTestExecutionRecord")
@@ -359,9 +359,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getBlocksTestExecutionRecords()
+    public HashSet<Link> getBlocksTestExecutionRecord()
     {
-        return blocksTestExecutionRecords;
+        return blocksTestExecutionRecord;
     }
 
    	@OslcName("contributor")
@@ -373,9 +373,9 @@ public String toHtml(boolean asLocalResource)
 	@OslcRange(BugzillaAdaptorConstants.TYPE_PERSON)
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Person> getContributors()
+    public HashSet<Person> getContributor()
     {
-        return contributors;
+        return contributor;
     }
 
    	@OslcName("creator")
@@ -387,9 +387,9 @@ public String toHtml(boolean asLocalResource)
 	@OslcRange(BugzillaAdaptorConstants.TYPE_PERSON)
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Person> getCreators()
+    public HashSet<Person> getCreator()
     {
-        return creators;
+        return creator;
     }
 
    	@OslcName("type")
@@ -401,9 +401,9 @@ public String toHtml(boolean asLocalResource)
 	@OslcRange(BugzillaAdaptorConstants.TYPE_TYPE)
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Type> getDctermsTypes()
+    public HashSet<Type> getDctermsType()
     {
-        return dctermsTypes;
+        return dctermsType;
     }
 
    	@OslcName("implementsRequirement")
@@ -415,9 +415,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getImplementsRequirements()
+    public HashSet<Link> getImplementsRequirement()
     {
-        return implementsRequirements;
+        return implementsRequirement;
     }
 
    	@OslcName("relatedChangeRequest")
@@ -429,9 +429,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getRelatedChangeRequests()
+    public HashSet<Link> getRelatedChangeRequest()
     {
-        return relatedChangeRequests;
+        return relatedChangeRequest;
     }
 
    	@OslcName("relatedTestCase")
@@ -443,9 +443,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getRelatedTestCases()
+    public HashSet<Link> getRelatedTestCase()
     {
-        return relatedTestCases;
+        return relatedTestCase;
     }
 
    	@OslcName("relatedTestExecutionRecord")
@@ -457,9 +457,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getRelatedTestExecutionRecords()
+    public HashSet<Link> getRelatedTestExecutionRecord()
     {
-        return relatedTestExecutionRecords;
+        return relatedTestExecutionRecord;
     }
 
    	@OslcName("relatedTestPlan")
@@ -471,9 +471,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getRelatedTestPlans()
+    public HashSet<Link> getRelatedTestPlan()
     {
-        return relatedTestPlans;
+        return relatedTestPlan;
     }
 
    	@OslcName("relatedTestScript")
@@ -485,9 +485,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getRelatedTestScripts()
+    public HashSet<Link> getRelatedTestScript()
     {
-        return relatedTestScripts;
+        return relatedTestScript;
     }
 
    	@OslcName("subject")
@@ -499,9 +499,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<String> getSubjects()
+    public HashSet<String> getSubject()
     {
-        return subjects;
+        return subject;
     }
 
    	@OslcName("testedByTestCase")
@@ -513,9 +513,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getTestedByTestCases()
+    public HashSet<Link> getTestedByTestCase()
     {
-        return testedByTestCases;
+        return testedByTestCase;
     }
 
    	@OslcName("tracksChangeSet")
@@ -527,9 +527,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getTracksChangeSets()
+    public HashSet<Link> getTracksChangeSet()
     {
-        return tracksChangeSets;
+        return tracksChangeSet;
     }
 
    	@OslcName("tracksRequirement")
@@ -541,9 +541,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<Link> getTracksRequirements()
+    public HashSet<Link> getTracksRequirement()
     {
-        return tracksRequirements;
+        return tracksRequirement;
     }
 
    	@OslcName("type")
@@ -555,9 +555,9 @@ public String toHtml(boolean asLocalResource)
 	
 	@OslcReadOnly(false)
 	@OslcTitle("")
-    public HashSet<URI> getRdfTypes()
+    public HashSet<URI> getRdfType()
     {
-        return rdfTypes;
+        return rdfType;
     }
 
    	@OslcName("approved")
@@ -799,174 +799,174 @@ public String toHtml(boolean asLocalResource)
     }
 
 
-    public void setAffectedByDefects(final HashSet<Link> affectedByDefect )
+    public void setAffectedByDefect(final HashSet<Link> affectedByDefect )
     {
-        this.affectedByDefects.clear();
+        this.affectedByDefect.clear();
         if (affectedByDefect != null)
         {
-            this.affectedByDefects.addAll(affectedByDefect);
+            this.affectedByDefect.addAll(affectedByDefect);
         }
 
     }
-    public void setAffectsPlanItems(final HashSet<Link> affectsPlanItem )
+    public void setAffectsPlanItem(final HashSet<Link> affectsPlanItem )
     {
-        this.affectsPlanItems.clear();
+        this.affectsPlanItem.clear();
         if (affectsPlanItem != null)
         {
-            this.affectsPlanItems.addAll(affectsPlanItem);
+            this.affectsPlanItem.addAll(affectsPlanItem);
         }
 
     }
-    public void setAffectsRequirements(final HashSet<Link> affectsRequirement )
+    public void setAffectsRequirement(final HashSet<Link> affectsRequirement )
     {
-        this.affectsRequirements.clear();
+        this.affectsRequirement.clear();
         if (affectsRequirement != null)
         {
-            this.affectsRequirements.addAll(affectsRequirement);
+            this.affectsRequirement.addAll(affectsRequirement);
         }
 
     }
-    public void setAffectsTestResults(final HashSet<Link> affectsTestResult )
+    public void setAffectsTestResult(final HashSet<Link> affectsTestResult )
     {
-        this.affectsTestResults.clear();
+        this.affectsTestResult.clear();
         if (affectsTestResult != null)
         {
-            this.affectsTestResults.addAll(affectsTestResult);
+            this.affectsTestResult.addAll(affectsTestResult);
         }
 
     }
-    public void setBlocksTestExecutionRecords(final HashSet<Link> blocksTestExecutionRecord )
+    public void setBlocksTestExecutionRecord(final HashSet<Link> blocksTestExecutionRecord )
     {
-        this.blocksTestExecutionRecords.clear();
+        this.blocksTestExecutionRecord.clear();
         if (blocksTestExecutionRecord != null)
         {
-            this.blocksTestExecutionRecords.addAll(blocksTestExecutionRecord);
+            this.blocksTestExecutionRecord.addAll(blocksTestExecutionRecord);
         }
 
     }
-    public void setContributors(final HashSet<Person> contributor )
+    public void setContributor(final HashSet<Person> contributor )
     {
-        this.contributors.clear();
+        this.contributor.clear();
         if (contributor != null)
         {
-            this.contributors.addAll(contributor);
+            this.contributor.addAll(contributor);
         }
 
     }
-    public void setCreators(final HashSet<Person> creator )
+    public void setCreator(final HashSet<Person> creator )
     {
-        this.creators.clear();
+        this.creator.clear();
         if (creator != null)
         {
-            this.creators.addAll(creator);
+            this.creator.addAll(creator);
         }
 
     }
-    public void setDctermsTypes(final HashSet<Type> type )
+    public void setDctermsType(final HashSet<Type> type )
     {
-        this.dctermsTypes.clear();
+        this.dctermsType.clear();
         if (type != null)
         {
-            this.dctermsTypes.addAll(type);
+            this.dctermsType.addAll(type);
         }
 
     }
-    public void setImplementsRequirements(final HashSet<Link> implementsRequirement )
+    public void setImplementsRequirement(final HashSet<Link> implementsRequirement )
     {
-        this.implementsRequirements.clear();
+        this.implementsRequirement.clear();
         if (implementsRequirement != null)
         {
-            this.implementsRequirements.addAll(implementsRequirement);
+            this.implementsRequirement.addAll(implementsRequirement);
         }
 
     }
-    public void setRelatedChangeRequests(final HashSet<Link> relatedChangeRequest )
+    public void setRelatedChangeRequest(final HashSet<Link> relatedChangeRequest )
     {
-        this.relatedChangeRequests.clear();
+        this.relatedChangeRequest.clear();
         if (relatedChangeRequest != null)
         {
-            this.relatedChangeRequests.addAll(relatedChangeRequest);
+            this.relatedChangeRequest.addAll(relatedChangeRequest);
         }
 
     }
-    public void setRelatedTestCases(final HashSet<Link> relatedTestCase )
+    public void setRelatedTestCase(final HashSet<Link> relatedTestCase )
     {
-        this.relatedTestCases.clear();
+        this.relatedTestCase.clear();
         if (relatedTestCase != null)
         {
-            this.relatedTestCases.addAll(relatedTestCase);
+            this.relatedTestCase.addAll(relatedTestCase);
         }
 
     }
-    public void setRelatedTestExecutionRecords(final HashSet<Link> relatedTestExecutionRecord )
+    public void setRelatedTestExecutionRecord(final HashSet<Link> relatedTestExecutionRecord )
     {
-        this.relatedTestExecutionRecords.clear();
+        this.relatedTestExecutionRecord.clear();
         if (relatedTestExecutionRecord != null)
         {
-            this.relatedTestExecutionRecords.addAll(relatedTestExecutionRecord);
+            this.relatedTestExecutionRecord.addAll(relatedTestExecutionRecord);
         }
 
     }
-    public void setRelatedTestPlans(final HashSet<Link> relatedTestPlan )
+    public void setRelatedTestPlan(final HashSet<Link> relatedTestPlan )
     {
-        this.relatedTestPlans.clear();
+        this.relatedTestPlan.clear();
         if (relatedTestPlan != null)
         {
-            this.relatedTestPlans.addAll(relatedTestPlan);
+            this.relatedTestPlan.addAll(relatedTestPlan);
         }
 
     }
-    public void setRelatedTestScripts(final HashSet<Link> relatedTestScript )
+    public void setRelatedTestScript(final HashSet<Link> relatedTestScript )
     {
-        this.relatedTestScripts.clear();
+        this.relatedTestScript.clear();
         if (relatedTestScript != null)
         {
-            this.relatedTestScripts.addAll(relatedTestScript);
+            this.relatedTestScript.addAll(relatedTestScript);
         }
 
     }
-    public void setSubjects(final HashSet<String> subject )
+    public void setSubject(final HashSet<String> subject )
     {
-        this.subjects.clear();
+        this.subject.clear();
         if (subject != null)
         {
-            this.subjects.addAll(subject);
+            this.subject.addAll(subject);
         }
 
     }
-    public void setTestedByTestCases(final HashSet<Link> testedByTestCase )
+    public void setTestedByTestCase(final HashSet<Link> testedByTestCase )
     {
-        this.testedByTestCases.clear();
+        this.testedByTestCase.clear();
         if (testedByTestCase != null)
         {
-            this.testedByTestCases.addAll(testedByTestCase);
+            this.testedByTestCase.addAll(testedByTestCase);
         }
 
     }
-    public void setTracksChangeSets(final HashSet<Link> tracksChangeSet )
+    public void setTracksChangeSet(final HashSet<Link> tracksChangeSet )
     {
-        this.tracksChangeSets.clear();
+        this.tracksChangeSet.clear();
         if (tracksChangeSet != null)
         {
-            this.tracksChangeSets.addAll(tracksChangeSet);
+            this.tracksChangeSet.addAll(tracksChangeSet);
         }
 
     }
-    public void setTracksRequirements(final HashSet<Link> tracksRequirement )
+    public void setTracksRequirement(final HashSet<Link> tracksRequirement )
     {
-        this.tracksRequirements.clear();
+        this.tracksRequirement.clear();
         if (tracksRequirement != null)
         {
-            this.tracksRequirements.addAll(tracksRequirement);
+            this.tracksRequirement.addAll(tracksRequirement);
         }
 
     }
-    public void setRdfTypes(final HashSet<URI> type )
+    public void setRdfType(final HashSet<URI> type )
     {
-        this.rdfTypes.clear();
+        this.rdfType.clear();
         if (type != null)
         {
-            this.rdfTypes.addAll(type);
+            this.rdfType.addAll(type);
         }
 
     }
@@ -1039,346 +1039,346 @@ public String toHtml(boolean asLocalResource)
         this.verified = verified;
     }
 
-    static public String affectedByDefectsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String affectedByDefectToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code affectedByDefectsasHtmlForCreation_init
+		// Start of user code affectedByDefectasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"affectedByDefect\">affectedByDefect: </LABEL>";
 
-		// Start of user code affectedByDefectsasHtmlForCreation_mid
+		// Start of user code affectedByDefectasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code affectedByDefectsasHtmlForCreation_finalize
+		// Start of user code affectedByDefectasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String affectsPlanItemsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String affectsPlanItemToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code affectsPlanItemsasHtmlForCreation_init
+		// Start of user code affectsPlanItemasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"affectsPlanItem\">affectsPlanItem: </LABEL>";
 
-		// Start of user code affectsPlanItemsasHtmlForCreation_mid
+		// Start of user code affectsPlanItemasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code affectsPlanItemsasHtmlForCreation_finalize
+		// Start of user code affectsPlanItemasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String affectsRequirementsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String affectsRequirementToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code affectsRequirementsasHtmlForCreation_init
+		// Start of user code affectsRequirementasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"affectsRequirement\">affectsRequirement: </LABEL>";
 
-		// Start of user code affectsRequirementsasHtmlForCreation_mid
+		// Start of user code affectsRequirementasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code affectsRequirementsasHtmlForCreation_finalize
+		// Start of user code affectsRequirementasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String affectsTestResultsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String affectsTestResultToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code affectsTestResultsasHtmlForCreation_init
+		// Start of user code affectsTestResultasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"affectsTestResult\">affectsTestResult: </LABEL>";
 
-		// Start of user code affectsTestResultsasHtmlForCreation_mid
+		// Start of user code affectsTestResultasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code affectsTestResultsasHtmlForCreation_finalize
+		// Start of user code affectsTestResultasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String blocksTestExecutionRecordsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String blocksTestExecutionRecordToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code blocksTestExecutionRecordsasHtmlForCreation_init
+		// Start of user code blocksTestExecutionRecordasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"blocksTestExecutionRecord\">blocksTestExecutionRecord: </LABEL>";
 
-		// Start of user code blocksTestExecutionRecordsasHtmlForCreation_mid
+		// Start of user code blocksTestExecutionRecordasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code blocksTestExecutionRecordsasHtmlForCreation_finalize
+		// Start of user code blocksTestExecutionRecordasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String contributorsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String contributorToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code contributorsasHtmlForCreation_init
+		// Start of user code contributorasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"contributor\">contributor: </LABEL>";
 
-		// Start of user code contributorsasHtmlForCreation_mid
+		// Start of user code contributorasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code contributorsasHtmlForCreation_finalize
+		// Start of user code contributorasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String creatorsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String creatorToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code creatorsasHtmlForCreation_init
+		// Start of user code creatorasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"creator\">creator: </LABEL>";
 
-		// Start of user code creatorsasHtmlForCreation_mid
+		// Start of user code creatorasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code creatorsasHtmlForCreation_finalize
+		// Start of user code creatorasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String dctermsTypesToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String dctermsTypeToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code dctermsTypesasHtmlForCreation_init
+		// Start of user code dctermsTypeasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"type\">type: </LABEL>";
 
-		// Start of user code dctermsTypesasHtmlForCreation_mid
+		// Start of user code dctermsTypeasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code dctermsTypesasHtmlForCreation_finalize
+		// Start of user code dctermsTypeasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String implementsRequirementsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String implementsRequirementToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code implementsRequirementsasHtmlForCreation_init
+		// Start of user code implementsRequirementasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"implementsRequirement\">implementsRequirement: </LABEL>";
 
-		// Start of user code implementsRequirementsasHtmlForCreation_mid
+		// Start of user code implementsRequirementasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code implementsRequirementsasHtmlForCreation_finalize
+		// Start of user code implementsRequirementasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String relatedChangeRequestsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String relatedChangeRequestToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code relatedChangeRequestsasHtmlForCreation_init
+		// Start of user code relatedChangeRequestasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"relatedChangeRequest\">relatedChangeRequest: </LABEL>";
 
-		// Start of user code relatedChangeRequestsasHtmlForCreation_mid
+		// Start of user code relatedChangeRequestasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code relatedChangeRequestsasHtmlForCreation_finalize
+		// Start of user code relatedChangeRequestasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String relatedTestCasesToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String relatedTestCaseToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code relatedTestCasesasHtmlForCreation_init
+		// Start of user code relatedTestCaseasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"relatedTestCase\">relatedTestCase: </LABEL>";
 
-		// Start of user code relatedTestCasesasHtmlForCreation_mid
+		// Start of user code relatedTestCaseasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code relatedTestCasesasHtmlForCreation_finalize
+		// Start of user code relatedTestCaseasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String relatedTestExecutionRecordsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String relatedTestExecutionRecordToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code relatedTestExecutionRecordsasHtmlForCreation_init
+		// Start of user code relatedTestExecutionRecordasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"relatedTestExecutionRecord\">relatedTestExecutionRecord: </LABEL>";
 
-		// Start of user code relatedTestExecutionRecordsasHtmlForCreation_mid
+		// Start of user code relatedTestExecutionRecordasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code relatedTestExecutionRecordsasHtmlForCreation_finalize
+		// Start of user code relatedTestExecutionRecordasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String relatedTestPlansToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String relatedTestPlanToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code relatedTestPlansasHtmlForCreation_init
+		// Start of user code relatedTestPlanasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"relatedTestPlan\">relatedTestPlan: </LABEL>";
 
-		// Start of user code relatedTestPlansasHtmlForCreation_mid
+		// Start of user code relatedTestPlanasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code relatedTestPlansasHtmlForCreation_finalize
+		// Start of user code relatedTestPlanasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String relatedTestScriptsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String relatedTestScriptToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code relatedTestScriptsasHtmlForCreation_init
+		// Start of user code relatedTestScriptasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"relatedTestScript\">relatedTestScript: </LABEL>";
 
-		// Start of user code relatedTestScriptsasHtmlForCreation_mid
+		// Start of user code relatedTestScriptasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code relatedTestScriptsasHtmlForCreation_finalize
+		// Start of user code relatedTestScriptasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String subjectsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String subjectToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code subjectsasHtmlForCreation_init
+		// Start of user code subjectasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"subject\">subject: </LABEL>";
 
-		// Start of user code subjectsasHtmlForCreation_mid
+		// Start of user code subjectasHtmlForCreation_mid
 		// End of user code
 
 				s= s + "<input name=\"subject\" type=\"text\" style=\"width: 400px\" id=\"subject\" >";
 
-		// Start of user code subjectsasHtmlForCreation_finalize
+		// Start of user code subjectasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String testedByTestCasesToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String testedByTestCaseToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code testedByTestCasesasHtmlForCreation_init
+		// Start of user code testedByTestCaseasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"testedByTestCase\">testedByTestCase: </LABEL>";
 
-		// Start of user code testedByTestCasesasHtmlForCreation_mid
+		// Start of user code testedByTestCaseasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code testedByTestCasesasHtmlForCreation_finalize
+		// Start of user code testedByTestCaseasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String tracksChangeSetsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String tracksChangeSetToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code tracksChangeSetsasHtmlForCreation_init
+		// Start of user code tracksChangeSetasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"tracksChangeSet\">tracksChangeSet: </LABEL>";
 
-		// Start of user code tracksChangeSetsasHtmlForCreation_mid
+		// Start of user code tracksChangeSetasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code tracksChangeSetsasHtmlForCreation_finalize
+		// Start of user code tracksChangeSetasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String tracksRequirementsToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String tracksRequirementToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code tracksRequirementsasHtmlForCreation_init
+		// Start of user code tracksRequirementasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"tracksRequirement\">tracksRequirement: </LABEL>";
 
-		// Start of user code tracksRequirementsasHtmlForCreation_mid
+		// Start of user code tracksRequirementasHtmlForCreation_mid
 		// End of user code
 
 
-		// Start of user code tracksRequirementsasHtmlForCreation_finalize
+		// Start of user code tracksRequirementasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
     }
-    static public String rdfTypesToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
+    static public String rdfTypeToHtmlForCreation (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
 		String s = "";
 
-		// Start of user code rdfTypesasHtmlForCreation_init
+		// Start of user code rdfTypeasHtmlForCreation_init
 		// End of user code
 
 		s = s + "<label for=\"type\">type: </LABEL>";
 
-		// Start of user code rdfTypesasHtmlForCreation_mid
+		// Start of user code rdfTypeasHtmlForCreation_mid
 		// End of user code
 
 				s= s + "<input name=\"type\" type=\"text\" style=\"width: 400px\" id=\"type\" >";
 
-		// Start of user code rdfTypesasHtmlForCreation_finalize
+		// Start of user code rdfTypeasHtmlForCreation_finalize
 		// End of user code
 
 		return s; 
@@ -1705,21 +1705,21 @@ public String toHtml(boolean asLocalResource)
 		return s; 
     }
 
-    public String affectedByDefectsToHtml()
+    public String affectedByDefectToHtml()
     {
 		String s = "";
 
-		// Start of user code affectedByDefectstoHtml_init
+		// Start of user code affectedByDefecttoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"affectedByDefect\"><strong>affectedByDefect</strong>: </LABEL>";
 
-		// Start of user code affectedByDefectstoHtml_mid
+		// Start of user code affectedByDefecttoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = affectedByDefects.iterator();
+				Iterator<Link> itr = affectedByDefect.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -1735,26 +1735,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code affectedByDefectstoHtml_finalize
+		// Start of user code affectedByDefecttoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String affectsPlanItemsToHtml()
+    public String affectsPlanItemToHtml()
     {
 		String s = "";
 
-		// Start of user code affectsPlanItemstoHtml_init
+		// Start of user code affectsPlanItemtoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"affectsPlanItem\"><strong>affectsPlanItem</strong>: </LABEL>";
 
-		// Start of user code affectsPlanItemstoHtml_mid
+		// Start of user code affectsPlanItemtoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = affectsPlanItems.iterator();
+				Iterator<Link> itr = affectsPlanItem.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -1770,26 +1770,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code affectsPlanItemstoHtml_finalize
+		// Start of user code affectsPlanItemtoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String affectsRequirementsToHtml()
+    public String affectsRequirementToHtml()
     {
 		String s = "";
 
-		// Start of user code affectsRequirementstoHtml_init
+		// Start of user code affectsRequirementtoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"affectsRequirement\"><strong>affectsRequirement</strong>: </LABEL>";
 
-		// Start of user code affectsRequirementstoHtml_mid
+		// Start of user code affectsRequirementtoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = affectsRequirements.iterator();
+				Iterator<Link> itr = affectsRequirement.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -1805,26 +1805,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code affectsRequirementstoHtml_finalize
+		// Start of user code affectsRequirementtoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String affectsTestResultsToHtml()
+    public String affectsTestResultToHtml()
     {
 		String s = "";
 
-		// Start of user code affectsTestResultstoHtml_init
+		// Start of user code affectsTestResulttoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"affectsTestResult\"><strong>affectsTestResult</strong>: </LABEL>";
 
-		// Start of user code affectsTestResultstoHtml_mid
+		// Start of user code affectsTestResulttoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = affectsTestResults.iterator();
+				Iterator<Link> itr = affectsTestResult.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -1840,26 +1840,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code affectsTestResultstoHtml_finalize
+		// Start of user code affectsTestResulttoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String blocksTestExecutionRecordsToHtml()
+    public String blocksTestExecutionRecordToHtml()
     {
 		String s = "";
 
-		// Start of user code blocksTestExecutionRecordstoHtml_init
+		// Start of user code blocksTestExecutionRecordtoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"blocksTestExecutionRecord\"><strong>blocksTestExecutionRecord</strong>: </LABEL>";
 
-		// Start of user code blocksTestExecutionRecordstoHtml_mid
+		// Start of user code blocksTestExecutionRecordtoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = blocksTestExecutionRecords.iterator();
+				Iterator<Link> itr = blocksTestExecutionRecord.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -1875,26 +1875,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code blocksTestExecutionRecordstoHtml_finalize
+		// Start of user code blocksTestExecutionRecordtoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String contributorsToHtml()
+    public String contributorToHtml()
     {
 		String s = "";
 
-		// Start of user code contributorstoHtml_init
+		// Start of user code contributortoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"contributor\"><strong>contributor</strong>: </LABEL>";
 
-		// Start of user code contributorstoHtml_mid
+		// Start of user code contributortoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Person> itr = contributors.iterator();
+				Iterator<Person> itr = contributor.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
 						s = s + itr.next().toHtml(true);
@@ -1905,26 +1905,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code contributorstoHtml_finalize
+		// Start of user code contributortoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String creatorsToHtml()
+    public String creatorToHtml()
     {
 		String s = "";
 
-		// Start of user code creatorstoHtml_init
+		// Start of user code creatortoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"creator\"><strong>creator</strong>: </LABEL>";
 
-		// Start of user code creatorstoHtml_mid
+		// Start of user code creatortoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Person> itr = creators.iterator();
+				Iterator<Person> itr = creator.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
 						s = s + itr.next().toHtml(true);
@@ -1935,26 +1935,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code creatorstoHtml_finalize
+		// Start of user code creatortoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String dctermsTypesToHtml()
+    public String dctermsTypeToHtml()
     {
 		String s = "";
 
-		// Start of user code dctermsTypestoHtml_init
+		// Start of user code dctermsTypetoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"type\"><strong>type</strong>: </LABEL>";
 
-		// Start of user code dctermsTypestoHtml_mid
+		// Start of user code dctermsTypetoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Type> itr = dctermsTypes.iterator();
+				Iterator<Type> itr = dctermsType.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
 						s = s + itr.next().toHtml(true);
@@ -1965,26 +1965,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code dctermsTypestoHtml_finalize
+		// Start of user code dctermsTypetoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String implementsRequirementsToHtml()
+    public String implementsRequirementToHtml()
     {
 		String s = "";
 
-		// Start of user code implementsRequirementstoHtml_init
+		// Start of user code implementsRequirementtoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"implementsRequirement\"><strong>implementsRequirement</strong>: </LABEL>";
 
-		// Start of user code implementsRequirementstoHtml_mid
+		// Start of user code implementsRequirementtoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = implementsRequirements.iterator();
+				Iterator<Link> itr = implementsRequirement.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -2000,26 +2000,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code implementsRequirementstoHtml_finalize
+		// Start of user code implementsRequirementtoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String relatedChangeRequestsToHtml()
+    public String relatedChangeRequestToHtml()
     {
 		String s = "";
 
-		// Start of user code relatedChangeRequeststoHtml_init
+		// Start of user code relatedChangeRequesttoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"relatedChangeRequest\"><strong>relatedChangeRequest</strong>: </LABEL>";
 
-		// Start of user code relatedChangeRequeststoHtml_mid
+		// Start of user code relatedChangeRequesttoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = relatedChangeRequests.iterator();
+				Iterator<Link> itr = relatedChangeRequest.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -2035,26 +2035,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code relatedChangeRequeststoHtml_finalize
+		// Start of user code relatedChangeRequesttoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String relatedTestCasesToHtml()
+    public String relatedTestCaseToHtml()
     {
 		String s = "";
 
-		// Start of user code relatedTestCasestoHtml_init
+		// Start of user code relatedTestCasetoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"relatedTestCase\"><strong>relatedTestCase</strong>: </LABEL>";
 
-		// Start of user code relatedTestCasestoHtml_mid
+		// Start of user code relatedTestCasetoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = relatedTestCases.iterator();
+				Iterator<Link> itr = relatedTestCase.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -2070,26 +2070,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code relatedTestCasestoHtml_finalize
+		// Start of user code relatedTestCasetoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String relatedTestExecutionRecordsToHtml()
+    public String relatedTestExecutionRecordToHtml()
     {
 		String s = "";
 
-		// Start of user code relatedTestExecutionRecordstoHtml_init
+		// Start of user code relatedTestExecutionRecordtoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"relatedTestExecutionRecord\"><strong>relatedTestExecutionRecord</strong>: </LABEL>";
 
-		// Start of user code relatedTestExecutionRecordstoHtml_mid
+		// Start of user code relatedTestExecutionRecordtoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = relatedTestExecutionRecords.iterator();
+				Iterator<Link> itr = relatedTestExecutionRecord.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -2105,26 +2105,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code relatedTestExecutionRecordstoHtml_finalize
+		// Start of user code relatedTestExecutionRecordtoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String relatedTestPlansToHtml()
+    public String relatedTestPlanToHtml()
     {
 		String s = "";
 
-		// Start of user code relatedTestPlanstoHtml_init
+		// Start of user code relatedTestPlantoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"relatedTestPlan\"><strong>relatedTestPlan</strong>: </LABEL>";
 
-		// Start of user code relatedTestPlanstoHtml_mid
+		// Start of user code relatedTestPlantoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = relatedTestPlans.iterator();
+				Iterator<Link> itr = relatedTestPlan.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -2140,26 +2140,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code relatedTestPlanstoHtml_finalize
+		// Start of user code relatedTestPlantoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String relatedTestScriptsToHtml()
+    public String relatedTestScriptToHtml()
     {
 		String s = "";
 
-		// Start of user code relatedTestScriptstoHtml_init
+		// Start of user code relatedTestScripttoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"relatedTestScript\"><strong>relatedTestScript</strong>: </LABEL>";
 
-		// Start of user code relatedTestScriptstoHtml_mid
+		// Start of user code relatedTestScripttoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = relatedTestScripts.iterator();
+				Iterator<Link> itr = relatedTestScript.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -2175,26 +2175,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code relatedTestScriptstoHtml_finalize
+		// Start of user code relatedTestScripttoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String subjectsToHtml()
+    public String subjectToHtml()
     {
 		String s = "";
 
-		// Start of user code subjectstoHtml_init
+		// Start of user code subjecttoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"subject\"><strong>subject</strong>: </LABEL>";
 
-		// Start of user code subjectstoHtml_mid
+		// Start of user code subjecttoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<String> itr = subjects.iterator();
+				Iterator<String> itr = subject.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
 					s= s + itr.next().toString();
@@ -2205,26 +2205,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code subjectstoHtml_finalize
+		// Start of user code subjecttoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String testedByTestCasesToHtml()
+    public String testedByTestCaseToHtml()
     {
 		String s = "";
 
-		// Start of user code testedByTestCasestoHtml_init
+		// Start of user code testedByTestCasetoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"testedByTestCase\"><strong>testedByTestCase</strong>: </LABEL>";
 
-		// Start of user code testedByTestCasestoHtml_mid
+		// Start of user code testedByTestCasetoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = testedByTestCases.iterator();
+				Iterator<Link> itr = testedByTestCase.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -2240,26 +2240,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code testedByTestCasestoHtml_finalize
+		// Start of user code testedByTestCasetoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String tracksChangeSetsToHtml()
+    public String tracksChangeSetToHtml()
     {
 		String s = "";
 
-		// Start of user code tracksChangeSetstoHtml_init
+		// Start of user code tracksChangeSettoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"tracksChangeSet\"><strong>tracksChangeSet</strong>: </LABEL>";
 
-		// Start of user code tracksChangeSetstoHtml_mid
+		// Start of user code tracksChangeSettoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = tracksChangeSets.iterator();
+				Iterator<Link> itr = tracksChangeSet.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -2275,26 +2275,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code tracksChangeSetstoHtml_finalize
+		// Start of user code tracksChangeSettoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String tracksRequirementsToHtml()
+    public String tracksRequirementToHtml()
     {
 		String s = "";
 
-		// Start of user code tracksRequirementstoHtml_init
+		// Start of user code tracksRequirementtoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"tracksRequirement\"><strong>tracksRequirement</strong>: </LABEL>";
 
-		// Start of user code tracksRequirementstoHtml_mid
+		// Start of user code tracksRequirementtoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<Link> itr = tracksRequirements.iterator();
+				Iterator<Link> itr = tracksRequirement.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
                             if (itr.next().getValue() == null) {
@@ -2310,26 +2310,26 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code tracksRequirementstoHtml_finalize
+		// Start of user code tracksRequirementtoHtml_finalize
 		// End of user code
 
 		return s; 
     }
-    public String rdfTypesToHtml()
+    public String rdfTypeToHtml()
     {
 		String s = "";
 
-		// Start of user code rdfTypestoHtml_init
+		// Start of user code rdfTypetoHtml_init
 		// End of user code
 
 		s = s + "<label for=\"type\"><strong>type</strong>: </LABEL>";
 
-		// Start of user code rdfTypestoHtml_mid
+		// Start of user code rdfTypetoHtml_mid
 		// End of user code
 
 		try {
 		        s = s + "<ul>";
-				Iterator<URI> itr = rdfTypes.iterator();
+				Iterator<URI> itr = rdfType.iterator();
 				while(itr.hasNext()) {
 					s = s + "<li>";
 					s= s + itr.next().toString();
@@ -2340,7 +2340,7 @@ public String toHtml(boolean asLocalResource)
 	        e.printStackTrace();
 	    }
 
-		// Start of user code rdfTypestoHtml_finalize
+		// Start of user code rdfTypetoHtml_finalize
 		// End of user code
 
 		return s; 

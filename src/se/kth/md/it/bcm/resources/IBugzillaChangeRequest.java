@@ -64,124 +64,92 @@ import org.eclipse.lyo.oslc4j.core.model.ValueType;
 
 import se.kth.md.it.bcm.servlet.ServletListener; 
 import se.kth.md.it.bcm.BugzillaAdaptorConstants;
+import se.kth.md.it.bcm.resources.IPerson;	
+import se.kth.md.it.bcm.resources.IPerson;	
+import se.kth.md.it.bcm.resources.IType;	
 
 // Start of user code imports
 // End of user code
 
-@OslcNamespace(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE)
-@OslcName(BugzillaAdaptorConstants.TYPE) 
-@OslcResourceShape(title = "Type Resource Shape", describes = BugzillaAdaptorConstants.TYPE_TYPE)
-public class Type
-	extends AbstractResource
-	implements IType
+@OslcNamespace(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE)
+@OslcName(BugzillaAdaptorConstants.BUGZILLACHANGEREQUEST) 
+@OslcResourceShape(title = "BugzillaChangeRequest Resource Shape", describes = BugzillaAdaptorConstants.TYPE_BUGZILLACHANGEREQUEST)
+public interface IBugzillaChangeRequest
 {
 
 
-public Type()
-       throws URISyntaxException
-{
-    super();
+   	@OslcName("product")
+   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "product")
+	@OslcDescription("")
+	@OslcOccurs(Occurs.ExactlyOne)
+	@OslcValueType(ValueType.String)
+	
+	
+	@OslcReadOnly(false)
+	
+    public String getProduct();
 
-	// Start of user code constructor1
-	// End of user code
-}
+   	@OslcName("component")
+   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "component")
+	@OslcDescription("The Bugzilla product definition for this change request.")
+	@OslcOccurs(Occurs.ZeroOrOne)
+	@OslcValueType(ValueType.String)
+	
+	
+	@OslcReadOnly(false)
+	@OslcTitle("Component")
+    public String getComponent();
 
-public Type(final URI about)
-       throws URISyntaxException
-{
-    super(about);
+   	@OslcName("version")
+   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "version")
+	@OslcDescription("The Bugzilla version for this change request.")
+	@OslcOccurs(Occurs.ZeroOrOne)
+	@OslcValueType(ValueType.String)
+	
+	
+	@OslcReadOnly(true)
+	@OslcTitle("Version")
+    public String getVersion();
 
-	// Start of user code constructor2
-	// End of user code
-}
+   	@OslcName("priority")
+   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "priority")
+	@OslcDescription("The Bugzilla priority for this change request.")
+	@OslcOccurs(Occurs.ZeroOrOne)
+	@OslcValueType(ValueType.String)
+	
+	
+	@OslcReadOnly(false)
+	@OslcTitle("Priority")
+    public String getPriority();
 
-public Type(final String serviceProviderId, final String typeId)
-       throws URISyntaxException
-{
-	this (constructURI(serviceProviderId, typeId));
-	// Start of user code constructor3
-	// End of user code
-}
+   	@OslcName("platform")
+   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "platform")
+	@OslcDescription("The Bugzilla platform for this change request.")
+	@OslcOccurs(Occurs.ZeroOrOne)
+	@OslcValueType(ValueType.String)
+	
+	
+	@OslcReadOnly(false)
+	@OslcTitle("Platform")
+    public String getPlatform();
 
-public static URI constructURI(final String serviceProviderId, final String typeId)
-{
-    String basePath = ServletListener.getServicesBase();
-    Map<String, Object> pathParameters = new HashMap<String, Object>();
-    pathParameters.put("serviceProviderId", serviceProviderId);
-
-    pathParameters.put("typeId", typeId);
-    String instanceURI = "serviceProviders/{serviceProviderId}/types/{typeId}";
-  
-    final UriBuilder builder = UriBuilder.fromUri(basePath);
-    return builder.path(instanceURI).buildFromMap(pathParameters);
-}
-
-public static Link constructLink(final String serviceProviderId, final String typeId , final String label)
-{
-	return new Link(constructURI(serviceProviderId, typeId), label);
-}
-
-public static Link constructLink(final String serviceProviderId, final String typeId)
-{
-	return new Link(constructURI(serviceProviderId, typeId));
-}
-
-public String toString()
-{
-	return toString(false);
-}
-
-public String toString(boolean asLocalResource)
-{
-		String result = "";
-		// Start of user code toString_init
-		// End of user code
-
-		if (asLocalResource) {
-			result = result + "{a Local Type Resource} - update Type.toString() to present resource as desired.";
-			// Start of user code toString_bodyForLocalResource
-			// End of user code
-		}
-		else {
-			result = getAbout().toString();
-		}
-
-		// Start of user code toString_finalize
-		// End of user code
-
-		return result;
-}
-
-public String toHtml()
-{
-	return toHtml(false);
-}
-
-public String toHtml(boolean asLocalResource)
-{
-		String result = "";
-		// Start of user code toHtml_init
-		// End of user code
-
-		if (asLocalResource) {
-			result = toString(true);
-			// Start of user code toHtml_bodyForLocalResource
-			// End of user code
-		}
-		else {
-			result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
-		}
-
-		// Start of user code toHtml_finalize
-		// End of user code
-
-		return result;
-}
+   	@OslcName("operatingSystem")
+   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "operatingSystem")
+	@OslcDescription("The Bugzilla operating system for this change request.")
+	@OslcOccurs(Occurs.ZeroOrOne)
+	@OslcValueType(ValueType.String)
+	
+	
+	@OslcReadOnly(false)
+	@OslcTitle("Operating System")
+    public String getOperatingSystem();
 
 
-
-
-
-
+    public void setProduct(final String product );
+    public void setComponent(final String component );
+    public void setVersion(final String version );
+    public void setPriority(final String priority );
+    public void setPlatform(final String platform );
+    public void setOperatingSystem(final String operatingSystem );
 }
 

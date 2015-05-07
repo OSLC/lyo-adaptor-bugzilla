@@ -72,8 +72,8 @@ import se.kth.md.it.bcm.BugzillaAdaptorConstants;
 @OslcName(BugzillaAdaptorConstants.PERSON) 
 @OslcResourceShape(title = "Person Resource Shape", describes = BugzillaAdaptorConstants.TYPE_PERSON)
 public class Person
-       extends AbstractResource
-       
+	extends AbstractResource
+	implements IPerson
 {
 
 private String name;  
