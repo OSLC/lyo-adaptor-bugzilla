@@ -241,7 +241,3 @@ End of user code
 		
 	</body>
 </html>
-
-
-
-

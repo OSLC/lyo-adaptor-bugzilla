@@ -33,43 +33,43 @@ public interface BugzillaAdaptorConstants
 	// Start of user code user constants
 	// End of user code
 
-		public static String BUGZILLA_DOMAIN = "http://www.bugzilla.org/rdf#";
+	public static String BUGZILLA_DOMAIN = "http://www.bugzilla.org/rdf#";
 public static String BUGZILLA_NAMSPACE = "http://www.bugzilla.org/rdf#";
 public static String BUGZILLA_NAMSPACE_PREFIX = "bugz";
 
-		public static String CHANGE_MANAGEMENT_DOMAIN = "http://open-services.net/ns/cm#";
+	public static String CHANGE_MANAGEMENT_DOMAIN = "http://open-services.net/ns/cm#";
 public static String CHANGE_MANAGEMENT_NAMSPACE = "http://open-services.net/ns/cm#";
 public static String CHANGE_MANAGEMENT_NAMSPACE_PREFIX = "oslc_cm";
 
-		public static String DUBLIN_CORE_DOMAIN = "http://purl.org/dc/terms/";
+	public static String DUBLIN_CORE_DOMAIN = "http://purl.org/dc/terms/";
 public static String DUBLIN_CORE_NAMSPACE = "http://purl.org/dc/terms/";
 public static String DUBLIN_CORE_NAMSPACE_PREFIX = "dcterms";
 
-		public static String FOAF_DOMAIN = "http://xmlns.com/foaf/0.1/";
+	public static String FOAF_DOMAIN = "http://xmlns.com/foaf/0.1/";
 public static String FOAF_NAMSPACE = "http://xmlns.com/foaf/0.1/";
 public static String FOAF_NAMSPACE_PREFIX = "foaf";
 
-		public static String OSLC_CORE_DOMAIN = "http://open-services.net/ns/core#";
+	public static String OSLC_CORE_DOMAIN = "http://open-services.net/ns/core#";
 public static String OSLC_CORE_NAMSPACE = "http://open-services.net/ns/core#";
 public static String OSLC_CORE_NAMSPACE_PREFIX = "oslc";
 
-		public static String RDF_DOMAIN = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+	public static String RDF_DOMAIN = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
 public static String RDF_NAMSPACE = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
 public static String RDF_NAMSPACE_PREFIX = "rdf";
 
 
-	    public static String BUGZILLACHANGEREQUEST = "bugzillaChangeRequest";
+	public static String BUGZILLACHANGEREQUEST = "bugzillaChangeRequest";
 public static String PATH_BUGZILLACHANGEREQUEST = "bugzillaChangeRequest";
-public static String TYPE_BUGZILLACHANGEREQUEST = BUGZILLA_NAMSPACE + "BugzillaChangeRequest";
-	    public static String CHANGEREQUEST = "changeRequest";
+public static String TYPE_BUGZILLACHANGEREQUEST = BUGZILLA_NAMSPACE + "bugzillaChangeRequest";
+	public static String CHANGEREQUEST = "changeRequest";
 public static String PATH_CHANGEREQUEST = "changeRequest";
-public static String TYPE_CHANGEREQUEST = CHANGE_MANAGEMENT_NAMSPACE + "ChangeRequest";
-	    public static String PERSON = "person";
+public static String TYPE_CHANGEREQUEST = CHANGE_MANAGEMENT_NAMSPACE + "changeRequest";
+	public static String PERSON = "person";
 public static String PATH_PERSON = "person";
-public static String TYPE_PERSON = FOAF_NAMSPACE + "Person";
-	    public static String TYPE = "type";
+public static String TYPE_PERSON = FOAF_NAMSPACE + "person";
+	public static String TYPE = "type";
 public static String PATH_TYPE = "type";
-public static String TYPE_TYPE = DUBLIN_CORE_NAMSPACE + "Type";
+public static String TYPE_TYPE = DUBLIN_CORE_NAMSPACE + "type";
 
     public static final String HDR_OSLC_VERSION = "OSLC-Core-Version";
 

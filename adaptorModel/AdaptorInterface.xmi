@@ -7,9 +7,10 @@
       <services>
         <domainSpecification href="platform:/resource/org.eclipse.lyo.oslc4j.adaptormodel/model/OSLCChangeManagementSpecification.xmi#//@domainSpecifications.0"/>
         <creationFactories title="Change Request Creation Factory" label="Change Request Creation" creationURI="" resourceTypes="//@specification/@domainSpecifications.1/@resources.0"/>
-        <queryCapabilities title="Change Request Query Capability" label="Change Request Catalog Query" resourceTypes="//@specification/@domainSpecifications.1/@resources.0"/>
+        <queryCapabilities title="Change Request Query Capability" label="Change Request Catalog Query" queryBaseURI="" resourceTypes="//@specification/@domainSpecifications.1/@resources.0"/>
         <selectionDialogs title="Change Request Selection Dialog" label="Change Request Selection Dialog" dialogURI="selector" hintWidth="525" hintHeight="325" resourceTypes="//@specification/@domainSpecifications.1/@resources.0"/>
         <creationDialogs title="Change Request Creation Dialog" label="Change Request Creation Dialog" dialogURI="creator" hintWidth="600" hintHeight="375" resourceTypes="//@specification/@domainSpecifications.1/@resources.0"/>
+        <basicCapabilities resourceTypes="//@specification/@domainSpecifications.1/@resources.0"/>
       </services>
     </serviceProviders>
   </serviceProviderCatalog>

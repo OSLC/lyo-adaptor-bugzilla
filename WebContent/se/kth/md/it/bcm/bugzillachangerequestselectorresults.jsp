@@ -21,6 +21,7 @@
 <%@ page import="java.net.*" %> 
 <%@ page import="java.util.*" %>
 <%@page import="org.eclipse.lyo.oslc4j.core.model.ServiceProvider"%>
+<%@page import="org.eclipse.lyo.oslc4j.core.model.AbstractResource"%>
 <%@page import="se.kth.md.it.bcm.resources.BugzillaChangeRequest"%>
 <%--
 Start of user code imports

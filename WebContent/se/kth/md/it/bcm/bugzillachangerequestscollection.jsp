@@ -20,6 +20,7 @@
 --%>
 
 <%@page import="org.eclipse.lyo.oslc4j.core.model.ServiceProvider"%>
+<%@page import="org.eclipse.lyo.oslc4j.core.model.AbstractResource"%>
 <%@page import="java.util.List" %>
 <%@page import="se.kth.md.it.bcm.resources.BugzillaChangeRequest"%>
 <%--
@@ -49,7 +50,7 @@ End of user code
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-		<title>BugzillaChangeRequest Query</title>
+		<title>Change Request Query Capability</title>
 		<%-- 
 Start of user code (RECOMMENDED) headStuff 
 		--%>
@@ -73,7 +74,7 @@ End of user code
 				<tr>
 					<td id="title">
 						<p>
-							BugzillaChangeRequest Query
+							Change Request Query Capability
 						</p>
 					</td>
 					<td id="information">
@@ -97,8 +98,8 @@ End of user code
 	
 				<h1>Query Results</h1>
 
-                <% for (BugzillaChangeRequest aBugzillaChangeRequest : resources) { %>                
-                <p>Summary: <%= aBugzillaChangeRequest.toHtml() %><br /></p>
+                <% for (BugzillaChangeRequest aResource : resources) { %>
+	            <p>Summary: <%= aResource.toHtml() %><br /></p>
 			    <% } %>
             	<% if (nextPageUri != null) { %><a href="<%= nextPageUri %>">Next Page</a><% } %>
 
@@ -115,4 +116,3 @@ End of user code
 		</div>
 	</body>
 </html>
-

@@ -151,7 +151,7 @@ public class ServiceProviderCatalogService
 			// End of user code
 
 
-	        RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/serviceProviderCatalog_html.jsp");
+	        RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/serviceprovidercatalog.jsp");
     		try {
 				rd.forward(httpServletRequest, httpServletResponse);
 			} catch (Exception e) {				

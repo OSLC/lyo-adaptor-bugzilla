@@ -131,7 +131,7 @@ public class ServiceProviderService
 		// Start of user code getHtmlServiceProvider_setAttributes
 			// End of user code
 
-        RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/serviceProvider_html.jsp");
+        RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/serviceprovider.jsp");
 		try {
 			rd.forward(httpServletRequest, httpServletResponse);
 		} catch (Exception e) {				
