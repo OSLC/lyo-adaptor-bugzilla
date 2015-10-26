@@ -1023,6 +1023,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:affectedByDefectToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1041,6 +1042,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:affectsPlanItemToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1059,6 +1061,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:affectsRequirementToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1077,6 +1080,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:affectsTestResultToHtmlForCreation(...)"
+    	s ="";
     	// End of user code
     
     	return s; 
@@ -1095,6 +1099,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:blocksTestExecutionRecordToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1113,6 +1118,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:contributorToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1131,6 +1137,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:creatorToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1149,6 +1156,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:dctermsTypeToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1167,6 +1175,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:implementsRequirementToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1185,6 +1194,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:relatedChangeRequestToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1203,6 +1213,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:relatedTestCaseToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1221,6 +1232,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:relatedTestExecutionRecordToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1239,6 +1251,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:relatedTestPlanToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1257,6 +1270,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:relatedTestScriptToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1276,6 +1290,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"subject\" type=\"text\" style=\"width: 400px\" id=\"subject\" >";
     	// Start of user code "Finalize:subjectToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1294,6 +1309,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:testedByTestCaseToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1312,6 +1328,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:tracksChangeSetToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1330,6 +1347,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:tracksRequirementToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1349,6 +1367,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"type\" type=\"text\" style=\"width: 400px\" id=\"type\" >";
     	// Start of user code "Finalize:rdfTypeToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1368,6 +1387,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"approved\" type=\"radio\" value=\"true\">True<input name=\"approved\" type=\"radio\" value=\"false\">False";
     	// Start of user code "Finalize:approvedToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1387,6 +1407,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"closed\" type=\"radio\" value=\"true\">True<input name=\"closed\" type=\"radio\" value=\"false\">False";
     	// Start of user code "Finalize:closedToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1404,8 +1425,11 @@ public String toHtml(boolean asLocalResource)
     	// Start of user code "Mid:closeDateToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"closeDate\" type=\"text\" style=\"width: 400px\" id=\"closeDate\" >";
+    	s= s + "<input name=\"closeDate\" type=\"text\" id=\"closeDate\">";
     	// Start of user code "Finalize:closeDateToHtmlForCreation(...)"
+    	
+    	s = s + "(MM/DD/YYYY)";
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1423,8 +1447,9 @@ public String toHtml(boolean asLocalResource)
     	// Start of user code "Mid:createdToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"created\" type=\"text\" style=\"width: 400px\" id=\"created\" >";
+    	s= s + "<input name=\"created\" type=\"text\" id=\"created\" >";
     	// Start of user code "Finalize:createdToHtmlForCreation(...)"
+    	s = s + "(MM/DD/YYYY)";
     	// End of user code
     
     	return s; 
@@ -1462,6 +1487,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:discussedByToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1481,6 +1507,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"fixed\" type=\"radio\" value=\"true\">True<input name=\"fixed\" type=\"radio\" value=\"false\">False";
     	// Start of user code "Finalize:fixedToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1500,6 +1527,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"identifier\" type=\"text\" style=\"width: 400px\" id=\"identifier\" >";
     	// Start of user code "Finalize:identifierToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1519,6 +1547,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"inprogress\" type=\"radio\" value=\"true\">True<input name=\"inprogress\" type=\"radio\" value=\"false\">False";
     	// Start of user code "Finalize:inprogressToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1537,6 +1566,7 @@ public String toHtml(boolean asLocalResource)
     	// End of user code
     
     	// Start of user code "Finalize:instanceShapeToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1554,8 +1584,10 @@ public String toHtml(boolean asLocalResource)
     	// Start of user code "Mid:modifiedToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"modified\" type=\"text\" style=\"width: 400px\" id=\"modified\" >";
+    	s= s + "<input name=\"modified\" type=\"text\" id=\"modified\" >";
     	// Start of user code "Finalize:modifiedToHtmlForCreation(...)"
+    	s = s + "(MM/DD/YYYY)";
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1575,6 +1607,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"reviewed\" type=\"radio\" value=\"true\">True<input name=\"reviewed\" type=\"radio\" value=\"false\">False";
     	// Start of user code "Finalize:reviewedToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1594,6 +1627,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"serviceProvider\" type=\"text\" style=\"width: 400px\" id=\"serviceProvider\" >";
     	// Start of user code "Finalize:serviceProviderToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1613,6 +1647,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"shortTitle\" type=\"text\" style=\"width: 400px\" id=\"shortTitle\" >";
     	// Start of user code "Finalize:shortTitleToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1632,6 +1667,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"status\" type=\"text\" style=\"width: 400px\" id=\"status\" >";
     	// Start of user code "Finalize:statusToHtmlForCreation(...)"
+    	s="";
     	// End of user code
     
     	return s; 
@@ -1670,6 +1706,7 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"verified\" type=\"radio\" value=\"true\">True<input name=\"verified\" type=\"radio\" value=\"false\">False";
     	// Start of user code "Finalize:verifiedToHtmlForCreation(...)"
+    	s = "";
     	// End of user code
     
     	return s; 
@@ -1707,6 +1744,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code affectedByDefecttoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -1742,6 +1780,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code affectsPlanItemtoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -1777,6 +1816,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code affectsRequirementtoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -1812,6 +1852,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code affectsTestResulttoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -1847,6 +1888,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code blocksTestExecutionRecordtoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -1877,6 +1919,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code contributortoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -1907,6 +1950,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code creatortoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -1937,6 +1981,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code dctermsTypetoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -1972,6 +2017,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code implementsRequirementtoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -2007,6 +2053,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code relatedChangeRequesttoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -2042,6 +2089,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code relatedTestCasetoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -2077,6 +2125,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code relatedTestExecutionRecordtoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -2112,6 +2161,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code relatedTestPlantoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -2147,6 +2197,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code relatedTestScripttoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -2177,6 +2228,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code subjecttoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2212,6 +2264,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code testedByTestCasetoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -2247,6 +2300,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code tracksChangeSettoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -2282,6 +2336,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code tracksRequirementtoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -2312,6 +2367,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code rdfTypetoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2340,6 +2396,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code approvedtoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2368,6 +2425,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code closedtoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2396,6 +2454,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code closeDatetoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2482,6 +2541,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code discussedBytoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -2510,6 +2570,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code fixedtoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2538,6 +2599,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code identifiertoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2566,6 +2628,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code inprogresstoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2596,6 +2659,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code instanceShapetoHtml_finalize
+		s = "";
 		// End of user code
 
 		return s; 
@@ -2624,6 +2688,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code modifiedtoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2652,6 +2717,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code reviewedtoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2680,6 +2746,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code serviceProvidertoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2708,6 +2775,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code shortTitletoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2736,6 +2804,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code statustoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 
@@ -2792,6 +2861,7 @@ public String toHtml(boolean asLocalResource)
 	    }
 
 		// Start of user code verifiedtoHtml_finalize
+		s="";
 		// End of user code
 
 		return s; 

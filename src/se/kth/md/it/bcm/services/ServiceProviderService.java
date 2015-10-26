@@ -129,6 +129,7 @@ public class ServiceProviderService
         httpServletRequest.setAttribute("serviceProvider", serviceProvider);
         httpServletRequest.setAttribute("services", services);
 		// Start of user code getHtmlServiceProvider_setAttributes
+        httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
 			// End of user code
 
         RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/serviceprovider.jsp");

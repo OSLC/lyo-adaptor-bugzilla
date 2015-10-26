@@ -41,7 +41,7 @@ End of user code
 Start of user code getRequestAttributes
 --%>
 <%
-String bugzillaUri = "https://landfill.bugzilla.org/bugzilla-4.0-branch/";
+String bugzillaUri = (String) request.getAttribute("bugzillaUri");
 %>
 <%--
 End of user code
@@ -91,7 +91,7 @@ End of user code
 				<%-- 
 Start of user code (RECOMMENDED) bodyStuff1 
 				--%>
-				<img src="../../images/resources/bugzilla.gif" alt="icon" width="80" height="80" />
+				<img src="../../../images/resources/bugzilla.gif" alt="icon" width="80" height="80" />
 				<%-- 
 End of user code 
 				--%>

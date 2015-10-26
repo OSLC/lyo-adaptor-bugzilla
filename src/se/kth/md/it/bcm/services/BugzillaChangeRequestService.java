@@ -182,6 +182,7 @@ public class BugzillaChangeRequestService
         if (resources!= null) {
         	httpServletRequest.setAttribute("resources", resources);
 			// Start of user code queryBugzillaChangeRequestsAsHtml_setAttributes
+        	httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
 			// End of user code
 
         	httpServletRequest.setAttribute("queryUri", 
@@ -238,6 +239,7 @@ public class BugzillaChangeRequestService
 
 			httpServletRequest.setAttribute("selectionUri",uriInfo.getAbsolutePath().toString());
 			// Start of user code BugzillaChangeRequestSelector_setAttributes
+			httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
 			// End of user code
 
 			if (terms != null ) {
@@ -316,6 +318,8 @@ public class BugzillaChangeRequestService
         ) throws IOException, ServletException
     {
 		// Start of user code BugzillaChangeRequestCreator
+    	httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
+    	httpServletRequest.setAttribute("creatorUri", uriInfo.getAbsolutePath().toString());
 		// End of user code
 
         httpServletRequest.setAttribute("serviceProviderId", serviceProviderId);
@@ -694,7 +698,7 @@ public class BugzillaChangeRequestService
 	    		httpServletResponse.setStatus(Status.CREATED.getStatusCode());
 	    		httpServletResponse.addHeader("Location", newResource.getAbout().toString());
 	    		PrintWriter out = httpServletResponse.getWriter();
-	    		out.print("{" + "\"resource\" : \"" + newResource.getAbout().toString() + "\"}");
+	    		out.print("{"+"\"title\":\""+ newResource.getTitle()+"\"," + "\"resource\" : \"" + newResource.getAbout().toString() + "\"}");
 	    		out.close();
 			}
     	} catch (Exception e) {
@@ -759,6 +763,7 @@ public class BugzillaChangeRequestService
         if (aBugzillaChangeRequest != null) {
         	httpServletRequest.setAttribute("aBugzillaChangeRequest", aBugzillaChangeRequest);
 			// Start of user code getBugzillaChangeRequestAsHtml_setAttributes
+        	httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
 			// End of user code
 
         	RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequest.jsp");

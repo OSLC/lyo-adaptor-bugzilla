@@ -22,6 +22,7 @@
 <%@page import="org.eclipse.lyo.oslc4j.core.model.ServiceProvider"%>
 <%@page import="java.util.List" %>
 <%@page import="se.kth.md.it.bcm.resources.BugzillaChangeRequest"%>
+<%@page import="se.kth.md.it.bcm.servlet.ServletListener"%>
 <%--
 Start of user code imports
 --%>
@@ -39,7 +40,8 @@ End of user code
 Start of user code getRequestAttributes
 --%>
 <%
-	String bugzillaUri = "https://landfill.bugzilla.org/bugzilla-4.0-branch/";
+	String bugzillaUri = (String) request.getAttribute("bugzillaUri");
+	String creatorUri = (String) request.getAttribute("creatorUri");
 %>
 <%--
 End of user code
@@ -60,6 +62,18 @@ Start of user code (RECOMMENDED) headStuff
 		<link href="<%=bugzillaUri%>/skins/contrib/Dusk/index.css" rel="stylesheet" title="Dusk" type="text/css">
 		<link href="<%=bugzillaUri%>/skins/custom/global.css" rel="stylesheet" type="text/css">
 		<link href="<%=bugzillaUri%>/skins/custom/index.css" rel="stylesheet" type="text/css">
+		
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
+		<script>
+		  $(function() {
+		    $( "#closeDate" ).datepicker();
+			$( "#modified" ).datepicker();
+			$( "#created" ).datepicker();
+		  });
+		  </script>
+		  <script type="text/javascript" src="<%=ServletListener.getServletBase() %>/delegatedUI.js"></script>
 		<%-- 
 End of user code 
 		--%>
@@ -75,7 +89,7 @@ End of user code
 		--%>
 				<table style="clear: both;">
 					<tr>
-						<td><%= BugzillaChangeRequest.productToHtmlForCreation1(request, serviceProviderId)%></td>
+						<td><%= BugzillaChangeRequest.titleToHtmlForCreation(request)%></td>
 					</tr>
 					<tr>
 						<td><%= BugzillaChangeRequest.componentToHtmlForCreation1(request, serviceProviderId)%></td>
@@ -91,6 +105,15 @@ End of user code
 					</tr>
 					<tr>
 						<td><%= BugzillaChangeRequest.operatingSystemToHtmlForCreation1(request, serviceProviderId)%></td>
+					</tr>
+					<tr>
+						<td><%= BugzillaChangeRequest.createdToHtmlForCreation(request)%></td>
+					</tr>
+					<tr>
+						<td><%= BugzillaChangeRequest.descriptionToHtmlForCreation(request)%></td>
+					</tr>
+					<tr>
+						<td><%= BugzillaChangeRequest.productToHtmlForCreation1(request, serviceProviderId)%></td>
 					</tr>
 					<tr>
 						<td><%= BugzillaChangeRequest.affectedByDefectToHtmlForCreation(request)%></td>
@@ -159,12 +182,6 @@ End of user code
 						<td><%= BugzillaChangeRequest.closeDateToHtmlForCreation(request)%></td>
 					</tr>
 					<tr>
-						<td><%= BugzillaChangeRequest.createdToHtmlForCreation(request)%></td>
-					</tr>
-					<tr>
-						<td><%= BugzillaChangeRequest.descriptionToHtmlForCreation(request)%></td>
-					</tr>
-					<tr>
 						<td><%= BugzillaChangeRequest.discussedByToHtmlForCreation(request)%></td>
 					</tr>
 					<tr>
@@ -193,17 +210,16 @@ End of user code
 					</tr>
 					<tr>
 						<td><%= BugzillaChangeRequest.statusToHtmlForCreation(request)%></td>
-					</tr>
-					<tr>
-						<td><%= BugzillaChangeRequest.titleToHtmlForCreation(request)%></td>
-					</tr>
+					</tr>		
 					<tr>
 						<td><%= BugzillaChangeRequest.verifiedToHtmlForCreation(request)%></td>
 					</tr>
 					<tr>
 						<td></td>
 						<td>
-							<input type="submit" value="Submit">
+							<input type="button"
+								value="Submit Bug"
+								onclick="javascript: create( '<%= creatorUri %>' )">
 							<input type="reset">
 						</td>
 					</tr>

@@ -37,7 +37,7 @@ ServiceProviderCatalog catalog = (ServiceProviderCatalog)request.getAttribute("c
 Start of user code getRequestAttributes
 --%>
 <%
-String bugzillaUri = "https://landfill.bugzilla.org/bugzilla-4.0-branch/";
+String bugzillaUri = (String) request.getAttribute("bugzillaUri");
 %>
 <%--
 End of user code

@@ -188,6 +188,8 @@ public String toHtml(boolean asLocalResource)
 		}
 
 		// Start of user code toHtml_finalize
+		// For change request collection page, show title and link separately
+		result = toString() + "<div><a href='"+getAbout()+"'>"+getAbout()+"</a></div>";
 		// End of user code
 
 		return result;
@@ -337,6 +339,8 @@ public String toHtml(boolean asLocalResource)
     
     	s= s + "<input name=\"product\" type=\"text\" style=\"width: 400px\" id=\"product\" >";
     	// Start of user code "Finalize:productToHtmlForCreation1(...final String serviceProviderId)"
+    	//remove product input filed in creator page.
+    	s= "";
     	// End of user code
     
     	return s; 
@@ -477,11 +481,28 @@ public String toHtml(boolean asLocalResource)
     
     	s = s + "<label for=\"priority\">priority: </LABEL>";
     
-    	// Start of user code "Mid:priorityToHtmlForCreation1(...final String serviceProviderId)"
+    	// Start of user code "Mid:priorityToHtmlForCreation1(...final String serviceProviderId)"\
+    	String label = s;
     	// End of user code
     
     	s= s + "<input name=\"priority\" type=\"text\" style=\"width: 400px\" id=\"priority\" >";
     	// Start of user code "Finalize:priorityToHtmlForCreation1(...final String serviceProviderId)"
+    	
+    	s = label;
+		try {
+					BugzillaConnector bc = BugzillaAdaptorManager.getBugzillaConnector(httpServletRequest);
+					GetLegalValues getValues = new GetLegalValues("priority", -1);
+					bc.executeMethod(getValues);
+					List<String> values = Arrays.asList(getValues.getValues());
+					s = s + "<select name=\"priority\">";
+					for (String v : values) {
+						s = s + "<option value=\"" + v + "\">" + v + "</option>";
+					}
+					s = s + "</select>";
+			} catch (Exception e) {
+				throw new WebApplicationException(e);
+			}
+		
     	// End of user code
     
     	return s; 

@@ -38,7 +38,7 @@ End of user code
 Start of user code getRequestAttributes
 --%>
 <%
-String bugzillaUri = "https://landfill.bugzilla.org/bugzilla-4.0-branch/";
+String bugzillaUri = (String) request.getAttribute("bugzillaUri");
 %>
 <%--
 End of user code
@@ -88,7 +88,7 @@ End of user code
 				<%-- 
 Start of user code (RECOMMENDED) bodyStuff1 
 				--%>
-				<img src="../../images/resources/bugzilla.gif" alt="icon" width="80" height="80" />				
+				<img src="../../../../images/resources/bugzilla.gif" alt="icon" width="80" height="80" />				
 				<%-- 
 End of user code 
 				--%>
@@ -96,7 +96,10 @@ End of user code
 				<h1>Resource Presentation</h1>
                 <p>Summary: <%= aBugzillaChangeRequest.toHtml() %><br /></p>
 				<h2>Properties</h2>
-				<table style="clear: both;">
+				<table style="clear: both;margin-left:0;">
+					<tr>
+						<td><%= aBugzillaChangeRequest.titleToHtml()%></td>
+					</tr>
 					<tr>
 						<td><%= aBugzillaChangeRequest.productToHtml()%></td>
 					</tr>
@@ -114,6 +117,12 @@ End of user code
 					</tr>
 					<tr>
 						<td><%= aBugzillaChangeRequest.operatingSystemToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.createdToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.descriptionToHtml()%></td>
 					</tr>
 					<tr>
 						<td><%= aBugzillaChangeRequest.affectedByDefectToHtml()%></td>
@@ -182,12 +191,6 @@ End of user code
 						<td><%= aBugzillaChangeRequest.closeDateToHtml()%></td>
 					</tr>
 					<tr>
-						<td><%= aBugzillaChangeRequest.createdToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.descriptionToHtml()%></td>
-					</tr>
-					<tr>
 						<td><%= aBugzillaChangeRequest.discussedByToHtml()%></td>
 					</tr>
 					<tr>
@@ -217,9 +220,7 @@ End of user code
 					<tr>
 						<td><%= aBugzillaChangeRequest.statusToHtml()%></td>
 					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.titleToHtml()%></td>
-					</tr>
+				
 					<tr>
 						<td><%= aBugzillaChangeRequest.verifiedToHtml()%></td>
 					</tr>

@@ -40,7 +40,7 @@ End of user code
 Start of user code getRequestAttributes
 --%>
 <%
-String bugzillaUri = "https://landfill.bugzilla.org/bugzilla-4.0-branch/";
+String bugzillaUri = (String) request.getAttribute("bugzillaUri");
 %>
 <%--
 End of user code
@@ -68,7 +68,7 @@ End of user code
 		<script type="text/javascript" src="<%=ServletListener.getServletBase() %>/delegatedUI.js"></script>
 	</head>
 	<body style="padding: 10px;">
-		<div id="selector-body">
+		<div id="bugzilla-body">
 			<p id="searchMessage">Find a specific resource through a free-text search.</p>
 
 			<p id="loadingMessage" style="display: none;">Pondering your search. Please stand by ...</p>

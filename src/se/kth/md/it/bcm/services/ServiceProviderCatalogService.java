@@ -148,6 +148,7 @@ public class ServiceProviderCatalogService
     	{
 	        httpServletRequest.setAttribute("catalog",catalog);
 			// Start of user code getHtmlServiceProvider_setAttributes
+	        httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
 			// End of user code
 
 

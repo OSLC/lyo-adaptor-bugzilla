@@ -45,6 +45,7 @@ import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.util.Properties;
+import java.io.FileInputStream;
 
 import org.eclipse.lyo.oslc4j.client.ServiceProviderRegistryURIs;
 import org.eclipse.lyo.oslc4j.core.model.Link;
@@ -94,11 +95,17 @@ public class BugzillaAdaptorManager {
     static {
         Properties props = new Properties();
         try {
-        	//I simply could not get this load function to work. I get exceptions, and too tired to make it work. 
-        	//I am instead simply hard coding the 2 variables for now.
-            //props.load(BugzillaAdaptorManager.class.getResourceAsStream("/test/resources/bugz.properties"));
-        	bugzillaUri="https://landfill.bugzilla.org/bugzilla-4.0-branch/";
-           	admin="jelkhoury@hotmail.com";
+        	//bugz.properties file is placed out of package of BugzillaAdaptorManager, getResourceAsStream can't be used.
+        	//FileInputStream is used instead.
+        	String dir = System.getProperty("user.dir");
+        	FileInputStream propertyFilePath = new FileInputStream(dir+"/test/resources/bugz.properties");
+        	props.load(propertyFilePath);
+        	bugzillaUri = props.getProperty("bugzilla_uri");
+        	// normalize the URI so it never ends with '/'
+        	if (bugzillaUri != null && bugzillaUri.endsWith("/")) {
+        		bugzillaUri = bugzillaUri.substring(0, bugzillaUri.length() - 1);
+        	}
+           	admin = props.getProperty("admin");
             System.out.println("bugzilla_uri: " + bugzillaUri);
             System.out.println("admin: " + admin);
             
@@ -422,7 +429,10 @@ public class BugzillaAdaptorManager {
 	        for (Integer p : productIds) {
 	        	serviceProviderInfo = new ServiceProviderInfo();
 	        	//Check the original Lyo labs to see how one can extract the product name here.
-	        	serviceProviderInfo.name = "Some Name";
+	        	GetProduct getProductMethod = new GetProduct(p);
+	        	bc.executeMethod(getProductMethod);
+	        	serviceProviderInfo.name = getProductMethod.getProduct().getName();
+	        	//serviceProviderInfo.name = "Some Name"; 
 	        	serviceProviderInfo.serviceProviderId = Integer.toString(p);
 	        	serviceProviderInfos[index] = serviceProviderInfo; 
 	        	index++;
