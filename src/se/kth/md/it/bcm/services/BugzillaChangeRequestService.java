@@ -36,6 +36,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -464,7 +465,7 @@ public class BugzillaChangeRequestService
 				paramValues = httpServletRequest.getParameterValues("type");
 				if (paramValues != null) {
 			    		for(int i=0; i<paramValues.length; i++) {
-							aResource.addType(new Type(new URI(paramValues[i])));
+							aResource.addDctermsType(new Type(new URI(paramValues[i])));
 						}
 				}			
 				paramValues = httpServletRequest.getParameterValues("implementsRequirement");
@@ -530,7 +531,7 @@ public class BugzillaChangeRequestService
 				paramValues = httpServletRequest.getParameterValues("type");
 				if (paramValues != null) {
 			    		for(int i=0; i<paramValues.length; i++) {
-							aResource.addType(new URI(paramValues[i]));
+							aResource.addRdfType(new URI(paramValues[i]));
 						}
 				}			
 				paramValues = httpServletRequest.getParameterValues("approved");
@@ -698,7 +699,7 @@ public class BugzillaChangeRequestService
 	    		httpServletResponse.setStatus(Status.CREATED.getStatusCode());
 	    		httpServletResponse.addHeader("Location", newResource.getAbout().toString());
 	    		PrintWriter out = httpServletResponse.getWriter();
-	    		out.print("{"+"\"title\":\""+ newResource.getTitle()+"\"," + "\"resource\" : \"" + newResource.getAbout().toString() + "\"}");
+	    		out.print("{" + "\"resource\" : \"" + newResource.getAbout().toString() + "\"}");
 	    		out.close();
 			}
     	} catch (Exception e) {
@@ -772,4 +773,5 @@ public class BugzillaChangeRequestService
 
         throw new WebApplicationException(Status.NOT_FOUND);
 	}
+
 }
