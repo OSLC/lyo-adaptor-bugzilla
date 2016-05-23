@@ -699,7 +699,7 @@ public class BugzillaChangeRequestService
 	    		httpServletResponse.setStatus(Status.CREATED.getStatusCode());
 	    		httpServletResponse.addHeader("Location", newResource.getAbout().toString());
 	    		PrintWriter out = httpServletResponse.getWriter();
-	    		out.print("{" + "\"resource\" : \"" + newResource.getAbout().toString() + "\"}");
+	    		out.print("{"+"\"title\":\""+ newResource.getTitle()+"\"," + "\"resource\" : \"" + newResource.getAbout().toString() + "\"}");
 	    		out.close();
 			}
     	} catch (Exception e) {
