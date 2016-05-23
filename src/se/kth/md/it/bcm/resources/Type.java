@@ -46,6 +46,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import org.eclipse.lyo.oslc4j.core.annotation.OslcAllowedValue;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcDescription;
+import org.eclipse.lyo.oslc4j.core.annotation.OslcMemberProperty;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcName;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcNamespace;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcOccurs;
@@ -69,6 +70,11 @@ import se.kth.md.it.bcm.BugzillaAdaptorConstants;
 // Start of user code imports
 // End of user code
 
+// Start of user code preClassCode
+// End of user code
+
+// Start of user code classAnnotations
+// End of user code
 @OslcNamespace(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE)
 @OslcName(BugzillaAdaptorConstants.TYPE) 
 @OslcResourceShape(title = "Type Resource Shape", describes = BugzillaAdaptorConstants.TYPE_TYPE)
@@ -77,6 +83,12 @@ public class Type
 	implements IType
 {
 
+
+// Start of user code classAttributes
+// End of user code
+
+// Start of user code classMethods
+// End of user code
 
 public Type()
        throws URISyntaxException

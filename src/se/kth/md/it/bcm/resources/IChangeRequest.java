@@ -44,6 +44,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import org.eclipse.lyo.oslc4j.core.annotation.OslcAllowedValue;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcDescription;
+import org.eclipse.lyo.oslc4j.core.annotation.OslcMemberProperty;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcName;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcNamespace;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcOccurs;
@@ -83,7 +84,7 @@ public interface IChangeRequest
     public void addBlocksTestExecutionRecord(final Link blocksTestExecutionRecord );
     public void addContributor(final Person contributor );
     public void addCreator(final Person creator );
-    public void addType(final Type type );
+    public void addDctermsType(final Type type );
     public void addImplementsRequirement(final Link implementsRequirement );
     public void addRelatedChangeRequest(final Link relatedChangeRequest );
     public void addRelatedTestCase(final Link relatedTestCase );
@@ -94,400 +95,329 @@ public interface IChangeRequest
     public void addTestedByTestCase(final Link testedByTestCase );
     public void addTracksChangeSet(final Link tracksChangeSet );
     public void addTracksRequirement(final Link tracksRequirement );
-    public void addType(final URI type );
+    public void addRdfType(final URI type );
 
-   	@OslcName("affectedByDefect")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectedByDefect")
+	@OslcName("affectedByDefect")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectedByDefect")
 	@OslcDescription("Change request is affected by a reported defect. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getAffectedByDefect();
 
-   	@OslcName("affectsPlanItem")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsPlanItem")
+	@OslcName("affectsPlanItem")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsPlanItem")
 	@OslcDescription("Change request affects a plan item. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getAffectsPlanItem();
 
-   	@OslcName("affectsRequirement")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsRequirement")
+	@OslcName("affectsRequirement")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsRequirement")
 	@OslcDescription("Change request affecting a Requirement. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getAffectsRequirement();
 
-   	@OslcName("affectsTestResult")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsTestResult")
+	@OslcName("affectsTestResult")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsTestResult")
 	@OslcDescription("Associated QM resource that is affected by this Change Request. It is likely that the target resource will be an oslc_qm:TestResult but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getAffectsTestResult();
 
-   	@OslcName("blocksTestExecutionRecord")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "blocksTestExecutionRecord")
+	@OslcName("blocksTestExecutionRecord")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "blocksTestExecutionRecord")
 	@OslcDescription("Associated QM resource that is blocked by this Change Request. It is likely that the target resource will be an oslc_qm:TestExecutionRecord but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getBlocksTestExecutionRecord();
 
-   	@OslcName("contributor")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "contributor")
+	@OslcName("contributor")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "contributor")
 	@OslcDescription("Contributor or contributors to the resource. It is likely that the target resource will be a foaf:Person but that is not necessarily the case. ")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.LocalResource)
-	
-	@OslcRange(BugzillaAdaptorConstants.TYPE_PERSON)
+	@OslcRange({BugzillaAdaptorConstants.TYPE_PERSON})
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Person> getContributor();
 
-   	@OslcName("creator")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "creator")
+	@OslcName("creator")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "creator")
 	@OslcDescription("Creator or creators of resource (reference: Dublin Core). It is likely that the target resource will be a foaf:Person but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.LocalResource)
-	
-	@OslcRange(BugzillaAdaptorConstants.TYPE_PERSON)
+	@OslcRange({BugzillaAdaptorConstants.TYPE_PERSON})
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Person> getCreator();
 
-   	@OslcName("type")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "type")
+	@OslcName("type")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "type")
 	@OslcDescription("A short string representation for the type, example 'Defect'.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.LocalResource)
-	
-	@OslcRange(BugzillaAdaptorConstants.TYPE_TYPE)
+	@OslcRange({BugzillaAdaptorConstants.TYPE_TYPE})
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Type> getDctermsType();
 
-   	@OslcName("implementsRequirement")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "implementsRequirement")
+	@OslcName("implementsRequirement")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "implementsRequirement")
 	@OslcDescription("Implements associated Requirement. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getImplementsRequirement();
 
-   	@OslcName("relatedChangeRequest")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedChangeRequest")
+	@OslcName("relatedChangeRequest")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedChangeRequest")
 	@OslcDescription("This relationship is loosely coupled and has no specific meaning. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getRelatedChangeRequest();
 
-   	@OslcName("relatedTestCase")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestCase")
+	@OslcName("relatedTestCase")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestCase")
 	@OslcDescription("Related QM test case resource. It is likely that the target resource will be an oslc_qm:TestCase but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getRelatedTestCase();
 
-   	@OslcName("relatedTestExecutionRecord")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestExecutionRecord")
+	@OslcName("relatedTestExecutionRecord")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestExecutionRecord")
 	@OslcDescription("Related to a QM test execution resource. It is likely that the target resource will be an oslc_qm:TestExecutionRecord but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getRelatedTestExecutionRecord();
 
-   	@OslcName("relatedTestPlan")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestPlan")
+	@OslcName("relatedTestPlan")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestPlan")
 	@OslcDescription("Related QM test plan resource. It is likely that the target resource will be an oslc_qm:TestPlan but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getRelatedTestPlan();
 
-   	@OslcName("relatedTestScript")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestScript")
+	@OslcName("relatedTestScript")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestScript")
 	@OslcDescription("Related QM test script resource. It is likely that the target resource will be an oslc_qm:TestScript but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getRelatedTestScript();
 
-   	@OslcName("subject")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "subject")
+	@OslcName("subject")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "subject")
 	@OslcDescription("Tag or keyword for a resource. Each occurrence of a dcterms:subject property denotes an additional tag for the resource.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<String> getSubject();
 
-   	@OslcName("testedByTestCase")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "testedByTestCase")
+	@OslcName("testedByTestCase")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "testedByTestCase")
 	@OslcDescription("Test case by which this change request is tested. It is likely that the target resource will be an oslc_qm:TestCase but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getTestedByTestCase();
 
-   	@OslcName("tracksChangeSet")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksChangeSet")
+	@OslcName("tracksChangeSet")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksChangeSet")
 	@OslcDescription("Tracks SCM change set resource. It is likely that the target resource will be an oslc_scm:ChangeSet but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getTracksChangeSet();
 
-   	@OslcName("tracksRequirement")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksRequirement")
+	@OslcName("tracksRequirement")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksRequirement")
 	@OslcDescription("Tracks the associated Requirement or Requirement ChangeSet resources. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getTracksRequirement();
 
-   	@OslcName("type")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.RDF_NAMSPACE + "type")
+	@OslcName("type")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.RDF_NAMSPACE + "type")
 	@OslcDescription("The resource type URIs.")
 	@OslcOccurs(Occurs.ZeroOrMany)
-	
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<URI> getRdfType();
 
-   	@OslcName("approved")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "approved")
+	@OslcName("approved")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "approved")
 	@OslcDescription("Whether or not the Change Request has been approved.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isApproved();
 
-   	@OslcName("closed")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closed")
+	@OslcName("closed")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closed")
 	@OslcDescription("Whether or not the Change Request is completely done, no further fixes or fix verification is needed.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isClosed();
 
-   	@OslcName("closeDate")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closeDate")
+	@OslcName("closeDate")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closeDate")
 	@OslcDescription("The date at which no further activity or work is intended to be conducted.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.DateTime)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Date getCloseDate();
 
-   	@OslcName("created")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "created")
+	@OslcName("created")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "created")
 	@OslcDescription("Timestamp of resource creation")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.DateTime)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Date getCreated();
 
-   	@OslcName("description")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "description")
+	@OslcName("description")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "description")
 	@OslcDescription("Descriptive text about resource represented as rich text in XHTML content. SHOULD include only content that is valid and suitable inside an XHTML <div> element. ")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.XMLLiteral)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public String getDescription();
 
-   	@OslcName("discussedBy")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "discussedBy")
+	@OslcName("discussedBy")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "discussedBy")
 	@OslcDescription("A series of notes and comments about this resource.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public Link getDiscussedBy();
 
-   	@OslcName("fixed")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "fixed")
+	@OslcName("fixed")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "fixed")
 	@OslcDescription("Whether or not the Change Request has been fixed.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isFixed();
 
-   	@OslcName("identifier")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "identifier")
+	@OslcName("identifier")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "identifier")
 	@OslcDescription("A unique identifier for a resource. Typically read-only and assigned by the service provider when a resource is created. Not typically intended for end-user display.")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public String getIdentifier();
 
-   	@OslcName("inprogress")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "inprogress")
+	@OslcName("inprogress")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "inprogress")
 	@OslcDescription("Whether or not the Change Request in a state indicating that active work is occurring. If oslc_cm:inprogress is true, then oslc_cm:fixed and oslc_cm:closed must also be false")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isInprogress();
 
-   	@OslcName("instanceShape")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "instanceShape")
+	@OslcName("instanceShape")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "instanceShape")
 	@OslcDescription("The URI of a Resource Shape that describes the possible properties, occurrence, value types, allowed values and labels. This shape information is useful in displaying the subject resource as well as guiding clients in performing modifications. Instance shapes may be specific to the authenticated user associated with the request that retrieved the resource, the current state of the resource and other factors and thus should not be cached.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public Link getInstanceShape();
 
-   	@OslcName("modified")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "modified")
+	@OslcName("modified")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "modified")
 	@OslcDescription("Timestamp last latest resource modification")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.DateTime)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Date getModified();
 
-   	@OslcName("reviewed")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "reviewed")
+	@OslcName("reviewed")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "reviewed")
 	@OslcDescription("Whether or not the Change Request has been reviewed.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isReviewed();
 
-   	@OslcName("serviceProvider")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "serviceProvider")
+	@OslcName("serviceProvider")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "serviceProvider")
 	@OslcDescription("A link to the resource's OSLC Service Provider. There may be cases when the subject resource is available from a service provider that implements multiple domain specifications, which could result in multiple values for this property. ")
 	@OslcOccurs(Occurs.ExactlyOne)
-	
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public URI getServiceProvider();
 
-   	@OslcName("shortTitle")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "shortTitle")
+	@OslcName("shortTitle")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "shortTitle")
 	@OslcDescription("Shorter form of dcterms:title for the resource represented as rich text in XHTML content. SHOULD include only content that is valid inside an XHTML <span> element.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.XMLLiteral)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public String getShortTitle();
 
-   	@OslcName("status")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "status")
+	@OslcName("status")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "status")
 	@OslcDescription("Used to indicate the status of the change request based on values defined by the service provider. Most often a read-only property. Some possible values may include: 'Submitted', 'Done', 'InProgress', etc.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public String getStatus();
 
-   	@OslcName("title")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "title")
+	@OslcName("title")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "title")
 	@OslcDescription("Title of the resource represented as rich text in XHTML content. SHOULD include only content that is valid inside an XHTML <span> element. ")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.XMLLiteral)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public String getTitle();
 
-   	@OslcName("verified")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "verified")
+	@OslcName("verified")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "verified")
 	@OslcDescription("Whether or not the resolution or fix of the Change Request has been verified.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isVerified();

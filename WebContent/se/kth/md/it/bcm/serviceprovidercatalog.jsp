@@ -113,14 +113,14 @@ Start of user code (RECOMMENDED) bodyStuff2
 End of user code 
 					--%>
 	            </tr>
-	            <tr>
-		            <td><b>Adapter Publisher</b>:</td>
-		            <td>OSLC Tools Project</td>
-	            </tr>
-	            <tr>
-		            <td><b>Adapter Identity</b>:</td>
-		            <td>BugzillaAdaptor</td>
-	            </tr>
+				<tr>
+					<td><b>Adapter Publisher</b>:</td>
+					<td>Bugzilla</td>
+				</tr>
+				<tr>
+					<td><b>Adapter Identity</b>:</td>
+					<td>se.kth.md.it.cm</td>
+				</tr>
             </table>
 			
 			<h2>Service Providers</h2>

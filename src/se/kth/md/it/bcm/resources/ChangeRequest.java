@@ -46,6 +46,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import org.eclipse.lyo.oslc4j.core.annotation.OslcAllowedValue;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcDescription;
+import org.eclipse.lyo.oslc4j.core.annotation.OslcMemberProperty;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcName;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcNamespace;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcOccurs;
@@ -72,6 +73,11 @@ import se.kth.md.it.bcm.resources.Type;
 // Start of user code imports
 // End of user code
 
+// Start of user code preClassCode
+// End of user code
+
+// Start of user code classAnnotations
+// End of user code
 @OslcNamespace(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE)
 @OslcName(BugzillaAdaptorConstants.CHANGEREQUEST) 
 @OslcResourceShape(title = "ChangeRequest Resource Shape", describes = BugzillaAdaptorConstants.TYPE_CHANGEREQUEST)
@@ -80,42 +86,120 @@ public class ChangeRequest
 	implements IChangeRequest
 {
 
+// Start of user code attributeAnnotation:affectedByDefect
+// End of user code
 private HashSet<Link> affectedByDefect = new HashSet<Link>();  
+// Start of user code attributeAnnotation:affectsPlanItem
+// End of user code
 private HashSet<Link> affectsPlanItem = new HashSet<Link>();  
+// Start of user code attributeAnnotation:affectsRequirement
+// End of user code
 private HashSet<Link> affectsRequirement = new HashSet<Link>();  
+// Start of user code attributeAnnotation:affectsTestResult
+// End of user code
 private HashSet<Link> affectsTestResult = new HashSet<Link>();  
+// Start of user code attributeAnnotation:blocksTestExecutionRecord
+// End of user code
 private HashSet<Link> blocksTestExecutionRecord = new HashSet<Link>();  
+// Start of user code attributeAnnotation:contributor
+// End of user code
 private HashSet<Person> contributor = new HashSet<Person>();  
+// Start of user code attributeAnnotation:creator
+// End of user code
 private HashSet<Person> creator = new HashSet<Person>();  
+// Start of user code attributeAnnotation:dctermsType
+// End of user code
 private HashSet<Type> dctermsType = new HashSet<Type>();  
+// Start of user code attributeAnnotation:implementsRequirement
+// End of user code
 private HashSet<Link> implementsRequirement = new HashSet<Link>();  
+// Start of user code attributeAnnotation:relatedChangeRequest
+// End of user code
 private HashSet<Link> relatedChangeRequest = new HashSet<Link>();  
+// Start of user code attributeAnnotation:relatedTestCase
+// End of user code
 private HashSet<Link> relatedTestCase = new HashSet<Link>();  
+// Start of user code attributeAnnotation:relatedTestExecutionRecord
+// End of user code
 private HashSet<Link> relatedTestExecutionRecord = new HashSet<Link>();  
+// Start of user code attributeAnnotation:relatedTestPlan
+// End of user code
 private HashSet<Link> relatedTestPlan = new HashSet<Link>();  
+// Start of user code attributeAnnotation:relatedTestScript
+// End of user code
 private HashSet<Link> relatedTestScript = new HashSet<Link>();  
+// Start of user code attributeAnnotation:subject
+// End of user code
 private HashSet<String> subject = new HashSet<String>();  
+// Start of user code attributeAnnotation:testedByTestCase
+// End of user code
 private HashSet<Link> testedByTestCase = new HashSet<Link>();  
+// Start of user code attributeAnnotation:tracksChangeSet
+// End of user code
 private HashSet<Link> tracksChangeSet = new HashSet<Link>();  
+// Start of user code attributeAnnotation:tracksRequirement
+// End of user code
 private HashSet<Link> tracksRequirement = new HashSet<Link>();  
+// Start of user code attributeAnnotation:rdfType
+// End of user code
 private HashSet<URI> rdfType = new HashSet<URI>();  
+// Start of user code attributeAnnotation:approved
+// End of user code
 private Boolean approved;  
+// Start of user code attributeAnnotation:closed
+// End of user code
 private Boolean closed;  
+// Start of user code attributeAnnotation:closeDate
+// End of user code
 private Date closeDate;  
+// Start of user code attributeAnnotation:created
+// End of user code
 private Date created;  
+// Start of user code attributeAnnotation:description
+// End of user code
 private String description;  
+// Start of user code attributeAnnotation:discussedBy
+// End of user code
 private Link discussedBy = new Link();  
+// Start of user code attributeAnnotation:fixed
+// End of user code
 private Boolean fixed;  
+// Start of user code attributeAnnotation:identifier
+// End of user code
 private String identifier;  
+// Start of user code attributeAnnotation:inprogress
+// End of user code
 private Boolean inprogress;  
+// Start of user code attributeAnnotation:instanceShape
+// End of user code
 private Link instanceShape = new Link();  
+// Start of user code attributeAnnotation:modified
+// End of user code
 private Date modified;  
+// Start of user code attributeAnnotation:reviewed
+// End of user code
 private Boolean reviewed;  
+// Start of user code attributeAnnotation:serviceProvider
+// End of user code
 private URI serviceProvider;  
+// Start of user code attributeAnnotation:shortTitle
+// End of user code
 private String shortTitle;  
+// Start of user code attributeAnnotation:status
+// End of user code
 private String status;  
+// Start of user code attributeAnnotation:title
+// End of user code
 private String title;  
+// Start of user code attributeAnnotation:verified
+// End of user code
 private Boolean verified;  
+
+// Start of user code classAttributes
+// End of user code
+
+// Start of user code classMethods
+// End of user code
 
 public ChangeRequest()
        throws URISyntaxException
@@ -188,827 +272,1152 @@ public String toHtml(boolean asLocalResource)
 		return result;
 }
 
-    public void addAffectedByDefect(final Link affectedByDefect )
+    public void addAffectedByDefect(final Link affectedByDefect)
     {
         this.affectedByDefect.add(affectedByDefect);
     }
-    public void addAffectsPlanItem(final Link affectsPlanItem )
+    public void addAffectsPlanItem(final Link affectsPlanItem)
     {
         this.affectsPlanItem.add(affectsPlanItem);
     }
-    public void addAffectsRequirement(final Link affectsRequirement )
+    public void addAffectsRequirement(final Link affectsRequirement)
     {
         this.affectsRequirement.add(affectsRequirement);
     }
-    public void addAffectsTestResult(final Link affectsTestResult )
+    public void addAffectsTestResult(final Link affectsTestResult)
     {
         this.affectsTestResult.add(affectsTestResult);
     }
-    public void addBlocksTestExecutionRecord(final Link blocksTestExecutionRecord )
+    public void addBlocksTestExecutionRecord(final Link blocksTestExecutionRecord)
     {
         this.blocksTestExecutionRecord.add(blocksTestExecutionRecord);
     }
-    public void addContributor(final Person contributor )
+    public void addContributor(final Person contributor)
     {
         this.contributor.add(contributor);
     }
-    public void addCreator(final Person creator )
+    public void addCreator(final Person creator)
     {
         this.creator.add(creator);
     }
-    public void addType(final Type type )
+    public void addDctermsType(final Type type)
     {
         this.dctermsType.add(type);
     }
-    public void addImplementsRequirement(final Link implementsRequirement )
+    public void addImplementsRequirement(final Link implementsRequirement)
     {
         this.implementsRequirement.add(implementsRequirement);
     }
-    public void addRelatedChangeRequest(final Link relatedChangeRequest )
+    public void addRelatedChangeRequest(final Link relatedChangeRequest)
     {
         this.relatedChangeRequest.add(relatedChangeRequest);
     }
-    public void addRelatedTestCase(final Link relatedTestCase )
+    public void addRelatedTestCase(final Link relatedTestCase)
     {
         this.relatedTestCase.add(relatedTestCase);
     }
-    public void addRelatedTestExecutionRecord(final Link relatedTestExecutionRecord )
+    public void addRelatedTestExecutionRecord(final Link relatedTestExecutionRecord)
     {
         this.relatedTestExecutionRecord.add(relatedTestExecutionRecord);
     }
-    public void addRelatedTestPlan(final Link relatedTestPlan )
+    public void addRelatedTestPlan(final Link relatedTestPlan)
     {
         this.relatedTestPlan.add(relatedTestPlan);
     }
-    public void addRelatedTestScript(final Link relatedTestScript )
+    public void addRelatedTestScript(final Link relatedTestScript)
     {
         this.relatedTestScript.add(relatedTestScript);
     }
-    public void addSubject(final String subject )
+    public void addSubject(final String subject)
     {
         this.subject.add(subject);
     }
-    public void addTestedByTestCase(final Link testedByTestCase )
+    public void addTestedByTestCase(final Link testedByTestCase)
     {
         this.testedByTestCase.add(testedByTestCase);
     }
-    public void addTracksChangeSet(final Link tracksChangeSet )
+    public void addTracksChangeSet(final Link tracksChangeSet)
     {
         this.tracksChangeSet.add(tracksChangeSet);
     }
-    public void addTracksRequirement(final Link tracksRequirement )
+    public void addTracksRequirement(final Link tracksRequirement)
     {
         this.tracksRequirement.add(tracksRequirement);
     }
-    public void addType(final URI type )
+    public void addRdfType(final URI type)
     {
         this.rdfType.add(type);
     }
 
-   	@OslcName("affectedByDefect")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectedByDefect")
+	// Start of user code getterAnnotation:affectedByDefect
+	// End of user code
+	@OslcName("affectedByDefect")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectedByDefect")
 	@OslcDescription("Change request is affected by a reported defect. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getAffectedByDefect()
     {
+		// Start of user code getterInit:affectedByDefect
+		// End of user code
         return affectedByDefect;
     }
 
-   	@OslcName("affectsPlanItem")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsPlanItem")
+	// Start of user code getterAnnotation:affectsPlanItem
+	// End of user code
+	@OslcName("affectsPlanItem")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsPlanItem")
 	@OslcDescription("Change request affects a plan item. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getAffectsPlanItem()
     {
+		// Start of user code getterInit:affectsPlanItem
+		// End of user code
         return affectsPlanItem;
     }
 
-   	@OslcName("affectsRequirement")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsRequirement")
+	// Start of user code getterAnnotation:affectsRequirement
+	// End of user code
+	@OslcName("affectsRequirement")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsRequirement")
 	@OslcDescription("Change request affecting a Requirement. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getAffectsRequirement()
     {
+		// Start of user code getterInit:affectsRequirement
+		// End of user code
         return affectsRequirement;
     }
 
-   	@OslcName("affectsTestResult")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsTestResult")
+	// Start of user code getterAnnotation:affectsTestResult
+	// End of user code
+	@OslcName("affectsTestResult")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsTestResult")
 	@OslcDescription("Associated QM resource that is affected by this Change Request. It is likely that the target resource will be an oslc_qm:TestResult but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getAffectsTestResult()
     {
+		// Start of user code getterInit:affectsTestResult
+		// End of user code
         return affectsTestResult;
     }
 
-   	@OslcName("blocksTestExecutionRecord")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "blocksTestExecutionRecord")
+	// Start of user code getterAnnotation:blocksTestExecutionRecord
+	// End of user code
+	@OslcName("blocksTestExecutionRecord")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "blocksTestExecutionRecord")
 	@OslcDescription("Associated QM resource that is blocked by this Change Request. It is likely that the target resource will be an oslc_qm:TestExecutionRecord but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getBlocksTestExecutionRecord()
     {
+		// Start of user code getterInit:blocksTestExecutionRecord
+		// End of user code
         return blocksTestExecutionRecord;
     }
 
-   	@OslcName("contributor")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "contributor")
+	// Start of user code getterAnnotation:contributor
+	// End of user code
+	@OslcName("contributor")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "contributor")
 	@OslcDescription("Contributor or contributors to the resource. It is likely that the target resource will be a foaf:Person but that is not necessarily the case. ")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.LocalResource)
-	
-	@OslcRange(BugzillaAdaptorConstants.TYPE_PERSON)
+	@OslcRange({BugzillaAdaptorConstants.TYPE_PERSON})
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Person> getContributor()
     {
+		// Start of user code getterInit:contributor
+		// End of user code
         return contributor;
     }
 
-   	@OslcName("creator")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "creator")
+	// Start of user code getterAnnotation:creator
+	// End of user code
+	@OslcName("creator")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "creator")
 	@OslcDescription("Creator or creators of resource (reference: Dublin Core). It is likely that the target resource will be a foaf:Person but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.LocalResource)
-	
-	@OslcRange(BugzillaAdaptorConstants.TYPE_PERSON)
+	@OslcRange({BugzillaAdaptorConstants.TYPE_PERSON})
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Person> getCreator()
     {
+		// Start of user code getterInit:creator
+		// End of user code
         return creator;
     }
 
-   	@OslcName("type")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "type")
+	// Start of user code getterAnnotation:dctermsType
+	// End of user code
+	@OslcName("type")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "type")
 	@OslcDescription("A short string representation for the type, example 'Defect'.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.LocalResource)
-	
-	@OslcRange(BugzillaAdaptorConstants.TYPE_TYPE)
+	@OslcRange({BugzillaAdaptorConstants.TYPE_TYPE})
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Type> getDctermsType()
     {
+		// Start of user code getterInit:dctermsType
+		// End of user code
         return dctermsType;
     }
 
-   	@OslcName("implementsRequirement")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "implementsRequirement")
+	// Start of user code getterAnnotation:implementsRequirement
+	// End of user code
+	@OslcName("implementsRequirement")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "implementsRequirement")
 	@OslcDescription("Implements associated Requirement. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getImplementsRequirement()
     {
+		// Start of user code getterInit:implementsRequirement
+		// End of user code
         return implementsRequirement;
     }
 
-   	@OslcName("relatedChangeRequest")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedChangeRequest")
+	// Start of user code getterAnnotation:relatedChangeRequest
+	// End of user code
+	@OslcName("relatedChangeRequest")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedChangeRequest")
 	@OslcDescription("This relationship is loosely coupled and has no specific meaning. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getRelatedChangeRequest()
     {
+		// Start of user code getterInit:relatedChangeRequest
+		// End of user code
         return relatedChangeRequest;
     }
 
-   	@OslcName("relatedTestCase")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestCase")
+	// Start of user code getterAnnotation:relatedTestCase
+	// End of user code
+	@OslcName("relatedTestCase")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestCase")
 	@OslcDescription("Related QM test case resource. It is likely that the target resource will be an oslc_qm:TestCase but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getRelatedTestCase()
     {
+		// Start of user code getterInit:relatedTestCase
+		// End of user code
         return relatedTestCase;
     }
 
-   	@OslcName("relatedTestExecutionRecord")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestExecutionRecord")
+	// Start of user code getterAnnotation:relatedTestExecutionRecord
+	// End of user code
+	@OslcName("relatedTestExecutionRecord")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestExecutionRecord")
 	@OslcDescription("Related to a QM test execution resource. It is likely that the target resource will be an oslc_qm:TestExecutionRecord but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getRelatedTestExecutionRecord()
     {
+		// Start of user code getterInit:relatedTestExecutionRecord
+		// End of user code
         return relatedTestExecutionRecord;
     }
 
-   	@OslcName("relatedTestPlan")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestPlan")
+	// Start of user code getterAnnotation:relatedTestPlan
+	// End of user code
+	@OslcName("relatedTestPlan")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestPlan")
 	@OslcDescription("Related QM test plan resource. It is likely that the target resource will be an oslc_qm:TestPlan but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getRelatedTestPlan()
     {
+		// Start of user code getterInit:relatedTestPlan
+		// End of user code
         return relatedTestPlan;
     }
 
-   	@OslcName("relatedTestScript")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestScript")
+	// Start of user code getterAnnotation:relatedTestScript
+	// End of user code
+	@OslcName("relatedTestScript")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestScript")
 	@OslcDescription("Related QM test script resource. It is likely that the target resource will be an oslc_qm:TestScript but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getRelatedTestScript()
     {
+		// Start of user code getterInit:relatedTestScript
+		// End of user code
         return relatedTestScript;
     }
 
-   	@OslcName("subject")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "subject")
+	// Start of user code getterAnnotation:subject
+	// End of user code
+	@OslcName("subject")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "subject")
 	@OslcDescription("Tag or keyword for a resource. Each occurrence of a dcterms:subject property denotes an additional tag for the resource.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<String> getSubject()
     {
+		// Start of user code getterInit:subject
+		// End of user code
         return subject;
     }
 
-   	@OslcName("testedByTestCase")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "testedByTestCase")
+	// Start of user code getterAnnotation:testedByTestCase
+	// End of user code
+	@OslcName("testedByTestCase")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "testedByTestCase")
 	@OslcDescription("Test case by which this change request is tested. It is likely that the target resource will be an oslc_qm:TestCase but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getTestedByTestCase()
     {
+		// Start of user code getterInit:testedByTestCase
+		// End of user code
         return testedByTestCase;
     }
 
-   	@OslcName("tracksChangeSet")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksChangeSet")
+	// Start of user code getterAnnotation:tracksChangeSet
+	// End of user code
+	@OslcName("tracksChangeSet")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksChangeSet")
 	@OslcDescription("Tracks SCM change set resource. It is likely that the target resource will be an oslc_scm:ChangeSet but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getTracksChangeSet()
     {
+		// Start of user code getterInit:tracksChangeSet
+		// End of user code
         return tracksChangeSet;
     }
 
-   	@OslcName("tracksRequirement")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksRequirement")
+	// Start of user code getterAnnotation:tracksRequirement
+	// End of user code
+	@OslcName("tracksRequirement")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksRequirement")
 	@OslcDescription("Tracks the associated Requirement or Requirement ChangeSet resources. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
 	@OslcOccurs(Occurs.ZeroOrMany)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<Link> getTracksRequirement()
     {
+		// Start of user code getterInit:tracksRequirement
+		// End of user code
         return tracksRequirement;
     }
 
-   	@OslcName("type")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.RDF_NAMSPACE + "type")
+	// Start of user code getterAnnotation:rdfType
+	// End of user code
+	@OslcName("type")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.RDF_NAMSPACE + "type")
 	@OslcDescription("The resource type URIs.")
 	@OslcOccurs(Occurs.ZeroOrMany)
-	
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public HashSet<URI> getRdfType()
     {
+		// Start of user code getterInit:rdfType
+		// End of user code
         return rdfType;
     }
 
-   	@OslcName("approved")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "approved")
+	// Start of user code getterAnnotation:approved
+	// End of user code
+	@OslcName("approved")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "approved")
 	@OslcDescription("Whether or not the Change Request has been approved.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isApproved()
     {
+		// Start of user code getterInit:approved
+		// End of user code
         return approved;
     }
 
-   	@OslcName("closed")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closed")
+	// Start of user code getterAnnotation:closed
+	// End of user code
+	@OslcName("closed")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closed")
 	@OslcDescription("Whether or not the Change Request is completely done, no further fixes or fix verification is needed.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isClosed()
     {
+		// Start of user code getterInit:closed
+		// End of user code
         return closed;
     }
 
-   	@OslcName("closeDate")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closeDate")
+	// Start of user code getterAnnotation:closeDate
+	// End of user code
+	@OslcName("closeDate")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closeDate")
 	@OslcDescription("The date at which no further activity or work is intended to be conducted.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.DateTime)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Date getCloseDate()
     {
+		// Start of user code getterInit:closeDate
+		// End of user code
         return closeDate;
     }
 
-   	@OslcName("created")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "created")
+	// Start of user code getterAnnotation:created
+	// End of user code
+	@OslcName("created")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "created")
 	@OslcDescription("Timestamp of resource creation")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.DateTime)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Date getCreated()
     {
+		// Start of user code getterInit:created
+		// End of user code
         return created;
     }
 
-   	@OslcName("description")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "description")
+	// Start of user code getterAnnotation:description
+	// End of user code
+	@OslcName("description")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "description")
 	@OslcDescription("Descriptive text about resource represented as rich text in XHTML content. SHOULD include only content that is valid and suitable inside an XHTML <div> element. ")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.XMLLiteral)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public String getDescription()
     {
+		// Start of user code getterInit:description
+		// End of user code
         return description;
     }
 
-   	@OslcName("discussedBy")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "discussedBy")
+	// Start of user code getterAnnotation:discussedBy
+	// End of user code
+	@OslcName("discussedBy")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "discussedBy")
 	@OslcDescription("A series of notes and comments about this resource.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public Link getDiscussedBy()
     {
+		// Start of user code getterInit:discussedBy
+		// End of user code
         return discussedBy;
     }
 
-   	@OslcName("fixed")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "fixed")
+	// Start of user code getterAnnotation:fixed
+	// End of user code
+	@OslcName("fixed")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "fixed")
 	@OslcDescription("Whether or not the Change Request has been fixed.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isFixed()
     {
+		// Start of user code getterInit:fixed
+		// End of user code
         return fixed;
     }
 
-   	@OslcName("identifier")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "identifier")
+	// Start of user code getterAnnotation:identifier
+	// End of user code
+	@OslcName("identifier")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "identifier")
 	@OslcDescription("A unique identifier for a resource. Typically read-only and assigned by the service provider when a resource is created. Not typically intended for end-user display.")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public String getIdentifier()
     {
+		// Start of user code getterInit:identifier
+		// End of user code
         return identifier;
     }
 
-   	@OslcName("inprogress")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "inprogress")
+	// Start of user code getterAnnotation:inprogress
+	// End of user code
+	@OslcName("inprogress")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "inprogress")
 	@OslcDescription("Whether or not the Change Request in a state indicating that active work is occurring. If oslc_cm:inprogress is true, then oslc_cm:fixed and oslc_cm:closed must also be false")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isInprogress()
     {
+		// Start of user code getterInit:inprogress
+		// End of user code
         return inprogress;
     }
 
-   	@OslcName("instanceShape")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "instanceShape")
+	// Start of user code getterAnnotation:instanceShape
+	// End of user code
+	@OslcName("instanceShape")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "instanceShape")
 	@OslcDescription("The URI of a Resource Shape that describes the possible properties, occurrence, value types, allowed values and labels. This shape information is useful in displaying the subject resource as well as guiding clients in performing modifications. Instance shapes may be specific to the authenticated user associated with the request that retrieved the resource, the current state of the resource and other factors and thus should not be cached.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Resource)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public Link getInstanceShape()
     {
+		// Start of user code getterInit:instanceShape
+		// End of user code
         return instanceShape;
     }
 
-   	@OslcName("modified")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "modified")
+	// Start of user code getterAnnotation:modified
+	// End of user code
+	@OslcName("modified")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "modified")
 	@OslcDescription("Timestamp last latest resource modification")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.DateTime)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Date getModified()
     {
+		// Start of user code getterInit:modified
+		// End of user code
         return modified;
     }
 
-   	@OslcName("reviewed")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "reviewed")
+	// Start of user code getterAnnotation:reviewed
+	// End of user code
+	@OslcName("reviewed")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "reviewed")
 	@OslcDescription("Whether or not the Change Request has been reviewed.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isReviewed()
     {
+		// Start of user code getterInit:reviewed
+		// End of user code
         return reviewed;
     }
 
-   	@OslcName("serviceProvider")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "serviceProvider")
+	// Start of user code getterAnnotation:serviceProvider
+	// End of user code
+	@OslcName("serviceProvider")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "serviceProvider")
 	@OslcDescription("A link to the resource's OSLC Service Provider. There may be cases when the subject resource is available from a service provider that implements multiple domain specifications, which could result in multiple values for this property. ")
 	@OslcOccurs(Occurs.ExactlyOne)
-	
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public URI getServiceProvider()
     {
+		// Start of user code getterInit:serviceProvider
+		// End of user code
         return serviceProvider;
     }
 
-   	@OslcName("shortTitle")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "shortTitle")
+	// Start of user code getterAnnotation:shortTitle
+	// End of user code
+	@OslcName("shortTitle")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "shortTitle")
 	@OslcDescription("Shorter form of dcterms:title for the resource represented as rich text in XHTML content. SHOULD include only content that is valid inside an XHTML <span> element.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.XMLLiteral)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public String getShortTitle()
     {
+		// Start of user code getterInit:shortTitle
+		// End of user code
         return shortTitle;
     }
 
-   	@OslcName("status")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "status")
+	// Start of user code getterAnnotation:status
+	// End of user code
+	@OslcName("status")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "status")
 	@OslcDescription("Used to indicate the status of the change request based on values defined by the service provider. Most often a read-only property. Some possible values may include: 'Submitted', 'Done', 'InProgress', etc.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public String getStatus()
     {
+		// Start of user code getterInit:status
+		// End of user code
         return status;
     }
 
-   	@OslcName("title")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "title")
+	// Start of user code getterAnnotation:title
+	// End of user code
+	@OslcName("title")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "title")
 	@OslcDescription("Title of the resource represented as rich text in XHTML content. SHOULD include only content that is valid inside an XHTML <span> element. ")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.XMLLiteral)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public String getTitle()
     {
+		// Start of user code getterInit:title
+		// End of user code
         return title;
     }
 
-   	@OslcName("verified")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "verified")
+	// Start of user code getterAnnotation:verified
+	// End of user code
+	@OslcName("verified")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "verified")
 	@OslcDescription("Whether or not the resolution or fix of the Change Request has been verified.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.Boolean)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("")
     public Boolean isVerified()
     {
+		// Start of user code getterInit:verified
+		// End of user code
         return verified;
     }
 
 
+	// Start of user code setterAnnotation:affectedByDefect
+	// End of user code
     public void setAffectedByDefect(final HashSet<Link> affectedByDefect )
     {
+	// Start of user code setterInit:affectedByDefect
+	// End of user code
         this.affectedByDefect.clear();
         if (affectedByDefect != null)
         {
             this.affectedByDefect.addAll(affectedByDefect);
         }
 
+	// Start of user code setterFinalize:affectedByDefect
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:affectsPlanItem
+	// End of user code
     public void setAffectsPlanItem(final HashSet<Link> affectsPlanItem )
     {
+	// Start of user code setterInit:affectsPlanItem
+	// End of user code
         this.affectsPlanItem.clear();
         if (affectsPlanItem != null)
         {
             this.affectsPlanItem.addAll(affectsPlanItem);
         }
 
+	// Start of user code setterFinalize:affectsPlanItem
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:affectsRequirement
+	// End of user code
     public void setAffectsRequirement(final HashSet<Link> affectsRequirement )
     {
+	// Start of user code setterInit:affectsRequirement
+	// End of user code
         this.affectsRequirement.clear();
         if (affectsRequirement != null)
         {
             this.affectsRequirement.addAll(affectsRequirement);
         }
 
+	// Start of user code setterFinalize:affectsRequirement
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:affectsTestResult
+	// End of user code
     public void setAffectsTestResult(final HashSet<Link> affectsTestResult )
     {
+	// Start of user code setterInit:affectsTestResult
+	// End of user code
         this.affectsTestResult.clear();
         if (affectsTestResult != null)
         {
             this.affectsTestResult.addAll(affectsTestResult);
         }
 
+	// Start of user code setterFinalize:affectsTestResult
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:blocksTestExecutionRecord
+	// End of user code
     public void setBlocksTestExecutionRecord(final HashSet<Link> blocksTestExecutionRecord )
     {
+	// Start of user code setterInit:blocksTestExecutionRecord
+	// End of user code
         this.blocksTestExecutionRecord.clear();
         if (blocksTestExecutionRecord != null)
         {
             this.blocksTestExecutionRecord.addAll(blocksTestExecutionRecord);
         }
 
+	// Start of user code setterFinalize:blocksTestExecutionRecord
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:contributor
+	// End of user code
     public void setContributor(final HashSet<Person> contributor )
     {
+	// Start of user code setterInit:contributor
+	// End of user code
         this.contributor.clear();
         if (contributor != null)
         {
             this.contributor.addAll(contributor);
         }
 
+	// Start of user code setterFinalize:contributor
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:creator
+	// End of user code
     public void setCreator(final HashSet<Person> creator )
     {
+	// Start of user code setterInit:creator
+	// End of user code
         this.creator.clear();
         if (creator != null)
         {
             this.creator.addAll(creator);
         }
 
+	// Start of user code setterFinalize:creator
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:dctermsType
+	// End of user code
     public void setDctermsType(final HashSet<Type> type )
     {
+	// Start of user code setterInit:dctermsType
+	// End of user code
         this.dctermsType.clear();
         if (type != null)
         {
             this.dctermsType.addAll(type);
         }
 
+	// Start of user code setterFinalize:dctermsType
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:implementsRequirement
+	// End of user code
     public void setImplementsRequirement(final HashSet<Link> implementsRequirement )
     {
+	// Start of user code setterInit:implementsRequirement
+	// End of user code
         this.implementsRequirement.clear();
         if (implementsRequirement != null)
         {
             this.implementsRequirement.addAll(implementsRequirement);
         }
 
+	// Start of user code setterFinalize:implementsRequirement
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:relatedChangeRequest
+	// End of user code
     public void setRelatedChangeRequest(final HashSet<Link> relatedChangeRequest )
     {
+	// Start of user code setterInit:relatedChangeRequest
+	// End of user code
         this.relatedChangeRequest.clear();
         if (relatedChangeRequest != null)
         {
             this.relatedChangeRequest.addAll(relatedChangeRequest);
         }
 
+	// Start of user code setterFinalize:relatedChangeRequest
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:relatedTestCase
+	// End of user code
     public void setRelatedTestCase(final HashSet<Link> relatedTestCase )
     {
+	// Start of user code setterInit:relatedTestCase
+	// End of user code
         this.relatedTestCase.clear();
         if (relatedTestCase != null)
         {
             this.relatedTestCase.addAll(relatedTestCase);
         }
 
+	// Start of user code setterFinalize:relatedTestCase
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:relatedTestExecutionRecord
+	// End of user code
     public void setRelatedTestExecutionRecord(final HashSet<Link> relatedTestExecutionRecord )
     {
+	// Start of user code setterInit:relatedTestExecutionRecord
+	// End of user code
         this.relatedTestExecutionRecord.clear();
         if (relatedTestExecutionRecord != null)
         {
             this.relatedTestExecutionRecord.addAll(relatedTestExecutionRecord);
         }
 
+	// Start of user code setterFinalize:relatedTestExecutionRecord
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:relatedTestPlan
+	// End of user code
     public void setRelatedTestPlan(final HashSet<Link> relatedTestPlan )
     {
+	// Start of user code setterInit:relatedTestPlan
+	// End of user code
         this.relatedTestPlan.clear();
         if (relatedTestPlan != null)
         {
             this.relatedTestPlan.addAll(relatedTestPlan);
         }
 
+	// Start of user code setterFinalize:relatedTestPlan
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:relatedTestScript
+	// End of user code
     public void setRelatedTestScript(final HashSet<Link> relatedTestScript )
     {
+	// Start of user code setterInit:relatedTestScript
+	// End of user code
         this.relatedTestScript.clear();
         if (relatedTestScript != null)
         {
             this.relatedTestScript.addAll(relatedTestScript);
         }
 
+	// Start of user code setterFinalize:relatedTestScript
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:subject
+	// End of user code
     public void setSubject(final HashSet<String> subject )
     {
+	// Start of user code setterInit:subject
+	// End of user code
         this.subject.clear();
         if (subject != null)
         {
             this.subject.addAll(subject);
         }
 
+	// Start of user code setterFinalize:subject
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:testedByTestCase
+	// End of user code
     public void setTestedByTestCase(final HashSet<Link> testedByTestCase )
     {
+	// Start of user code setterInit:testedByTestCase
+	// End of user code
         this.testedByTestCase.clear();
         if (testedByTestCase != null)
         {
             this.testedByTestCase.addAll(testedByTestCase);
         }
 
+	// Start of user code setterFinalize:testedByTestCase
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:tracksChangeSet
+	// End of user code
     public void setTracksChangeSet(final HashSet<Link> tracksChangeSet )
     {
+	// Start of user code setterInit:tracksChangeSet
+	// End of user code
         this.tracksChangeSet.clear();
         if (tracksChangeSet != null)
         {
             this.tracksChangeSet.addAll(tracksChangeSet);
         }
 
+	// Start of user code setterFinalize:tracksChangeSet
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:tracksRequirement
+	// End of user code
     public void setTracksRequirement(final HashSet<Link> tracksRequirement )
     {
+	// Start of user code setterInit:tracksRequirement
+	// End of user code
         this.tracksRequirement.clear();
         if (tracksRequirement != null)
         {
             this.tracksRequirement.addAll(tracksRequirement);
         }
 
+	// Start of user code setterFinalize:tracksRequirement
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:rdfType
+	// End of user code
     public void setRdfType(final HashSet<URI> type )
     {
+	// Start of user code setterInit:rdfType
+	// End of user code
         this.rdfType.clear();
         if (type != null)
         {
             this.rdfType.addAll(type);
         }
 
+	// Start of user code setterFinalize:rdfType
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:approved
+	// End of user code
     public void setApproved(final Boolean approved )
     {
+	// Start of user code setterInit:approved
+	// End of user code
         this.approved = approved;
+	// Start of user code setterFinalize:approved
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:closed
+	// End of user code
     public void setClosed(final Boolean closed )
     {
+	// Start of user code setterInit:closed
+	// End of user code
         this.closed = closed;
+	// Start of user code setterFinalize:closed
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:closeDate
+	// End of user code
     public void setCloseDate(final Date closeDate )
     {
+	// Start of user code setterInit:closeDate
+	// End of user code
         this.closeDate = closeDate;
+	// Start of user code setterFinalize:closeDate
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:created
+	// End of user code
     public void setCreated(final Date created )
     {
+	// Start of user code setterInit:created
+	// End of user code
         this.created = created;
+	// Start of user code setterFinalize:created
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:description
+	// End of user code
     public void setDescription(final String description )
     {
+	// Start of user code setterInit:description
+	// End of user code
         this.description = description;
+	// Start of user code setterFinalize:description
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:discussedBy
+	// End of user code
     public void setDiscussedBy(final Link discussedBy )
     {
+	// Start of user code setterInit:discussedBy
+	// End of user code
         this.discussedBy = discussedBy;
+	// Start of user code setterFinalize:discussedBy
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:fixed
+	// End of user code
     public void setFixed(final Boolean fixed )
     {
+	// Start of user code setterInit:fixed
+	// End of user code
         this.fixed = fixed;
+	// Start of user code setterFinalize:fixed
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:identifier
+	// End of user code
     public void setIdentifier(final String identifier )
     {
+	// Start of user code setterInit:identifier
+	// End of user code
         this.identifier = identifier;
+	// Start of user code setterFinalize:identifier
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:inprogress
+	// End of user code
     public void setInprogress(final Boolean inprogress )
     {
+	// Start of user code setterInit:inprogress
+	// End of user code
         this.inprogress = inprogress;
+	// Start of user code setterFinalize:inprogress
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:instanceShape
+	// End of user code
     public void setInstanceShape(final Link instanceShape )
     {
+	// Start of user code setterInit:instanceShape
+	// End of user code
         this.instanceShape = instanceShape;
+	// Start of user code setterFinalize:instanceShape
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:modified
+	// End of user code
     public void setModified(final Date modified )
     {
+	// Start of user code setterInit:modified
+	// End of user code
         this.modified = modified;
+	// Start of user code setterFinalize:modified
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:reviewed
+	// End of user code
     public void setReviewed(final Boolean reviewed )
     {
+	// Start of user code setterInit:reviewed
+	// End of user code
         this.reviewed = reviewed;
+	// Start of user code setterFinalize:reviewed
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:serviceProvider
+	// End of user code
     public void setServiceProvider(final URI serviceProvider )
     {
+	// Start of user code setterInit:serviceProvider
+	// End of user code
         this.serviceProvider = serviceProvider;
+	// Start of user code setterFinalize:serviceProvider
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:shortTitle
+	// End of user code
     public void setShortTitle(final String shortTitle )
     {
+	// Start of user code setterInit:shortTitle
+	// End of user code
         this.shortTitle = shortTitle;
+	// Start of user code setterFinalize:shortTitle
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:status
+	// End of user code
     public void setStatus(final String status )
     {
+	// Start of user code setterInit:status
+	// End of user code
         this.status = status;
+	// Start of user code setterFinalize:status
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:title
+	// End of user code
     public void setTitle(final String title )
     {
+	// Start of user code setterInit:title
+	// End of user code
         this.title = title;
+	// Start of user code setterFinalize:title
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:verified
+	// End of user code
     public void setVerified(final Boolean verified )
     {
+	// Start of user code setterInit:verified
+	// End of user code
         this.verified = verified;
+	// Start of user code setterFinalize:verified
+	// End of user code
     }
+
 
     static public String affectedByDefectToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
@@ -1425,7 +1834,7 @@ public String toHtml(boolean asLocalResource)
     	// Start of user code "Mid:closeDateToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"closeDate\" type=\"text\" id=\"closeDate\">";
+    	s= s + "<input name=\"closeDate\" type=\"text\" style=\"width: 400px\" id=\"closeDate\" >";
     	// Start of user code "Finalize:closeDateToHtmlForCreation(...)"
     	
     	s = s + "(MM/DD/YYYY)";
@@ -1447,7 +1856,7 @@ public String toHtml(boolean asLocalResource)
     	// Start of user code "Mid:createdToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"created\" type=\"text\" id=\"created\" >";
+    	s= s + "<input name=\"created\" type=\"text\" style=\"width: 400px\" id=\"created\" >";
     	// Start of user code "Finalize:createdToHtmlForCreation(...)"
     	s = s + "(MM/DD/YYYY)";
     	// End of user code
@@ -1584,7 +1993,7 @@ public String toHtml(boolean asLocalResource)
     	// Start of user code "Mid:modifiedToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"modified\" type=\"text\" id=\"modified\" >";
+    	s= s + "<input name=\"modified\" type=\"text\" style=\"width: 400px\" id=\"modified\" >";
     	// Start of user code "Finalize:modifiedToHtmlForCreation(...)"
     	s = s + "(MM/DD/YYYY)";
     	s = "";

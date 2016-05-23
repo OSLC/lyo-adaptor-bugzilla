@@ -96,10 +96,7 @@ End of user code
 				<h1>Resource Presentation</h1>
                 <p>Summary: <%= aBugzillaChangeRequest.toHtml() %><br /></p>
 				<h2>Properties</h2>
-				<table style="clear: both;margin-left:0;">
-					<tr>
-						<td><%= aBugzillaChangeRequest.titleToHtml()%></td>
-					</tr>
+				<table style="clear: both;">
 					<tr>
 						<td><%= aBugzillaChangeRequest.productToHtml()%></td>
 					</tr>
@@ -117,12 +114,6 @@ End of user code
 					</tr>
 					<tr>
 						<td><%= aBugzillaChangeRequest.operatingSystemToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.createdToHtml()%></td>
-					</tr>
-					<tr>
-						<td><%= aBugzillaChangeRequest.descriptionToHtml()%></td>
 					</tr>
 					<tr>
 						<td><%= aBugzillaChangeRequest.affectedByDefectToHtml()%></td>
@@ -191,6 +182,12 @@ End of user code
 						<td><%= aBugzillaChangeRequest.closeDateToHtml()%></td>
 					</tr>
 					<tr>
+						<td><%= aBugzillaChangeRequest.createdToHtml()%></td>
+					</tr>
+					<tr>
+						<td><%= aBugzillaChangeRequest.descriptionToHtml()%></td>
+					</tr>
+					<tr>
 						<td><%= aBugzillaChangeRequest.discussedByToHtml()%></td>
 					</tr>
 					<tr>
@@ -220,7 +217,9 @@ End of user code
 					<tr>
 						<td><%= aBugzillaChangeRequest.statusToHtml()%></td>
 					</tr>
-				
+					<tr>
+						<td><%= aBugzillaChangeRequest.titleToHtml()%></td>
+					</tr>
 					<tr>
 						<td><%= aBugzillaChangeRequest.verifiedToHtml()%></td>
 					</tr>

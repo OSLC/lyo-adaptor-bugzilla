@@ -44,6 +44,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import org.eclipse.lyo.oslc4j.core.annotation.OslcAllowedValue;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcDescription;
+import org.eclipse.lyo.oslc4j.core.annotation.OslcMemberProperty;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcName;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcNamespace;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcOccurs;
@@ -74,37 +75,29 @@ public interface IPerson
 {
 
 
-   	@OslcName("name")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "name")
+	@OslcName("name")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "name")
 	@OslcDescription("The full name of a person expressed as simple text string.")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public String getName();
 
-   	@OslcName("givenName")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "givenName")
+	@OslcName("givenName")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "givenName")
 	@OslcDescription("Given name of person expressed as simple text string.")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
-	
     public String getGivenName();
 
-   	@OslcName("familyName")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "familyName")
+	@OslcName("familyName")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "familyName")
 	@OslcDescription("Family name of person expressed as simple text string.")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
-	
     public String getFamilyName();
 
 

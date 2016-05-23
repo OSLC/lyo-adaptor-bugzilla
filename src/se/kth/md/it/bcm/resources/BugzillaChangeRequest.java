@@ -46,6 +46,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import org.eclipse.lyo.oslc4j.core.annotation.OslcAllowedValue;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcDescription;
+import org.eclipse.lyo.oslc4j.core.annotation.OslcMemberProperty;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcName;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcNamespace;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcOccurs;
@@ -78,6 +79,11 @@ import com.j2bugzilla.base.BugzillaConnector;
 import javax.ws.rs.WebApplicationException;
 // End of user code
 
+// Start of user code preClassCode
+// End of user code
+
+// Start of user code classAnnotations
+// End of user code
 @OslcNamespace(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE)
 @OslcName(BugzillaAdaptorConstants.BUGZILLACHANGEREQUEST) 
 @OslcResourceShape(title = "BugzillaChangeRequest Resource Shape", describes = BugzillaAdaptorConstants.TYPE_BUGZILLACHANGEREQUEST)
@@ -86,12 +92,30 @@ public class BugzillaChangeRequest
 	implements IBugzillaChangeRequest
 {
 
+// Start of user code attributeAnnotation:product
+// End of user code
 private String product;  
+// Start of user code attributeAnnotation:component
+// End of user code
 private String component;  
+// Start of user code attributeAnnotation:version
+// End of user code
 private String version;  
+// Start of user code attributeAnnotation:priority
+// End of user code
 private String priority;  
+// Start of user code attributeAnnotation:platform
+// End of user code
 private String platform;  
+// Start of user code attributeAnnotation:operatingSystem
+// End of user code
 private String operatingSystem;  
+
+// Start of user code classAttributes
+// End of user code
+
+// Start of user code classMethods
+// End of user code
 
 public BugzillaChangeRequest()
        throws URISyntaxException
@@ -196,115 +220,168 @@ public String toHtml(boolean asLocalResource)
 }
 
 
-   	@OslcName("product")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "product")
+	// Start of user code getterAnnotation:product
+	// End of user code
+	@OslcName("product")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "product")
 	@OslcDescription("")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
-	
     public String getProduct()
     {
+		// Start of user code getterInit:product
+		// End of user code
         return product;
     }
 
-   	@OslcName("component")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "component")
+	// Start of user code getterAnnotation:component
+	// End of user code
+	@OslcName("component")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "component")
 	@OslcDescription("The Bugzilla product definition for this change request.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("Component")
     public String getComponent()
     {
+		// Start of user code getterInit:component
+		// End of user code
         return component;
     }
 
-   	@OslcName("version")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "version")
+	// Start of user code getterAnnotation:version
+	// End of user code
+	@OslcName("version")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "version")
 	@OslcDescription("The Bugzilla version for this change request.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(true)
 	@OslcTitle("Version")
     public String getVersion()
     {
+		// Start of user code getterInit:version
+		// End of user code
         return version;
     }
 
-   	@OslcName("priority")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "priority")
+	// Start of user code getterAnnotation:priority
+	// End of user code
+	@OslcName("priority")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "priority")
 	@OslcDescription("The Bugzilla priority for this change request.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("Priority")
     public String getPriority()
     {
+		// Start of user code getterInit:priority
+		// End of user code
         return priority;
     }
 
-   	@OslcName("platform")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "platform")
+	// Start of user code getterAnnotation:platform
+	// End of user code
+	@OslcName("platform")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "platform")
 	@OslcDescription("The Bugzilla platform for this change request.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("Platform")
     public String getPlatform()
     {
+		// Start of user code getterInit:platform
+		// End of user code
         return platform;
     }
 
-   	@OslcName("operatingSystem")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "operatingSystem")
+	// Start of user code getterAnnotation:operatingSystem
+	// End of user code
+	@OslcName("operatingSystem")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "operatingSystem")
 	@OslcDescription("The Bugzilla operating system for this change request.")
 	@OslcOccurs(Occurs.ZeroOrOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("Operating System")
     public String getOperatingSystem()
     {
+		// Start of user code getterInit:operatingSystem
+		// End of user code
         return operatingSystem;
     }
 
 
+	// Start of user code setterAnnotation:product
+	// End of user code
     public void setProduct(final String product )
     {
+	// Start of user code setterInit:product
+	// End of user code
         this.product = product;
+	// Start of user code setterFinalize:product
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:component
+	// End of user code
     public void setComponent(final String component )
     {
+	// Start of user code setterInit:component
+	// End of user code
         this.component = component;
+	// Start of user code setterFinalize:component
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:version
+	// End of user code
     public void setVersion(final String version )
     {
+	// Start of user code setterInit:version
+	// End of user code
         this.version = version;
+	// Start of user code setterFinalize:version
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:priority
+	// End of user code
     public void setPriority(final String priority )
     {
+	// Start of user code setterInit:priority
+	// End of user code
         this.priority = priority;
+	// Start of user code setterFinalize:priority
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:platform
+	// End of user code
     public void setPlatform(final String platform )
     {
+	// Start of user code setterInit:platform
+	// End of user code
         this.platform = platform;
+	// Start of user code setterFinalize:platform
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:operatingSystem
+	// End of user code
     public void setOperatingSystem(final String operatingSystem )
     {
+	// Start of user code setterInit:operatingSystem
+	// End of user code
         this.operatingSystem = operatingSystem;
+	// Start of user code setterFinalize:operatingSystem
+	// End of user code
     }
+
 
     static public String productToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
@@ -481,7 +558,7 @@ public String toHtml(boolean asLocalResource)
     
     	s = s + "<label for=\"priority\">priority: </LABEL>";
     
-    	// Start of user code "Mid:priorityToHtmlForCreation1(...final String serviceProviderId)"\
+    	// Start of user code "Mid:priorityToHtmlForCreation1(...final String serviceProviderId)"
     	String label = s;
     	// End of user code
     

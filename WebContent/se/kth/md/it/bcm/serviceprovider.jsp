@@ -118,14 +118,14 @@ Start of user code (RECOMMENDED) bodyStuff2
 End of user code 
 						--%>
 		            </tr>
-		            <tr>
-			            <td><b>Adapter Publisher</b>:</td>
-			            <td>Eclipse Lyo</td>
-		            </tr>
-		            <tr>
-			            <td><b>Adapter Identity</b>:</td>
-			            <td>org.eclipse.lyo.oslc4j.bugzilla.test</td>
-		            </tr>
+					<tr>
+						<td><b>Adapter Publisher</b>:</td>
+						<td>Eclipse Lyo</td>
+					</tr>
+					<tr>
+						<td><b>Adapter Identity</b>:</td>
+						<td>urn:oslc:ServiceProvider</td>
+					</tr>
 	            </table>
 
 				<h2>Services</h2>

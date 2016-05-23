@@ -29,7 +29,6 @@ import java.util.List;
 import org.eclipse.lyo.oslc4j.core.model.ServiceProvider;
 import org.eclipse.lyo.oslc4j.core.model.AbstractResource;
 import se.kth.md.it.bcm.servlet.ServiceProviderCatalogSingleton;
-
 import se.kth.md.it.bcm.ServiceProviderInfo;
 import se.kth.md.it.bcm.resources.BugzillaChangeRequest;
 import se.kth.md.it.bcm.resources.ChangeRequest;
@@ -541,24 +540,7 @@ public class BugzillaAdaptorManager {
 		return newResource;
     }
 
-	public static String getETagFromBugzillaChangeRequest(final BugzillaChangeRequest aResource)
-    {
-		String eTag = null;
-		// TODO Implement code to return an ETag for a particular resource
-		// Start of user code getETagFromBugzillaChangeRequest
-    	Long eTagAsTime = null;
-    	
-    	if (aResource.getModified() != null) {
-    		eTagAsTime = aResource.getModified().getTime();
-    	} else if (aResource.getCreated() != null) {
-    		eTagAsTime = aResource.getCreated().getTime();
-    	} else {
-    		eTagAsTime = new Long(0);
-    	}
-		eTag = eTagAsTime.toString();
-		// End of user code
-		return eTag;
-    }
+
 	public static BugzillaChangeRequest getBugzillaChangeRequest(HttpServletRequest httpServletRequest, final String serviceProviderId, final String bugzillaChangeRequestId)
     {
 		BugzillaChangeRequest aResource = null;
@@ -576,5 +558,27 @@ public class BugzillaAdaptorManager {
 		}
 		// End of user code
 		return aResource;
+    }
+
+
+
+
+	public static String getETagFromBugzillaChangeRequest(final BugzillaChangeRequest aResource)
+    {
+		String eTag = null;
+		// TODO Implement code to return an ETag for a particular resource
+		// Start of user code getETagFromBugzillaChangeRequest
+    	Long eTagAsTime = null;
+    	
+    	if (aResource.getModified() != null) {
+    		eTagAsTime = aResource.getModified().getTime();
+    	} else if (aResource.getCreated() != null) {
+    		eTagAsTime = aResource.getCreated().getTime();
+    	} else {
+    		eTagAsTime = new Long(0);
+    	}
+		eTag = eTagAsTime.toString();
+		// End of user code
+		return eTag;
     }
 }

@@ -46,6 +46,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import org.eclipse.lyo.oslc4j.core.annotation.OslcAllowedValue;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcDescription;
+import org.eclipse.lyo.oslc4j.core.annotation.OslcMemberProperty;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcName;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcNamespace;
 import org.eclipse.lyo.oslc4j.core.annotation.OslcOccurs;
@@ -69,6 +70,11 @@ import se.kth.md.it.bcm.BugzillaAdaptorConstants;
 // Start of user code imports
 // End of user code
 
+// Start of user code preClassCode
+// End of user code
+
+// Start of user code classAnnotations
+// End of user code
 @OslcNamespace(BugzillaAdaptorConstants.FOAF_NAMSPACE)
 @OslcName(BugzillaAdaptorConstants.PERSON) 
 @OslcResourceShape(title = "Person Resource Shape", describes = BugzillaAdaptorConstants.TYPE_PERSON)
@@ -77,9 +83,21 @@ public class Person
 	implements IPerson
 {
 
+// Start of user code attributeAnnotation:name
+// End of user code
 private String name;  
+// Start of user code attributeAnnotation:givenName
+// End of user code
 private String givenName;  
+// Start of user code attributeAnnotation:familyName
+// End of user code
 private String familyName;  
+
+// Start of user code classAttributes
+// End of user code
+
+// Start of user code classMethods
+// End of user code
 
 public Person()
        throws URISyntaxException
@@ -153,61 +171,86 @@ public String toHtml(boolean asLocalResource)
 }
 
 
-   	@OslcName("name")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "name")
+	// Start of user code getterAnnotation:name
+	// End of user code
+	@OslcName("name")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "name")
 	@OslcDescription("The full name of a person expressed as simple text string.")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
 	@OslcTitle("")
     public String getName()
     {
+		// Start of user code getterInit:name
+		// End of user code
         return name;
     }
 
-   	@OslcName("givenName")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "givenName")
+	// Start of user code getterAnnotation:givenName
+	// End of user code
+	@OslcName("givenName")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "givenName")
 	@OslcDescription("Given name of person expressed as simple text string.")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
-	
     public String getGivenName()
     {
+		// Start of user code getterInit:givenName
+		// End of user code
         return givenName;
     }
 
-   	@OslcName("familyName")
-   	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "familyName")
+	// Start of user code getterAnnotation:familyName
+	// End of user code
+	@OslcName("familyName")
+	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "familyName")
 	@OslcDescription("Family name of person expressed as simple text string.")
 	@OslcOccurs(Occurs.ExactlyOne)
 	@OslcValueType(ValueType.String)
-	
-	
 	@OslcReadOnly(false)
-	
     public String getFamilyName()
     {
+		// Start of user code getterInit:familyName
+		// End of user code
         return familyName;
     }
 
 
+	// Start of user code setterAnnotation:name
+	// End of user code
     public void setName(final String name )
     {
+	// Start of user code setterInit:name
+	// End of user code
         this.name = name;
+	// Start of user code setterFinalize:name
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:givenName
+	// End of user code
     public void setGivenName(final String givenName )
     {
+	// Start of user code setterInit:givenName
+	// End of user code
         this.givenName = givenName;
+	// Start of user code setterFinalize:givenName
+	// End of user code
     }
+
+	// Start of user code setterAnnotation:familyName
+	// End of user code
     public void setFamilyName(final String familyName )
     {
+	// Start of user code setterInit:familyName
+	// End of user code
         this.familyName = familyName;
+	// Start of user code setterFinalize:familyName
+	// End of user code
     }
+
 
     static public String nameToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
