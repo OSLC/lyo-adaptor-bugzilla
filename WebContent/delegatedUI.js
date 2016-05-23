@@ -28,7 +28,7 @@ function search(baseUrl){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			// populate results
 			txt = xmlhttp.responseText;
-			resp = eval('(' + txt + ')');
+			resp = JSON.parse(txt);
 			for( var i=0; i<resp.results.length; i=i+1 ) {
 				var item=document.createElement('option');
 				item.text = resp.results[i].label;
@@ -57,30 +57,22 @@ function create(baseUrl){
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState==4 && (xmlhttp.status==201)) {
 			txt = xmlhttp.responseText;
-			resp = eval('(' + txt + ')');
+			resp = JSON.parse(txt);
 			// Send response to listener
 			sendResponse(resp.title, resp.resource);
 		}
 	};
- 	var postData=""; 
- 	if (form.component) {
- 		postData += "&component="+encodeURIComponent(form.component.value);
- 	}
- 	if (form.title) {
- 		postData += "&title="+encodeURIComponent(form.title.value);
- 	}
- 	if (form.version) {
- 		postData += "&version="+encodeURIComponent(form.version.value);
- 	}
- 	if (form.op_sys) {
- 		postData += "&op_sys="+encodeURIComponent(form.op_sys.value);
+ 	var postData="";
+
+	var formElements = form.elements;
+	for (var i = 0; i< formElements.length; i++) {
+		var el = formElements[i];
+		var el_type = el.type;
+		if(el && el.getAttribute("name")) {
+			postData += '&'+ el.getAttribute("name") + '=' + encodeURIComponent(el.value);
+		}
 	} 
-	if (form.platform) {
-		postData += "&platform="+encodeURIComponent(form.platform.value);	
-	}
-	if (form.description) {
-		postData += "&description="+encodeURIComponent(form.description.value);	
-	}
+
 	xmlhttp.open("POST", baseUrl, true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader("Content-length",postData.length);

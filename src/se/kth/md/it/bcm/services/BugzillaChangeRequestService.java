@@ -556,7 +556,7 @@ public class BugzillaChangeRequestService
 				if (paramValues != null) {
 						if (paramValues.length == 1) {
 							if (paramValues[0].length() != 0)
-								aResource.setCloseDate(new SimpleDateFormat().parse(paramValues[0]));
+								aResource.setCloseDate(new SimpleDateFormat("M/D/y").parse(paramValues[0]));
 							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
 						} 
 					
@@ -565,7 +565,7 @@ public class BugzillaChangeRequestService
 				if (paramValues != null) {
 						if (paramValues.length == 1) {
 							if (paramValues[0].length() != 0)
-								aResource.setCreated(new SimpleDateFormat().parse(paramValues[0]));
+								aResource.setCreated(new SimpleDateFormat("M/D/y").parse(paramValues[0]));
 							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
 						} 
 					
@@ -628,7 +628,7 @@ public class BugzillaChangeRequestService
 				if (paramValues != null) {
 						if (paramValues.length == 1) {
 							if (paramValues[0].length() != 0)
-								aResource.setModified(new SimpleDateFormat().parse(paramValues[0]));
+								aResource.setModified(new SimpleDateFormat("M/D/y").parse(paramValues[0]));
 							// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
 						} 
 					
@@ -689,7 +689,7 @@ public class BugzillaChangeRequestService
 				}			
       
     		newResource = BugzillaAdaptorManager.createBugzillaChangeRequest(httpServletRequest, aResource, serviceProviderId);
-
+			
 			if (newResource != null) {
 	    		httpServletRequest.setAttribute("newResource", newResource);
 	    		httpServletRequest.setAttribute("newResourceUri", newResource.getAbout().toString());
@@ -699,7 +699,82 @@ public class BugzillaChangeRequestService
 	    		httpServletResponse.setStatus(Status.CREATED.getStatusCode());
 	    		httpServletResponse.addHeader("Location", newResource.getAbout().toString());
 	    		PrintWriter out = httpServletResponse.getWriter();
-	    		out.print("{"+"\"title\":\""+ newResource.getTitle()+"\"," + "\"resource\" : \"" + newResource.getAbout().toString() + "\"}");
+				StringBuilder sb = new StringBuilder();
+				sb.append("{\n");
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"product",
+									newResource.getProduct()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"component",
+									newResource.getComponent()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"version",
+									newResource.getVersion()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"priority",
+									newResource.getPriority()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"platform",
+									newResource.getPlatform()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"operatingSystem",
+									newResource.getOperatingSystem()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"approved",
+									newResource.isApproved()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"closed",
+									newResource.isClosed()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"closeDate",
+									newResource.getCloseDate()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"created",
+									newResource.getCreated()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"description",
+									newResource.getDescription()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"discussedBy",
+									newResource.getDiscussedBy()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"fixed",
+									newResource.isFixed()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"identifier",
+									newResource.getIdentifier()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"inprogress",
+									newResource.isInprogress()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"instanceShape",
+									newResource.getInstanceShape()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"modified",
+									newResource.getModified()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"reviewed",
+									newResource.isReviewed()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"serviceProvider",
+									newResource.getServiceProvider()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"shortTitle",
+									newResource.getShortTitle()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"status",
+									newResource.getStatus()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"title",
+									newResource.getTitle()));								
+				sb.append(String.format("\t\"%s\": \"%s\",\n",
+									"verified",
+									newResource.isVerified()));								
+				sb.append(String.format("\t\"%s\": \"%s\"\n",
+									"resource",
+									newResource.getAbout().toString()));
+	    		sb.append("}");
+				out.print(sb.toString());
 	    		out.close();
 			}
     	} catch (Exception e) {
