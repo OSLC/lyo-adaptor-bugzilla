@@ -44,11 +44,11 @@ Start of user code getRequestAttributes
 <%--
 End of user code
 --%>
-results: [
+"oslc:results": [
 <% int i = 0; for (BugzillaChangeRequest r : resources) { %>
    <% if (i > 0) { %>,<% } %>
-   {  "label" : "<%= r.toString() %>",
-      "resourceUrl" : "<%= r.getAbout() %>"
+   {  "oslc:label" : "<%= r.toString() %>",
+      "rdf:resource" : "<%= r.getAbout() %>"
    }
 <% i++; } %>
 ]

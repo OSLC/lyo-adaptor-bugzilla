@@ -29,10 +29,10 @@ function search(baseUrl){
 			// populate results
 			txt = xmlhttp.responseText;
 			resp = JSON.parse(txt);
-			for( var i=0; i<resp.results.length; i=i+1 ) {
+			for( var i=0; i<resp["oslc:results"].length; i=i+1 ) {
 				var item=document.createElement('option');
-				item.text = resp.results[i].label;
-				item.value = resp.results[i].resourceUrl;
+				item.text = resp["oslc:results"][i]["oslc:label"];
+				item.value = resp["oslc:results"][i]["rdf:resource"];
 				if (ie > 0) {
 	 				list.add(item); 
 				} else {
@@ -56,10 +56,10 @@ function create(baseUrl){
 	xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState==4 && (xmlhttp.status==201)) {
-			txt = xmlhttp.responseText;
-			resp = JSON.parse(txt);
+			var raw_response = xmlhttp.responseText;
+			var json_response = JSON.parse(raw_response);
 			// Send response to listener
-			sendResponse(resp.title, resp.resource);
+			sendRawResponse(json_response);
 		}
 	};
  	var postData="";
@@ -102,6 +102,18 @@ function sendResponse(label, resourceUrl) {
 		respondWithPostMessage(oslcResponse);
 	} 
 	
+}
+
+function sendRawResponse(jsonObj) {
+	var oslcResponse = "oslc-response:" + JSON.stringify(jsonObj, null, 2);
+	
+	if (window.location.hash == '#oslc-core-windowName-1.0') {       
+  	  // Window Name protocol in use
+        respondWithWindowName(oslcResponse);
+	} else if (window.location.hash == '#oslc-core-postMessage-1.0') {
+    	// Post Message protocol in use
+		respondWithPostMessage(oslcResponse);
+	}
 }
 
 function sendCancelResponse() {

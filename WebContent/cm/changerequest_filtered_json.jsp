@@ -22,11 +22,11 @@
 <% 
 List<BugzillaChangeRequest> results = (List<BugzillaChangeRequest>)request.getAttribute("results");
 %>
-results: [
+"oslc:results": [
 <% int i = 0; for (BugzillaChangeRequest b : results) { %>
    <% if (i > 0) { %>,<% } %>
-   {  "title" : "<%= b.getIdentifier() %>: <%= b.getTitle() %>",
-      "resource" : "<%= b.getAbout() %>"
+   {  "oslc:label" : "<%= b.getIdentifier() %>: <%= b.getTitle() %>",
+      "rdf:resource" : "<%= b.getAbout() %>"
    }
 <% i++; } %>
 ]

@@ -1,0 +1,7 @@
+
+Thu May 26 18:58:40 CEST 2016
+================================================================================
+Start of user code
+			// queryBugzillaChangeRequestsAsHtml_setAttributes
+			httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
+			// End of user code
