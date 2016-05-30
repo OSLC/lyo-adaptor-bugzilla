@@ -53,15 +53,6 @@ End of user code
 		<%-- 
 Start of user code (RECOMMENDED) headStuff 
 		--%>
-		<link href="<%=bugzillaUri%>/skins/standard/global.css" rel="stylesheet" type="text/css">
-		<link href="<%=bugzillaUri%>/skins/standard/index.css" rel="stylesheet" type="text/css">
-		<link href="<%=bugzillaUri%>/skins/standard/global.css" rel="alternate stylesheet" title="Classic" type="text/css">
-		<link href="<%=bugzillaUri%>/skins/standard/index.css" rel="alternate stylesheet" title="Classic" type="text/css">
-		<link href="<%=bugzillaUri%>/skins/contrib/Dusk/global.css" rel="stylesheet" title="Dusk" type="text/css">
-		<link href="<%=bugzillaUri%>/skins/contrib/Dusk/index.css" rel="stylesheet" title="Dusk" type="text/css">
-		<link href="<%=bugzillaUri%>/skins/custom/global.css" rel="stylesheet" type="text/css">
-		<link href="<%=bugzillaUri%>/skins/custom/index.css" rel="stylesheet" type="text/css">
-		<link rel="shortcut icon" href="<%=bugzillaUri%>/images/favicon.ico">
 		<%-- 
 End of user code 
 		--%>

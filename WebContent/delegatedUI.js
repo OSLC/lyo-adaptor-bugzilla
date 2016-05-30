@@ -62,7 +62,7 @@ function create(baseUrl){
 			sendRawResponse(json_response);
 		}
 	};
- 	var postData="";
+	var postData="";
 
 	var formElements = form.elements;
 	for (var i = 0; i< formElements.length; i++) {
