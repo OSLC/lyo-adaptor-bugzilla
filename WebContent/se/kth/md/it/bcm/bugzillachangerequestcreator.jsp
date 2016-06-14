@@ -51,6 +51,17 @@ End of user code
 		<%-- 
 Start of user code (RECOMMENDED) headStuff 
 		--%>
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
+		<script>
+		  $(function() {
+		    $( "#closeDate" ).datepicker();
+			$( "#modified" ).datepicker();
+			$( "#created" ).datepicker();
+		  });
+		  </script>
+		
 		<%-- 
 End of user code 
 		--%>
