@@ -22,6 +22,7 @@
 <%@page import="org.eclipse.lyo.oslc4j.core.model.ServiceProvider"%>
 <%@page import="java.util.List" %>
 <%@page import="se.kth.md.it.bcm.resources.BugzillaChangeRequest"%>
+<%@page import="se.kth.md.it.bcm.servlet.ServletListener"%>
 <%--
 Start of user code imports
 --%>
@@ -33,7 +34,8 @@ End of user code
 <%@ page contentType="text/html" language="java" pageEncoding="UTF-8" %>
 
 <%
-    String serviceProviderId = (String) request.getAttribute("serviceProviderId");
+	String creatorUri = (String) request.getAttribute("creatorUri");
+	String serviceProviderId = (String) request.getAttribute("serviceProviderId");
 %>
 <%--
 Start of user code getRequestAttributes
@@ -52,6 +54,7 @@ Start of user code (RECOMMENDED) headStuff
 		<%-- 
 End of user code 
 		--%>
+		<script type="text/javascript" src="<%=ServletListener.getServletBase() %>/delegatedUI.js"></script>
 	</head>
 	<body style="padding: 10px;">
 		<div id="bugzilla-body">

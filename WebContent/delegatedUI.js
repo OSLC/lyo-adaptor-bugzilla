@@ -62,20 +62,10 @@ function create(baseUrl){
 			sendRawResponse(json_response);
 		}
 	};
-	var postData="";
-
-	var formElements = form.elements;
-	for (var i = 0; i< formElements.length; i++) {
-		var el = formElements[i];
-		var el_type = el.type;
-		if(el && el.getAttribute("name")) {
-			postData += '&'+ el.getAttribute("name") + '=' + encodeURIComponent(el.value);
-		}
-	} 
+	var postData=new FormData(form);
 
 	xmlhttp.open("POST", baseUrl, true);
-	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.setRequestHeader("Content-length",postData.length);
+	xmlhttp.setRequestHeader("Content-type","multipart/form-data");
 	xmlhttp.send(postData);
 }
 

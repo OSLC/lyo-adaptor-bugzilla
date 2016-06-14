@@ -303,32 +303,32 @@ public class BugzillaChangeRequestService
     	}
     }
 
-    /**
-     * OSLC delegated creation dialog for a single change request
-     * 
-     * Forwards to changerequest_creator.jsp to build the html form
-     * 
-     * @param productId
-     * @throws IOException
-     * @throws ServletException
-     */
-    @GET
+	/**
+	 * OSLC delegated creation dialog for a single change request
+	 * 
+	 * Forwards to changerequest_creator.jsp to build the html form
+	 * 
+	 * @param productId
+	 * @throws IOException
+	 * @throws ServletException
+	 */
+	@GET
 	@Path("creator")
-    @Consumes({MediaType.WILDCARD})
-    public void BugzillaChangeRequestCreator(
-                @PathParam("serviceProviderId") final String serviceProviderId
-        ) throws IOException, ServletException
-    {
+	@Consumes({MediaType.WILDCARD})
+	public void BugzillaChangeRequestCreator(
+				@PathParam("serviceProviderId") final String serviceProviderId
+		) throws IOException, ServletException
+	{
 		// Start of user code BugzillaChangeRequestCreator
 		httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
-		httpServletRequest.setAttribute("creatorUri", uriInfo.getAbsolutePath().toString());
 		// End of user code
 
-        httpServletRequest.setAttribute("serviceProviderId", serviceProviderId);
+		httpServletRequest.setAttribute("creatorUri", uriInfo.getAbsolutePath().toString());
+		httpServletRequest.setAttribute("serviceProviderId", serviceProviderId);
 
 		RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequestcreator.jsp");
 		rd.forward(httpServletRequest, httpServletResponse);
-    }
+	}
 
     /**
      * Backend creator for the OSLC delegated creation dialog. 

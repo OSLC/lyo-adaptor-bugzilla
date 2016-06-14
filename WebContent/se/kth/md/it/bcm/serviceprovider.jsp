@@ -20,6 +20,7 @@
 --%>
 
 <%@ page import="java.net.URI" %>
+<%@ page import="java.net.URLEncoder" %>
 <%@ page import="org.eclipse.lyo.oslc4j.core.model.Service" %>
 <%@ page import="org.eclipse.lyo.oslc4j.core.model.ServiceProvider" %>
 <%@ page import="org.eclipse.lyo.oslc4j.core.model.Dialog" %>
@@ -138,7 +139,10 @@ End of user code
 					for (int selectionDialogIndex = 0; selectionDialogIndex < selectionDialogs.length; selectionDialogIndex++) {
 						String selectionDialog = selectionDialogs[selectionDialogIndex].getDialog().toString();
 					%>
-						<p><a href="<%= selectionDialog %>"><%= selectionDialog %></a></p>
+						<p>
+	<a href="<%= selectionDialog %>"><%= selectionDialog %></a>
+	(<a href="<%= request.getContextPath() %>/se/kth/md/it/bcm/selectiondialogsampleclient.jsp?selectionUri=<%= URLEncoder.encode(selectionDialog.toString(), "UTF-8") %>">sample client</a>)
+						</p>
 					<%}%>
 	
 					<h4>Resource Creator Dialog(s)</h4>
@@ -147,7 +151,11 @@ End of user code
 					for (int creationDialogIndex = 0; creationDialogIndex < creationDialogs.length; creationDialogIndex++) {
 						String creationDialog = creationDialogs[creationDialogIndex].getDialog().toString();
 					%>
-						<p><a href="<%= creationDialog %>"><%= creationDialog %></a></p>
+						<p>
+	<a href="<%= creationDialog %>"><%= creationDialog %></a>
+	(<a href="<%= request.getContextPath() %>/se/kth/md/it/bcm/creationdialogsampleclient.jsp?creationUri=<%= URLEncoder.encode(creationDialog.toString(), "UTF-8") %>">sample client</a>)
+
+</p>
 					<%}%>
 
 					<h4>Resource Creation Factory(s) and Resource Shape(s)</h4>
