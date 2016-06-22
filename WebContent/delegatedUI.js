@@ -62,10 +62,20 @@ function create(baseUrl){
 			sendRawResponse(json_response);
 		}
 	};
-	var postData=new FormData(form);
+	var postData="";
+
+	var formElements = form.elements;
+	for (var i = 0; i< formElements.length; i++) {
+		var el = formElements[i];
+		var el_type = el.type;
+		if(el && el.getAttribute("name")) {
+			postData += '&'+ el.getAttribute("name") + '=' + encodeURIComponent(el.value);
+		}
+	} 
 
 	xmlhttp.open("POST", baseUrl, true);
-	xmlhttp.setRequestHeader("Content-type","multipart/form-data");
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.setRequestHeader("Content-length",postData.length);
 	xmlhttp.send(postData);
 }
 

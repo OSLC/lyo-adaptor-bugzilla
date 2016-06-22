@@ -4,7 +4,7 @@
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
- *  
+ *
  * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
  * and the Eclipse Distribution License is available at
  * http://www.eclipse.org/org/documents/edl-v10.php.
@@ -15,8 +15,8 @@
  *     Alberto Giammaria    - initial API and implementation
  *     Chris Peters         - initial API and implementation
  *     Gianluca Bernardini  - initial API and implementation
- *	   Sam Padgett	       - initial API and implementation
- *     Michael Fiedler     - adapted for OSLC4J
+ *	   Sam Padgett          - initial API and implementation
+ *     Michael Fiedler      - adapted for OSLC4J
  *     Jad El-khoury        - initial implementation of code generator (https://bugs.eclipse.org/bugs/show_bug.cgi?id=422448)
  *     Matthieu Helleboid   - Support for multiple Service Providers.
  *     Anass Radouani       - Support for multiple Service Providers.
@@ -64,11 +64,11 @@ import org.eclipse.lyo.oslc4j.core.model.OslcConstants;
 import org.eclipse.lyo.oslc4j.core.model.Representation;
 import org.eclipse.lyo.oslc4j.core.model.ValueType;
 
-import se.kth.md.it.bcm.servlet.ServletListener; 
+import se.kth.md.it.bcm.servlet.ServletListener;
 import se.kth.md.it.bcm.BugzillaAdaptorConstants;
-import se.kth.md.it.bcm.resources.Person;	
-import se.kth.md.it.bcm.resources.Person;	
-import se.kth.md.it.bcm.resources.Type;	
+import se.kth.md.it.bcm.resources.Person;
+import se.kth.md.it.bcm.resources.Person;
+import se.kth.md.it.bcm.resources.Type;
 
 // Start of user code imports
 import se.kth.md.it.bcm.BugzillaAdaptorManager;
@@ -85,378 +85,379 @@ import javax.ws.rs.WebApplicationException;
 // Start of user code classAnnotations
 // End of user code
 @OslcNamespace(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE)
-@OslcName(BugzillaAdaptorConstants.BUGZILLACHANGEREQUEST) 
+@OslcName(BugzillaAdaptorConstants.BUGZILLACHANGEREQUEST)
 @OslcResourceShape(title = "BugzillaChangeRequest Resource Shape", describes = BugzillaAdaptorConstants.TYPE_BUGZILLACHANGEREQUEST)
 public class BugzillaChangeRequest
-	extends ChangeRequest
-	implements IBugzillaChangeRequest
+    extends ChangeRequest
+    implements IBugzillaChangeRequest
 {
 
-// Start of user code attributeAnnotation:product
+    // Start of user code attributeAnnotation:product
 // End of user code
-private String product;  
-// Start of user code attributeAnnotation:component
+    private String product;
+    // Start of user code attributeAnnotation:component
 // End of user code
-private String component;  
-// Start of user code attributeAnnotation:version
+    private String component;
+    // Start of user code attributeAnnotation:version
 // End of user code
-private String version;  
-// Start of user code attributeAnnotation:priority
+    private String version;
+    // Start of user code attributeAnnotation:priority
 // End of user code
-private String priority;  
-// Start of user code attributeAnnotation:platform
+    private String priority;
+    // Start of user code attributeAnnotation:platform
 // End of user code
-private String platform;  
-// Start of user code attributeAnnotation:operatingSystem
+    private String platform;
+    // Start of user code attributeAnnotation:operatingSystem
 // End of user code
-private String operatingSystem;  
+    private String operatingSystem;
 
-// Start of user code classAttributes
-// End of user code
-
-// Start of user code classMethods
+    // Start of user code classAttributes
 // End of user code
 
-public BugzillaChangeRequest()
-       throws URISyntaxException
-{
-    super();
+    // Start of user code classMethods
+// End of user code
 
-	// Start of user code constructor1
+    public BugzillaChangeRequest()
+           throws URISyntaxException
+    {
+        super();
+
+        // Start of user code constructor1
 	// End of user code
-}
+    }
 
-public BugzillaChangeRequest(final URI about)
-       throws URISyntaxException
-{
-    super(about);
+    public BugzillaChangeRequest(final URI about)
+           throws URISyntaxException
+    {
+        super(about);
 
-	// Start of user code constructor2
+        // Start of user code constructor2
 	// End of user code
-}
+    }
 
-public BugzillaChangeRequest(final String serviceProviderId, final String bugzillaChangeRequestId)
-       throws URISyntaxException
-{
-	this (constructURI(serviceProviderId, bugzillaChangeRequestId));
-	// Start of user code constructor3
+    public BugzillaChangeRequest(final String serviceProviderId, final String bugzillaChangeRequestId)
+           throws URISyntaxException
+    {
+        this (constructURI(serviceProviderId, bugzillaChangeRequestId));
+        // Start of user code constructor3
 	// End of user code
-}
-public static URI constructURI(final String serviceProviderId, final String bugzillaChangeRequestId)
-{
-    String basePath = ServletListener.getServicesBase();
-    Map<String, Object> pathParameters = new HashMap<String, Object>();
-    pathParameters.put("serviceProviderId", serviceProviderId);
-    pathParameters.put("bugzillaChangeRequestId", bugzillaChangeRequestId);
-    String instanceURI = "serviceProviders/{serviceProviderId}/bugzillaChangeRequests/{bugzillaChangeRequestId}";
-  
-    final UriBuilder builder = UriBuilder.fromUri(basePath);
-    return builder.path(instanceURI).buildFromMap(pathParameters);
-}
+    }
 
-public static Link constructLink(final String serviceProviderId, final String bugzillaChangeRequestId , final String label)
-{
-	return new Link(constructURI(serviceProviderId, bugzillaChangeRequestId), label);
-}
+    public static URI constructURI(final String serviceProviderId, final String bugzillaChangeRequestId)
+    {
+        String basePath = ServletListener.getServicesBase();
+        Map<String, Object> pathParameters = new HashMap<String, Object>();
+        pathParameters.put("serviceProviderId", serviceProviderId);
+        pathParameters.put("bugzillaChangeRequestId", bugzillaChangeRequestId);
+        String instanceURI = "serviceProviders/{serviceProviderId}/bugzillaChangeRequests/{bugzillaChangeRequestId}";
 
-public static Link constructLink(final String serviceProviderId, final String bugzillaChangeRequestId)
-{
-	return new Link(constructURI(serviceProviderId, bugzillaChangeRequestId));
-}
+        final UriBuilder builder = UriBuilder.fromUri(basePath);
+        return builder.path(instanceURI).buildFromMap(pathParameters);
+    }
 
-public String toString()
-{
-	return toString(false);
-}
+    public static Link constructLink(final String serviceProviderId, final String bugzillaChangeRequestId , final String label)
+    {
+        return new Link(constructURI(serviceProviderId, bugzillaChangeRequestId), label);
+    }
 
-public String toString(boolean asLocalResource)
-{
-		String result = "";
-		// Start of user code toString_init
+    public static Link constructLink(final String serviceProviderId, final String bugzillaChangeRequestId)
+    {
+        return new Link(constructURI(serviceProviderId, bugzillaChangeRequestId));
+    }
+
+    public String toString()
+    {
+        return toString(false);
+    }
+
+    public String toString(boolean asLocalResource)
+    {
+        String result = "";
+        // Start of user code toString_init
 		// End of user code
 
-		if (asLocalResource) {
-			result = result + "{a Local BugzillaChangeRequest Resource} - update BugzillaChangeRequest.toString() to present resource as desired.";
-			// Start of user code toString_bodyForLocalResource
+        if (asLocalResource) {
+            result = result + "{a Local BugzillaChangeRequest Resource} - update BugzillaChangeRequest.toString() to present resource as desired.";
+            // Start of user code toString_bodyForLocalResource
 			// End of user code
-		}
-		else {
-			result = getAbout().toString();
-		}
+        }
+        else {
+            result = getAbout().toString();
+        }
 
-		// Start of user code toString_finalize
+        // Start of user code toString_finalize
 		result = getIdentifier() + ":" + getTitle();
 		// End of user code
 
-		return result;
-}
+        return result;
+    }
 
-public String toHtml()
-{
-	return toHtml(false);
-}
+    public String toHtml()
+    {
+        return toHtml(false);
+    }
 
-public String toHtml(boolean asLocalResource)
-{
-		String result = "";
-		// Start of user code toHtml_init
+    public String toHtml(boolean asLocalResource)
+    {
+        String result = "";
+        // Start of user code toHtml_init
 		// End of user code
 
-		if (asLocalResource) {
-			result = toString(true);
-			// Start of user code toHtml_bodyForLocalResource
+        if (asLocalResource) {
+            result = toString(true);
+            // Start of user code toHtml_bodyForLocalResource
 			// End of user code
-		}
-		else {
-			result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
-		}
+        }
+        else {
+            result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
+        }
 
-		// Start of user code toHtml_finalize
+        // Start of user code toHtml_finalize
 		// For change request collection page, show title and link separately
 		result = toString() + "<div><a href='"+getAbout()+"'>"+getAbout()+"</a></div>";
 		// End of user code
 
-		return result;
-}
+        return result;
+    }
 
 
-	// Start of user code getterAnnotation:product
+    // Start of user code getterAnnotation:product
 	// End of user code
-	@OslcName("product")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "product")
-	@OslcDescription("")
-	@OslcOccurs(Occurs.ExactlyOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
+    @OslcName("product")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "product")
+    @OslcDescription("")
+    @OslcOccurs(Occurs.ExactlyOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
     public String getProduct()
     {
-		// Start of user code getterInit:product
+        // Start of user code getterInit:product
 		// End of user code
         return product;
     }
 
-	// Start of user code getterAnnotation:component
+    // Start of user code getterAnnotation:component
 	// End of user code
-	@OslcName("component")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "component")
-	@OslcDescription("The Bugzilla product definition for this change request.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-	@OslcTitle("Component")
+    @OslcName("component")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "component")
+    @OslcDescription("The Bugzilla product definition for this change request.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    @OslcTitle("Component")
     public String getComponent()
     {
-		// Start of user code getterInit:component
+        // Start of user code getterInit:component
 		// End of user code
         return component;
     }
 
-	// Start of user code getterAnnotation:version
+    // Start of user code getterAnnotation:version
 	// End of user code
-	@OslcName("version")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "version")
-	@OslcDescription("The Bugzilla version for this change request.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(true)
-	@OslcTitle("Version")
+    @OslcName("version")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "version")
+    @OslcDescription("The Bugzilla version for this change request.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(true)
+    @OslcTitle("Version")
     public String getVersion()
     {
-		// Start of user code getterInit:version
+        // Start of user code getterInit:version
 		// End of user code
         return version;
     }
 
-	// Start of user code getterAnnotation:priority
+    // Start of user code getterAnnotation:priority
 	// End of user code
-	@OslcName("priority")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "priority")
-	@OslcDescription("The Bugzilla priority for this change request.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-	@OslcTitle("Priority")
+    @OslcName("priority")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "priority")
+    @OslcDescription("The Bugzilla priority for this change request.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    @OslcTitle("Priority")
     public String getPriority()
     {
-		// Start of user code getterInit:priority
+        // Start of user code getterInit:priority
 		// End of user code
         return priority;
     }
 
-	// Start of user code getterAnnotation:platform
+    // Start of user code getterAnnotation:platform
 	// End of user code
-	@OslcName("platform")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "platform")
-	@OslcDescription("The Bugzilla platform for this change request.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-	@OslcTitle("Platform")
+    @OslcName("platform")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "platform")
+    @OslcDescription("The Bugzilla platform for this change request.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    @OslcTitle("Platform")
     public String getPlatform()
     {
-		// Start of user code getterInit:platform
+        // Start of user code getterInit:platform
 		// End of user code
         return platform;
     }
 
-	// Start of user code getterAnnotation:operatingSystem
+    // Start of user code getterAnnotation:operatingSystem
 	// End of user code
-	@OslcName("operatingSystem")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "operatingSystem")
-	@OslcDescription("The Bugzilla operating system for this change request.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-	@OslcTitle("Operating System")
+    @OslcName("operatingSystem")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "operatingSystem")
+    @OslcDescription("The Bugzilla operating system for this change request.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    @OslcTitle("Operating System")
     public String getOperatingSystem()
     {
-		// Start of user code getterInit:operatingSystem
+        // Start of user code getterInit:operatingSystem
 		// End of user code
         return operatingSystem;
     }
 
 
-	// Start of user code setterAnnotation:product
+    // Start of user code setterAnnotation:product
 	// End of user code
     public void setProduct(final String product )
     {
-	// Start of user code setterInit:product
+        // Start of user code setterInit:product
 	// End of user code
         this.product = product;
-	// Start of user code setterFinalize:product
+        // Start of user code setterFinalize:product
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:component
+    // Start of user code setterAnnotation:component
 	// End of user code
     public void setComponent(final String component )
     {
-	// Start of user code setterInit:component
+        // Start of user code setterInit:component
 	// End of user code
         this.component = component;
-	// Start of user code setterFinalize:component
+        // Start of user code setterFinalize:component
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:version
+    // Start of user code setterAnnotation:version
 	// End of user code
     public void setVersion(final String version )
     {
-	// Start of user code setterInit:version
+        // Start of user code setterInit:version
 	// End of user code
         this.version = version;
-	// Start of user code setterFinalize:version
+        // Start of user code setterFinalize:version
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:priority
+    // Start of user code setterAnnotation:priority
 	// End of user code
     public void setPriority(final String priority )
     {
-	// Start of user code setterInit:priority
+        // Start of user code setterInit:priority
 	// End of user code
         this.priority = priority;
-	// Start of user code setterFinalize:priority
+        // Start of user code setterFinalize:priority
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:platform
+    // Start of user code setterAnnotation:platform
 	// End of user code
     public void setPlatform(final String platform )
     {
-	// Start of user code setterInit:platform
+        // Start of user code setterInit:platform
 	// End of user code
         this.platform = platform;
-	// Start of user code setterFinalize:platform
+        // Start of user code setterFinalize:platform
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:operatingSystem
+    // Start of user code setterAnnotation:operatingSystem
 	// End of user code
     public void setOperatingSystem(final String operatingSystem )
     {
-	// Start of user code setterInit:operatingSystem
+        // Start of user code setterInit:operatingSystem
 	// End of user code
         this.operatingSystem = operatingSystem;
-	// Start of user code setterFinalize:operatingSystem
+        // Start of user code setterFinalize:operatingSystem
 	// End of user code
     }
 
 
     static public String productToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:productToHtmlForCreation(...)"
+        // Start of user code "Init:productToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"product\">product: </LABEL>";
+        s = s + "<label for=\"product\">product: </LABEL>";
     
-    	// Start of user code "Mid:productToHtmlForCreation(...)"
+        // Start of user code "Mid:productToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"product\" type=\"text\" style=\"width: 400px\" id=\"product\" >";
-    	// Start of user code "Finalize:productToHtmlForCreation(...)"
+        s= s + "<input name=\"product\" type=\"text\" style=\"width: 400px\" id=\"product\" >";
+        // Start of user code "Finalize:productToHtmlForCreation(...)"
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String productToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:productToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Init:productToHtmlForCreation1(...final String serviceProviderId)"
     	// End of user code
     
-    	s = s + "<label for=\"product\">product: </LABEL>";
+        s = s + "<label for=\"product\">product: </LABEL>";
     
-    	// Start of user code "Mid:productToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Mid:productToHtmlForCreation1(...final String serviceProviderId)"
     	// End of user code
     
-    	s= s + "<input name=\"product\" type=\"text\" style=\"width: 400px\" id=\"product\" >";
-    	// Start of user code "Finalize:productToHtmlForCreation1(...final String serviceProviderId)"
+        s= s + "<input name=\"product\" type=\"text\" style=\"width: 400px\" id=\"product\" >";
+        // Start of user code "Finalize:productToHtmlForCreation1(...final String serviceProviderId)"
     	//remove product input filed in creator page.
     	s= "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String componentToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:componentToHtmlForCreation(...)"
+        // Start of user code "Init:componentToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"component\">component: </LABEL>";
+        s = s + "<label for=\"component\">component: </LABEL>";
     
-    	// Start of user code "Mid:componentToHtmlForCreation(...)"
+        // Start of user code "Mid:componentToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"component\" type=\"text\" style=\"width: 400px\" id=\"component\" >";
-    	// Start of user code "Finalize:componentToHtmlForCreation(...)"
+        s= s + "<input name=\"component\" type=\"text\" style=\"width: 400px\" id=\"component\" >";
+        // Start of user code "Finalize:componentToHtmlForCreation(...)"
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String componentToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:componentToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Init:componentToHtmlForCreation1(...final String serviceProviderId)"
     	// End of user code
     
-    	s = s + "<label for=\"component\">component: </LABEL>";
+        s = s + "<label for=\"component\">component: </LABEL>";
     
-    	// Start of user code "Mid:componentToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Mid:componentToHtmlForCreation1(...final String serviceProviderId)"
     	String label = s;
     	// End of user code
     
-    	s= s + "<input name=\"component\" type=\"text\" style=\"width: 400px\" id=\"component\" >";
-    	// Start of user code "Finalize:componentToHtmlForCreation1(...final String serviceProviderId)"
+        s= s + "<input name=\"component\" type=\"text\" style=\"width: 400px\" id=\"component\" >";
+        // Start of user code "Finalize:componentToHtmlForCreation1(...final String serviceProviderId)"
 		s = label;
 		try {
 					BugzillaConnector bc = BugzillaAdaptorManager.getBugzillaConnector(httpServletRequest);
@@ -473,43 +474,43 @@ public String toHtml(boolean asLocalResource)
 			}
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String versionToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:versionToHtmlForCreation(...)"
+        // Start of user code "Init:versionToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"version\">version: </LABEL>";
+        s = s + "<label for=\"version\">version: </LABEL>";
     
-    	// Start of user code "Mid:versionToHtmlForCreation(...)"
+        // Start of user code "Mid:versionToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"version\" type=\"text\" style=\"width: 400px\" id=\"version\" >";
-    	// Start of user code "Finalize:versionToHtmlForCreation(...)"
+        s= s + "<input name=\"version\" type=\"text\" style=\"width: 400px\" id=\"version\" >";
+        // Start of user code "Finalize:versionToHtmlForCreation(...)"
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String versionToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:versionToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Init:versionToHtmlForCreation1(...final String serviceProviderId)"
     	// End of user code
     
-    	s = s + "<label for=\"version\">version: </LABEL>";
+        s = s + "<label for=\"version\">version: </LABEL>";
     
-    	// Start of user code "Mid:versionToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Mid:versionToHtmlForCreation1(...final String serviceProviderId)"
     	String label = s;
    	// End of user code
     
-    	s= s + "<input name=\"version\" type=\"text\" style=\"width: 400px\" id=\"version\" >";
-    	// Start of user code "Finalize:versionToHtmlForCreation1(...final String serviceProviderId)"
+        s= s + "<input name=\"version\" type=\"text\" style=\"width: 400px\" id=\"version\" >";
+        // Start of user code "Finalize:versionToHtmlForCreation1(...final String serviceProviderId)"
 		s = label;
 		try {
 					BugzillaConnector bc = BugzillaAdaptorManager.getBugzillaConnector(httpServletRequest);
@@ -527,43 +528,43 @@ public String toHtml(boolean asLocalResource)
 			}
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String priorityToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:priorityToHtmlForCreation(...)"
+        // Start of user code "Init:priorityToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"priority\">priority: </LABEL>";
+        s = s + "<label for=\"priority\">priority: </LABEL>";
     
-    	// Start of user code "Mid:priorityToHtmlForCreation(...)"
+        // Start of user code "Mid:priorityToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"priority\" type=\"text\" style=\"width: 400px\" id=\"priority\" >";
-    	// Start of user code "Finalize:priorityToHtmlForCreation(...)"
+        s= s + "<input name=\"priority\" type=\"text\" style=\"width: 400px\" id=\"priority\" >";
+        // Start of user code "Finalize:priorityToHtmlForCreation(...)"
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String priorityToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:priorityToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Init:priorityToHtmlForCreation1(...final String serviceProviderId)"
     	// End of user code
     
-    	s = s + "<label for=\"priority\">priority: </LABEL>";
+        s = s + "<label for=\"priority\">priority: </LABEL>";
     
-    	// Start of user code "Mid:priorityToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Mid:priorityToHtmlForCreation1(...final String serviceProviderId)"
     	String label = s;
     	// End of user code
     
-    	s= s + "<input name=\"priority\" type=\"text\" style=\"width: 400px\" id=\"priority\" >";
-    	// Start of user code "Finalize:priorityToHtmlForCreation1(...final String serviceProviderId)"
+        s= s + "<input name=\"priority\" type=\"text\" style=\"width: 400px\" id=\"priority\" >";
+        // Start of user code "Finalize:priorityToHtmlForCreation1(...final String serviceProviderId)"
     	
     	s = label;
 		try {
@@ -582,43 +583,43 @@ public String toHtml(boolean asLocalResource)
 		
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String platformToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:platformToHtmlForCreation(...)"
+        // Start of user code "Init:platformToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"platform\">platform: </LABEL>";
+        s = s + "<label for=\"platform\">platform: </LABEL>";
     
-    	// Start of user code "Mid:platformToHtmlForCreation(...)"
+        // Start of user code "Mid:platformToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"platform\" type=\"text\" style=\"width: 400px\" id=\"platform\" >";
-    	// Start of user code "Finalize:platformToHtmlForCreation(...)"
+        s= s + "<input name=\"platform\" type=\"text\" style=\"width: 400px\" id=\"platform\" >";
+        // Start of user code "Finalize:platformToHtmlForCreation(...)"
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String platformToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:platformToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Init:platformToHtmlForCreation1(...final String serviceProviderId)"
     	// End of user code
     
-    	s = s + "<label for=\"platform\">platform: </LABEL>";
+        s = s + "<label for=\"platform\">platform: </LABEL>";
     
-    	// Start of user code "Mid:platformToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Mid:platformToHtmlForCreation1(...final String serviceProviderId)"
     	String label = s;
     	// End of user code
     
-    	s= s + "<input name=\"platform\" type=\"text\" style=\"width: 400px\" id=\"platform\" >";
-    	// Start of user code "Finalize:platformToHtmlForCreation1(...final String serviceProviderId)"
+        s= s + "<input name=\"platform\" type=\"text\" style=\"width: 400px\" id=\"platform\" >";
+        // Start of user code "Finalize:platformToHtmlForCreation1(...final String serviceProviderId)"
 		s = label;
 		try {
 					BugzillaConnector bc = BugzillaAdaptorManager.getBugzillaConnector(httpServletRequest);
@@ -635,43 +636,43 @@ public String toHtml(boolean asLocalResource)
 			}
    	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String operatingSystemToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:operatingSystemToHtmlForCreation(...)"
+        // Start of user code "Init:operatingSystemToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"operatingSystem\">operatingSystem: </LABEL>";
+        s = s + "<label for=\"operatingSystem\">operatingSystem: </LABEL>";
     
-    	// Start of user code "Mid:operatingSystemToHtmlForCreation(...)"
+        // Start of user code "Mid:operatingSystemToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"operatingSystem\" type=\"text\" style=\"width: 400px\" id=\"operatingSystem\" >";
-    	// Start of user code "Finalize:operatingSystemToHtmlForCreation(...)"
+        s= s + "<input name=\"operatingSystem\" type=\"text\" style=\"width: 400px\" id=\"operatingSystem\" >";
+        // Start of user code "Finalize:operatingSystemToHtmlForCreation(...)"
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String operatingSystemToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:operatingSystemToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Init:operatingSystemToHtmlForCreation1(...final String serviceProviderId)"
     	// End of user code
     
-    	s = s + "<label for=\"operatingSystem\">operatingSystem: </LABEL>";
+        s = s + "<label for=\"operatingSystem\">operatingSystem: </LABEL>";
     
-    	// Start of user code "Mid:operatingSystemToHtmlForCreation1(...final String serviceProviderId)"
+        // Start of user code "Mid:operatingSystemToHtmlForCreation1(...final String serviceProviderId)"
     	String label = s;
     	// End of user code
     
-    	s= s + "<input name=\"operatingSystem\" type=\"text\" style=\"width: 400px\" id=\"operatingSystem\" >";
-    	// Start of user code "Finalize:operatingSystemToHtmlForCreation1(...final String serviceProviderId)"
+        s= s + "<input name=\"operatingSystem\" type=\"text\" style=\"width: 400px\" id=\"operatingSystem\" >";
+        // Start of user code "Finalize:operatingSystemToHtmlForCreation1(...final String serviceProviderId)"
 		s = label;
 		try {
 					BugzillaConnector bc = BugzillaAdaptorManager.getBugzillaConnector(httpServletRequest);
@@ -688,176 +689,176 @@ public String toHtml(boolean asLocalResource)
 			}
   	// End of user code
     
-    	return s; 
+        return s;
     }
 
 
     public String productToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code producttoHtml_init
+        // Start of user code producttoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"product\"><strong>product</strong>: </LABEL>";
+        s = s + "<label for=\"product\"><strong>product</strong>: </LABEL>";
 
-		// Start of user code producttoHtml_mid
+        // Start of user code producttoHtml_mid
 		// End of user code
 
-		try {
-				if (product == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + product.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (product == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + product.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code producttoHtml_finalize
+        // Start of user code producttoHtml_finalize
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String componentToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code componenttoHtml_init
+        // Start of user code componenttoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"component\"><strong>component</strong>: </LABEL>";
+        s = s + "<label for=\"component\"><strong>component</strong>: </LABEL>";
 
-		// Start of user code componenttoHtml_mid
+        // Start of user code componenttoHtml_mid
 		// End of user code
 
-		try {
-				if (component == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + component.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (component == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + component.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code componenttoHtml_finalize
+        // Start of user code componenttoHtml_finalize
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String versionToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code versiontoHtml_init
+        // Start of user code versiontoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"version\"><strong>version</strong>: </LABEL>";
+        s = s + "<label for=\"version\"><strong>version</strong>: </LABEL>";
 
-		// Start of user code versiontoHtml_mid
+        // Start of user code versiontoHtml_mid
 		// End of user code
 
-		try {
-				if (version == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + version.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (version == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + version.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code versiontoHtml_finalize
+        // Start of user code versiontoHtml_finalize
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String priorityToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code prioritytoHtml_init
+        // Start of user code prioritytoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"priority\"><strong>priority</strong>: </LABEL>";
+        s = s + "<label for=\"priority\"><strong>priority</strong>: </LABEL>";
 
-		// Start of user code prioritytoHtml_mid
+        // Start of user code prioritytoHtml_mid
 		// End of user code
 
-		try {
-				if (priority == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + priority.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (priority == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + priority.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code prioritytoHtml_finalize
+        // Start of user code prioritytoHtml_finalize
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String platformToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code platformtoHtml_init
+        // Start of user code platformtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"platform\"><strong>platform</strong>: </LABEL>";
+        s = s + "<label for=\"platform\"><strong>platform</strong>: </LABEL>";
 
-		// Start of user code platformtoHtml_mid
+        // Start of user code platformtoHtml_mid
 		// End of user code
 
-		try {
-				if (platform == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + platform.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (platform == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + platform.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code platformtoHtml_finalize
+        // Start of user code platformtoHtml_finalize
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String operatingSystemToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code operatingSystemtoHtml_init
+        // Start of user code operatingSystemtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"operatingSystem\"><strong>operatingSystem</strong>: </LABEL>";
+        s = s + "<label for=\"operatingSystem\"><strong>operatingSystem</strong>: </LABEL>";
 
-		// Start of user code operatingSystemtoHtml_mid
+        // Start of user code operatingSystemtoHtml_mid
 		// End of user code
 
-		try {
-				if (operatingSystem == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + operatingSystem.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (operatingSystem == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + operatingSystem.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code operatingSystemtoHtml_finalize
+        // Start of user code operatingSystemtoHtml_finalize
 		// End of user code
 
-		return s; 
+        return s;
     }
 }

@@ -4,7 +4,7 @@
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
- *  
+ *
  * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
  * and the Eclipse Distribution License is available at
  * http://www.eclipse.org/org/documents/edl-v10.php.
@@ -15,8 +15,8 @@
  *     Alberto Giammaria    - initial API and implementation
  *     Chris Peters         - initial API and implementation
  *     Gianluca Bernardini  - initial API and implementation
- *	   Sam Padgett	       - initial API and implementation
- *     Michael Fiedler     - adapted for OSLC4J
+ *	   Sam Padgett          - initial API and implementation
+ *     Michael Fiedler      - adapted for OSLC4J
  *     Jad El-khoury        - initial implementation of code generator (https://bugs.eclipse.org/bugs/show_bug.cgi?id=422448)
  *     Matthieu Helleboid   - Support for multiple Service Providers.
  *     Anass Radouani       - Support for multiple Service Providers.
@@ -64,7 +64,7 @@ import org.eclipse.lyo.oslc4j.core.model.OslcConstants;
 import org.eclipse.lyo.oslc4j.core.model.Representation;
 import org.eclipse.lyo.oslc4j.core.model.ValueType;
 
-import se.kth.md.it.bcm.servlet.ServletListener; 
+import se.kth.md.it.bcm.servlet.ServletListener;
 import se.kth.md.it.bcm.BugzillaAdaptorConstants;
 
 // Start of user code imports
@@ -76,90 +76,90 @@ import se.kth.md.it.bcm.BugzillaAdaptorConstants;
 // Start of user code classAnnotations
 // End of user code
 @OslcNamespace(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE)
-@OslcName(BugzillaAdaptorConstants.TYPE) 
+@OslcName(BugzillaAdaptorConstants.TYPE)
 @OslcResourceShape(title = "Type Resource Shape", describes = BugzillaAdaptorConstants.TYPE_TYPE)
 public class Type
-	extends AbstractResource
-	implements IType
+    extends AbstractResource
+    implements IType
 {
 
 
-// Start of user code classAttributes
+    // Start of user code classAttributes
 // End of user code
 
-// Start of user code classMethods
+    // Start of user code classMethods
 // End of user code
 
-public Type()
-       throws URISyntaxException
-{
-    super();
+    public Type()
+           throws URISyntaxException
+    {
+        super();
 
-	// Start of user code constructor1
+        // Start of user code constructor1
 	// End of user code
-}
+    }
 
-public Type(final URI about)
-       throws URISyntaxException
-{
-    super(about);
+    public Type(final URI about)
+           throws URISyntaxException
+    {
+        super(about);
 
-	// Start of user code constructor2
+        // Start of user code constructor2
 	// End of user code
-}
+    }
 
 
-public String toString()
-{
-	return toString(false);
-}
+    public String toString()
+    {
+        return toString(false);
+    }
 
-public String toString(boolean asLocalResource)
-{
-		String result = "";
-		// Start of user code toString_init
+    public String toString(boolean asLocalResource)
+    {
+        String result = "";
+        // Start of user code toString_init
 		// End of user code
 
-		if (asLocalResource) {
-			result = result + "{a Local Type Resource} - update Type.toString() to present resource as desired.";
-			// Start of user code toString_bodyForLocalResource
+        if (asLocalResource) {
+            result = result + "{a Local Type Resource} - update Type.toString() to present resource as desired.";
+            // Start of user code toString_bodyForLocalResource
 			// End of user code
-		}
-		else {
-			result = getAbout().toString();
-		}
+        }
+        else {
+            result = getAbout().toString();
+        }
 
-		// Start of user code toString_finalize
+        // Start of user code toString_finalize
 		// End of user code
 
-		return result;
-}
+        return result;
+    }
 
-public String toHtml()
-{
-	return toHtml(false);
-}
+    public String toHtml()
+    {
+        return toHtml(false);
+    }
 
-public String toHtml(boolean asLocalResource)
-{
-		String result = "";
-		// Start of user code toHtml_init
+    public String toHtml(boolean asLocalResource)
+    {
+        String result = "";
+        // Start of user code toHtml_init
 		// End of user code
 
-		if (asLocalResource) {
-			result = toString(true);
-			// Start of user code toHtml_bodyForLocalResource
+        if (asLocalResource) {
+            result = toString(true);
+            // Start of user code toHtml_bodyForLocalResource
 			// End of user code
-		}
-		else {
-			result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
-		}
+        }
+        else {
+            result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
+        }
 
-		// Start of user code toHtml_finalize
+        // Start of user code toHtml_finalize
 		// End of user code
 
-		return result;
-}
+        return result;
+    }
 
 
 

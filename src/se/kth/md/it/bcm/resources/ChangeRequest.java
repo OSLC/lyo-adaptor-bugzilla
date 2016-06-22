@@ -4,7 +4,7 @@
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
- *  
+ *
  * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
  * and the Eclipse Distribution License is available at
  * http://www.eclipse.org/org/documents/edl-v10.php.
@@ -15,8 +15,8 @@
  *     Alberto Giammaria    - initial API and implementation
  *     Chris Peters         - initial API and implementation
  *     Gianluca Bernardini  - initial API and implementation
- *	   Sam Padgett	       - initial API and implementation
- *     Michael Fiedler     - adapted for OSLC4J
+ *	   Sam Padgett          - initial API and implementation
+ *     Michael Fiedler      - adapted for OSLC4J
  *     Jad El-khoury        - initial implementation of code generator (https://bugs.eclipse.org/bugs/show_bug.cgi?id=422448)
  *     Matthieu Helleboid   - Support for multiple Service Providers.
  *     Anass Radouani       - Support for multiple Service Providers.
@@ -64,11 +64,11 @@ import org.eclipse.lyo.oslc4j.core.model.OslcConstants;
 import org.eclipse.lyo.oslc4j.core.model.Representation;
 import org.eclipse.lyo.oslc4j.core.model.ValueType;
 
-import se.kth.md.it.bcm.servlet.ServletListener; 
+import se.kth.md.it.bcm.servlet.ServletListener;
 import se.kth.md.it.bcm.BugzillaAdaptorConstants;
-import se.kth.md.it.bcm.resources.Person;	
-import se.kth.md.it.bcm.resources.Person;	
-import se.kth.md.it.bcm.resources.Type;	
+import se.kth.md.it.bcm.resources.Person;
+import se.kth.md.it.bcm.resources.Person;
+import se.kth.md.it.bcm.resources.Type;
 
 // Start of user code imports
 // End of user code
@@ -79,198 +79,198 @@ import se.kth.md.it.bcm.resources.Type;
 // Start of user code classAnnotations
 // End of user code
 @OslcNamespace(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE)
-@OslcName(BugzillaAdaptorConstants.CHANGEREQUEST) 
+@OslcName(BugzillaAdaptorConstants.CHANGEREQUEST)
 @OslcResourceShape(title = "ChangeRequest Resource Shape", describes = BugzillaAdaptorConstants.TYPE_CHANGEREQUEST)
 public class ChangeRequest
-	extends AbstractResource
-	implements IChangeRequest
+    extends AbstractResource
+    implements IChangeRequest
 {
 
-// Start of user code attributeAnnotation:affectedByDefect
+    // Start of user code attributeAnnotation:affectedByDefect
 // End of user code
-private HashSet<Link> affectedByDefect = new HashSet<Link>();  
-// Start of user code attributeAnnotation:affectsPlanItem
+    private HashSet<Link> affectedByDefect = new HashSet<Link>();
+    // Start of user code attributeAnnotation:affectsPlanItem
 // End of user code
-private HashSet<Link> affectsPlanItem = new HashSet<Link>();  
-// Start of user code attributeAnnotation:affectsRequirement
+    private HashSet<Link> affectsPlanItem = new HashSet<Link>();
+    // Start of user code attributeAnnotation:affectsRequirement
 // End of user code
-private HashSet<Link> affectsRequirement = new HashSet<Link>();  
-// Start of user code attributeAnnotation:affectsTestResult
+    private HashSet<Link> affectsRequirement = new HashSet<Link>();
+    // Start of user code attributeAnnotation:affectsTestResult
 // End of user code
-private HashSet<Link> affectsTestResult = new HashSet<Link>();  
-// Start of user code attributeAnnotation:blocksTestExecutionRecord
+    private HashSet<Link> affectsTestResult = new HashSet<Link>();
+    // Start of user code attributeAnnotation:blocksTestExecutionRecord
 // End of user code
-private HashSet<Link> blocksTestExecutionRecord = new HashSet<Link>();  
-// Start of user code attributeAnnotation:contributor
+    private HashSet<Link> blocksTestExecutionRecord = new HashSet<Link>();
+    // Start of user code attributeAnnotation:contributor
 // End of user code
-private HashSet<Person> contributor = new HashSet<Person>();  
-// Start of user code attributeAnnotation:creator
+    private HashSet<Person> contributor = new HashSet<Person>();
+    // Start of user code attributeAnnotation:creator
 // End of user code
-private HashSet<Person> creator = new HashSet<Person>();  
-// Start of user code attributeAnnotation:dctermsType
+    private HashSet<Person> creator = new HashSet<Person>();
+    // Start of user code attributeAnnotation:dctermsType
 // End of user code
-private HashSet<Type> dctermsType = new HashSet<Type>();  
-// Start of user code attributeAnnotation:implementsRequirement
+    private HashSet<Type> dctermsType = new HashSet<Type>();
+    // Start of user code attributeAnnotation:implementsRequirement
 // End of user code
-private HashSet<Link> implementsRequirement = new HashSet<Link>();  
-// Start of user code attributeAnnotation:relatedChangeRequest
+    private HashSet<Link> implementsRequirement = new HashSet<Link>();
+    // Start of user code attributeAnnotation:relatedChangeRequest
 // End of user code
-private HashSet<Link> relatedChangeRequest = new HashSet<Link>();  
-// Start of user code attributeAnnotation:relatedTestCase
+    private HashSet<Link> relatedChangeRequest = new HashSet<Link>();
+    // Start of user code attributeAnnotation:relatedTestCase
 // End of user code
-private HashSet<Link> relatedTestCase = new HashSet<Link>();  
-// Start of user code attributeAnnotation:relatedTestExecutionRecord
+    private HashSet<Link> relatedTestCase = new HashSet<Link>();
+    // Start of user code attributeAnnotation:relatedTestExecutionRecord
 // End of user code
-private HashSet<Link> relatedTestExecutionRecord = new HashSet<Link>();  
-// Start of user code attributeAnnotation:relatedTestPlan
+    private HashSet<Link> relatedTestExecutionRecord = new HashSet<Link>();
+    // Start of user code attributeAnnotation:relatedTestPlan
 // End of user code
-private HashSet<Link> relatedTestPlan = new HashSet<Link>();  
-// Start of user code attributeAnnotation:relatedTestScript
+    private HashSet<Link> relatedTestPlan = new HashSet<Link>();
+    // Start of user code attributeAnnotation:relatedTestScript
 // End of user code
-private HashSet<Link> relatedTestScript = new HashSet<Link>();  
-// Start of user code attributeAnnotation:subject
+    private HashSet<Link> relatedTestScript = new HashSet<Link>();
+    // Start of user code attributeAnnotation:subject
 // End of user code
-private HashSet<String> subject = new HashSet<String>();  
-// Start of user code attributeAnnotation:testedByTestCase
+    private HashSet<String> subject = new HashSet<String>();
+    // Start of user code attributeAnnotation:testedByTestCase
 // End of user code
-private HashSet<Link> testedByTestCase = new HashSet<Link>();  
-// Start of user code attributeAnnotation:tracksChangeSet
+    private HashSet<Link> testedByTestCase = new HashSet<Link>();
+    // Start of user code attributeAnnotation:tracksChangeSet
 // End of user code
-private HashSet<Link> tracksChangeSet = new HashSet<Link>();  
-// Start of user code attributeAnnotation:tracksRequirement
+    private HashSet<Link> tracksChangeSet = new HashSet<Link>();
+    // Start of user code attributeAnnotation:tracksRequirement
 // End of user code
-private HashSet<Link> tracksRequirement = new HashSet<Link>();  
-// Start of user code attributeAnnotation:rdfType
+    private HashSet<Link> tracksRequirement = new HashSet<Link>();
+    // Start of user code attributeAnnotation:rdfType
 // End of user code
-private HashSet<URI> rdfType = new HashSet<URI>();  
-// Start of user code attributeAnnotation:approved
+    private HashSet<URI> rdfType = new HashSet<URI>();
+    // Start of user code attributeAnnotation:approved
 // End of user code
-private Boolean approved;  
-// Start of user code attributeAnnotation:closed
+    private Boolean approved;
+    // Start of user code attributeAnnotation:closed
 // End of user code
-private Boolean closed;  
-// Start of user code attributeAnnotation:closeDate
+    private Boolean closed;
+    // Start of user code attributeAnnotation:closeDate
 // End of user code
-private Date closeDate;  
-// Start of user code attributeAnnotation:created
+    private Date closeDate;
+    // Start of user code attributeAnnotation:created
 // End of user code
-private Date created;  
-// Start of user code attributeAnnotation:description
+    private Date created;
+    // Start of user code attributeAnnotation:description
 // End of user code
-private String description;  
-// Start of user code attributeAnnotation:discussedBy
+    private String description;
+    // Start of user code attributeAnnotation:discussedBy
 // End of user code
-private Link discussedBy = new Link();  
-// Start of user code attributeAnnotation:fixed
+    private Link discussedBy = new Link();
+    // Start of user code attributeAnnotation:fixed
 // End of user code
-private Boolean fixed;  
-// Start of user code attributeAnnotation:identifier
+    private Boolean fixed;
+    // Start of user code attributeAnnotation:identifier
 // End of user code
-private String identifier;  
-// Start of user code attributeAnnotation:inprogress
+    private String identifier;
+    // Start of user code attributeAnnotation:inprogress
 // End of user code
-private Boolean inprogress;  
-// Start of user code attributeAnnotation:instanceShape
+    private Boolean inprogress;
+    // Start of user code attributeAnnotation:instanceShape
 // End of user code
-private Link instanceShape = new Link();  
-// Start of user code attributeAnnotation:modified
+    private Link instanceShape = new Link();
+    // Start of user code attributeAnnotation:modified
 // End of user code
-private Date modified;  
-// Start of user code attributeAnnotation:reviewed
+    private Date modified;
+    // Start of user code attributeAnnotation:reviewed
 // End of user code
-private Boolean reviewed;  
-// Start of user code attributeAnnotation:serviceProvider
+    private Boolean reviewed;
+    // Start of user code attributeAnnotation:serviceProvider
 // End of user code
-private URI serviceProvider;  
-// Start of user code attributeAnnotation:shortTitle
+    private URI serviceProvider;
+    // Start of user code attributeAnnotation:shortTitle
 // End of user code
-private String shortTitle;  
-// Start of user code attributeAnnotation:status
+    private String shortTitle;
+    // Start of user code attributeAnnotation:status
 // End of user code
-private String status;  
-// Start of user code attributeAnnotation:title
+    private String status;
+    // Start of user code attributeAnnotation:title
 // End of user code
-private String title;  
-// Start of user code attributeAnnotation:verified
+    private String title;
+    // Start of user code attributeAnnotation:verified
 // End of user code
-private Boolean verified;  
+    private Boolean verified;
 
-// Start of user code classAttributes
-// End of user code
-
-// Start of user code classMethods
+    // Start of user code classAttributes
 // End of user code
 
-public ChangeRequest()
-       throws URISyntaxException
-{
-    super();
+    // Start of user code classMethods
+// End of user code
 
-	// Start of user code constructor1
+    public ChangeRequest()
+           throws URISyntaxException
+    {
+        super();
+
+        // Start of user code constructor1
 	// End of user code
-}
+    }
 
-public ChangeRequest(final URI about)
-       throws URISyntaxException
-{
-    super(about);
+    public ChangeRequest(final URI about)
+           throws URISyntaxException
+    {
+        super(about);
 
-	// Start of user code constructor2
+        // Start of user code constructor2
 	// End of user code
-}
+    }
 
 
-public String toString()
-{
-	return toString(false);
-}
+    public String toString()
+    {
+        return toString(false);
+    }
 
-public String toString(boolean asLocalResource)
-{
-		String result = "";
-		// Start of user code toString_init
+    public String toString(boolean asLocalResource)
+    {
+        String result = "";
+        // Start of user code toString_init
 		// End of user code
 
-		if (asLocalResource) {
-			result = result + "{a Local ChangeRequest Resource} - update ChangeRequest.toString() to present resource as desired.";
-			// Start of user code toString_bodyForLocalResource
+        if (asLocalResource) {
+            result = result + "{a Local ChangeRequest Resource} - update ChangeRequest.toString() to present resource as desired.";
+            // Start of user code toString_bodyForLocalResource
 			// End of user code
-		}
-		else {
-			result = getAbout().toString();
-		}
+        }
+        else {
+            result = getAbout().toString();
+        }
 
-		// Start of user code toString_finalize
+        // Start of user code toString_finalize
 		// End of user code
 
-		return result;
-}
+        return result;
+    }
 
-public String toHtml()
-{
-	return toHtml(false);
-}
+    public String toHtml()
+    {
+        return toHtml(false);
+    }
 
-public String toHtml(boolean asLocalResource)
-{
-		String result = "";
-		// Start of user code toHtml_init
+    public String toHtml(boolean asLocalResource)
+    {
+        String result = "";
+        // Start of user code toHtml_init
 		// End of user code
 
-		if (asLocalResource) {
-			result = toString(true);
-			// Start of user code toHtml_bodyForLocalResource
+        if (asLocalResource) {
+            result = toString(true);
+            // Start of user code toHtml_bodyForLocalResource
 			// End of user code
-		}
-		else {
-			result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
-		}
+        }
+        else {
+            result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
+        }
 
-		// Start of user code toHtml_finalize
+        // Start of user code toHtml_finalize
 		// End of user code
 
-		return result;
-}
+        return result;
+    }
 
     public void addAffectedByDefect(final Link affectedByDefect)
     {
@@ -349,589 +349,589 @@ public String toHtml(boolean asLocalResource)
         this.rdfType.add(type);
     }
 
-	// Start of user code getterAnnotation:affectedByDefect
+    // Start of user code getterAnnotation:affectedByDefect
 	// End of user code
-	@OslcName("affectedByDefect")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectedByDefect")
-	@OslcDescription("Change request is affected by a reported defect. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("affectedByDefect")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectedByDefect")
+    @OslcDescription("Change request is affected by a reported defect. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getAffectedByDefect()
     {
-		// Start of user code getterInit:affectedByDefect
+        // Start of user code getterInit:affectedByDefect
 		// End of user code
         return affectedByDefect;
     }
 
-	// Start of user code getterAnnotation:affectsPlanItem
+    // Start of user code getterAnnotation:affectsPlanItem
 	// End of user code
-	@OslcName("affectsPlanItem")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsPlanItem")
-	@OslcDescription("Change request affects a plan item. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("affectsPlanItem")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsPlanItem")
+    @OslcDescription("Change request affects a plan item. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getAffectsPlanItem()
     {
-		// Start of user code getterInit:affectsPlanItem
+        // Start of user code getterInit:affectsPlanItem
 		// End of user code
         return affectsPlanItem;
     }
 
-	// Start of user code getterAnnotation:affectsRequirement
+    // Start of user code getterAnnotation:affectsRequirement
 	// End of user code
-	@OslcName("affectsRequirement")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsRequirement")
-	@OslcDescription("Change request affecting a Requirement. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("affectsRequirement")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsRequirement")
+    @OslcDescription("Change request affecting a Requirement. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getAffectsRequirement()
     {
-		// Start of user code getterInit:affectsRequirement
+        // Start of user code getterInit:affectsRequirement
 		// End of user code
         return affectsRequirement;
     }
 
-	// Start of user code getterAnnotation:affectsTestResult
+    // Start of user code getterAnnotation:affectsTestResult
 	// End of user code
-	@OslcName("affectsTestResult")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsTestResult")
-	@OslcDescription("Associated QM resource that is affected by this Change Request. It is likely that the target resource will be an oslc_qm:TestResult but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("affectsTestResult")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "affectsTestResult")
+    @OslcDescription("Associated QM resource that is affected by this Change Request. It is likely that the target resource will be an oslc_qm:TestResult but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getAffectsTestResult()
     {
-		// Start of user code getterInit:affectsTestResult
+        // Start of user code getterInit:affectsTestResult
 		// End of user code
         return affectsTestResult;
     }
 
-	// Start of user code getterAnnotation:blocksTestExecutionRecord
+    // Start of user code getterAnnotation:blocksTestExecutionRecord
 	// End of user code
-	@OslcName("blocksTestExecutionRecord")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "blocksTestExecutionRecord")
-	@OslcDescription("Associated QM resource that is blocked by this Change Request. It is likely that the target resource will be an oslc_qm:TestExecutionRecord but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("blocksTestExecutionRecord")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "blocksTestExecutionRecord")
+    @OslcDescription("Associated QM resource that is blocked by this Change Request. It is likely that the target resource will be an oslc_qm:TestExecutionRecord but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getBlocksTestExecutionRecord()
     {
-		// Start of user code getterInit:blocksTestExecutionRecord
+        // Start of user code getterInit:blocksTestExecutionRecord
 		// End of user code
         return blocksTestExecutionRecord;
     }
 
-	// Start of user code getterAnnotation:contributor
+    // Start of user code getterAnnotation:contributor
 	// End of user code
-	@OslcName("contributor")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "contributor")
-	@OslcDescription("Contributor or contributors to the resource. It is likely that the target resource will be a foaf:Person but that is not necessarily the case. ")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.LocalResource)
-	@OslcRange({BugzillaAdaptorConstants.TYPE_PERSON})
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("contributor")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "contributor")
+    @OslcDescription("Contributor or contributors to the resource. It is likely that the target resource will be a foaf:Person but that is not necessarily the case. ")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.LocalResource)
+    @OslcRange({BugzillaAdaptorConstants.TYPE_PERSON})
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Person> getContributor()
     {
-		// Start of user code getterInit:contributor
+        // Start of user code getterInit:contributor
 		// End of user code
         return contributor;
     }
 
-	// Start of user code getterAnnotation:creator
+    // Start of user code getterAnnotation:creator
 	// End of user code
-	@OslcName("creator")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "creator")
-	@OslcDescription("Creator or creators of resource (reference: Dublin Core). It is likely that the target resource will be a foaf:Person but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.LocalResource)
-	@OslcRange({BugzillaAdaptorConstants.TYPE_PERSON})
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("creator")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "creator")
+    @OslcDescription("Creator or creators of resource (reference: Dublin Core). It is likely that the target resource will be a foaf:Person but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.LocalResource)
+    @OslcRange({BugzillaAdaptorConstants.TYPE_PERSON})
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Person> getCreator()
     {
-		// Start of user code getterInit:creator
+        // Start of user code getterInit:creator
 		// End of user code
         return creator;
     }
 
-	// Start of user code getterAnnotation:dctermsType
+    // Start of user code getterAnnotation:dctermsType
 	// End of user code
-	@OslcName("type")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "type")
-	@OslcDescription("A short string representation for the type, example 'Defect'.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.LocalResource)
-	@OslcRange({BugzillaAdaptorConstants.TYPE_TYPE})
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("type")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "type")
+    @OslcDescription("A short string representation for the type, example 'Defect'.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.LocalResource)
+    @OslcRange({BugzillaAdaptorConstants.TYPE_TYPE})
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Type> getDctermsType()
     {
-		// Start of user code getterInit:dctermsType
+        // Start of user code getterInit:dctermsType
 		// End of user code
         return dctermsType;
     }
 
-	// Start of user code getterAnnotation:implementsRequirement
+    // Start of user code getterAnnotation:implementsRequirement
 	// End of user code
-	@OslcName("implementsRequirement")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "implementsRequirement")
-	@OslcDescription("Implements associated Requirement. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("implementsRequirement")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "implementsRequirement")
+    @OslcDescription("Implements associated Requirement. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getImplementsRequirement()
     {
-		// Start of user code getterInit:implementsRequirement
+        // Start of user code getterInit:implementsRequirement
 		// End of user code
         return implementsRequirement;
     }
 
-	// Start of user code getterAnnotation:relatedChangeRequest
+    // Start of user code getterAnnotation:relatedChangeRequest
 	// End of user code
-	@OslcName("relatedChangeRequest")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedChangeRequest")
-	@OslcDescription("This relationship is loosely coupled and has no specific meaning. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("relatedChangeRequest")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedChangeRequest")
+    @OslcDescription("This relationship is loosely coupled and has no specific meaning. It is likely that the target resource will be an oslc_cm:ChangeRequest but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getRelatedChangeRequest()
     {
-		// Start of user code getterInit:relatedChangeRequest
+        // Start of user code getterInit:relatedChangeRequest
 		// End of user code
         return relatedChangeRequest;
     }
 
-	// Start of user code getterAnnotation:relatedTestCase
+    // Start of user code getterAnnotation:relatedTestCase
 	// End of user code
-	@OslcName("relatedTestCase")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestCase")
-	@OslcDescription("Related QM test case resource. It is likely that the target resource will be an oslc_qm:TestCase but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("relatedTestCase")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestCase")
+    @OslcDescription("Related QM test case resource. It is likely that the target resource will be an oslc_qm:TestCase but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getRelatedTestCase()
     {
-		// Start of user code getterInit:relatedTestCase
+        // Start of user code getterInit:relatedTestCase
 		// End of user code
         return relatedTestCase;
     }
 
-	// Start of user code getterAnnotation:relatedTestExecutionRecord
+    // Start of user code getterAnnotation:relatedTestExecutionRecord
 	// End of user code
-	@OslcName("relatedTestExecutionRecord")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestExecutionRecord")
-	@OslcDescription("Related to a QM test execution resource. It is likely that the target resource will be an oslc_qm:TestExecutionRecord but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("relatedTestExecutionRecord")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestExecutionRecord")
+    @OslcDescription("Related to a QM test execution resource. It is likely that the target resource will be an oslc_qm:TestExecutionRecord but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getRelatedTestExecutionRecord()
     {
-		// Start of user code getterInit:relatedTestExecutionRecord
+        // Start of user code getterInit:relatedTestExecutionRecord
 		// End of user code
         return relatedTestExecutionRecord;
     }
 
-	// Start of user code getterAnnotation:relatedTestPlan
+    // Start of user code getterAnnotation:relatedTestPlan
 	// End of user code
-	@OslcName("relatedTestPlan")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestPlan")
-	@OslcDescription("Related QM test plan resource. It is likely that the target resource will be an oslc_qm:TestPlan but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("relatedTestPlan")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestPlan")
+    @OslcDescription("Related QM test plan resource. It is likely that the target resource will be an oslc_qm:TestPlan but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getRelatedTestPlan()
     {
-		// Start of user code getterInit:relatedTestPlan
+        // Start of user code getterInit:relatedTestPlan
 		// End of user code
         return relatedTestPlan;
     }
 
-	// Start of user code getterAnnotation:relatedTestScript
+    // Start of user code getterAnnotation:relatedTestScript
 	// End of user code
-	@OslcName("relatedTestScript")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestScript")
-	@OslcDescription("Related QM test script resource. It is likely that the target resource will be an oslc_qm:TestScript but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("relatedTestScript")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "relatedTestScript")
+    @OslcDescription("Related QM test script resource. It is likely that the target resource will be an oslc_qm:TestScript but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getRelatedTestScript()
     {
-		// Start of user code getterInit:relatedTestScript
+        // Start of user code getterInit:relatedTestScript
 		// End of user code
         return relatedTestScript;
     }
 
-	// Start of user code getterAnnotation:subject
+    // Start of user code getterAnnotation:subject
 	// End of user code
-	@OslcName("subject")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "subject")
-	@OslcDescription("Tag or keyword for a resource. Each occurrence of a dcterms:subject property denotes an additional tag for the resource.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("subject")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "subject")
+    @OslcDescription("Tag or keyword for a resource. Each occurrence of a dcterms:subject property denotes an additional tag for the resource.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<String> getSubject()
     {
-		// Start of user code getterInit:subject
+        // Start of user code getterInit:subject
 		// End of user code
         return subject;
     }
 
-	// Start of user code getterAnnotation:testedByTestCase
+    // Start of user code getterAnnotation:testedByTestCase
 	// End of user code
-	@OslcName("testedByTestCase")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "testedByTestCase")
-	@OslcDescription("Test case by which this change request is tested. It is likely that the target resource will be an oslc_qm:TestCase but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("testedByTestCase")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "testedByTestCase")
+    @OslcDescription("Test case by which this change request is tested. It is likely that the target resource will be an oslc_qm:TestCase but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getTestedByTestCase()
     {
-		// Start of user code getterInit:testedByTestCase
+        // Start of user code getterInit:testedByTestCase
 		// End of user code
         return testedByTestCase;
     }
 
-	// Start of user code getterAnnotation:tracksChangeSet
+    // Start of user code getterAnnotation:tracksChangeSet
 	// End of user code
-	@OslcName("tracksChangeSet")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksChangeSet")
-	@OslcDescription("Tracks SCM change set resource. It is likely that the target resource will be an oslc_scm:ChangeSet but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("tracksChangeSet")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksChangeSet")
+    @OslcDescription("Tracks SCM change set resource. It is likely that the target resource will be an oslc_scm:ChangeSet but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getTracksChangeSet()
     {
-		// Start of user code getterInit:tracksChangeSet
+        // Start of user code getterInit:tracksChangeSet
 		// End of user code
         return tracksChangeSet;
     }
 
-	// Start of user code getterAnnotation:tracksRequirement
+    // Start of user code getterAnnotation:tracksRequirement
 	// End of user code
-	@OslcName("tracksRequirement")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksRequirement")
-	@OslcDescription("Tracks the associated Requirement or Requirement ChangeSet resources. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("tracksRequirement")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "tracksRequirement")
+    @OslcDescription("Tracks the associated Requirement or Requirement ChangeSet resources. It is likely that the target resource will be an oslc_rm:Requirement but that is not necessarily the case.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<Link> getTracksRequirement()
     {
-		// Start of user code getterInit:tracksRequirement
+        // Start of user code getterInit:tracksRequirement
 		// End of user code
         return tracksRequirement;
     }
 
-	// Start of user code getterAnnotation:rdfType
+    // Start of user code getterAnnotation:rdfType
 	// End of user code
-	@OslcName("type")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.RDF_NAMSPACE + "type")
-	@OslcDescription("The resource type URIs.")
-	@OslcOccurs(Occurs.ZeroOrMany)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("type")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.RDF_NAMSPACE + "type")
+    @OslcDescription("The resource type URIs.")
+    @OslcOccurs(Occurs.ZeroOrMany)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public HashSet<URI> getRdfType()
     {
-		// Start of user code getterInit:rdfType
+        // Start of user code getterInit:rdfType
 		// End of user code
         return rdfType;
     }
 
-	// Start of user code getterAnnotation:approved
+    // Start of user code getterAnnotation:approved
 	// End of user code
-	@OslcName("approved")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "approved")
-	@OslcDescription("Whether or not the Change Request has been approved.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.Boolean)
-	@OslcReadOnly(true)
-	@OslcTitle("")
+    @OslcName("approved")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "approved")
+    @OslcDescription("Whether or not the Change Request has been approved.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.Boolean)
+    @OslcReadOnly(true)
+    @OslcTitle("")
     public Boolean isApproved()
     {
-		// Start of user code getterInit:approved
+        // Start of user code getterInit:approved
 		// End of user code
         return approved;
     }
 
-	// Start of user code getterAnnotation:closed
+    // Start of user code getterAnnotation:closed
 	// End of user code
-	@OslcName("closed")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closed")
-	@OslcDescription("Whether or not the Change Request is completely done, no further fixes or fix verification is needed.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.Boolean)
-	@OslcReadOnly(true)
-	@OslcTitle("")
+    @OslcName("closed")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closed")
+    @OslcDescription("Whether or not the Change Request is completely done, no further fixes or fix verification is needed.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.Boolean)
+    @OslcReadOnly(true)
+    @OslcTitle("")
     public Boolean isClosed()
     {
-		// Start of user code getterInit:closed
+        // Start of user code getterInit:closed
 		// End of user code
         return closed;
     }
 
-	// Start of user code getterAnnotation:closeDate
+    // Start of user code getterAnnotation:closeDate
 	// End of user code
-	@OslcName("closeDate")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closeDate")
-	@OslcDescription("The date at which no further activity or work is intended to be conducted.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.DateTime)
-	@OslcReadOnly(true)
-	@OslcTitle("")
+    @OslcName("closeDate")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "closeDate")
+    @OslcDescription("The date at which no further activity or work is intended to be conducted.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.DateTime)
+    @OslcReadOnly(true)
+    @OslcTitle("")
     public Date getCloseDate()
     {
-		// Start of user code getterInit:closeDate
+        // Start of user code getterInit:closeDate
 		// End of user code
         return closeDate;
     }
 
-	// Start of user code getterAnnotation:created
+    // Start of user code getterAnnotation:created
 	// End of user code
-	@OslcName("created")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "created")
-	@OslcDescription("Timestamp of resource creation")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.DateTime)
-	@OslcReadOnly(true)
-	@OslcTitle("")
+    @OslcName("created")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "created")
+    @OslcDescription("Timestamp of resource creation")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.DateTime)
+    @OslcReadOnly(true)
+    @OslcTitle("")
     public Date getCreated()
     {
-		// Start of user code getterInit:created
+        // Start of user code getterInit:created
 		// End of user code
         return created;
     }
 
-	// Start of user code getterAnnotation:description
+    // Start of user code getterAnnotation:description
 	// End of user code
-	@OslcName("description")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "description")
-	@OslcDescription("Descriptive text about resource represented as rich text in XHTML content. SHOULD include only content that is valid and suitable inside an XHTML <div> element. ")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.XMLLiteral)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("description")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "description")
+    @OslcDescription("Descriptive text about resource represented as rich text in XHTML content. SHOULD include only content that is valid and suitable inside an XHTML <div> element. ")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.XMLLiteral)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public String getDescription()
     {
-		// Start of user code getterInit:description
+        // Start of user code getterInit:description
 		// End of user code
         return description;
     }
 
-	// Start of user code getterAnnotation:discussedBy
+    // Start of user code getterAnnotation:discussedBy
 	// End of user code
-	@OslcName("discussedBy")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "discussedBy")
-	@OslcDescription("A series of notes and comments about this resource.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("discussedBy")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "discussedBy")
+    @OslcDescription("A series of notes and comments about this resource.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public Link getDiscussedBy()
     {
-		// Start of user code getterInit:discussedBy
+        // Start of user code getterInit:discussedBy
 		// End of user code
         return discussedBy;
     }
 
-	// Start of user code getterAnnotation:fixed
+    // Start of user code getterAnnotation:fixed
 	// End of user code
-	@OslcName("fixed")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "fixed")
-	@OslcDescription("Whether or not the Change Request has been fixed.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.Boolean)
-	@OslcReadOnly(true)
-	@OslcTitle("")
+    @OslcName("fixed")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "fixed")
+    @OslcDescription("Whether or not the Change Request has been fixed.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.Boolean)
+    @OslcReadOnly(true)
+    @OslcTitle("")
     public Boolean isFixed()
     {
-		// Start of user code getterInit:fixed
+        // Start of user code getterInit:fixed
 		// End of user code
         return fixed;
     }
 
-	// Start of user code getterAnnotation:identifier
+    // Start of user code getterAnnotation:identifier
 	// End of user code
-	@OslcName("identifier")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "identifier")
-	@OslcDescription("A unique identifier for a resource. Typically read-only and assigned by the service provider when a resource is created. Not typically intended for end-user display.")
-	@OslcOccurs(Occurs.ExactlyOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(true)
-	@OslcTitle("")
+    @OslcName("identifier")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "identifier")
+    @OslcDescription("A unique identifier for a resource. Typically read-only and assigned by the service provider when a resource is created. Not typically intended for end-user display.")
+    @OslcOccurs(Occurs.ExactlyOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(true)
+    @OslcTitle("")
     public String getIdentifier()
     {
-		// Start of user code getterInit:identifier
+        // Start of user code getterInit:identifier
 		// End of user code
         return identifier;
     }
 
-	// Start of user code getterAnnotation:inprogress
+    // Start of user code getterAnnotation:inprogress
 	// End of user code
-	@OslcName("inprogress")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "inprogress")
-	@OslcDescription("Whether or not the Change Request in a state indicating that active work is occurring. If oslc_cm:inprogress is true, then oslc_cm:fixed and oslc_cm:closed must also be false")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.Boolean)
-	@OslcReadOnly(true)
-	@OslcTitle("")
+    @OslcName("inprogress")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "inprogress")
+    @OslcDescription("Whether or not the Change Request in a state indicating that active work is occurring. If oslc_cm:inprogress is true, then oslc_cm:fixed and oslc_cm:closed must also be false")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.Boolean)
+    @OslcReadOnly(true)
+    @OslcTitle("")
     public Boolean isInprogress()
     {
-		// Start of user code getterInit:inprogress
+        // Start of user code getterInit:inprogress
 		// End of user code
         return inprogress;
     }
 
-	// Start of user code getterAnnotation:instanceShape
+    // Start of user code getterAnnotation:instanceShape
 	// End of user code
-	@OslcName("instanceShape")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "instanceShape")
-	@OslcDescription("The URI of a Resource Shape that describes the possible properties, occurrence, value types, allowed values and labels. This shape information is useful in displaying the subject resource as well as guiding clients in performing modifications. Instance shapes may be specific to the authenticated user associated with the request that retrieved the resource, the current state of the resource and other factors and thus should not be cached.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.Resource)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("instanceShape")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "instanceShape")
+    @OslcDescription("The URI of a Resource Shape that describes the possible properties, occurrence, value types, allowed values and labels. This shape information is useful in displaying the subject resource as well as guiding clients in performing modifications. Instance shapes may be specific to the authenticated user associated with the request that retrieved the resource, the current state of the resource and other factors and thus should not be cached.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.Resource)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public Link getInstanceShape()
     {
-		// Start of user code getterInit:instanceShape
+        // Start of user code getterInit:instanceShape
 		// End of user code
         return instanceShape;
     }
 
-	// Start of user code getterAnnotation:modified
+    // Start of user code getterAnnotation:modified
 	// End of user code
-	@OslcName("modified")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "modified")
-	@OslcDescription("Timestamp last latest resource modification")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.DateTime)
-	@OslcReadOnly(true)
-	@OslcTitle("")
+    @OslcName("modified")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "modified")
+    @OslcDescription("Timestamp last latest resource modification")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.DateTime)
+    @OslcReadOnly(true)
+    @OslcTitle("")
     public Date getModified()
     {
-		// Start of user code getterInit:modified
+        // Start of user code getterInit:modified
 		// End of user code
         return modified;
     }
 
-	// Start of user code getterAnnotation:reviewed
+    // Start of user code getterAnnotation:reviewed
 	// End of user code
-	@OslcName("reviewed")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "reviewed")
-	@OslcDescription("Whether or not the Change Request has been reviewed.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.Boolean)
-	@OslcReadOnly(true)
-	@OslcTitle("")
+    @OslcName("reviewed")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "reviewed")
+    @OslcDescription("Whether or not the Change Request has been reviewed.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.Boolean)
+    @OslcReadOnly(true)
+    @OslcTitle("")
     public Boolean isReviewed()
     {
-		// Start of user code getterInit:reviewed
+        // Start of user code getterInit:reviewed
 		// End of user code
         return reviewed;
     }
 
-	// Start of user code getterAnnotation:serviceProvider
+    // Start of user code getterAnnotation:serviceProvider
 	// End of user code
-	@OslcName("serviceProvider")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "serviceProvider")
-	@OslcDescription("A link to the resource's OSLC Service Provider. There may be cases when the subject resource is available from a service provider that implements multiple domain specifications, which could result in multiple values for this property. ")
-	@OslcOccurs(Occurs.ExactlyOne)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("serviceProvider")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "serviceProvider")
+    @OslcDescription("A link to the resource's OSLC Service Provider. There may be cases when the subject resource is available from a service provider that implements multiple domain specifications, which could result in multiple values for this property. ")
+    @OslcOccurs(Occurs.ExactlyOne)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public URI getServiceProvider()
     {
-		// Start of user code getterInit:serviceProvider
+        // Start of user code getterInit:serviceProvider
 		// End of user code
         return serviceProvider;
     }
 
-	// Start of user code getterAnnotation:shortTitle
+    // Start of user code getterAnnotation:shortTitle
 	// End of user code
-	@OslcName("shortTitle")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "shortTitle")
-	@OslcDescription("Shorter form of dcterms:title for the resource represented as rich text in XHTML content. SHOULD include only content that is valid inside an XHTML <span> element.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.XMLLiteral)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("shortTitle")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE + "shortTitle")
+    @OslcDescription("Shorter form of dcterms:title for the resource represented as rich text in XHTML content. SHOULD include only content that is valid inside an XHTML <span> element.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.XMLLiteral)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public String getShortTitle()
     {
-		// Start of user code getterInit:shortTitle
+        // Start of user code getterInit:shortTitle
 		// End of user code
         return shortTitle;
     }
 
-	// Start of user code getterAnnotation:status
+    // Start of user code getterAnnotation:status
 	// End of user code
-	@OslcName("status")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "status")
-	@OslcDescription("Used to indicate the status of the change request based on values defined by the service provider. Most often a read-only property. Some possible values may include: 'Submitted', 'Done', 'InProgress', etc.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("status")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "status")
+    @OslcDescription("Used to indicate the status of the change request based on values defined by the service provider. Most often a read-only property. Some possible values may include: 'Submitted', 'Done', 'InProgress', etc.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public String getStatus()
     {
-		// Start of user code getterInit:status
+        // Start of user code getterInit:status
 		// End of user code
         return status;
     }
 
-	// Start of user code getterAnnotation:title
+    // Start of user code getterAnnotation:title
 	// End of user code
-	@OslcName("title")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "title")
-	@OslcDescription("Title of the resource represented as rich text in XHTML content. SHOULD include only content that is valid inside an XHTML <span> element. ")
-	@OslcOccurs(Occurs.ExactlyOne)
-	@OslcValueType(ValueType.XMLLiteral)
-	@OslcReadOnly(false)
-	@OslcTitle("")
+    @OslcName("title")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE + "title")
+    @OslcDescription("Title of the resource represented as rich text in XHTML content. SHOULD include only content that is valid inside an XHTML <span> element. ")
+    @OslcOccurs(Occurs.ExactlyOne)
+    @OslcValueType(ValueType.XMLLiteral)
+    @OslcReadOnly(false)
+    @OslcTitle("")
     public String getTitle()
     {
-		// Start of user code getterInit:title
+        // Start of user code getterInit:title
 		// End of user code
         return title;
     }
 
-	// Start of user code getterAnnotation:verified
+    // Start of user code getterAnnotation:verified
 	// End of user code
-	@OslcName("verified")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "verified")
-	@OslcDescription("Whether or not the resolution or fix of the Change Request has been verified.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.Boolean)
-	@OslcReadOnly(true)
-	@OslcTitle("")
+    @OslcName("verified")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE + "verified")
+    @OslcDescription("Whether or not the resolution or fix of the Change Request has been verified.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.Boolean)
+    @OslcReadOnly(true)
+    @OslcTitle("")
     public Boolean isVerified()
     {
-		// Start of user code getterInit:verified
+        // Start of user code getterInit:verified
 		// End of user code
         return verified;
     }
 
 
-	// Start of user code setterAnnotation:affectedByDefect
+    // Start of user code setterAnnotation:affectedByDefect
 	// End of user code
     public void setAffectedByDefect(final HashSet<Link> affectedByDefect )
     {
-	// Start of user code setterInit:affectedByDefect
+        // Start of user code setterInit:affectedByDefect
 	// End of user code
         this.affectedByDefect.clear();
         if (affectedByDefect != null)
@@ -939,15 +939,15 @@ public String toHtml(boolean asLocalResource)
             this.affectedByDefect.addAll(affectedByDefect);
         }
 
-	// Start of user code setterFinalize:affectedByDefect
+        // Start of user code setterFinalize:affectedByDefect
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:affectsPlanItem
+    // Start of user code setterAnnotation:affectsPlanItem
 	// End of user code
     public void setAffectsPlanItem(final HashSet<Link> affectsPlanItem )
     {
-	// Start of user code setterInit:affectsPlanItem
+        // Start of user code setterInit:affectsPlanItem
 	// End of user code
         this.affectsPlanItem.clear();
         if (affectsPlanItem != null)
@@ -955,15 +955,15 @@ public String toHtml(boolean asLocalResource)
             this.affectsPlanItem.addAll(affectsPlanItem);
         }
 
-	// Start of user code setterFinalize:affectsPlanItem
+        // Start of user code setterFinalize:affectsPlanItem
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:affectsRequirement
+    // Start of user code setterAnnotation:affectsRequirement
 	// End of user code
     public void setAffectsRequirement(final HashSet<Link> affectsRequirement )
     {
-	// Start of user code setterInit:affectsRequirement
+        // Start of user code setterInit:affectsRequirement
 	// End of user code
         this.affectsRequirement.clear();
         if (affectsRequirement != null)
@@ -971,15 +971,15 @@ public String toHtml(boolean asLocalResource)
             this.affectsRequirement.addAll(affectsRequirement);
         }
 
-	// Start of user code setterFinalize:affectsRequirement
+        // Start of user code setterFinalize:affectsRequirement
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:affectsTestResult
+    // Start of user code setterAnnotation:affectsTestResult
 	// End of user code
     public void setAffectsTestResult(final HashSet<Link> affectsTestResult )
     {
-	// Start of user code setterInit:affectsTestResult
+        // Start of user code setterInit:affectsTestResult
 	// End of user code
         this.affectsTestResult.clear();
         if (affectsTestResult != null)
@@ -987,15 +987,15 @@ public String toHtml(boolean asLocalResource)
             this.affectsTestResult.addAll(affectsTestResult);
         }
 
-	// Start of user code setterFinalize:affectsTestResult
+        // Start of user code setterFinalize:affectsTestResult
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:blocksTestExecutionRecord
+    // Start of user code setterAnnotation:blocksTestExecutionRecord
 	// End of user code
     public void setBlocksTestExecutionRecord(final HashSet<Link> blocksTestExecutionRecord )
     {
-	// Start of user code setterInit:blocksTestExecutionRecord
+        // Start of user code setterInit:blocksTestExecutionRecord
 	// End of user code
         this.blocksTestExecutionRecord.clear();
         if (blocksTestExecutionRecord != null)
@@ -1003,15 +1003,15 @@ public String toHtml(boolean asLocalResource)
             this.blocksTestExecutionRecord.addAll(blocksTestExecutionRecord);
         }
 
-	// Start of user code setterFinalize:blocksTestExecutionRecord
+        // Start of user code setterFinalize:blocksTestExecutionRecord
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:contributor
+    // Start of user code setterAnnotation:contributor
 	// End of user code
     public void setContributor(final HashSet<Person> contributor )
     {
-	// Start of user code setterInit:contributor
+        // Start of user code setterInit:contributor
 	// End of user code
         this.contributor.clear();
         if (contributor != null)
@@ -1019,15 +1019,15 @@ public String toHtml(boolean asLocalResource)
             this.contributor.addAll(contributor);
         }
 
-	// Start of user code setterFinalize:contributor
+        // Start of user code setterFinalize:contributor
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:creator
+    // Start of user code setterAnnotation:creator
 	// End of user code
     public void setCreator(final HashSet<Person> creator )
     {
-	// Start of user code setterInit:creator
+        // Start of user code setterInit:creator
 	// End of user code
         this.creator.clear();
         if (creator != null)
@@ -1035,15 +1035,15 @@ public String toHtml(boolean asLocalResource)
             this.creator.addAll(creator);
         }
 
-	// Start of user code setterFinalize:creator
+        // Start of user code setterFinalize:creator
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:dctermsType
+    // Start of user code setterAnnotation:dctermsType
 	// End of user code
     public void setDctermsType(final HashSet<Type> type )
     {
-	// Start of user code setterInit:dctermsType
+        // Start of user code setterInit:dctermsType
 	// End of user code
         this.dctermsType.clear();
         if (type != null)
@@ -1051,15 +1051,15 @@ public String toHtml(boolean asLocalResource)
             this.dctermsType.addAll(type);
         }
 
-	// Start of user code setterFinalize:dctermsType
+        // Start of user code setterFinalize:dctermsType
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:implementsRequirement
+    // Start of user code setterAnnotation:implementsRequirement
 	// End of user code
     public void setImplementsRequirement(final HashSet<Link> implementsRequirement )
     {
-	// Start of user code setterInit:implementsRequirement
+        // Start of user code setterInit:implementsRequirement
 	// End of user code
         this.implementsRequirement.clear();
         if (implementsRequirement != null)
@@ -1067,15 +1067,15 @@ public String toHtml(boolean asLocalResource)
             this.implementsRequirement.addAll(implementsRequirement);
         }
 
-	// Start of user code setterFinalize:implementsRequirement
+        // Start of user code setterFinalize:implementsRequirement
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:relatedChangeRequest
+    // Start of user code setterAnnotation:relatedChangeRequest
 	// End of user code
     public void setRelatedChangeRequest(final HashSet<Link> relatedChangeRequest )
     {
-	// Start of user code setterInit:relatedChangeRequest
+        // Start of user code setterInit:relatedChangeRequest
 	// End of user code
         this.relatedChangeRequest.clear();
         if (relatedChangeRequest != null)
@@ -1083,15 +1083,15 @@ public String toHtml(boolean asLocalResource)
             this.relatedChangeRequest.addAll(relatedChangeRequest);
         }
 
-	// Start of user code setterFinalize:relatedChangeRequest
+        // Start of user code setterFinalize:relatedChangeRequest
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:relatedTestCase
+    // Start of user code setterAnnotation:relatedTestCase
 	// End of user code
     public void setRelatedTestCase(final HashSet<Link> relatedTestCase )
     {
-	// Start of user code setterInit:relatedTestCase
+        // Start of user code setterInit:relatedTestCase
 	// End of user code
         this.relatedTestCase.clear();
         if (relatedTestCase != null)
@@ -1099,15 +1099,15 @@ public String toHtml(boolean asLocalResource)
             this.relatedTestCase.addAll(relatedTestCase);
         }
 
-	// Start of user code setterFinalize:relatedTestCase
+        // Start of user code setterFinalize:relatedTestCase
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:relatedTestExecutionRecord
+    // Start of user code setterAnnotation:relatedTestExecutionRecord
 	// End of user code
     public void setRelatedTestExecutionRecord(final HashSet<Link> relatedTestExecutionRecord )
     {
-	// Start of user code setterInit:relatedTestExecutionRecord
+        // Start of user code setterInit:relatedTestExecutionRecord
 	// End of user code
         this.relatedTestExecutionRecord.clear();
         if (relatedTestExecutionRecord != null)
@@ -1115,15 +1115,15 @@ public String toHtml(boolean asLocalResource)
             this.relatedTestExecutionRecord.addAll(relatedTestExecutionRecord);
         }
 
-	// Start of user code setterFinalize:relatedTestExecutionRecord
+        // Start of user code setterFinalize:relatedTestExecutionRecord
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:relatedTestPlan
+    // Start of user code setterAnnotation:relatedTestPlan
 	// End of user code
     public void setRelatedTestPlan(final HashSet<Link> relatedTestPlan )
     {
-	// Start of user code setterInit:relatedTestPlan
+        // Start of user code setterInit:relatedTestPlan
 	// End of user code
         this.relatedTestPlan.clear();
         if (relatedTestPlan != null)
@@ -1131,15 +1131,15 @@ public String toHtml(boolean asLocalResource)
             this.relatedTestPlan.addAll(relatedTestPlan);
         }
 
-	// Start of user code setterFinalize:relatedTestPlan
+        // Start of user code setterFinalize:relatedTestPlan
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:relatedTestScript
+    // Start of user code setterAnnotation:relatedTestScript
 	// End of user code
     public void setRelatedTestScript(final HashSet<Link> relatedTestScript )
     {
-	// Start of user code setterInit:relatedTestScript
+        // Start of user code setterInit:relatedTestScript
 	// End of user code
         this.relatedTestScript.clear();
         if (relatedTestScript != null)
@@ -1147,15 +1147,15 @@ public String toHtml(boolean asLocalResource)
             this.relatedTestScript.addAll(relatedTestScript);
         }
 
-	// Start of user code setterFinalize:relatedTestScript
+        // Start of user code setterFinalize:relatedTestScript
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:subject
+    // Start of user code setterAnnotation:subject
 	// End of user code
     public void setSubject(final HashSet<String> subject )
     {
-	// Start of user code setterInit:subject
+        // Start of user code setterInit:subject
 	// End of user code
         this.subject.clear();
         if (subject != null)
@@ -1163,15 +1163,15 @@ public String toHtml(boolean asLocalResource)
             this.subject.addAll(subject);
         }
 
-	// Start of user code setterFinalize:subject
+        // Start of user code setterFinalize:subject
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:testedByTestCase
+    // Start of user code setterAnnotation:testedByTestCase
 	// End of user code
     public void setTestedByTestCase(final HashSet<Link> testedByTestCase )
     {
-	// Start of user code setterInit:testedByTestCase
+        // Start of user code setterInit:testedByTestCase
 	// End of user code
         this.testedByTestCase.clear();
         if (testedByTestCase != null)
@@ -1179,15 +1179,15 @@ public String toHtml(boolean asLocalResource)
             this.testedByTestCase.addAll(testedByTestCase);
         }
 
-	// Start of user code setterFinalize:testedByTestCase
+        // Start of user code setterFinalize:testedByTestCase
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:tracksChangeSet
+    // Start of user code setterAnnotation:tracksChangeSet
 	// End of user code
     public void setTracksChangeSet(final HashSet<Link> tracksChangeSet )
     {
-	// Start of user code setterInit:tracksChangeSet
+        // Start of user code setterInit:tracksChangeSet
 	// End of user code
         this.tracksChangeSet.clear();
         if (tracksChangeSet != null)
@@ -1195,15 +1195,15 @@ public String toHtml(boolean asLocalResource)
             this.tracksChangeSet.addAll(tracksChangeSet);
         }
 
-	// Start of user code setterFinalize:tracksChangeSet
+        // Start of user code setterFinalize:tracksChangeSet
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:tracksRequirement
+    // Start of user code setterAnnotation:tracksRequirement
 	// End of user code
     public void setTracksRequirement(final HashSet<Link> tracksRequirement )
     {
-	// Start of user code setterInit:tracksRequirement
+        // Start of user code setterInit:tracksRequirement
 	// End of user code
         this.tracksRequirement.clear();
         if (tracksRequirement != null)
@@ -1211,15 +1211,15 @@ public String toHtml(boolean asLocalResource)
             this.tracksRequirement.addAll(tracksRequirement);
         }
 
-	// Start of user code setterFinalize:tracksRequirement
+        // Start of user code setterFinalize:tracksRequirement
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:rdfType
+    // Start of user code setterAnnotation:rdfType
 	// End of user code
     public void setRdfType(final HashSet<URI> type )
     {
-	// Start of user code setterInit:rdfType
+        // Start of user code setterInit:rdfType
 	// End of user code
         this.rdfType.clear();
         if (type != null)
@@ -1227,2052 +1227,2031 @@ public String toHtml(boolean asLocalResource)
             this.rdfType.addAll(type);
         }
 
-	// Start of user code setterFinalize:rdfType
+        // Start of user code setterFinalize:rdfType
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:approved
+    // Start of user code setterAnnotation:approved
 	// End of user code
     public void setApproved(final Boolean approved )
     {
-	// Start of user code setterInit:approved
+        // Start of user code setterInit:approved
 	// End of user code
         this.approved = approved;
-	// Start of user code setterFinalize:approved
+        // Start of user code setterFinalize:approved
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:closed
+    // Start of user code setterAnnotation:closed
 	// End of user code
     public void setClosed(final Boolean closed )
     {
-	// Start of user code setterInit:closed
+        // Start of user code setterInit:closed
 	// End of user code
         this.closed = closed;
-	// Start of user code setterFinalize:closed
+        // Start of user code setterFinalize:closed
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:closeDate
+    // Start of user code setterAnnotation:closeDate
 	// End of user code
     public void setCloseDate(final Date closeDate )
     {
-	// Start of user code setterInit:closeDate
+        // Start of user code setterInit:closeDate
 	// End of user code
         this.closeDate = closeDate;
-	// Start of user code setterFinalize:closeDate
+        // Start of user code setterFinalize:closeDate
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:created
+    // Start of user code setterAnnotation:created
 	// End of user code
     public void setCreated(final Date created )
     {
-	// Start of user code setterInit:created
+        // Start of user code setterInit:created
 	// End of user code
         this.created = created;
-	// Start of user code setterFinalize:created
+        // Start of user code setterFinalize:created
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:description
+    // Start of user code setterAnnotation:description
 	// End of user code
     public void setDescription(final String description )
     {
-	// Start of user code setterInit:description
+        // Start of user code setterInit:description
 	// End of user code
         this.description = description;
-	// Start of user code setterFinalize:description
+        // Start of user code setterFinalize:description
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:discussedBy
+    // Start of user code setterAnnotation:discussedBy
 	// End of user code
     public void setDiscussedBy(final Link discussedBy )
     {
-	// Start of user code setterInit:discussedBy
+        // Start of user code setterInit:discussedBy
 	// End of user code
         this.discussedBy = discussedBy;
-	// Start of user code setterFinalize:discussedBy
+        // Start of user code setterFinalize:discussedBy
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:fixed
+    // Start of user code setterAnnotation:fixed
 	// End of user code
     public void setFixed(final Boolean fixed )
     {
-	// Start of user code setterInit:fixed
+        // Start of user code setterInit:fixed
 	// End of user code
         this.fixed = fixed;
-	// Start of user code setterFinalize:fixed
+        // Start of user code setterFinalize:fixed
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:identifier
+    // Start of user code setterAnnotation:identifier
 	// End of user code
     public void setIdentifier(final String identifier )
     {
-	// Start of user code setterInit:identifier
+        // Start of user code setterInit:identifier
 	// End of user code
         this.identifier = identifier;
-	// Start of user code setterFinalize:identifier
+        // Start of user code setterFinalize:identifier
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:inprogress
+    // Start of user code setterAnnotation:inprogress
 	// End of user code
     public void setInprogress(final Boolean inprogress )
     {
-	// Start of user code setterInit:inprogress
+        // Start of user code setterInit:inprogress
 	// End of user code
         this.inprogress = inprogress;
-	// Start of user code setterFinalize:inprogress
+        // Start of user code setterFinalize:inprogress
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:instanceShape
+    // Start of user code setterAnnotation:instanceShape
 	// End of user code
     public void setInstanceShape(final Link instanceShape )
     {
-	// Start of user code setterInit:instanceShape
+        // Start of user code setterInit:instanceShape
 	// End of user code
         this.instanceShape = instanceShape;
-	// Start of user code setterFinalize:instanceShape
+        // Start of user code setterFinalize:instanceShape
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:modified
+    // Start of user code setterAnnotation:modified
 	// End of user code
     public void setModified(final Date modified )
     {
-	// Start of user code setterInit:modified
+        // Start of user code setterInit:modified
 	// End of user code
         this.modified = modified;
-	// Start of user code setterFinalize:modified
+        // Start of user code setterFinalize:modified
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:reviewed
+    // Start of user code setterAnnotation:reviewed
 	// End of user code
     public void setReviewed(final Boolean reviewed )
     {
-	// Start of user code setterInit:reviewed
+        // Start of user code setterInit:reviewed
 	// End of user code
         this.reviewed = reviewed;
-	// Start of user code setterFinalize:reviewed
+        // Start of user code setterFinalize:reviewed
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:serviceProvider
+    // Start of user code setterAnnotation:serviceProvider
 	// End of user code
     public void setServiceProvider(final URI serviceProvider )
     {
-	// Start of user code setterInit:serviceProvider
+        // Start of user code setterInit:serviceProvider
 	// End of user code
         this.serviceProvider = serviceProvider;
-	// Start of user code setterFinalize:serviceProvider
+        // Start of user code setterFinalize:serviceProvider
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:shortTitle
+    // Start of user code setterAnnotation:shortTitle
 	// End of user code
     public void setShortTitle(final String shortTitle )
     {
-	// Start of user code setterInit:shortTitle
+        // Start of user code setterInit:shortTitle
 	// End of user code
         this.shortTitle = shortTitle;
-	// Start of user code setterFinalize:shortTitle
+        // Start of user code setterFinalize:shortTitle
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:status
+    // Start of user code setterAnnotation:status
 	// End of user code
     public void setStatus(final String status )
     {
-	// Start of user code setterInit:status
+        // Start of user code setterInit:status
 	// End of user code
         this.status = status;
-	// Start of user code setterFinalize:status
+        // Start of user code setterFinalize:status
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:title
+    // Start of user code setterAnnotation:title
 	// End of user code
     public void setTitle(final String title )
     {
-	// Start of user code setterInit:title
+        // Start of user code setterInit:title
 	// End of user code
         this.title = title;
-	// Start of user code setterFinalize:title
+        // Start of user code setterFinalize:title
 	// End of user code
     }
 
-	// Start of user code setterAnnotation:verified
+    // Start of user code setterAnnotation:verified
 	// End of user code
     public void setVerified(final Boolean verified )
     {
-	// Start of user code setterInit:verified
+        // Start of user code setterInit:verified
 	// End of user code
         this.verified = verified;
-	// Start of user code setterFinalize:verified
+        // Start of user code setterFinalize:verified
 	// End of user code
     }
 
 
     static public String affectedByDefectToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:affectedByDefectToHtmlForCreation(...)"
+        // Start of user code "Init:affectedByDefectToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"affectedByDefect\">affectedByDefect: </LABEL>";
+        s = s + "<label for=\"affectedByDefect\">affectedByDefect: </LABEL>";
     
-    	// Start of user code "Mid:affectedByDefectToHtmlForCreation(...)"
+        // Start of user code "Mid:affectedByDefectToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:affectedByDefectToHtmlForCreation(...)"
+        // Start of user code "Finalize:affectedByDefectToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String affectsPlanItemToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:affectsPlanItemToHtmlForCreation(...)"
+        // Start of user code "Init:affectsPlanItemToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"affectsPlanItem\">affectsPlanItem: </LABEL>";
+        s = s + "<label for=\"affectsPlanItem\">affectsPlanItem: </LABEL>";
     
-    	// Start of user code "Mid:affectsPlanItemToHtmlForCreation(...)"
+        // Start of user code "Mid:affectsPlanItemToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:affectsPlanItemToHtmlForCreation(...)"
+        // Start of user code "Finalize:affectsPlanItemToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String affectsRequirementToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:affectsRequirementToHtmlForCreation(...)"
+        // Start of user code "Init:affectsRequirementToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"affectsRequirement\">affectsRequirement: </LABEL>";
+        s = s + "<label for=\"affectsRequirement\">affectsRequirement: </LABEL>";
     
-    	// Start of user code "Mid:affectsRequirementToHtmlForCreation(...)"
+        // Start of user code "Mid:affectsRequirementToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:affectsRequirementToHtmlForCreation(...)"
+        // Start of user code "Finalize:affectsRequirementToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String affectsTestResultToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:affectsTestResultToHtmlForCreation(...)"
+        // Start of user code "Init:affectsTestResultToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"affectsTestResult\">affectsTestResult: </LABEL>";
+        s = s + "<label for=\"affectsTestResult\">affectsTestResult: </LABEL>";
     
-    	// Start of user code "Mid:affectsTestResultToHtmlForCreation(...)"
+        // Start of user code "Mid:affectsTestResultToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:affectsTestResultToHtmlForCreation(...)"
+        // Start of user code "Finalize:affectsTestResultToHtmlForCreation(...)"
     	s ="";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String blocksTestExecutionRecordToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:blocksTestExecutionRecordToHtmlForCreation(...)"
+        // Start of user code "Init:blocksTestExecutionRecordToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"blocksTestExecutionRecord\">blocksTestExecutionRecord: </LABEL>";
+        s = s + "<label for=\"blocksTestExecutionRecord\">blocksTestExecutionRecord: </LABEL>";
     
-    	// Start of user code "Mid:blocksTestExecutionRecordToHtmlForCreation(...)"
+        // Start of user code "Mid:blocksTestExecutionRecordToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:blocksTestExecutionRecordToHtmlForCreation(...)"
+        // Start of user code "Finalize:blocksTestExecutionRecordToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String contributorToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:contributorToHtmlForCreation(...)"
+        // Start of user code "Init:contributorToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"contributor\">contributor: </LABEL>";
+        s = s + "<label for=\"contributor\">contributor: </LABEL>";
     
-    	// Start of user code "Mid:contributorToHtmlForCreation(...)"
+        // Start of user code "Mid:contributorToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:contributorToHtmlForCreation(...)"
+        // Start of user code "Finalize:contributorToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String creatorToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:creatorToHtmlForCreation(...)"
+        // Start of user code "Init:creatorToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"creator\">creator: </LABEL>";
+        s = s + "<label for=\"creator\">creator: </LABEL>";
     
-    	// Start of user code "Mid:creatorToHtmlForCreation(...)"
+        // Start of user code "Mid:creatorToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:creatorToHtmlForCreation(...)"
+        // Start of user code "Finalize:creatorToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String dctermsTypeToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:dctermsTypeToHtmlForCreation(...)"
+        // Start of user code "Init:dctermsTypeToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"type\">type: </LABEL>";
+        s = s + "<label for=\"type\">type: </LABEL>";
     
-    	// Start of user code "Mid:dctermsTypeToHtmlForCreation(...)"
+        // Start of user code "Mid:dctermsTypeToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:dctermsTypeToHtmlForCreation(...)"
+        // Start of user code "Finalize:dctermsTypeToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String implementsRequirementToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:implementsRequirementToHtmlForCreation(...)"
+        // Start of user code "Init:implementsRequirementToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"implementsRequirement\">implementsRequirement: </LABEL>";
+        s = s + "<label for=\"implementsRequirement\">implementsRequirement: </LABEL>";
     
-    	// Start of user code "Mid:implementsRequirementToHtmlForCreation(...)"
+        // Start of user code "Mid:implementsRequirementToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:implementsRequirementToHtmlForCreation(...)"
+        // Start of user code "Finalize:implementsRequirementToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String relatedChangeRequestToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:relatedChangeRequestToHtmlForCreation(...)"
+        // Start of user code "Init:relatedChangeRequestToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"relatedChangeRequest\">relatedChangeRequest: </LABEL>";
+        s = s + "<label for=\"relatedChangeRequest\">relatedChangeRequest: </LABEL>";
     
-    	// Start of user code "Mid:relatedChangeRequestToHtmlForCreation(...)"
+        // Start of user code "Mid:relatedChangeRequestToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:relatedChangeRequestToHtmlForCreation(...)"
+        // Start of user code "Finalize:relatedChangeRequestToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String relatedTestCaseToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:relatedTestCaseToHtmlForCreation(...)"
+        // Start of user code "Init:relatedTestCaseToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"relatedTestCase\">relatedTestCase: </LABEL>";
+        s = s + "<label for=\"relatedTestCase\">relatedTestCase: </LABEL>";
     
-    	// Start of user code "Mid:relatedTestCaseToHtmlForCreation(...)"
+        // Start of user code "Mid:relatedTestCaseToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:relatedTestCaseToHtmlForCreation(...)"
+        // Start of user code "Finalize:relatedTestCaseToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String relatedTestExecutionRecordToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:relatedTestExecutionRecordToHtmlForCreation(...)"
+        // Start of user code "Init:relatedTestExecutionRecordToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"relatedTestExecutionRecord\">relatedTestExecutionRecord: </LABEL>";
+        s = s + "<label for=\"relatedTestExecutionRecord\">relatedTestExecutionRecord: </LABEL>";
     
-    	// Start of user code "Mid:relatedTestExecutionRecordToHtmlForCreation(...)"
+        // Start of user code "Mid:relatedTestExecutionRecordToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:relatedTestExecutionRecordToHtmlForCreation(...)"
+        // Start of user code "Finalize:relatedTestExecutionRecordToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String relatedTestPlanToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:relatedTestPlanToHtmlForCreation(...)"
+        // Start of user code "Init:relatedTestPlanToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"relatedTestPlan\">relatedTestPlan: </LABEL>";
+        s = s + "<label for=\"relatedTestPlan\">relatedTestPlan: </LABEL>";
     
-    	// Start of user code "Mid:relatedTestPlanToHtmlForCreation(...)"
+        // Start of user code "Mid:relatedTestPlanToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:relatedTestPlanToHtmlForCreation(...)"
+        // Start of user code "Finalize:relatedTestPlanToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String relatedTestScriptToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:relatedTestScriptToHtmlForCreation(...)"
+        // Start of user code "Init:relatedTestScriptToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"relatedTestScript\">relatedTestScript: </LABEL>";
+        s = s + "<label for=\"relatedTestScript\">relatedTestScript: </LABEL>";
     
-    	// Start of user code "Mid:relatedTestScriptToHtmlForCreation(...)"
+        // Start of user code "Mid:relatedTestScriptToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:relatedTestScriptToHtmlForCreation(...)"
+        // Start of user code "Finalize:relatedTestScriptToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String subjectToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:subjectToHtmlForCreation(...)"
+        // Start of user code "Init:subjectToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"subject\">subject: </LABEL>";
+        s = s + "<label for=\"subject\">subject: </LABEL>";
     
-    	// Start of user code "Mid:subjectToHtmlForCreation(...)"
+        // Start of user code "Mid:subjectToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"subject\" type=\"text\" style=\"width: 400px\" id=\"subject\" >";
-    	// Start of user code "Finalize:subjectToHtmlForCreation(...)"
+        s= s + "<input name=\"subject\" type=\"text\" style=\"width: 400px\" id=\"subject\" >";
+        // Start of user code "Finalize:subjectToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String testedByTestCaseToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:testedByTestCaseToHtmlForCreation(...)"
+        // Start of user code "Init:testedByTestCaseToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"testedByTestCase\">testedByTestCase: </LABEL>";
+        s = s + "<label for=\"testedByTestCase\">testedByTestCase: </LABEL>";
     
-    	// Start of user code "Mid:testedByTestCaseToHtmlForCreation(...)"
+        // Start of user code "Mid:testedByTestCaseToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:testedByTestCaseToHtmlForCreation(...)"
+        // Start of user code "Finalize:testedByTestCaseToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String tracksChangeSetToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:tracksChangeSetToHtmlForCreation(...)"
+        // Start of user code "Init:tracksChangeSetToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"tracksChangeSet\">tracksChangeSet: </LABEL>";
+        s = s + "<label for=\"tracksChangeSet\">tracksChangeSet: </LABEL>";
     
-    	// Start of user code "Mid:tracksChangeSetToHtmlForCreation(...)"
+        // Start of user code "Mid:tracksChangeSetToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:tracksChangeSetToHtmlForCreation(...)"
+        // Start of user code "Finalize:tracksChangeSetToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String tracksRequirementToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:tracksRequirementToHtmlForCreation(...)"
+        // Start of user code "Init:tracksRequirementToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"tracksRequirement\">tracksRequirement: </LABEL>";
+        s = s + "<label for=\"tracksRequirement\">tracksRequirement: </LABEL>";
     
-    	// Start of user code "Mid:tracksRequirementToHtmlForCreation(...)"
+        // Start of user code "Mid:tracksRequirementToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:tracksRequirementToHtmlForCreation(...)"
+        // Start of user code "Finalize:tracksRequirementToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String rdfTypeToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:rdfTypeToHtmlForCreation(...)"
+        // Start of user code "Init:rdfTypeToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"type\">type: </LABEL>";
+        s = s + "<label for=\"type\">type: </LABEL>";
     
-    	// Start of user code "Mid:rdfTypeToHtmlForCreation(...)"
+        // Start of user code "Mid:rdfTypeToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"type\" type=\"text\" style=\"width: 400px\" id=\"type\" >";
-    	// Start of user code "Finalize:rdfTypeToHtmlForCreation(...)"
+        s= s + "<input name=\"type\" type=\"text\" style=\"width: 400px\" id=\"type\" >";
+        // Start of user code "Finalize:rdfTypeToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String approvedToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:approvedToHtmlForCreation(...)"
+        // Start of user code "Init:approvedToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"approved\">approved: </LABEL>";
+        s = s + "<label for=\"approved\">approved: </LABEL>";
     
-    	// Start of user code "Mid:approvedToHtmlForCreation(...)"
+        // Start of user code "Mid:approvedToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"approved\" type=\"radio\" value=\"true\">True<input name=\"approved\" type=\"radio\" value=\"false\">False";
-    	// Start of user code "Finalize:approvedToHtmlForCreation(...)"
+        s= s + "<input name=\"approved\" type=\"radio\" value=\"true\">True<input name=\"approved\" type=\"radio\" value=\"false\">False";
+        // Start of user code "Finalize:approvedToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String closedToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:closedToHtmlForCreation(...)"
+        // Start of user code "Init:closedToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"closed\">closed: </LABEL>";
+        s = s + "<label for=\"closed\">closed: </LABEL>";
     
-    	// Start of user code "Mid:closedToHtmlForCreation(...)"
+        // Start of user code "Mid:closedToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"closed\" type=\"radio\" value=\"true\">True<input name=\"closed\" type=\"radio\" value=\"false\">False";
-    	// Start of user code "Finalize:closedToHtmlForCreation(...)"
+        s= s + "<input name=\"closed\" type=\"radio\" value=\"true\">True<input name=\"closed\" type=\"radio\" value=\"false\">False";
+        // Start of user code "Finalize:closedToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String closeDateToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:closeDateToHtmlForCreation(...)"
+        // Start of user code "Init:closeDateToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"closeDate\">closeDate: </LABEL>";
+        s = s + "<label for=\"closeDate\">closeDate: </LABEL>";
     
-    	// Start of user code "Mid:closeDateToHtmlForCreation(...)"
+        // Start of user code "Mid:closeDateToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"closeDate\" type=\"text\" style=\"width: 400px\" id=\"closeDate\" >";
-    	// Start of user code "Finalize:closeDateToHtmlForCreation(...)"
+        s= s + "<input name=\"closeDate\" type=\"text\" style=\"width: 400px\" id=\"closeDate\" >";
+        // Start of user code "Finalize:closeDateToHtmlForCreation(...)"
     	
     	s = s + "(MM/DD/YYYY)";
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String createdToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:createdToHtmlForCreation(...)"
+        // Start of user code "Init:createdToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"created\">created: </LABEL>";
+        s = s + "<label for=\"created\">created: </LABEL>";
     
-    	// Start of user code "Mid:createdToHtmlForCreation(...)"
+        // Start of user code "Mid:createdToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"created\" type=\"text\" style=\"width: 400px\" id=\"created\" >";
-    	// Start of user code "Finalize:createdToHtmlForCreation(...)"
+        s= s + "<input name=\"created\" type=\"text\" style=\"width: 400px\" id=\"created\" >";
+        // Start of user code "Finalize:createdToHtmlForCreation(...)"
     	s = s + "(MM/DD/YYYY)";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String descriptionToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:descriptionToHtmlForCreation(...)"
+        // Start of user code "Init:descriptionToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"description\">description: </LABEL>";
+        s = s + "<label for=\"description\">description: </LABEL>";
     
-    	// Start of user code "Mid:descriptionToHtmlForCreation(...)"
+        // Start of user code "Mid:descriptionToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"description\" type=\"text\" style=\"width: 400px\" id=\"description\" >";
-    	// Start of user code "Finalize:descriptionToHtmlForCreation(...)"
+        s= s + "<input name=\"description\" type=\"text\" style=\"width: 400px\" id=\"description\" >";
+        // Start of user code "Finalize:descriptionToHtmlForCreation(...)"
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String discussedByToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:discussedByToHtmlForCreation(...)"
+        // Start of user code "Init:discussedByToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"discussedBy\">discussedBy: </LABEL>";
+        s = s + "<label for=\"discussedBy\">discussedBy: </LABEL>";
     
-    	// Start of user code "Mid:discussedByToHtmlForCreation(...)"
+        // Start of user code "Mid:discussedByToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:discussedByToHtmlForCreation(...)"
+        // Start of user code "Finalize:discussedByToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String fixedToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:fixedToHtmlForCreation(...)"
+        // Start of user code "Init:fixedToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"fixed\">fixed: </LABEL>";
+        s = s + "<label for=\"fixed\">fixed: </LABEL>";
     
-    	// Start of user code "Mid:fixedToHtmlForCreation(...)"
+        // Start of user code "Mid:fixedToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"fixed\" type=\"radio\" value=\"true\">True<input name=\"fixed\" type=\"radio\" value=\"false\">False";
-    	// Start of user code "Finalize:fixedToHtmlForCreation(...)"
+        s= s + "<input name=\"fixed\" type=\"radio\" value=\"true\">True<input name=\"fixed\" type=\"radio\" value=\"false\">False";
+        // Start of user code "Finalize:fixedToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String identifierToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:identifierToHtmlForCreation(...)"
+        // Start of user code "Init:identifierToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"identifier\">identifier: </LABEL>";
+        s = s + "<label for=\"identifier\">identifier: </LABEL>";
     
-    	// Start of user code "Mid:identifierToHtmlForCreation(...)"
+        // Start of user code "Mid:identifierToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"identifier\" type=\"text\" style=\"width: 400px\" id=\"identifier\" >";
-    	// Start of user code "Finalize:identifierToHtmlForCreation(...)"
+        s= s + "<input name=\"identifier\" type=\"text\" style=\"width: 400px\" id=\"identifier\" >";
+        // Start of user code "Finalize:identifierToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String inprogressToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:inprogressToHtmlForCreation(...)"
+        // Start of user code "Init:inprogressToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"inprogress\">inprogress: </LABEL>";
+        s = s + "<label for=\"inprogress\">inprogress: </LABEL>";
     
-    	// Start of user code "Mid:inprogressToHtmlForCreation(...)"
+        // Start of user code "Mid:inprogressToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"inprogress\" type=\"radio\" value=\"true\">True<input name=\"inprogress\" type=\"radio\" value=\"false\">False";
-    	// Start of user code "Finalize:inprogressToHtmlForCreation(...)"
+        s= s + "<input name=\"inprogress\" type=\"radio\" value=\"true\">True<input name=\"inprogress\" type=\"radio\" value=\"false\">False";
+        // Start of user code "Finalize:inprogressToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String instanceShapeToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:instanceShapeToHtmlForCreation(...)"
+        // Start of user code "Init:instanceShapeToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"instanceShape\">instanceShape: </LABEL>";
+        s = s + "<label for=\"instanceShape\">instanceShape: </LABEL>";
     
-    	// Start of user code "Mid:instanceShapeToHtmlForCreation(...)"
+        // Start of user code "Mid:instanceShapeToHtmlForCreation(...)"
     	// End of user code
     
-    	// Start of user code "Finalize:instanceShapeToHtmlForCreation(...)"
+        // Start of user code "Finalize:instanceShapeToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String modifiedToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:modifiedToHtmlForCreation(...)"
+        // Start of user code "Init:modifiedToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"modified\">modified: </LABEL>";
+        s = s + "<label for=\"modified\">modified: </LABEL>";
     
-    	// Start of user code "Mid:modifiedToHtmlForCreation(...)"
+        // Start of user code "Mid:modifiedToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"modified\" type=\"text\" style=\"width: 400px\" id=\"modified\" >";
-    	// Start of user code "Finalize:modifiedToHtmlForCreation(...)"
+        s= s + "<input name=\"modified\" type=\"text\" style=\"width: 400px\" id=\"modified\" >";
+        // Start of user code "Finalize:modifiedToHtmlForCreation(...)"
     	s = s + "(MM/DD/YYYY)";
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String reviewedToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:reviewedToHtmlForCreation(...)"
+        // Start of user code "Init:reviewedToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"reviewed\">reviewed: </LABEL>";
+        s = s + "<label for=\"reviewed\">reviewed: </LABEL>";
     
-    	// Start of user code "Mid:reviewedToHtmlForCreation(...)"
+        // Start of user code "Mid:reviewedToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"reviewed\" type=\"radio\" value=\"true\">True<input name=\"reviewed\" type=\"radio\" value=\"false\">False";
-    	// Start of user code "Finalize:reviewedToHtmlForCreation(...)"
+        s= s + "<input name=\"reviewed\" type=\"radio\" value=\"true\">True<input name=\"reviewed\" type=\"radio\" value=\"false\">False";
+        // Start of user code "Finalize:reviewedToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String serviceProviderToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:serviceProviderToHtmlForCreation(...)"
+        // Start of user code "Init:serviceProviderToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"serviceProvider\">serviceProvider: </LABEL>";
+        s = s + "<label for=\"serviceProvider\">serviceProvider: </LABEL>";
     
-    	// Start of user code "Mid:serviceProviderToHtmlForCreation(...)"
+        // Start of user code "Mid:serviceProviderToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"serviceProvider\" type=\"text\" style=\"width: 400px\" id=\"serviceProvider\" >";
-    	// Start of user code "Finalize:serviceProviderToHtmlForCreation(...)"
+        s= s + "<input name=\"serviceProvider\" type=\"text\" style=\"width: 400px\" id=\"serviceProvider\" >";
+        // Start of user code "Finalize:serviceProviderToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String shortTitleToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:shortTitleToHtmlForCreation(...)"
+        // Start of user code "Init:shortTitleToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"shortTitle\">shortTitle: </LABEL>";
+        s = s + "<label for=\"shortTitle\">shortTitle: </LABEL>";
     
-    	// Start of user code "Mid:shortTitleToHtmlForCreation(...)"
+        // Start of user code "Mid:shortTitleToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"shortTitle\" type=\"text\" style=\"width: 400px\" id=\"shortTitle\" >";
-    	// Start of user code "Finalize:shortTitleToHtmlForCreation(...)"
+        s= s + "<input name=\"shortTitle\" type=\"text\" style=\"width: 400px\" id=\"shortTitle\" >";
+        // Start of user code "Finalize:shortTitleToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String statusToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:statusToHtmlForCreation(...)"
+        // Start of user code "Init:statusToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"status\">status: </LABEL>";
+        s = s + "<label for=\"status\">status: </LABEL>";
     
-    	// Start of user code "Mid:statusToHtmlForCreation(...)"
+        // Start of user code "Mid:statusToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"status\" type=\"text\" style=\"width: 400px\" id=\"status\" >";
-    	// Start of user code "Finalize:statusToHtmlForCreation(...)"
+        s= s + "<input name=\"status\" type=\"text\" style=\"width: 400px\" id=\"status\" >";
+        // Start of user code "Finalize:statusToHtmlForCreation(...)"
     	s="";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String titleToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:titleToHtmlForCreation(...)"
+        // Start of user code "Init:titleToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"title\">title: </LABEL>";
+        s = s + "<label for=\"title\">title: </LABEL>";
     
-    	// Start of user code "Mid:titleToHtmlForCreation(...)"
+        // Start of user code "Mid:titleToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"title\" type=\"text\" style=\"width: 400px\" id=\"title\" >";
-    	// Start of user code "Finalize:titleToHtmlForCreation(...)"
+        s= s + "<input name=\"title\" type=\"text\" style=\"width: 400px\" id=\"title\" >";
+        // Start of user code "Finalize:titleToHtmlForCreation(...)"
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
     static public String verifiedToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
-    	String s = "";
+        String s = "";
     
-    	// Start of user code "Init:verifiedToHtmlForCreation(...)"
+        // Start of user code "Init:verifiedToHtmlForCreation(...)"
     	// End of user code
     
-    	s = s + "<label for=\"verified\">verified: </LABEL>";
+        s = s + "<label for=\"verified\">verified: </LABEL>";
     
-    	// Start of user code "Mid:verifiedToHtmlForCreation(...)"
+        // Start of user code "Mid:verifiedToHtmlForCreation(...)"
     	// End of user code
     
-    	s= s + "<input name=\"verified\" type=\"radio\" value=\"true\">True<input name=\"verified\" type=\"radio\" value=\"false\">False";
-    	// Start of user code "Finalize:verifiedToHtmlForCreation(...)"
+        s= s + "<input name=\"verified\" type=\"radio\" value=\"true\">True<input name=\"verified\" type=\"radio\" value=\"false\">False";
+        // Start of user code "Finalize:verifiedToHtmlForCreation(...)"
     	s = "";
     	// End of user code
     
-    	return s; 
+        return s;
     }
 
 
     public String affectedByDefectToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code affectedByDefecttoHtml_init
+        // Start of user code affectedByDefecttoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"affectedByDefect\"><strong>affectedByDefect</strong>: </LABEL>";
+        s = s + "<label for=\"affectedByDefect\"><strong>affectedByDefect</strong>: </LABEL>";
 
-		// Start of user code affectedByDefecttoHtml_mid
+        // Start of user code affectedByDefecttoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = affectedByDefect.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : affectedByDefect) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code affectedByDefecttoHtml_finalize
+        // Start of user code affectedByDefecttoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String affectsPlanItemToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code affectsPlanItemtoHtml_init
+        // Start of user code affectsPlanItemtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"affectsPlanItem\"><strong>affectsPlanItem</strong>: </LABEL>";
+        s = s + "<label for=\"affectsPlanItem\"><strong>affectsPlanItem</strong>: </LABEL>";
 
-		// Start of user code affectsPlanItemtoHtml_mid
+        // Start of user code affectsPlanItemtoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = affectsPlanItem.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : affectsPlanItem) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code affectsPlanItemtoHtml_finalize
+        // Start of user code affectsPlanItemtoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String affectsRequirementToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code affectsRequirementtoHtml_init
+        // Start of user code affectsRequirementtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"affectsRequirement\"><strong>affectsRequirement</strong>: </LABEL>";
+        s = s + "<label for=\"affectsRequirement\"><strong>affectsRequirement</strong>: </LABEL>";
 
-		// Start of user code affectsRequirementtoHtml_mid
+        // Start of user code affectsRequirementtoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = affectsRequirement.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : affectsRequirement) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code affectsRequirementtoHtml_finalize
+        // Start of user code affectsRequirementtoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String affectsTestResultToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code affectsTestResulttoHtml_init
+        // Start of user code affectsTestResulttoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"affectsTestResult\"><strong>affectsTestResult</strong>: </LABEL>";
+        s = s + "<label for=\"affectsTestResult\"><strong>affectsTestResult</strong>: </LABEL>";
 
-		// Start of user code affectsTestResulttoHtml_mid
+        // Start of user code affectsTestResulttoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = affectsTestResult.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : affectsTestResult) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code affectsTestResulttoHtml_finalize
+        // Start of user code affectsTestResulttoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String blocksTestExecutionRecordToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code blocksTestExecutionRecordtoHtml_init
+        // Start of user code blocksTestExecutionRecordtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"blocksTestExecutionRecord\"><strong>blocksTestExecutionRecord</strong>: </LABEL>";
+        s = s + "<label for=\"blocksTestExecutionRecord\"><strong>blocksTestExecutionRecord</strong>: </LABEL>";
 
-		// Start of user code blocksTestExecutionRecordtoHtml_mid
+        // Start of user code blocksTestExecutionRecordtoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = blocksTestExecutionRecord.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : blocksTestExecutionRecord) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code blocksTestExecutionRecordtoHtml_finalize
+        // Start of user code blocksTestExecutionRecordtoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String contributorToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code contributortoHtml_init
+        // Start of user code contributortoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"contributor\"><strong>contributor</strong>: </LABEL>";
+        s = s + "<label for=\"contributor\"><strong>contributor</strong>: </LABEL>";
 
-		// Start of user code contributortoHtml_mid
+        // Start of user code contributortoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Person> itr = contributor.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-						s = s + itr.next().toHtml(true);
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Person next : contributor) {
+                s = s + "<li>";
+                s = s + next.toHtml(true);
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code contributortoHtml_finalize
+        // Start of user code contributortoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String creatorToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code creatortoHtml_init
+        // Start of user code creatortoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"creator\"><strong>creator</strong>: </LABEL>";
+        s = s + "<label for=\"creator\"><strong>creator</strong>: </LABEL>";
 
-		// Start of user code creatortoHtml_mid
+        // Start of user code creatortoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Person> itr = creator.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-						s = s + itr.next().toHtml(true);
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Person next : creator) {
+                s = s + "<li>";
+                s = s + next.toHtml(true);
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code creatortoHtml_finalize
+        // Start of user code creatortoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String dctermsTypeToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code dctermsTypetoHtml_init
+        // Start of user code dctermsTypetoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"type\"><strong>type</strong>: </LABEL>";
+        s = s + "<label for=\"type\"><strong>type</strong>: </LABEL>";
 
-		// Start of user code dctermsTypetoHtml_mid
+        // Start of user code dctermsTypetoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Type> itr = dctermsType.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-						s = s + itr.next().toHtml(true);
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Type next : dctermsType) {
+                s = s + "<li>";
+                s = s + next.toHtml(true);
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code dctermsTypetoHtml_finalize
+        // Start of user code dctermsTypetoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String implementsRequirementToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code implementsRequirementtoHtml_init
+        // Start of user code implementsRequirementtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"implementsRequirement\"><strong>implementsRequirement</strong>: </LABEL>";
+        s = s + "<label for=\"implementsRequirement\"><strong>implementsRequirement</strong>: </LABEL>";
 
-		// Start of user code implementsRequirementtoHtml_mid
+        // Start of user code implementsRequirementtoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = implementsRequirement.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : implementsRequirement) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code implementsRequirementtoHtml_finalize
+        // Start of user code implementsRequirementtoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String relatedChangeRequestToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code relatedChangeRequesttoHtml_init
+        // Start of user code relatedChangeRequesttoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"relatedChangeRequest\"><strong>relatedChangeRequest</strong>: </LABEL>";
+        s = s + "<label for=\"relatedChangeRequest\"><strong>relatedChangeRequest</strong>: </LABEL>";
 
-		// Start of user code relatedChangeRequesttoHtml_mid
+        // Start of user code relatedChangeRequesttoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = relatedChangeRequest.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : relatedChangeRequest) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code relatedChangeRequesttoHtml_finalize
+        // Start of user code relatedChangeRequesttoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String relatedTestCaseToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code relatedTestCasetoHtml_init
+        // Start of user code relatedTestCasetoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"relatedTestCase\"><strong>relatedTestCase</strong>: </LABEL>";
+        s = s + "<label for=\"relatedTestCase\"><strong>relatedTestCase</strong>: </LABEL>";
 
-		// Start of user code relatedTestCasetoHtml_mid
+        // Start of user code relatedTestCasetoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = relatedTestCase.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : relatedTestCase) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code relatedTestCasetoHtml_finalize
+        // Start of user code relatedTestCasetoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String relatedTestExecutionRecordToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code relatedTestExecutionRecordtoHtml_init
+        // Start of user code relatedTestExecutionRecordtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"relatedTestExecutionRecord\"><strong>relatedTestExecutionRecord</strong>: </LABEL>";
+        s = s + "<label for=\"relatedTestExecutionRecord\"><strong>relatedTestExecutionRecord</strong>: </LABEL>";
 
-		// Start of user code relatedTestExecutionRecordtoHtml_mid
+        // Start of user code relatedTestExecutionRecordtoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = relatedTestExecutionRecord.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : relatedTestExecutionRecord) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code relatedTestExecutionRecordtoHtml_finalize
+        // Start of user code relatedTestExecutionRecordtoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String relatedTestPlanToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code relatedTestPlantoHtml_init
+        // Start of user code relatedTestPlantoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"relatedTestPlan\"><strong>relatedTestPlan</strong>: </LABEL>";
+        s = s + "<label for=\"relatedTestPlan\"><strong>relatedTestPlan</strong>: </LABEL>";
 
-		// Start of user code relatedTestPlantoHtml_mid
+        // Start of user code relatedTestPlantoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = relatedTestPlan.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : relatedTestPlan) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code relatedTestPlantoHtml_finalize
+        // Start of user code relatedTestPlantoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String relatedTestScriptToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code relatedTestScripttoHtml_init
+        // Start of user code relatedTestScripttoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"relatedTestScript\"><strong>relatedTestScript</strong>: </LABEL>";
+        s = s + "<label for=\"relatedTestScript\"><strong>relatedTestScript</strong>: </LABEL>";
 
-		// Start of user code relatedTestScripttoHtml_mid
+        // Start of user code relatedTestScripttoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = relatedTestScript.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : relatedTestScript) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code relatedTestScripttoHtml_finalize
+        // Start of user code relatedTestScripttoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String subjectToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code subjecttoHtml_init
+        // Start of user code subjecttoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"subject\"><strong>subject</strong>: </LABEL>";
+        s = s + "<label for=\"subject\"><strong>subject</strong>: </LABEL>";
 
-		// Start of user code subjecttoHtml_mid
+        // Start of user code subjecttoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<String> itr = subject.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-					s= s + itr.next().toString();
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            Iterator<String> itr = subject.iterator();
+            while(itr.hasNext()) {
+                s = s + "<li>";
+                s= s + itr.next().toString();
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code subjecttoHtml_finalize
+        // Start of user code subjecttoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String testedByTestCaseToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code testedByTestCasetoHtml_init
+        // Start of user code testedByTestCasetoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"testedByTestCase\"><strong>testedByTestCase</strong>: </LABEL>";
+        s = s + "<label for=\"testedByTestCase\"><strong>testedByTestCase</strong>: </LABEL>";
 
-		// Start of user code testedByTestCasetoHtml_mid
+        // Start of user code testedByTestCasetoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = testedByTestCase.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : testedByTestCase) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code testedByTestCasetoHtml_finalize
+        // Start of user code testedByTestCasetoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String tracksChangeSetToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code tracksChangeSettoHtml_init
+        // Start of user code tracksChangeSettoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"tracksChangeSet\"><strong>tracksChangeSet</strong>: </LABEL>";
+        s = s + "<label for=\"tracksChangeSet\"><strong>tracksChangeSet</strong>: </LABEL>";
 
-		// Start of user code tracksChangeSettoHtml_mid
+        // Start of user code tracksChangeSettoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = tracksChangeSet.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : tracksChangeSet) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code tracksChangeSettoHtml_finalize
+        // Start of user code tracksChangeSettoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String tracksRequirementToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code tracksRequirementtoHtml_init
+        // Start of user code tracksRequirementtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"tracksRequirement\"><strong>tracksRequirement</strong>: </LABEL>";
+        s = s + "<label for=\"tracksRequirement\"><strong>tracksRequirement</strong>: </LABEL>";
 
-		// Start of user code tracksRequirementtoHtml_mid
+        // Start of user code tracksRequirementtoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<Link> itr = tracksRequirement.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-                            if (itr.next().getValue() == null) {
-                                s= s + "<em>null</em>";             
-                            }
-                            else {
-                                s = s + itr.next().getValue().toString();
-                            }
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            for(Link next : tracksRequirement) {
+                s = s + "<li>";
+                if (next.getValue() == null) {
+                    s= s + "<em>null</em>";
+                }
+                else {
+                    s = s + next.getValue().toString();
+                }
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code tracksRequirementtoHtml_finalize
+        // Start of user code tracksRequirementtoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String rdfTypeToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code rdfTypetoHtml_init
+        // Start of user code rdfTypetoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"type\"><strong>type</strong>: </LABEL>";
+        s = s + "<label for=\"type\"><strong>type</strong>: </LABEL>";
 
-		// Start of user code rdfTypetoHtml_mid
+        // Start of user code rdfTypetoHtml_mid
 		// End of user code
 
-		try {
-		        s = s + "<ul>";
-				Iterator<URI> itr = rdfType.iterator();
-				while(itr.hasNext()) {
-					s = s + "<li>";
-					s= s + itr.next().toString();
-					s = s + "</li>";
-				}
-		        s = s + "</ul>";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            s = s + "<ul>";
+            Iterator<URI> itr = rdfType.iterator();
+            while(itr.hasNext()) {
+                s = s + "<li>";
+                s= s + itr.next().toString();
+                s = s + "</li>";
+            }
+            s = s + "</ul>";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code rdfTypetoHtml_finalize
+        // Start of user code rdfTypetoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String approvedToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code approvedtoHtml_init
+        // Start of user code approvedtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"approved\"><strong>approved</strong>: </LABEL>";
+        s = s + "<label for=\"approved\"><strong>approved</strong>: </LABEL>";
 
-		// Start of user code approvedtoHtml_mid
+        // Start of user code approvedtoHtml_mid
 		// End of user code
 
-		try {
-				if (approved == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + approved.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (approved == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + approved.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code approvedtoHtml_finalize
+        // Start of user code approvedtoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String closedToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code closedtoHtml_init
+        // Start of user code closedtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"closed\"><strong>closed</strong>: </LABEL>";
+        s = s + "<label for=\"closed\"><strong>closed</strong>: </LABEL>";
 
-		// Start of user code closedtoHtml_mid
+        // Start of user code closedtoHtml_mid
 		// End of user code
 
-		try {
-				if (closed == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + closed.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (closed == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + closed.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code closedtoHtml_finalize
+        // Start of user code closedtoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String closeDateToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code closeDatetoHtml_init
+        // Start of user code closeDatetoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"closeDate\"><strong>closeDate</strong>: </LABEL>";
+        s = s + "<label for=\"closeDate\"><strong>closeDate</strong>: </LABEL>";
 
-		// Start of user code closeDatetoHtml_mid
+        // Start of user code closeDatetoHtml_mid
 		// End of user code
 
-		try {
-				if (closeDate == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + closeDate.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (closeDate == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + closeDate.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code closeDatetoHtml_finalize
+        // Start of user code closeDatetoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String createdToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code createdtoHtml_init
+        // Start of user code createdtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"created\"><strong>created</strong>: </LABEL>";
+        s = s + "<label for=\"created\"><strong>created</strong>: </LABEL>";
 
-		// Start of user code createdtoHtml_mid
+        // Start of user code createdtoHtml_mid
 		// End of user code
 
-		try {
-				if (created == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + created.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (created == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + created.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code createdtoHtml_finalize
+        // Start of user code createdtoHtml_finalize
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String descriptionToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code descriptiontoHtml_init
+        // Start of user code descriptiontoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"description\"><strong>description</strong>: </LABEL>";
+        s = s + "<label for=\"description\"><strong>description</strong>: </LABEL>";
 
-		// Start of user code descriptiontoHtml_mid
+        // Start of user code descriptiontoHtml_mid
 		// End of user code
 
-		try {
-				if (description == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + description.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (description == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + description.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code descriptiontoHtml_finalize
+        // Start of user code descriptiontoHtml_finalize
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String discussedByToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code discussedBytoHtml_init
+        // Start of user code discussedBytoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"discussedBy\"><strong>discussedBy</strong>: </LABEL>";
+        s = s + "<label for=\"discussedBy\"><strong>discussedBy</strong>: </LABEL>";
 
-		// Start of user code discussedBytoHtml_mid
+        // Start of user code discussedBytoHtml_mid
 		// End of user code
 
-		try {
-                    if (discussedBy.getValue() == null) {
-                        s = s + "<em>null</em>";             
-                    }
-                    else {
-                        s = s + discussedBy.getValue().toString();                
-                    }
+        try {
+            if (discussedBy.getValue() == null) {
+                s = s + "<em>null</em>";
+            }
+            else {
+                s = s + discussedBy.getValue().toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-
-		// Start of user code discussedBytoHtml_finalize
+        // Start of user code discussedBytoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String fixedToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code fixedtoHtml_init
+        // Start of user code fixedtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"fixed\"><strong>fixed</strong>: </LABEL>";
+        s = s + "<label for=\"fixed\"><strong>fixed</strong>: </LABEL>";
 
-		// Start of user code fixedtoHtml_mid
+        // Start of user code fixedtoHtml_mid
 		// End of user code
 
-		try {
-				if (fixed == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + fixed.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (fixed == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + fixed.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code fixedtoHtml_finalize
+        // Start of user code fixedtoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String identifierToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code identifiertoHtml_init
+        // Start of user code identifiertoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"identifier\"><strong>identifier</strong>: </LABEL>";
+        s = s + "<label for=\"identifier\"><strong>identifier</strong>: </LABEL>";
 
-		// Start of user code identifiertoHtml_mid
+        // Start of user code identifiertoHtml_mid
 		// End of user code
 
-		try {
-				if (identifier == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + identifier.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (identifier == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + identifier.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code identifiertoHtml_finalize
+        // Start of user code identifiertoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String inprogressToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code inprogresstoHtml_init
+        // Start of user code inprogresstoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"inprogress\"><strong>inprogress</strong>: </LABEL>";
+        s = s + "<label for=\"inprogress\"><strong>inprogress</strong>: </LABEL>";
 
-		// Start of user code inprogresstoHtml_mid
+        // Start of user code inprogresstoHtml_mid
 		// End of user code
 
-		try {
-				if (inprogress == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + inprogress.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (inprogress == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + inprogress.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code inprogresstoHtml_finalize
+        // Start of user code inprogresstoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String instanceShapeToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code instanceShapetoHtml_init
+        // Start of user code instanceShapetoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"instanceShape\"><strong>instanceShape</strong>: </LABEL>";
+        s = s + "<label for=\"instanceShape\"><strong>instanceShape</strong>: </LABEL>";
 
-		// Start of user code instanceShapetoHtml_mid
+        // Start of user code instanceShapetoHtml_mid
 		// End of user code
 
-		try {
-                    if (instanceShape.getValue() == null) {
-                        s = s + "<em>null</em>";             
-                    }
-                    else {
-                        s = s + instanceShape.getValue().toString();                
-                    }
+        try {
+            if (instanceShape.getValue() == null) {
+                s = s + "<em>null</em>";
+            }
+            else {
+                s = s + instanceShape.getValue().toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-
-		// Start of user code instanceShapetoHtml_finalize
+        // Start of user code instanceShapetoHtml_finalize
 		s = "";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String modifiedToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code modifiedtoHtml_init
+        // Start of user code modifiedtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"modified\"><strong>modified</strong>: </LABEL>";
+        s = s + "<label for=\"modified\"><strong>modified</strong>: </LABEL>";
 
-		// Start of user code modifiedtoHtml_mid
+        // Start of user code modifiedtoHtml_mid
 		// End of user code
 
-		try {
-				if (modified == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + modified.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (modified == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + modified.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code modifiedtoHtml_finalize
+        // Start of user code modifiedtoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String reviewedToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code reviewedtoHtml_init
+        // Start of user code reviewedtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"reviewed\"><strong>reviewed</strong>: </LABEL>";
+        s = s + "<label for=\"reviewed\"><strong>reviewed</strong>: </LABEL>";
 
-		// Start of user code reviewedtoHtml_mid
+        // Start of user code reviewedtoHtml_mid
 		// End of user code
 
-		try {
-				if (reviewed == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + reviewed.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (reviewed == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + reviewed.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code reviewedtoHtml_finalize
+        // Start of user code reviewedtoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String serviceProviderToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code serviceProvidertoHtml_init
+        // Start of user code serviceProvidertoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"serviceProvider\"><strong>serviceProvider</strong>: </LABEL>";
+        s = s + "<label for=\"serviceProvider\"><strong>serviceProvider</strong>: </LABEL>";
 
-		// Start of user code serviceProvidertoHtml_mid
+        // Start of user code serviceProvidertoHtml_mid
 		// End of user code
 
-		try {
-				if (serviceProvider == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + serviceProvider.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (serviceProvider == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + serviceProvider.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code serviceProvidertoHtml_finalize
+        // Start of user code serviceProvidertoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String shortTitleToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code shortTitletoHtml_init
+        // Start of user code shortTitletoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"shortTitle\"><strong>shortTitle</strong>: </LABEL>";
+        s = s + "<label for=\"shortTitle\"><strong>shortTitle</strong>: </LABEL>";
 
-		// Start of user code shortTitletoHtml_mid
+        // Start of user code shortTitletoHtml_mid
 		// End of user code
 
-		try {
-				if (shortTitle == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + shortTitle.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (shortTitle == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + shortTitle.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code shortTitletoHtml_finalize
+        // Start of user code shortTitletoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String statusToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code statustoHtml_init
+        // Start of user code statustoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"status\"><strong>status</strong>: </LABEL>";
+        s = s + "<label for=\"status\"><strong>status</strong>: </LABEL>";
 
-		// Start of user code statustoHtml_mid
+        // Start of user code statustoHtml_mid
 		// End of user code
 
-		try {
-				if (status == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + status.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (status == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + status.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code statustoHtml_finalize
+        // Start of user code statustoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String titleToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code titletoHtml_init
+        // Start of user code titletoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"title\"><strong>title</strong>: </LABEL>";
+        s = s + "<label for=\"title\"><strong>title</strong>: </LABEL>";
 
-		// Start of user code titletoHtml_mid
+        // Start of user code titletoHtml_mid
 		// End of user code
 
-		try {
-				if (title == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + title.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (title == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + title.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code titletoHtml_finalize
+        // Start of user code titletoHtml_finalize
 		// End of user code
 
-		return s; 
+        return s;
     }
     public String verifiedToHtml()
     {
-		String s = "";
+        String s = "";
 
-		// Start of user code verifiedtoHtml_init
+        // Start of user code verifiedtoHtml_init
 		// End of user code
 
-		s = s + "<label for=\"verified\"><strong>verified</strong>: </LABEL>";
+        s = s + "<label for=\"verified\"><strong>verified</strong>: </LABEL>";
 
-		// Start of user code verifiedtoHtml_mid
+        // Start of user code verifiedtoHtml_mid
 		// End of user code
 
-		try {
-				if (verified == null) {
-					s= s + "<em>null</em>";				
-				}
-				else {
-					s= s + verified.toString();				
-				}
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+        try {
+            if (verified == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + verified.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// Start of user code verifiedtoHtml_finalize
+        // Start of user code verifiedtoHtml_finalize
 		s="";
 		// End of user code
 
-		return s; 
+        return s;
     }
 }
