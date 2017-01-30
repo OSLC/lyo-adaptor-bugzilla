@@ -1,0 +1,21 @@
+image: maven:3-jdk-8
+
+stages:
+  - verify
+
+variables:
+  MAVEN_OPTS: -Dmaven.repo.local=/cache/maven.repository
+
+verify:
+  stage: verify
+  script: "mvn clean verify -B"
+
+# pages:
+#   script:
+#   - mvn clean git-version-insert:insert-version -B
+#   - mvn javadoc:javadoc -B
+#   - mvn site -B
+#   - mv target/site/ public/
+#   artifacts:
+#     paths:
+#     - public
