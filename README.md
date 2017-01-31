@@ -4,8 +4,14 @@ This application is an example of what Eclipse Lyo can be used for, in the form 
 
 This application uses the [OSLC4J] SDK to build up the adapter from Plain Old Java Objects and relatively simple JAX-RS web services.
 
-## Using the Hosted Bugzilla Adapter
+## Getting started
 
+1. Sign up for the Bugzilla landfill account: https://landfill.bugzilla.org/bugzilla-4.4-branch/
+1. Run the adaptor: `mvn clean jetty:run-exploded`
+1. Navigate to http://localhost:8080/BugzillaAdaptor/
+1. Use your Landfill credentials to log into the adaptor. It will pass them to the Landfill server (as specified in `test/resources/bugz.properties`).
+
+### Using the hosted Bugzilla adapter
 
 We've recently hosted the Lyo Bugzilla adapter at [<https://oslc-bugzilla.mybluemix.net/>] This server is provided as-is and may go down at any time. It connects to the [Bugzilla Landfill (4.2-branch)]
 
@@ -20,12 +26,12 @@ See [Lyo/prereqs].
 
 ### Clone the Lyo Docs Git repository
 
-The code resides in the Lyo docs repository since it is part of the [ Lyo OSLC Workshop.]
+The code resides in the Lyo docs repository since it is part of the [OSLC Lyo Workshop].
 
 This example assumes EGit is being used to download the code.
 
 -   Open the Git Repositories view in Eclipse and click the Clone Git Repository icon
--   Use [`git://git.eclipse.org/gitroot/lyo/org.eclipse.lyo.docs.git`] as the URI (browse it also [on line]). User/Password are not required.
+-   Use [lyo.docs] as the URI (browse it also [on line]). User/Password are not required.
 -   On the Branch Selection page, select the master branch
 -   On the Local Destination page, specify a location or accept the default and click Finish
 
@@ -40,7 +46,7 @@ The repository should now show up in your Git Repositories view.
 ### Edit the Bugzilla configuration
 
 
-The sample requires Bugzilla 4.0. By default, it uses the [Bugzilla Landfill] test server, but you can specify your own. If you use Landfill, you will need to \[ <https://landfill.bugzilla.org/bugzilla-4.2-branch/createaccount.cgi> create a userID \] for yourself .
+The sample requires Bugzilla 4.0. By default, it uses the [Bugzilla Landfill 4.4] test server, but you can specify your own. If you use Landfill, you will need to \[ <https://landfill.bugzilla.org/bugzilla-4.2-branch/createaccount.cgi> create a userID \] for yourself .
 
 -   Edit org.eclipse.lyo.oslc4j.bugzilla/src/main/resources/bugz.properties.
     -   Change the bugzilla\_uri property to the URL of your Bugzilla server.
@@ -62,11 +68,11 @@ The sample requires Bugzilla 4.0. By default, it uses the [Bugzilla Landfill] te
 
 ![](docs/OSLC4JBugzillaLaunch.png)
 
-  [OSLC4J]: Lyo/LyoOSLC4J "wikilink"
   [<https://oslc-bugzilla.mybluemix.net/>]: https://oslc-bugzilla.mybluemix.net/
-  [Bugzilla Landfill (4.2-branch)]: https://landfill.bugzilla.org/bugzilla-4.2-branch/
-  [Lyo/prereqs]: Lyo/prereqs "wikilink"
-  [ Lyo OSLC Workshop.]: Lyo/OSLCWorkshop "wikilink"
-  [`git://git.eclipse.org/gitroot/lyo/org.eclipse.lyo.docs.git`]: git://git.eclipse.org/gitroot/lyo/org.eclipse.lyo.docs.git
+  [Bugzilla Landfill 4.4]: https://landfill.bugzilla.org/bugzilla-4.4-branch/
+  [lyo.docs]: git://git.eclipse.org/gitroot/lyo/org.eclipse.lyo.docs.git
   [on line]: http://git.eclipse.org/c/lyo/org.eclipse.lyo.docs.git/
-  [Bugzilla Landfill]: http://landfill.bugzilla.org/
+
+  [Lyo/prereqs]: Lyo/prereqs "wikilink"
+  [OSLC Lyo Workshop]: Lyo/OSLCWorkshop "wikilink"
+  [OSLC4J]: Lyo/LyoOSLC4J "wikilink"
