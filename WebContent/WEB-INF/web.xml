@@ -45,13 +45,13 @@
     <servlet-name>restSdkAdmin</servlet-name>
     <url-pattern>/admin</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>RootServicesService</servlet-name>
     <servlet-class>se.kth.md.it.bcm.services.RootServicesService</servlet-class>
   </servlet>
   <servlet-mapping>
-	<servlet-name>RootServicesService</servlet-name>
-	<url-pattern>/rootservices</url-pattern>
+    <servlet-name>RootServicesService</servlet-name>
+    <url-pattern>/rootservices</url-pattern>
   </servlet-mapping>
   <filter>
     <display-name>CredentialsFilter</display-name>

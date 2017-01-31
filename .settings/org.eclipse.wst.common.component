@@ -1,35 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="BugzillaAdaptor">
+    <wb-module deploy-name="adaptor-bugzilla-0.1.0-SNAPSHOT">
         <wb-resource deploy-path="/WEB-INF/web.xml" source-path="/WebContent/WEB-INF/web.xml"/>
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test/resources"/>
-        <dependent-module archiveName="oslc4j-core-1.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/OSLC4J/OSLC4J">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="oslc4j-jena-provider-1.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/OSLC4JJenaProvider/OSLC4JJenaProvider">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="oslc4j-wink-1.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/OSLC4JWink/OSLC4JWink">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="oslc4j-json4j-provider-1.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/OSLC4JJson4JProvider/OSLC4JJson4JProvider">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="oauth-core-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/org.eclipse.lyo.server.oauth.core/org.eclipse.lyo.server.oauth.core">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="oauth-consumer-store-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/org.eclipse.lyo.server.oauth.consumerstore/org.eclipse.lyo.server.oauth.consumerstore">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/" handle="module:/overlay/prj/org.eclipse.lyo.server.oauth.webapp?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
+        <dependent-module deploy-path="/" handle="module:/overlay/var/M2_REPO/org/eclipse/lyo/server/oauth-webapp/2.0.0/oauth-webapp-2.0.0.war?unpackFolder=target/m2e-wtp/overlays&amp;includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
             <dependency-type>consumes</dependency-type>
         </dependent-module>
         <dependent-module deploy-path="/" handle="module:/overlay/slf/?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
             <dependency-type>consumes</dependency-type>
         </dependent-module>
-        <property name="context-root" value="BugzillaAdaptor"/>
         <property name="java-output-path" value="/BugzillaAdaptor/build/classes"/>
+        <property name="context-root" value="adaptor-bugzilla"/>
     </wb-module>
 </project-modules>

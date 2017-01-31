@@ -8,9 +8,9 @@
 		</repository>
 	</repositories>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>BugzillaAdaptor</groupId>
-	<artifactId>BugzillaAdaptor</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>se.kth.md.it</groupId>
+	<artifactId>adaptor-bugzilla</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
