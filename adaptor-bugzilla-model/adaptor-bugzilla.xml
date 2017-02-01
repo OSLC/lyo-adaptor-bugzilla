@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oslc4j_tc:Toolchain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:oslc4j_tc="http://org.eclipse.lyo/oslc4j/toolChain">
+  <adaptorInterfaces name="BugzillaAdaptor" javaClassBaseNamespace="se.kth.md.it.bcm" javaFilesBasePath="../adaptor-bugzilla/src/" jspFilesBasePath="../adaptor-bugzilla/WebContent" javascriptFilesBasePath="../adaptor-bugzilla/WebContent">
+    <serviceProviderCatalog title="OSLC Service Provider Catalog" description="OSLC Service Provider Catalog">
+      <publisher title="Bugzilla" label="" identifier="se.kth.md.it.cm" icon="http://open-services.net/css/images/logo-forflip.png"/>
+      <serviceProviders title="Service provider for the Bugzilla product" description="Enables navigation to OSLC-CM Resource Creator and Selector Dialogs">
+        <publisher title="Eclipse Lyo" label="" identifier="urn:oslc:ServiceProvider"/>
+        <services>
+          <domainSpecification href="../org.eclipse.lyo.tools.domainmodels/oslcDomainSpecifications.xml#//@domainSpecifications.5"/>
+          <creationFactories title="Change Request Creation Factory" label="Change Request Creation" creationURI="" resourceTypes="//@specification/@domainSpecifications.0/@resources.0"/>
+          <queryCapabilities title="Change Request Query Capability" label="Change Request Catalog Query" queryBaseURI="" resourceTypes="//@specification/@domainSpecifications.0/@resources.0"/>
+          <selectionDialogs title="Change Request Selection Dialog" label="Change Request Selection Dialog" dialogURI="selector" hintWidth="525" hintHeight="325" resourceTypes="//@specification/@domainSpecifications.0/@resources.0"/>
+          <creationDialogs title="Change Request Creation Dialog" label="Change Request Creation Dialog" dialogURI="creator" hintWidth="600" hintHeight="375" resourceTypes="//@specification/@domainSpecifications.0/@resources.0"/>
+          <basicCapabilities resourceTypes="//@specification/@domainSpecifications.0/@resources.0"/>
+        </services>
+      </serviceProviders>
+    </serviceProviderCatalog>
+    <specification/>
+  </adaptorInterfaces>
+  <specification>
+    <domainSpecifications name="Bugzilla" namespaceURI="http://www.bugzilla.org/rdf#" namespacePrefix="//@specification/@domainPrefixes.0">
+      <resources name="BugzillaChangeRequest" resourceProperties="//@specification/@domainSpecifications.0/@resourceProperties.0 //@specification/@domainSpecifications.0/@resourceProperties.1 //@specification/@domainSpecifications.0/@resourceProperties.2 //@specification/@domainSpecifications.0/@resourceProperties.3 //@specification/@domainSpecifications.0/@resourceProperties.4 //@specification/@domainSpecifications.0/@resourceProperties.5">
+        <extends href="../org.eclipse.lyo.tools.domainmodels/oslcDomainSpecifications.xml#//@domainSpecifications.5/@resources.0"/>
+      </resources>
+      <resourceProperties name="product" valueType="String" description=""/>
+      <resourceProperties title="Component" name="component" occurs="zeroOrOne" valueType="String" description="The Bugzilla product definition for this change request."/>
+      <resourceProperties title="Version" name="version" occurs="zeroOrOne" readOnly="true" valueType="String" description="The Bugzilla version for this change request."/>
+      <resourceProperties title="Priority" name="priority" occurs="zeroOrOne" valueType="String" description="The Bugzilla priority for this change request."/>
+      <resourceProperties title="Platform" name="platform" occurs="zeroOrOne" valueType="String" description="The Bugzilla platform for this change request."/>
+      <resourceProperties title="Operating System" name="operatingSystem" occurs="zeroOrOne" valueType="String" description="The Bugzilla operating system for this change request."/>
+    </domainSpecifications>
+    <domainPrefixes name="bugz"/>
+  </specification>
+</oslc4j_tc:Toolchain>
