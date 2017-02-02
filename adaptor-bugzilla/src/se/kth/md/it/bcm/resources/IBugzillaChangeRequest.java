@@ -4,7 +4,7 @@
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
- *  
+ *
  * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
  * and the Eclipse Distribution License is available at
  * http://www.eclipse.org/org/documents/edl-v10.php.
@@ -62,73 +62,79 @@ import org.eclipse.lyo.oslc4j.core.model.OslcConstants;
 import org.eclipse.lyo.oslc4j.core.model.Representation;
 import org.eclipse.lyo.oslc4j.core.model.ValueType;
 
-import se.kth.md.it.bcm.servlet.ServletListener; 
+import se.kth.md.it.bcm.servlet.ServletListener;
 import se.kth.md.it.bcm.BugzillaAdaptorConstants;
-import se.kth.md.it.bcm.resources.IPerson;	
-import se.kth.md.it.bcm.resources.IPerson;	
-import se.kth.md.it.bcm.resources.IType;	
+import se.kth.md.it.bcm.resources.IChangeRequest;
+import se.kth.md.it.bcm.resources.IChangeRequest;
+import se.kth.md.it.bcm.resources.IRequirement;
+import se.kth.md.it.bcm.resources.IPerson;
+import se.kth.md.it.bcm.resources.IPerson;
+import se.kth.md.it.bcm.resources.IDiscussion;
+import se.kth.md.it.bcm.resources.IRequirement;
+import se.kth.md.it.bcm.resources.IChangeRequest;
+import se.kth.md.it.bcm.resources.IRequirement;
 
 // Start of user code imports
 // End of user code
 
 @OslcNamespace(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE)
-@OslcName(BugzillaAdaptorConstants.BUGZILLACHANGEREQUEST) 
+@OslcName(BugzillaAdaptorConstants.BUGZILLACHANGEREQUEST)
 @OslcResourceShape(title = "BugzillaChangeRequest Resource Shape", describes = BugzillaAdaptorConstants.TYPE_BUGZILLACHANGEREQUEST)
 public interface IBugzillaChangeRequest
 {
 
 
-	@OslcName("product")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "product")
-	@OslcDescription("")
-	@OslcOccurs(Occurs.ExactlyOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
+    @OslcName("product")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "product")
+    @OslcDescription("")
+    @OslcOccurs(Occurs.ExactlyOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
     public String getProduct();
 
-	@OslcName("component")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "component")
-	@OslcDescription("The Bugzilla product definition for this change request.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-	@OslcTitle("Component")
+    @OslcName("component")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "component")
+    @OslcDescription("The Bugzilla product definition for this change request.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    @OslcTitle("Component")
     public String getComponent();
 
-	@OslcName("version")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "version")
-	@OslcDescription("The Bugzilla version for this change request.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(true)
-	@OslcTitle("Version")
+    @OslcName("version")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "version")
+    @OslcDescription("The Bugzilla version for this change request.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(true)
+    @OslcTitle("Version")
     public String getVersion();
 
-	@OslcName("priority")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "priority")
-	@OslcDescription("The Bugzilla priority for this change request.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-	@OslcTitle("Priority")
+    @OslcName("priority")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "priority")
+    @OslcDescription("The Bugzilla priority for this change request.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    @OslcTitle("Priority")
     public String getPriority();
 
-	@OslcName("platform")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "platform")
-	@OslcDescription("The Bugzilla platform for this change request.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-	@OslcTitle("Platform")
+    @OslcName("platform")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "platform")
+    @OslcDescription("The Bugzilla platform for this change request.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    @OslcTitle("Platform")
     public String getPlatform();
 
-	@OslcName("operatingSystem")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "operatingSystem")
-	@OslcDescription("The Bugzilla operating system for this change request.")
-	@OslcOccurs(Occurs.ZeroOrOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-	@OslcTitle("Operating System")
+    @OslcName("operatingSystem")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE + "operatingSystem")
+    @OslcDescription("The Bugzilla operating system for this change request.")
+    @OslcOccurs(Occurs.ZeroOrOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    @OslcTitle("Operating System")
     public String getOperatingSystem();
 
 

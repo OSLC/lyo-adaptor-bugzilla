@@ -54,16 +54,13 @@ import se.kth.md.it.bcm.servlet.ServiceProviderCatalogSingleton;
 @Path("serviceProviders")
 public class ServiceProviderService
 {
-	@Context private HttpServletRequest httpServletRequest;
-	@Context private HttpServletResponse httpServletResponse;
-	
-	
-	/**
-	 * RDF/XML, XML and JSON representations of an OSLC Service Provider collection
-	 * @return
-	 */
-	
+    @Context private HttpServletRequest httpServletRequest;
+    @Context private HttpServletResponse httpServletResponse;
 
+    /**
+     * RDF/XML, XML and JSON representations of an OSLC Service Provider collection
+     * @return
+     */
     @OslcDialog
     (
          title = "Service Provider Selection Dialog",
@@ -87,35 +84,30 @@ public class ServiceProviderService
     @Produces({OslcMediaType.APPLICATION_RDF_XML, OslcMediaType.APPLICATION_XML, OslcMediaType.APPLICATION_JSON})
     public ServiceProvider[] getServiceProviders()
     {
-    	httpServletResponse.addHeader("Oslc-Core-Version","2.0");
+        httpServletResponse.addHeader("Oslc-Core-Version","2.0");
         return ServiceProviderCatalogSingleton.getServiceProviders(httpServletRequest);
     }
-   
 
     /**
      * RDF/XML, XML and JSON representations of a single OSLC Service Provider
-     * 
+     *
      * @param serviceProviderId
      * @return
      */
-
-	 
     @GET
     @Path("{serviceProviderId}")
     @Produces({OslcMediaType.APPLICATION_RDF_XML, OslcMediaType.APPLICATION_XML, OslcMediaType.APPLICATION_JSON})
     public ServiceProvider getServiceProvider(@PathParam("serviceProviderId") final String serviceProviderId)
     {
-    	httpServletResponse.addHeader("Oslc-Core-Version","2.0");
+        httpServletResponse.addHeader("Oslc-Core-Version","2.0");
         return ServiceProviderCatalogSingleton.getServiceProvider(httpServletRequest, serviceProviderId);
     }
-    
- 
-    
+
     /**
      * HTML representation of a single OSLC Service Provider
-     * 
+     *
      * Forwards to serviceprovider_html.jsp to create the html document
-     * 
+     *
      * @param serviceProviderId
      */
     @GET
@@ -123,24 +115,22 @@ public class ServiceProviderService
     @Produces(MediaType.TEXT_HTML)
     public void getHtmlServiceProvider(@PathParam("serviceProviderId") final String serviceProviderId)
     {
-    	ServiceProvider serviceProvider = ServiceProviderCatalogSingleton.getServiceProvider(httpServletRequest, serviceProviderId);
-    	Service [] services = serviceProvider.getServices();
+        ServiceProvider serviceProvider = ServiceProviderCatalogSingleton.getServiceProvider(httpServletRequest, serviceProviderId);
+        Service [] services = serviceProvider.getServices();
 
         httpServletRequest.setAttribute("serviceProvider", serviceProvider);
         httpServletRequest.setAttribute("services", services);
-		// Start of user code getHtmlServiceProvider_setAttributes
+        // Start of user code getHtmlServiceProvider_setAttributes
         httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
 			// End of user code
 
         RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/serviceprovider.jsp");
-		try {
-			rd.forward(httpServletRequest, httpServletResponse);
-		} catch (Exception e) {				
-			e.printStackTrace();
-			throw new WebApplicationException(e);
-		} 
+        try {
+            rd.forward(httpServletRequest, httpServletResponse);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new WebApplicationException(e);
+        }
     }
-
-
-
 }
+

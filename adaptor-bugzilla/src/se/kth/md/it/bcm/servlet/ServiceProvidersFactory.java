@@ -47,7 +47,7 @@ public class ServiceProvidersFactory
 {
     private static Class<?>[] RESOURCE_CLASSES =
     {
-		BugzillaChangeRequestService.class
+        BugzillaChangeRequestService.class
     };
 
     private ServiceProvidersFactory()
@@ -55,25 +55,16 @@ public class ServiceProvidersFactory
         super();
     }
 
-    /**
-     * Create a new Bugzilla OSLC change management service provider.
-     * @param baseURI
-     * @param serviceProviderTitle
-     * @param parameterValueMap - a map containing the path replacement value for {serviceProviderId}.  See ServiceProviderCatalogSingleton.initServiceProviders()
-     * @return
-     * @throws OslcCoreApplicationException
-     * @throws URISyntaxException
-     */
     public static ServiceProvider createServiceProvider(final String baseURI, final String title, final String description, final Publisher publisher, final Map<String,Object> parameterValueMap)
            throws OslcCoreApplicationException, URISyntaxException
     {
         final ServiceProvider serviceProvider = ServiceProviderFactory.createServiceProvider(baseURI,
-                                                                                             ServiceProviderRegistryURIs.getUIURI(),
-                                                                                             title,
-                                                                                             description,
-                                                                                             publisher,
-                                                                                             RESOURCE_CLASSES,
-                                                                                             parameterValueMap);
+                                                    ServiceProviderRegistryURIs.getUIURI(),
+                                                    title,
+                                                    description,
+                                                    publisher,
+                                                    RESOURCE_CLASSES,
+                                                    parameterValueMap);
         URI detailsURIs[] = {new URI(baseURI)};
         serviceProvider.setDetails(detailsURIs);
 
@@ -84,17 +75,19 @@ public class ServiceProvidersFactory
             new PrefixDefinition(OslcConstants.OSLC_DATA_NAMESPACE_PREFIX, new URI(OslcConstants.OSLC_DATA_NAMESPACE)),
             new PrefixDefinition(OslcConstants.RDF_NAMESPACE_PREFIX, new URI(OslcConstants.RDF_NAMESPACE)),
             new PrefixDefinition(OslcConstants.RDFS_NAMESPACE_PREFIX, new URI(OslcConstants.RDFS_NAMESPACE)),
-			new PrefixDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE))
+            new PrefixDefinition(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.BUGZILLA_NAMSPACE))
 ,
-			new PrefixDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE))
+            new PrefixDefinition(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_NAMSPACE))
 ,
-			new PrefixDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE))
+            new PrefixDefinition(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.DUBLIN_CORE_NAMSPACE))
 ,
-			new PrefixDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.FOAF_NAMSPACE))
+            new PrefixDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.FOAF_NAMSPACE))
 ,
-			new PrefixDefinition(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.OSLC_CORE_NAMSPACE))
+            new PrefixDefinition(BugzillaAdaptorConstants.OSLC_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.OSLC_NAMSPACE))
 ,
-			new PrefixDefinition(BugzillaAdaptorConstants.RDF_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.RDF_NAMSPACE))
+            new PrefixDefinition(BugzillaAdaptorConstants.RDF_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.RDF_NAMSPACE))
+,
+            new PrefixDefinition(BugzillaAdaptorConstants.REQUIREMENTS_MANAGEMENT_NAMSPACE_PREFIX, new URI(BugzillaAdaptorConstants.REQUIREMENTS_MANAGEMENT_NAMSPACE))
         };
 
         serviceProvider.setPrefixDefinitions(prefixDefinitions);

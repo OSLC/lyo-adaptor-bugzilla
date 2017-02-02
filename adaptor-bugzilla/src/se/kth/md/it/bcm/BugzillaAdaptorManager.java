@@ -32,8 +32,10 @@ import se.kth.md.it.bcm.servlet.ServiceProviderCatalogSingleton;
 import se.kth.md.it.bcm.ServiceProviderInfo;
 import se.kth.md.it.bcm.resources.BugzillaChangeRequest;
 import se.kth.md.it.bcm.resources.ChangeRequest;
+import se.kth.md.it.bcm.resources.Discussion;
 import se.kth.md.it.bcm.resources.Person;
-import se.kth.md.it.bcm.resources.Type;
+import se.kth.md.it.bcm.resources.Requirement;
+
 
 // Start of user code imports
 import java.io.IOException;
@@ -84,7 +86,7 @@ import java.util.HashSet;
 
 public class BugzillaAdaptorManager {
 
-	// Start of user code class_attributes
+    // Start of user code class_attributes
 	public final static String REALM = "Bugzilla";
 	
     private static String bugzillaUri = null;
@@ -113,8 +115,9 @@ public class BugzillaAdaptorManager {
         }
     }
 	// End of user code
-	
-	// Start of user code class_methods
+    
+    
+    // Start of user code class_methods
     public static String getBugzillaUri() {
         return bugzillaUri;
     }
@@ -170,7 +173,8 @@ public class BugzillaAdaptorManager {
 			contributor.setAbout(new URI(ServletListener.getServletBase() + "/person?mbox=" + URLEncoder.encode(email, "UTF-8")));
 			HashSet<Person> contributors = new HashSet<Person>();
 			contributors.add(contributor);
-			changeRequest.setContributor(contributors);
+			//changeRequest.setContributor(contributors);
+			changeRequest.setContributor(new Link (contributor.getAbout()));
 		}
 		
 		Date createdDate = (Date) bug.getParameterMap().get("creation_time");
@@ -383,14 +387,14 @@ public class BugzillaAdaptorManager {
 		addLinkComment(b, "Affected by Defect", cr.getAffectedByDefect().toArray(new Link[cr.getAffectedByDefect().size()]));
 		addLinkComment(b, "Affects Plan Item", cr.getAffectsPlanItem().toArray(new Link[cr.getAffectsPlanItem().size()]));
 		addLinkComment(b, "Affects Requirement", cr.getAffectsRequirement().toArray(new Link[cr.getAffectsRequirement().size()]));
-		addLinkComment(b, "Affects Test Result", cr.getAffectsTestResult().toArray(new Link[cr.getAffectsTestResult().size()]));
-		addLinkComment(b, "Blocks Test Execution Record", cr.getBlocksTestExecutionRecord().toArray(new Link[cr.getBlocksTestExecutionRecord().size()]));
+		//addLinkComment(b, "Affects Test Result", cr.getAffectsTestResult().toArray(new Link[cr.getAffectsTestResult().size()]));
+		//addLinkComment(b, "Blocks Test Execution Record", cr.getBlocksTestExecutionRecord().toArray(new Link[cr.getBlocksTestExecutionRecord().size()]));
 		addLinkComment(b, "Implements Requirement", cr.getImplementsRequirement().toArray(new Link[cr.getImplementsRequirement().size()]));
 		addLinkComment(b, "Related Change Request", cr.getRelatedChangeRequest().toArray(new Link[cr.getRelatedChangeRequest().size()]));
-		addLinkComment(b, "Related Test Execution Record", cr.getRelatedTestExecutionRecord().toArray(new Link[cr.getRelatedTestExecutionRecord().size()]));
-		addLinkComment(b, "Related Test Plane", cr.getRelatedTestPlan().toArray(new Link[cr.getRelatedTestPlan().size()]));
-		addLinkComment(b, "Related Test Script", cr.getRelatedTestScript().toArray(new Link[cr.getRelatedTestScript().size()]));
-		addLinkComment(b, "Tested by Test Case", cr.getTestedByTestCase().toArray(new Link[cr.getTestedByTestCase().size()]));
+		//addLinkComment(b, "Related Test Execution Record", cr.getRelatedTestExecutionRecord().toArray(new Link[cr.getRelatedTestExecutionRecord().size()]));
+		//addLinkComment(b, "Related Test Plane", cr.getRelatedTestPlan().toArray(new Link[cr.getRelatedTestPlan().size()]));
+		//addLinkComment(b, "Related Test Script", cr.getRelatedTestScript().toArray(new Link[cr.getRelatedTestScript().size()]));
+		//addLinkComment(b, "Tested by Test Case", cr.getTestedByTestCase().toArray(new Link[cr.getTestedByTestCase().size()]));
 		addLinkComment(b, "Tracks Change Set", cr.getTracksChangeSet().toArray(new Link[cr.getTracksChangeSet().size()]));
 		addLinkComment(b, "Tracks Requirement", cr.getTracksRequirement().toArray(new Link[cr.getTracksRequirement().size()]));
 		
@@ -400,23 +404,23 @@ public class BugzillaAdaptorManager {
 
     public static void contextInitializeServletListener(final ServletContextEvent servletContextEvent)
     {
-		// TODO Implement code to establish connection to data backbone etc ...
-		// Start of user code contextInitializeServletListener
+        
+        // Start of user code contextInitializeServletListener
 		// End of user code
     }
 
-	public static void contextDestroyServletListener(ServletContextEvent servletContextEvent) 
-	{
-		// TODO Implement code to shutdown connections to data backbone etc...
-		// Start of user code contextDestroyed
+    public static void contextDestroyServletListener(ServletContextEvent servletContextEvent) 
+    {
+        
+        // Start of user code contextDestroyed
 		// End of user code
-	}
+    }
 
     public static ServiceProviderInfo[] getServiceProviderInfos(HttpServletRequest httpServletRequest)
     {
-		ServiceProviderInfo[] serviceProviderInfos = {};
-		// TODO Implement code to return the set of ServiceProviders
-		// Start of user code "ServiceProviderInfo[] getServiceProviderInfos(...)"
+        ServiceProviderInfo[] serviceProviderInfos = {};
+        
+        // Start of user code "ServiceProviderInfo[] getServiceProviderInfos(...)"
 		try {
 			BugzillaConnector bc = BugzillaAdaptorManager.getBugzillaConnector(httpServletRequest);
 			GetAccessibleProducts getProductIds = new GetAccessibleProducts();
@@ -441,15 +445,14 @@ public class BugzillaAdaptorManager {
 			throw new WebApplicationException(e,Status.INTERNAL_SERVER_ERROR);
 		}
 		// End of user code
-		return serviceProviderInfos;
+        return serviceProviderInfos;
     }
 
     public static List<BugzillaChangeRequest> queryBugzillaChangeRequests(HttpServletRequest httpServletRequest, final String serviceProviderId, String where, int page, int limit)
     {
-		List<BugzillaChangeRequest> resources = null;
-		// TODO Implement code to return a set of resources
-		
-		// Start of user code queryBugzillaChangeRequests
+        List<BugzillaChangeRequest> resources = null;
+        
+        // Start of user code queryBugzillaChangeRequests
 		try {
 	        List<Bug> bugList = BugzillaAdaptorManager.getBugsByProduct(httpServletRequest, serviceProviderId, page, limit);      
 	        resources = BugzillaAdaptorManager.changeRequestsFromBugList(httpServletRequest, bugList, serviceProviderId);		
@@ -458,14 +461,13 @@ public class BugzillaAdaptorManager {
 			throw new WebApplicationException(e,Status.INTERNAL_SERVER_ERROR);
 		}
 		// End of user code
-		return resources;
+        return resources;
     }
-	public static List<BugzillaChangeRequest> BugzillaChangeRequestSelector(HttpServletRequest httpServletRequest, final String serviceProviderId, String terms)   
+    public static List<BugzillaChangeRequest> BugzillaChangeRequestSelector(HttpServletRequest httpServletRequest, final String serviceProviderId, String terms)   
     {
-		List<BugzillaChangeRequest> resources = null;
-		// TODO Implement code to return a set of resources, based on search criteria 
-		
-		// Start of user code BugzillaChangeRequestSelector
+        List<BugzillaChangeRequest> resources = null;
+        
+        // Start of user code BugzillaChangeRequestSelector
 		try {
 			final BugzillaConnector bc = BugzillaAdaptorManager.getBugzillaConnector(httpServletRequest);
 			BugSearch bugSearch = createBugSearch(terms);
@@ -477,14 +479,13 @@ public class BugzillaAdaptorManager {
 			throw new WebApplicationException(e);
 		}
 		// End of user code
-		return resources;
+        return resources;
     }
-	public static BugzillaChangeRequest createBugzillaChangeRequest(HttpServletRequest httpServletRequest, final BugzillaChangeRequest aResource, final String serviceProviderId)
+    public static BugzillaChangeRequest createBugzillaChangeRequest(HttpServletRequest httpServletRequest, final BugzillaChangeRequest aResource, final String serviceProviderId)
     {
-		BugzillaChangeRequest newResource = null;
-		// TODO Implement code to create a resource
-		
-		// Start of user code createBugzillaChangeRequest
+        BugzillaChangeRequest newResource = null;
+        
+        // Start of user code createBugzillaChangeRequest
 		//[comment TODO: We should actually enter ALL properties that the user set :-) and not just the 6 below!!!! /]
 		String newBugId = null;
 		try {
@@ -537,16 +538,15 @@ public class BugzillaAdaptorManager {
 			throw new WebApplicationException(e);
 		}
 		// End of user code
-		return newResource;
+        return newResource;
     }
 
 
-	public static BugzillaChangeRequest getBugzillaChangeRequest(HttpServletRequest httpServletRequest, final String serviceProviderId, final String bugzillaChangeRequestId)
+    public static BugzillaChangeRequest getBugzillaChangeRequest(HttpServletRequest httpServletRequest, final String serviceProviderId, final String bugzillaChangeRequestId)
     {
-		BugzillaChangeRequest aResource = null;
-		// TODO Implement code to return a resource
-		
-		// Start of user code getBugzillaChangeRequest
+        BugzillaChangeRequest aResource = null;
+        
+        // Start of user code getBugzillaChangeRequest
 		try {
 	        final Bug bug = BugzillaAdaptorManager.getBugById(httpServletRequest, bugzillaChangeRequestId);
 	        if (bug != null) {
@@ -557,17 +557,16 @@ public class BugzillaAdaptorManager {
 			throw new WebApplicationException(e,Status.INTERNAL_SERVER_ERROR);
 		}
 		// End of user code
-		return aResource;
+        return aResource;
     }
 
 
 
 
-	public static String getETagFromBugzillaChangeRequest(final BugzillaChangeRequest aResource)
+    public static String getETagFromBugzillaChangeRequest(final BugzillaChangeRequest aResource)
     {
-		String eTag = null;
-		// TODO Implement code to return an ETag for a particular resource
-		// Start of user code getETagFromBugzillaChangeRequest
+        String eTag = null;
+        // Start of user code getETagFromBugzillaChangeRequest
     	Long eTagAsTime = null;
     	
     	if (aResource.getModified() != null) {
@@ -579,6 +578,6 @@ public class BugzillaAdaptorManager {
     	}
 		eTag = eTagAsTime.toString();
 		// End of user code
-		return eTag;
+        return eTag;
     }
 }

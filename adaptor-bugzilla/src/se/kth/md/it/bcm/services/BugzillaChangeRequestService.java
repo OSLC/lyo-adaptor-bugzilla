@@ -72,48 +72,36 @@ import org.eclipse.lyo.oslc4j.core.model.AbstractResource;
 import se.kth.md.it.bcm.BugzillaAdaptorManager;
 import se.kth.md.it.bcm.BugzillaAdaptorConstants;
 import se.kth.md.it.bcm.servlet.ServiceProviderCatalogSingleton;
-import se.kth.md.it.bcm.resources.BugzillaChangeRequest;	
-import se.kth.md.it.bcm.resources.ChangeRequest;	
-import se.kth.md.it.bcm.resources.Person;	
-import se.kth.md.it.bcm.resources.Type;	
+import se.kth.md.it.bcm.resources.BugzillaChangeRequest;
+import se.kth.md.it.bcm.resources.ChangeRequest;
+import se.kth.md.it.bcm.resources.Discussion;
+import se.kth.md.it.bcm.resources.Person;
+import se.kth.md.it.bcm.resources.Requirement;
 
 // Start of user code imports
 // End of user code
 
 // Start of user code pre_class_code
 // End of user code
-
 @OslcService(BugzillaAdaptorConstants.CHANGE_MANAGEMENT_DOMAIN)
 @Path("serviceProviders/{serviceProviderId}/bugzillaChangeRequests")
 public class BugzillaChangeRequestService
 {
-	@Context private HttpServletRequest httpServletRequest;
-	@Context private HttpServletResponse httpServletResponse;
-	@Context private UriInfo uriInfo;
+    @Context private HttpServletRequest httpServletRequest;
+    @Context private HttpServletResponse httpServletResponse;
+    @Context private UriInfo uriInfo;
 
-	// Start of user code class_attributes
+    // Start of user code class_attributes
 	// End of user code
-	
-	// Start of user code class_methods
+
+    // Start of user code class_methods
 	// End of user code
-	
+
     public BugzillaChangeRequestService()
     {
         super();
     }
 
-    /**
-     * RDF/XML, XML and JSON representation of a change request collection
-     * 
-     * TODO:  add query support
-     * 
-     * @param productId
-     * @param where
-     * @param pageString
-     * @return
-     * @throws IOException
-     * @throws ServletException
-     */
     @OslcQueryCapability
     (
         title = "Change Request Query Capability",
@@ -121,101 +109,73 @@ public class BugzillaChangeRequestService
         resourceShape = OslcConstants.PATH_RESOURCE_SHAPES + "/" + BugzillaAdaptorConstants.PATH_BUGZILLACHANGEREQUEST,
         resourceTypes = {BugzillaAdaptorConstants.TYPE_BUGZILLACHANGEREQUEST},
         usages = {OslcConstants.OSLC_USAGE_DEFAULT}
-    ) 
-    @GET 
+    )
+    @GET
     
     @Produces({OslcMediaType.APPLICATION_RDF_XML, OslcMediaType.APPLICATION_XML, OslcMediaType.APPLICATION_JSON})
     public BugzillaChangeRequest[] queryBugzillaChangeRequests(
-													@PathParam("serviceProviderId") final String serviceProviderId ,
-    		                                 		@QueryParam("oslc.where") final String where,
-    		                                 		@QueryParam("page") final String pageString,
-													@QueryParam("limit") final String limitString) throws IOException, ServletException 
+                                                    @PathParam("serviceProviderId") final String serviceProviderId ,
+                                                     @QueryParam("oslc.where") final String where,
+                                                     @QueryParam("page") final String pageString,
+                                                    @QueryParam("limit") final String limitString) throws IOException, ServletException
     {
-		int page=0;
-		int limit=20;
-		if (null != pageString) {
-			page = Integer.parseInt(pageString);
-		}
-		if (null != limitString) {
-			limit = Integer.parseInt(limitString);
-		}
-        
-		// Start of user code queryBugzillaChangeRequests
+        int page=0;
+        int limit=20;
+        if (null != pageString) {
+            page = Integer.parseInt(pageString);
+        }
+        if (null != limitString) {
+            limit = Integer.parseInt(limitString);
+        }
+
+        // Start of user code queryBugzillaChangeRequests
 		// End of user code
 
         final List<BugzillaChangeRequest> resources = BugzillaAdaptorManager.queryBugzillaChangeRequests(httpServletRequest, serviceProviderId, where, page, limit);
         return resources.toArray(new BugzillaChangeRequest [resources.size()]);
     }
 
-    /**
-     * HTML representation of change request collection
-     * 
-     * Forwards to changerequest_collection_html.jsp to build the html page
-     * 
-     * @param productId
-     * @param changeRequestId
-     * @param pageString
-     * @return
-     * @throws ServletException
-     * @throws IOException
-     */
-	@GET
+    @GET
     
-	@Produces({ MediaType.TEXT_HTML })
-	public Response queryBugzillaChangeRequestsAsHtml(
-									@PathParam("serviceProviderId") final String serviceProviderId ,
-                               		@QueryParam("oslc.where") final String where,
-                               		@QueryParam("page") final String pageString,
-			                        @QueryParam("limit") final String limitString) throws ServletException, IOException
-	{
-		int page=0;
-		int limit=20;
-		if (null != pageString) {
-			page = Integer.parseInt(pageString);
-		}
-		if (null != limitString) {
-			limit = Integer.parseInt(limitString);
-		}
+    @Produces({ MediaType.TEXT_HTML })
+    public Response queryBugzillaChangeRequestsAsHtml(
+                                    @PathParam("serviceProviderId") final String serviceProviderId ,
+                                       @QueryParam("oslc.where") final String where,
+                                       @QueryParam("page") final String pageString,
+                                    @QueryParam("limit") final String limitString) throws ServletException, IOException
+    {
+        int page=0;
+        int limit=20;
+        if (null != pageString) {
+            page = Integer.parseInt(pageString);
+        }
+        if (null != limitString) {
+            limit = Integer.parseInt(limitString);
+        }
 
-		// Start of user code queryBugzillaChangeRequestsAsHtml
+        // Start of user code queryBugzillaChangeRequestsAsHtml
 		// End of user code
 
         final List<BugzillaChangeRequest> resources = BugzillaAdaptorManager.queryBugzillaChangeRequests(httpServletRequest, serviceProviderId, where, page, limit);
-		
+
         if (resources!= null) {
-        	httpServletRequest.setAttribute("resources", resources);
-			// Start of user code queryBugzillaChangeRequestsAsHtml_setAttributes
+            httpServletRequest.setAttribute("resources", resources);
+            // Start of user code queryBugzillaChangeRequestsAsHtml_setAttributes
 			// End of user code
 
-        	httpServletRequest.setAttribute("queryUri", 
+            httpServletRequest.setAttribute("queryUri",
                     uriInfo.getAbsolutePath().toString() + "?oslc.paging=true");
-        	if (resources.size() > limit) {
-        		resources.remove(resources.size() - 1);
-        		httpServletRequest.setAttribute("nextPageUri", 
-        				uriInfo.getAbsolutePath().toString() + "?oslc.paging=true&amp;page=" + (page + 1));
-        	}
-        	RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequestscollection.jsp");
-        	rd.forward(httpServletRequest,httpServletResponse);
+            if (resources.size() > limit) {
+                resources.remove(resources.size() - 1);
+                httpServletRequest.setAttribute("nextPageUri",
+                        uriInfo.getAbsolutePath().toString() + "?oslc.paging=true&amp;page=" + (page + 1));
+            }
+            RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequestscollection.jsp");
+            rd.forward(httpServletRequest,httpServletResponse);
         }
-		
-		throw new WebApplicationException(Status.NOT_FOUND);	
-	}
 
-	/**
-	 * OSLC delegated selection dialog for change requests
-	 * 
-	 * If called without a "terms" parameter, forwards to changerequest_selector.jsp to 
-	 * build the html for the IFrame
-	 * 
-	 * If called with a "terms" parameter, sends a Bug search to Bugzilla and then 
-	 * forwards to changerequest_filtered_json.jsp to build a JSON response
-	 * 
-	 * 
-	 * @param terms
-	 * @param productId
-	 * @throws ServletException
-	 * @throws IOException
-	 */
+        throw new WebApplicationException(Status.NOT_FOUND);
+    }
 
     @OslcDialog
     (
@@ -227,124 +187,111 @@ public class BugzillaChangeRequestService
          resourceTypes = {BugzillaAdaptorConstants.TYPE_BUGZILLACHANGEREQUEST},
          usages = {OslcConstants.OSLC_USAGE_DEFAULT}
     )
-	@GET
-	@Path("selector")
-	@Consumes({ MediaType.TEXT_HTML, MediaType.WILDCARD })
-	public void BugzillaChangeRequestSelector(
+    @GET
+    @Path("selector")
+    @Consumes({ MediaType.TEXT_HTML, MediaType.WILDCARD })
+    public void BugzillaChangeRequestSelector(
         @QueryParam("terms") final String terms
-		, @PathParam("serviceProviderId") final String serviceProviderId
+        , @PathParam("serviceProviderId") final String serviceProviderId
         ) throws ServletException, IOException
-	{
-		try {
-			// Start of user code BugzillaChangeRequestSelector_init
+    {
+        try {
+            // Start of user code BugzillaChangeRequestSelector_init
 			// End of user code
 
-			httpServletRequest.setAttribute("selectionUri",uriInfo.getAbsolutePath().toString());
-			// Start of user code BugzillaChangeRequestSelector_setAttributes
+            httpServletRequest.setAttribute("selectionUri",uriInfo.getAbsolutePath().toString());
+            // Start of user code BugzillaChangeRequestSelector_setAttributes
 			httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
 			// End of user code
 
-			if (terms != null ) {
-				httpServletRequest.setAttribute("terms", terms);
-				final List<BugzillaChangeRequest> resources = BugzillaAdaptorManager.BugzillaChangeRequestSelector(httpServletRequest, serviceProviderId, terms);      
-				if (resources!= null) {
-							httpServletRequest.setAttribute("resources", resources);
-							RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequestselectorresults.jsp"); 
-							rd.forward(httpServletRequest, httpServletResponse);
-				}
-				//a empty search should return an empty list and not NULL!
-				throw new WebApplicationException(Status.NOT_FOUND);	
-			
-			} else {
-				try {	
-					RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequestselector.jsp"); 
-					rd.forward(httpServletRequest, httpServletResponse);
-				} catch (Exception e) {
-					throw new ServletException(e);
-				}
-			}
-		} catch (Exception e) {
-			throw new WebApplicationException(e);
-		}
-	}
+            if (terms != null ) {
+                httpServletRequest.setAttribute("terms", terms);
+                final List<BugzillaChangeRequest> resources = BugzillaAdaptorManager.BugzillaChangeRequestSelector(httpServletRequest, serviceProviderId, terms);
+                if (resources!= null) {
+                            httpServletRequest.setAttribute("resources", resources);
+                            RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequestselectorresults.jsp");
+                            rd.forward(httpServletRequest, httpServletResponse);
+                }
+                //a empty search should return an empty list and not NULL!
+                throw new WebApplicationException(Status.NOT_FOUND);
 
-	/**
-	 * Create a single BugzillaChangeRequest via RDF/XML, XML or JSON POST
-	 * @param productId
-	 * @param changeRequest
-	 * @return
-	 * @throws IOException
-	 * @throws ServletException
-	 */
-	@OslcCreationFactory
-	(
-		 title = "Change Request Creation Factory",
-		 label = "Change Request Creation",
-		 resourceShapes = {OslcConstants.PATH_RESOURCE_SHAPES + "/" + BugzillaAdaptorConstants.PATH_BUGZILLACHANGEREQUEST},
-		 resourceTypes = {BugzillaAdaptorConstants.TYPE_BUGZILLACHANGEREQUEST},
-		 usages = {OslcConstants.OSLC_USAGE_DEFAULT}
-	)
+            } else {
+                try {
+                    RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequestselector.jsp");
+                    rd.forward(httpServletRequest, httpServletResponse);
+                } catch (Exception e) {
+                    throw new ServletException(e);
+                }
+            }
+        } catch (Exception e) {
+            throw new WebApplicationException(e);
+        }
+    }
+
+    /**
+     * Create a single BugzillaChangeRequest via RDF/XML, XML or JSON POST
+     *
+     * @throws IOException
+     * @throws ServletException
+     */
+    @OslcCreationFactory
+    (
+         title = "Change Request Creation Factory",
+         label = "Change Request Creation",
+         resourceShapes = {OslcConstants.PATH_RESOURCE_SHAPES + "/" + BugzillaAdaptorConstants.PATH_BUGZILLACHANGEREQUEST},
+         resourceTypes = {BugzillaAdaptorConstants.TYPE_BUGZILLACHANGEREQUEST},
+         usages = {OslcConstants.OSLC_USAGE_DEFAULT}
+    )
     @POST
     @Path("create")
     @Consumes({OslcMediaType.APPLICATION_RDF_XML, OslcMediaType.APPLICATION_XML, OslcMediaType.APPLICATION_JSON})
     @Produces({OslcMediaType.APPLICATION_RDF_XML, OslcMediaType.APPLICATION_XML, OslcMediaType.APPLICATION_JSON})
     public Response createBugzillaChangeRequest(
-            @PathParam("serviceProviderId") final String serviceProviderId , 
+            @PathParam("serviceProviderId") final String serviceProviderId ,
             final BugzillaChangeRequest aResource
         ) throws IOException, ServletException
     {
-		try {
-    		BugzillaChangeRequest newResource = BugzillaAdaptorManager.createBugzillaChangeRequest(httpServletRequest, aResource, serviceProviderId);
-			httpServletResponse.setHeader("ETag", BugzillaAdaptorManager.getETagFromBugzillaChangeRequest(newResource));
-	        return Response.created(newResource.getAbout()).entity(aResource).build();
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    		throw new WebApplicationException(e);
-    	}
+        try {
+            BugzillaChangeRequest newResource = BugzillaAdaptorManager.createBugzillaChangeRequest(httpServletRequest, aResource, serviceProviderId);
+            httpServletResponse.setHeader("ETag", BugzillaAdaptorManager.getETagFromBugzillaChangeRequest(newResource));
+            return Response.created(newResource.getAbout()).entity(aResource).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new WebApplicationException(e);
+        }
     }
 
-	/**
-	 * OSLC delegated creation dialog for a single change request
-	 * 
-	 * Forwards to changerequest_creator.jsp to build the html form
-	 * 
-	 * @param productId
-	 * @throws IOException
-	 * @throws ServletException
-	 */
-	@GET
-	@Path("creator")
-	@Consumes({MediaType.WILDCARD})
-	public void BugzillaChangeRequestCreator(
-				@PathParam("serviceProviderId") final String serviceProviderId
-		) throws IOException, ServletException
-	{
-		// Start of user code BugzillaChangeRequestCreator
+    /**
+     * OSLC delegated creation dialog for a single resource
+     *
+     * @throws IOException
+     * @throws ServletException
+     */
+    @GET
+    @Path("creator")
+    @Consumes({MediaType.WILDCARD})
+    public void BugzillaChangeRequestCreator(
+                @PathParam("serviceProviderId") final String serviceProviderId
+        ) throws IOException, ServletException
+    {
+        // Start of user code BugzillaChangeRequestCreator
 		httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
 		// End of user code
 
-		httpServletRequest.setAttribute("creatorUri", uriInfo.getAbsolutePath().toString());
-		httpServletRequest.setAttribute("serviceProviderId", serviceProviderId);
+        httpServletRequest.setAttribute("creatorUri", uriInfo.getAbsolutePath().toString());
+        httpServletRequest.setAttribute("serviceProviderId", serviceProviderId);
 
-		RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequestcreator.jsp");
-		rd.forward(httpServletRequest, httpServletResponse);
-	}
+        RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequestcreator.jsp");
+        rd.forward(httpServletRequest, httpServletResponse);
+    }
 
     /**
-     * Backend creator for the OSLC delegated creation dialog. 
-     * 
+     * Backend creator for the OSLC delegated creation dialog.
+     *
      * Accepts the input in FormParams and returns a small JSON response
-     * 
-     * @param productId
-     * @param component
-     * @param version
-     * @param summary
-     * @param op_sys
-     * @param platform
-     * @param description
      */
     @OslcDialog
-	(
+    (
          title = "Change Request Creation Dialog",
          label = "Change Request Creation Dialog",
          uri = "serviceProviders/{serviceProviderId}/bugzillaChangeRequests/creator",
@@ -352,381 +299,334 @@ public class BugzillaChangeRequestService
          hintHeight = "375px",
          resourceTypes = {BugzillaAdaptorConstants.TYPE_BUGZILLACHANGEREQUEST},
          usages = {OslcConstants.OSLC_USAGE_DEFAULT}
-	)
+    )
     @POST
-	@Path("creator")
+    @Path("creator")
     @Consumes({ MediaType.APPLICATION_FORM_URLENCODED})
     public void createBugzillaChangeRequest(
             @PathParam("serviceProviderId") final String serviceProviderId
         ) {
-    	try {
-			BugzillaChangeRequest newResource = null;
-	
-			BugzillaChangeRequest aResource = new BugzillaChangeRequest();
-	
-			String[] paramValues;
-	
-			paramValues = httpServletRequest.getParameterValues("product");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setProduct(paramValues[0]);
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("component");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setComponent(paramValues[0]);
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("version");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setVersion(paramValues[0]);
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("priority");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setPriority(paramValues[0]);
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("platform");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setPlatform(paramValues[0]);
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("operatingSystem");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setOperatingSystem(paramValues[0]);
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("affectedByDefect");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addAffectedByDefect(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("affectsPlanItem");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addAffectsPlanItem(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("affectsRequirement");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addAffectsRequirement(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("affectsTestResult");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addAffectsTestResult(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("blocksTestExecutionRecord");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addBlocksTestExecutionRecord(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("contributor");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addContributor(new Person(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("creator");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addCreator(new Person(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("type");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addDctermsType(new Type(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("implementsRequirement");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addImplementsRequirement(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("relatedChangeRequest");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addRelatedChangeRequest(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("relatedTestCase");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addRelatedTestCase(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("relatedTestExecutionRecord");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addRelatedTestExecutionRecord(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("relatedTestPlan");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addRelatedTestPlan(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("relatedTestScript");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addRelatedTestScript(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("subject");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addSubject(paramValues[i]);
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("testedByTestCase");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addTestedByTestCase(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("tracksChangeSet");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addTracksChangeSet(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("tracksRequirement");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addTracksRequirement(new Link(new URI(paramValues[i])));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("type");
-			if (paramValues != null) {
-		    		for(int i=0; i<paramValues.length; i++) {
-						aResource.addRdfType(new URI(paramValues[i]));
-					}
-			}			
-			paramValues = httpServletRequest.getParameterValues("approved");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setApproved(new Boolean(paramValues[0]));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("closed");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setClosed(new Boolean(paramValues[0]));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("closeDate");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setCloseDate(new SimpleDateFormat("M/D/y").parse(paramValues[0]));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("created");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setCreated(new SimpleDateFormat("M/D/y").parse(paramValues[0]));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("description");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setDescription(paramValues[0]);
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("discussedBy");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setDiscussedBy(new Link(new URI(paramValues[0])));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("fixed");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setFixed(new Boolean(paramValues[0]));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("identifier");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setIdentifier(paramValues[0]);
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("inprogress");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setInprogress(new Boolean(paramValues[0]));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("instanceShape");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setInstanceShape(new Link(new URI(paramValues[0])));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("modified");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setModified(new SimpleDateFormat("M/D/y").parse(paramValues[0]));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("reviewed");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setReviewed(new Boolean(paramValues[0]));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("serviceProvider");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setServiceProvider(new URI(paramValues[0]));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("shortTitle");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setShortTitle(paramValues[0]);
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("status");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setStatus(paramValues[0]);
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("title");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setTitle(paramValues[0]);
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-			paramValues = httpServletRequest.getParameterValues("verified");
-			if (paramValues != null) {
-					if (paramValues.length == 1) {
-						if (paramValues[0].length() != 0)
-							aResource.setVerified(new Boolean(paramValues[0]));
-						// else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
-					} 
-				
-			}			
-	
-			newResource = BugzillaAdaptorManager.createBugzillaChangeRequest(httpServletRequest, aResource, serviceProviderId);
-			
-			if (newResource != null) {
-				httpServletRequest.setAttribute("newResource", newResource);
-				httpServletRequest.setAttribute("newResourceUri", newResource.getAbout().toString());
-		
-				// Send back to the form a small JSON response
-				httpServletResponse.setContentType("application/json");
-				httpServletResponse.setStatus(Status.CREATED.getStatusCode());
-				httpServletResponse.addHeader("Location", newResource.getAbout().toString());
-				PrintWriter out = httpServletResponse.getWriter();
-	
-				JSONObject oslcResponse = new JSONObject();
-				JSONObject newResourceJson = new JSONObject();
-				newResourceJson.put("rdf:resource", newResource.getAbout().toString());
-				// Start of user code OSLC Resource Label
+        try {
+            BugzillaChangeRequest newResource = null;
+
+            BugzillaChangeRequest aResource = new BugzillaChangeRequest();
+
+            String[] paramValues;
+
+            paramValues = httpServletRequest.getParameterValues("product");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setProduct(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("component");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setComponent(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("version");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setVersion(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("priority");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setPriority(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("platform");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setPlatform(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("operatingSystem");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setOperatingSystem(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("shortTitle");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setShortTitle(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("description");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setDescription(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("title");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setTitle(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("identifier");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setIdentifier(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("subject");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setSubject(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("creator");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setCreator(new Link(new URI(paramValues[0])));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("contributor");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setContributor(new Link(new URI(paramValues[0])));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("created");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setCreated(new SimpleDateFormat("M/D/y").parse(paramValues[0]));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("modified");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setModified(new SimpleDateFormat("M/D/y").parse(paramValues[0]));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("type");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setType(new Link(new URI(paramValues[0])));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("serviceProvider");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setServiceProvider(new URI(paramValues[0]));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("instanceShape");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setInstanceShape(new URI(paramValues[0]));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("discussedBy");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setDiscussedBy(new Link(new URI(paramValues[0])));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("closeDate");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setCloseDate(new SimpleDateFormat("M/D/y").parse(paramValues[0]));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("status");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setStatus(paramValues[0]);
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("closed");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setClosed(new Boolean(paramValues[0]));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("inprogress");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setInprogress(new Boolean(paramValues[0]));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("fixed");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setFixed(new Boolean(paramValues[0]));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("approved");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setApproved(new Boolean(paramValues[0]));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("reviewed");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setReviewed(new Boolean(paramValues[0]));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("verified");
+            if (paramValues != null) {
+                    if (paramValues.length == 1) {
+                        if (paramValues[0].length() != 0)
+                            aResource.setVerified(new Boolean(paramValues[0]));
+                        // else, there is an empty value for that parameter, and hence ignore since the parameter is not actually set.
+                    }
+
+            }
+            paramValues = httpServletRequest.getParameterValues("relatedChangeRequest");
+            if (paramValues != null) {
+                    for(int i=0; i<paramValues.length; i++) {
+                        aResource.addRelatedChangeRequest(new Link(new URI(paramValues[i])));
+                    }
+            }
+            paramValues = httpServletRequest.getParameterValues("affectsPlanItem");
+            if (paramValues != null) {
+                    for(int i=0; i<paramValues.length; i++) {
+                        aResource.addAffectsPlanItem(new Link(new URI(paramValues[i])));
+                    }
+            }
+            paramValues = httpServletRequest.getParameterValues("affectedByDefect");
+            if (paramValues != null) {
+                    for(int i=0; i<paramValues.length; i++) {
+                        aResource.addAffectedByDefect(new Link(new URI(paramValues[i])));
+                    }
+            }
+            paramValues = httpServletRequest.getParameterValues("tracksRequirement");
+            if (paramValues != null) {
+                    for(int i=0; i<paramValues.length; i++) {
+                        aResource.addTracksRequirement(new Link(new URI(paramValues[i])));
+                    }
+            }
+            paramValues = httpServletRequest.getParameterValues("implementsRequirement");
+            if (paramValues != null) {
+                    for(int i=0; i<paramValues.length; i++) {
+                        aResource.addImplementsRequirement(new Link(new URI(paramValues[i])));
+                    }
+            }
+            paramValues = httpServletRequest.getParameterValues("affectsRequirement");
+            if (paramValues != null) {
+                    for(int i=0; i<paramValues.length; i++) {
+                        aResource.addAffectsRequirement(new Link(new URI(paramValues[i])));
+                    }
+            }
+            paramValues = httpServletRequest.getParameterValues("tracksChangeSet");
+            if (paramValues != null) {
+                    for(int i=0; i<paramValues.length; i++) {
+                        aResource.addTracksChangeSet(new Link(new URI(paramValues[i])));
+                    }
+            }
+
+            newResource = BugzillaAdaptorManager.createBugzillaChangeRequest(httpServletRequest, aResource, serviceProviderId);
+
+            if (newResource != null) {
+                httpServletRequest.setAttribute("newResource", newResource);
+                httpServletRequest.setAttribute("newResourceUri", newResource.getAbout().toString());
+
+                // Send back to the form a small JSON response
+                httpServletResponse.setContentType("application/json");
+                httpServletResponse.setStatus(Status.CREATED.getStatusCode());
+                httpServletResponse.addHeader("Location", newResource.getAbout().toString());
+                PrintWriter out = httpServletResponse.getWriter();
+
+                JSONObject oslcResponse = new JSONObject();
+                JSONObject newResourceJson = new JSONObject();
+                newResourceJson.put("rdf:resource", newResource.getAbout().toString());
+                // Start of user code OSLC Resource Label
 				newResourceJson.put("oslc:label", newResource.getTitle().toString());
 				// End of user code
-				oslcResponse.put("oslc:results", new Object[]{newResourceJson});
-	
-				out.print(oslcResponse.toString());
-				out.close();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new WebApplicationException(e);
-		}
-	}
+                oslcResponse.put("oslc:results", new Object[]{newResourceJson});
 
-	/**
-	 * RDF/XML, XML and JSON representation of a single change request
-	 * 
-	 * @param productId
-	 * @param changeRequestId
-	 * @return
-	 * @throws IOException
-	 * @throws ServletException
-	 * @throws URISyntaxException
-	 */
+                out.print(oslcResponse.toString());
+                out.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new WebApplicationException(e);
+        }
+    }
     @GET
     @Path("{bugzillaChangeRequestId}")
     @Produces({OslcMediaType.APPLICATION_RDF_XML, OslcMediaType.APPLICATION_XML, OslcMediaType.APPLICATION_JSON})
@@ -734,53 +634,43 @@ public class BugzillaChangeRequestService
                 @PathParam("serviceProviderId") final String serviceProviderId, @PathParam("bugzillaChangeRequestId") final String bugzillaChangeRequestId
         ) throws IOException, ServletException, URISyntaxException
     {
-		// Start of user code getResource_init
+        // Start of user code getResource_init
 		// End of user code
 
         final BugzillaChangeRequest aBugzillaChangeRequest = BugzillaAdaptorManager.getBugzillaChangeRequest(httpServletRequest, serviceProviderId, bugzillaChangeRequestId);
 
         if (aBugzillaChangeRequest != null) {
-			// Start of user code getBugzillaChangeRequest
+            // Start of user code getBugzillaChangeRequest
 			// End of user code
             return aBugzillaChangeRequest;
         }
 
         throw new WebApplicationException(Status.NOT_FOUND);
     }
-    
-    /**
-     * 
-     * HTML representation for a single change request  - redirect the request directly to Bugzilla
-     * 
-     * @param productId
-     * @param changeRequestId
-     * @throws ServletException
-     * @throws IOException
-     * @throws URISyntaxException
-     */
-	@GET
+
+    @GET
     @Path("{bugzillaChangeRequestId}")
-	@Produces({ MediaType.TEXT_HTML })
-	public Response getBugzillaChangeRequestAsHtml(
+    @Produces({ MediaType.TEXT_HTML })
+    public Response getBugzillaChangeRequestAsHtml(
         @PathParam("serviceProviderId") final String serviceProviderId, @PathParam("bugzillaChangeRequestId") final String bugzillaChangeRequestId
         ) throws ServletException, IOException, URISyntaxException
-	{	
-		// Start of user code getBugzillaChangeRequestAsHtml_init
+    {
+        // Start of user code getBugzillaChangeRequestAsHtml_init
 		// End of user code
 
         final BugzillaChangeRequest aBugzillaChangeRequest = BugzillaAdaptorManager.getBugzillaChangeRequest(httpServletRequest, serviceProviderId, bugzillaChangeRequestId);
 
         if (aBugzillaChangeRequest != null) {
-        	httpServletRequest.setAttribute("aBugzillaChangeRequest", aBugzillaChangeRequest);
-			// Start of user code getBugzillaChangeRequestAsHtml_setAttributes
+            httpServletRequest.setAttribute("aBugzillaChangeRequest", aBugzillaChangeRequest);
+            // Start of user code getBugzillaChangeRequestAsHtml_setAttributes
 			httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
 			// End of user code
 
-        	RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequest.jsp");
-        	rd.forward(httpServletRequest,httpServletResponse);
-		}
+            RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequest.jsp");
+            rd.forward(httpServletRequest,httpServletResponse);
+        }
 
         throw new WebApplicationException(Status.NOT_FOUND);
-	}
+    }
 
 }

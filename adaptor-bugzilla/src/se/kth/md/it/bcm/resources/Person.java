@@ -82,53 +82,50 @@ public class Person
     extends AbstractResource
     implements IPerson
 {
-
-    // Start of user code attributeAnnotation:name
-// End of user code
-    private String name;
-    // Start of user code attributeAnnotation:givenName
-// End of user code
-    private String givenName;
     // Start of user code attributeAnnotation:familyName
 // End of user code
     private String familyName;
-
+    // Start of user code attributeAnnotation:givenName
+// End of user code
+    private String givenName;
+    // Start of user code attributeAnnotation:name
+// End of user code
+    private String name;
+    
     // Start of user code classAttributes
 // End of user code
-
     // Start of user code classMethods
 // End of user code
-
     public Person()
            throws URISyntaxException
     {
         super();
-
+    
         // Start of user code constructor1
 	// End of user code
     }
-
+    
     public Person(final URI about)
            throws URISyntaxException
     {
         super(about);
-
+    
         // Start of user code constructor2
 	// End of user code
     }
-
-
+    
+    
     public String toString()
     {
         return toString(false);
     }
-
+    
     public String toString(boolean asLocalResource)
     {
         String result = "";
         // Start of user code toString_init
 		// End of user code
-
+    
         if (asLocalResource) {
             result = result + "{a Local Person Resource} - update Person.toString() to present resource as desired.";
             // Start of user code toString_bodyForLocalResource
@@ -137,24 +134,24 @@ public class Person
         else {
             result = getAbout().toString();
         }
-
+    
         // Start of user code toString_finalize
 		// End of user code
-
+    
         return result;
     }
-
+    
     public String toHtml()
     {
         return toHtml(false);
     }
-
+    
     public String toHtml(boolean asLocalResource)
     {
         String result = "";
         // Start of user code toHtml_init
 		// End of user code
-
+    
         if (asLocalResource) {
             result = toString(true);
             // Start of user code toHtml_bodyForLocalResource
@@ -163,45 +160,14 @@ public class Person
         else {
             result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
         }
-
+    
         // Start of user code toHtml_finalize
 		// End of user code
-
+    
         return result;
     }
-
-
-    // Start of user code getterAnnotation:name
-	// End of user code
-    @OslcName("name")
-    @OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "name")
-    @OslcDescription("The full name of a person expressed as simple text string.")
-    @OslcOccurs(Occurs.ExactlyOne)
-    @OslcValueType(ValueType.String)
-    @OslcReadOnly(false)
-    @OslcTitle("")
-    public String getName()
-    {
-        // Start of user code getterInit:name
-		// End of user code
-        return name;
-    }
-
-    // Start of user code getterAnnotation:givenName
-	// End of user code
-    @OslcName("givenName")
-    @OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "givenName")
-    @OslcDescription("Given name of person expressed as simple text string.")
-    @OslcOccurs(Occurs.ExactlyOne)
-    @OslcValueType(ValueType.String)
-    @OslcReadOnly(false)
-    public String getGivenName()
-    {
-        // Start of user code getterInit:givenName
-		// End of user code
-        return givenName;
-    }
-
+    
+    
     // Start of user code getterAnnotation:familyName
 	// End of user code
     @OslcName("familyName")
@@ -216,30 +182,38 @@ public class Person
 		// End of user code
         return familyName;
     }
-
-
-    // Start of user code setterAnnotation:name
+    
+    // Start of user code getterAnnotation:givenName
 	// End of user code
-    public void setName(final String name )
+    @OslcName("givenName")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "givenName")
+    @OslcDescription("Given name of person expressed as simple text string. ")
+    @OslcOccurs(Occurs.ExactlyOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    public String getGivenName()
     {
-        // Start of user code setterInit:name
-	// End of user code
-        this.name = name;
-        // Start of user code setterFinalize:name
-	// End of user code
+        // Start of user code getterInit:givenName
+		// End of user code
+        return givenName;
     }
-
-    // Start of user code setterAnnotation:givenName
+    
+    // Start of user code getterAnnotation:name
 	// End of user code
-    public void setGivenName(final String givenName )
+    @OslcName("name")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "name")
+    @OslcDescription("The full name of a person expressed as simple text string.")
+    @OslcOccurs(Occurs.ExactlyOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    public String getName()
     {
-        // Start of user code setterInit:givenName
-	// End of user code
-        this.givenName = givenName;
-        // Start of user code setterFinalize:givenName
-	// End of user code
+        // Start of user code getterInit:name
+		// End of user code
+        return name;
     }
-
+    
+    
     // Start of user code setterAnnotation:familyName
 	// End of user code
     public void setFamilyName(final String familyName )
@@ -247,49 +221,36 @@ public class Person
         // Start of user code setterInit:familyName
 	// End of user code
         this.familyName = familyName;
+    
         // Start of user code setterFinalize:familyName
 	// End of user code
     }
-
-
-    static public String nameToHtmlForCreation (final HttpServletRequest httpServletRequest)
+    
+    // Start of user code setterAnnotation:givenName
+	// End of user code
+    public void setGivenName(final String givenName )
     {
-        String s = "";
+        // Start of user code setterInit:givenName
+	// End of user code
+        this.givenName = givenName;
     
-        // Start of user code "Init:nameToHtmlForCreation(...)"
-    	// End of user code
-    
-        s = s + "<label for=\"name\">name: </LABEL>";
-    
-        // Start of user code "Mid:nameToHtmlForCreation(...)"
-    	// End of user code
-    
-        s= s + "<input name=\"name\" type=\"text\" style=\"width: 400px\" id=\"name\" >";
-        // Start of user code "Finalize:nameToHtmlForCreation(...)"
-    	// End of user code
-    
-        return s;
+        // Start of user code setterFinalize:givenName
+	// End of user code
     }
-
-    static public String givenNameToHtmlForCreation (final HttpServletRequest httpServletRequest)
+    
+    // Start of user code setterAnnotation:name
+	// End of user code
+    public void setName(final String name )
     {
-        String s = "";
+        // Start of user code setterInit:name
+	// End of user code
+        this.name = name;
     
-        // Start of user code "Init:givenNameToHtmlForCreation(...)"
-    	// End of user code
-    
-        s = s + "<label for=\"givenName\">givenName: </LABEL>";
-    
-        // Start of user code "Mid:givenNameToHtmlForCreation(...)"
-    	// End of user code
-    
-        s= s + "<input name=\"givenName\" type=\"text\" style=\"width: 400px\" id=\"givenName\" >";
-        // Start of user code "Finalize:givenNameToHtmlForCreation(...)"
-    	// End of user code
-    
-        return s;
+        // Start of user code setterFinalize:name
+	// End of user code
     }
-
+    
+    
     static public String familyNameToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
         String s = "";
@@ -308,76 +269,58 @@ public class Person
     
         return s;
     }
-
-
-    public String nameToHtml()
+    
+    static public String givenNameToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
         String s = "";
-
-        // Start of user code nametoHtml_init
-		// End of user code
-
-        s = s + "<label for=\"name\"><strong>name</strong>: </LABEL>";
-
-        // Start of user code nametoHtml_mid
-		// End of user code
-
-        try {
-            if (name == null) {
-                s= s + "<em>null</em>";
-            }
-            else {
-                s= s + name.toString();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // Start of user code nametoHtml_finalize
-		// End of user code
-
+    
+        // Start of user code "Init:givenNameToHtmlForCreation(...)"
+    	// End of user code
+    
+        s = s + "<label for=\"givenName\">givenName: </LABEL>";
+    
+        // Start of user code "Mid:givenNameToHtmlForCreation(...)"
+    	// End of user code
+    
+        s= s + "<input name=\"givenName\" type=\"text\" style=\"width: 400px\" id=\"givenName\" >";
+        // Start of user code "Finalize:givenNameToHtmlForCreation(...)"
+    	// End of user code
+    
         return s;
     }
-    public String givenNameToHtml()
+    
+    static public String nameToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
         String s = "";
-
-        // Start of user code givenNametoHtml_init
-		// End of user code
-
-        s = s + "<label for=\"givenName\"><strong>givenName</strong>: </LABEL>";
-
-        // Start of user code givenNametoHtml_mid
-		// End of user code
-
-        try {
-            if (givenName == null) {
-                s= s + "<em>null</em>";
-            }
-            else {
-                s= s + givenName.toString();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // Start of user code givenNametoHtml_finalize
-		// End of user code
-
+    
+        // Start of user code "Init:nameToHtmlForCreation(...)"
+    	// End of user code
+    
+        s = s + "<label for=\"name\">name: </LABEL>";
+    
+        // Start of user code "Mid:nameToHtmlForCreation(...)"
+    	// End of user code
+    
+        s= s + "<input name=\"name\" type=\"text\" style=\"width: 400px\" id=\"name\" >";
+        // Start of user code "Finalize:nameToHtmlForCreation(...)"
+    	// End of user code
+    
         return s;
     }
+    
+    
     public String familyNameToHtml()
     {
         String s = "";
-
+    
         // Start of user code familyNametoHtml_init
 		// End of user code
-
+    
         s = s + "<label for=\"familyName\"><strong>familyName</strong>: </LABEL>";
-
+    
         // Start of user code familyNametoHtml_mid
 		// End of user code
-
+    
         try {
             if (familyName == null) {
                 s= s + "<em>null</em>";
@@ -388,10 +331,70 @@ public class Person
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+    
         // Start of user code familyNametoHtml_finalize
 		// End of user code
-
+    
         return s;
     }
+    
+    public String givenNameToHtml()
+    {
+        String s = "";
+    
+        // Start of user code givenNametoHtml_init
+		// End of user code
+    
+        s = s + "<label for=\"givenName\"><strong>givenName</strong>: </LABEL>";
+    
+        // Start of user code givenNametoHtml_mid
+		// End of user code
+    
+        try {
+            if (givenName == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + givenName.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+        // Start of user code givenNametoHtml_finalize
+		// End of user code
+    
+        return s;
+    }
+    
+    public String nameToHtml()
+    {
+        String s = "";
+    
+        // Start of user code nametoHtml_init
+		// End of user code
+    
+        s = s + "<label for=\"name\"><strong>name</strong>: </LABEL>";
+    
+        // Start of user code nametoHtml_mid
+		// End of user code
+    
+        try {
+            if (name == null) {
+                s= s + "<em>null</em>";
+            }
+            else {
+                s= s + name.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+        // Start of user code nametoHtml_finalize
+		// End of user code
+    
+        return s;
+    }
+    
+    
 }

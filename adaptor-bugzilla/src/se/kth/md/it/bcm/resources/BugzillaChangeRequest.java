@@ -66,9 +66,15 @@ import org.eclipse.lyo.oslc4j.core.model.ValueType;
 
 import se.kth.md.it.bcm.servlet.ServletListener;
 import se.kth.md.it.bcm.BugzillaAdaptorConstants;
+import se.kth.md.it.bcm.resources.ChangeRequest;
+import se.kth.md.it.bcm.resources.ChangeRequest;
+import se.kth.md.it.bcm.resources.Requirement;
 import se.kth.md.it.bcm.resources.Person;
 import se.kth.md.it.bcm.resources.Person;
-import se.kth.md.it.bcm.resources.Type;
+import se.kth.md.it.bcm.resources.Discussion;
+import se.kth.md.it.bcm.resources.Requirement;
+import se.kth.md.it.bcm.resources.ChangeRequest;
+import se.kth.md.it.bcm.resources.Requirement;
 
 // Start of user code imports
 import se.kth.md.it.bcm.BugzillaAdaptorManager;
@@ -91,7 +97,6 @@ public class BugzillaChangeRequest
     extends ChangeRequest
     implements IBugzillaChangeRequest
 {
-
     // Start of user code attributeAnnotation:product
 // End of user code
     private String product;
@@ -110,31 +115,29 @@ public class BugzillaChangeRequest
     // Start of user code attributeAnnotation:operatingSystem
 // End of user code
     private String operatingSystem;
-
+    
     // Start of user code classAttributes
 // End of user code
-
     // Start of user code classMethods
 // End of user code
-
     public BugzillaChangeRequest()
            throws URISyntaxException
     {
         super();
-
+    
         // Start of user code constructor1
 	// End of user code
     }
-
+    
     public BugzillaChangeRequest(final URI about)
            throws URISyntaxException
     {
         super(about);
-
+    
         // Start of user code constructor2
 	// End of user code
     }
-
+    
     public BugzillaChangeRequest(final String serviceProviderId, final String bugzillaChangeRequestId)
            throws URISyntaxException
     {
@@ -142,7 +145,7 @@ public class BugzillaChangeRequest
         // Start of user code constructor3
 	// End of user code
     }
-
+    
     public static URI constructURI(final String serviceProviderId, final String bugzillaChangeRequestId)
     {
         String basePath = ServletListener.getServicesBase();
@@ -150,32 +153,32 @@ public class BugzillaChangeRequest
         pathParameters.put("serviceProviderId", serviceProviderId);
         pathParameters.put("bugzillaChangeRequestId", bugzillaChangeRequestId);
         String instanceURI = "serviceProviders/{serviceProviderId}/bugzillaChangeRequests/{bugzillaChangeRequestId}";
-
+    
         final UriBuilder builder = UriBuilder.fromUri(basePath);
         return builder.path(instanceURI).buildFromMap(pathParameters);
     }
-
+    
     public static Link constructLink(final String serviceProviderId, final String bugzillaChangeRequestId , final String label)
     {
         return new Link(constructURI(serviceProviderId, bugzillaChangeRequestId), label);
     }
-
+    
     public static Link constructLink(final String serviceProviderId, final String bugzillaChangeRequestId)
     {
         return new Link(constructURI(serviceProviderId, bugzillaChangeRequestId));
     }
-
+    
     public String toString()
     {
         return toString(false);
     }
-
+    
     public String toString(boolean asLocalResource)
     {
         String result = "";
         // Start of user code toString_init
 		// End of user code
-
+    
         if (asLocalResource) {
             result = result + "{a Local BugzillaChangeRequest Resource} - update BugzillaChangeRequest.toString() to present resource as desired.";
             // Start of user code toString_bodyForLocalResource
@@ -184,25 +187,25 @@ public class BugzillaChangeRequest
         else {
             result = getAbout().toString();
         }
-
+    
         // Start of user code toString_finalize
 		result = getIdentifier() + ":" + getTitle();
 		// End of user code
-
+    
         return result;
     }
-
+    
     public String toHtml()
     {
         return toHtml(false);
     }
-
+    
     public String toHtml(boolean asLocalResource)
     {
         String result = "";
         // Start of user code toHtml_init
 		// End of user code
-
+    
         if (asLocalResource) {
             result = toString(true);
             // Start of user code toHtml_bodyForLocalResource
@@ -211,16 +214,16 @@ public class BugzillaChangeRequest
         else {
             result = "<a href=\"" + getAbout() + "\">" + toString() + "</a>";
         }
-
+    
         // Start of user code toHtml_finalize
 		// For change request collection page, show title and link separately
 		result = toString() + "<div><a href='"+getAbout()+"'>"+getAbout()+"</a></div>";
 		// End of user code
-
+    
         return result;
     }
-
-
+    
+    
     // Start of user code getterAnnotation:product
 	// End of user code
     @OslcName("product")
@@ -235,7 +238,7 @@ public class BugzillaChangeRequest
 		// End of user code
         return product;
     }
-
+    
     // Start of user code getterAnnotation:component
 	// End of user code
     @OslcName("component")
@@ -251,7 +254,7 @@ public class BugzillaChangeRequest
 		// End of user code
         return component;
     }
-
+    
     // Start of user code getterAnnotation:version
 	// End of user code
     @OslcName("version")
@@ -267,7 +270,7 @@ public class BugzillaChangeRequest
 		// End of user code
         return version;
     }
-
+    
     // Start of user code getterAnnotation:priority
 	// End of user code
     @OslcName("priority")
@@ -283,7 +286,7 @@ public class BugzillaChangeRequest
 		// End of user code
         return priority;
     }
-
+    
     // Start of user code getterAnnotation:platform
 	// End of user code
     @OslcName("platform")
@@ -299,7 +302,7 @@ public class BugzillaChangeRequest
 		// End of user code
         return platform;
     }
-
+    
     // Start of user code getterAnnotation:operatingSystem
 	// End of user code
     @OslcName("operatingSystem")
@@ -315,8 +318,8 @@ public class BugzillaChangeRequest
 		// End of user code
         return operatingSystem;
     }
-
-
+    
+    
     // Start of user code setterAnnotation:product
 	// End of user code
     public void setProduct(final String product )
@@ -324,10 +327,11 @@ public class BugzillaChangeRequest
         // Start of user code setterInit:product
 	// End of user code
         this.product = product;
+    
         // Start of user code setterFinalize:product
 	// End of user code
     }
-
+    
     // Start of user code setterAnnotation:component
 	// End of user code
     public void setComponent(final String component )
@@ -335,10 +339,11 @@ public class BugzillaChangeRequest
         // Start of user code setterInit:component
 	// End of user code
         this.component = component;
+    
         // Start of user code setterFinalize:component
 	// End of user code
     }
-
+    
     // Start of user code setterAnnotation:version
 	// End of user code
     public void setVersion(final String version )
@@ -346,10 +351,11 @@ public class BugzillaChangeRequest
         // Start of user code setterInit:version
 	// End of user code
         this.version = version;
+    
         // Start of user code setterFinalize:version
 	// End of user code
     }
-
+    
     // Start of user code setterAnnotation:priority
 	// End of user code
     public void setPriority(final String priority )
@@ -357,10 +363,11 @@ public class BugzillaChangeRequest
         // Start of user code setterInit:priority
 	// End of user code
         this.priority = priority;
+    
         // Start of user code setterFinalize:priority
 	// End of user code
     }
-
+    
     // Start of user code setterAnnotation:platform
 	// End of user code
     public void setPlatform(final String platform )
@@ -368,10 +375,11 @@ public class BugzillaChangeRequest
         // Start of user code setterInit:platform
 	// End of user code
         this.platform = platform;
+    
         // Start of user code setterFinalize:platform
 	// End of user code
     }
-
+    
     // Start of user code setterAnnotation:operatingSystem
 	// End of user code
     public void setOperatingSystem(final String operatingSystem )
@@ -379,11 +387,12 @@ public class BugzillaChangeRequest
         // Start of user code setterInit:operatingSystem
 	// End of user code
         this.operatingSystem = operatingSystem;
+    
         // Start of user code setterFinalize:operatingSystem
 	// End of user code
     }
-
-
+    
+    
     static public String productToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
         String s = "";
@@ -402,7 +411,7 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
+    
     static public String productToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
         String s = "";
@@ -423,7 +432,6 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
     static public String componentToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
         String s = "";
@@ -442,7 +450,7 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
+    
     static public String componentToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
         String s = "";
@@ -476,7 +484,6 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
     static public String versionToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
         String s = "";
@@ -495,7 +502,7 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
+    
     static public String versionToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
         String s = "";
@@ -530,7 +537,6 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
     static public String priorityToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
         String s = "";
@@ -549,7 +555,7 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
+    
     static public String priorityToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
         String s = "";
@@ -585,7 +591,6 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
     static public String platformToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
         String s = "";
@@ -604,7 +609,7 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
+    
     static public String platformToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
         String s = "";
@@ -638,7 +643,6 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
     static public String operatingSystemToHtmlForCreation (final HttpServletRequest httpServletRequest)
     {
         String s = "";
@@ -657,7 +661,7 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
+    
     static public String operatingSystemToHtmlForCreation1 (final HttpServletRequest httpServletRequest, final String serviceProviderId)
     {
         String s = "";
@@ -691,20 +695,19 @@ public class BugzillaChangeRequest
     
         return s;
     }
-
-
+    
     public String productToHtml()
     {
         String s = "";
-
+    
         // Start of user code producttoHtml_init
 		// End of user code
-
+    
         s = s + "<label for=\"product\"><strong>product</strong>: </LABEL>";
-
+    
         // Start of user code producttoHtml_mid
 		// End of user code
-
+    
         try {
             if (product == null) {
                 s= s + "<em>null</em>";
@@ -715,24 +718,25 @@ public class BugzillaChangeRequest
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+    
         // Start of user code producttoHtml_finalize
 		// End of user code
-
+    
         return s;
     }
+    
     public String componentToHtml()
     {
         String s = "";
-
+    
         // Start of user code componenttoHtml_init
 		// End of user code
-
+    
         s = s + "<label for=\"component\"><strong>component</strong>: </LABEL>";
-
+    
         // Start of user code componenttoHtml_mid
 		// End of user code
-
+    
         try {
             if (component == null) {
                 s= s + "<em>null</em>";
@@ -743,24 +747,25 @@ public class BugzillaChangeRequest
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+    
         // Start of user code componenttoHtml_finalize
 		// End of user code
-
+    
         return s;
     }
+    
     public String versionToHtml()
     {
         String s = "";
-
+    
         // Start of user code versiontoHtml_init
 		// End of user code
-
+    
         s = s + "<label for=\"version\"><strong>version</strong>: </LABEL>";
-
+    
         // Start of user code versiontoHtml_mid
 		// End of user code
-
+    
         try {
             if (version == null) {
                 s= s + "<em>null</em>";
@@ -771,24 +776,25 @@ public class BugzillaChangeRequest
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+    
         // Start of user code versiontoHtml_finalize
 		// End of user code
-
+    
         return s;
     }
+    
     public String priorityToHtml()
     {
         String s = "";
-
+    
         // Start of user code prioritytoHtml_init
 		// End of user code
-
+    
         s = s + "<label for=\"priority\"><strong>priority</strong>: </LABEL>";
-
+    
         // Start of user code prioritytoHtml_mid
 		// End of user code
-
+    
         try {
             if (priority == null) {
                 s= s + "<em>null</em>";
@@ -799,24 +805,25 @@ public class BugzillaChangeRequest
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+    
         // Start of user code prioritytoHtml_finalize
 		// End of user code
-
+    
         return s;
     }
+    
     public String platformToHtml()
     {
         String s = "";
-
+    
         // Start of user code platformtoHtml_init
 		// End of user code
-
+    
         s = s + "<label for=\"platform\"><strong>platform</strong>: </LABEL>";
-
+    
         // Start of user code platformtoHtml_mid
 		// End of user code
-
+    
         try {
             if (platform == null) {
                 s= s + "<em>null</em>";
@@ -827,24 +834,25 @@ public class BugzillaChangeRequest
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+    
         // Start of user code platformtoHtml_finalize
 		// End of user code
-
+    
         return s;
     }
+    
     public String operatingSystemToHtml()
     {
         String s = "";
-
+    
         // Start of user code operatingSystemtoHtml_init
 		// End of user code
-
+    
         s = s + "<label for=\"operatingSystem\"><strong>operatingSystem</strong>: </LABEL>";
-
+    
         // Start of user code operatingSystemtoHtml_mid
 		// End of user code
-
+    
         try {
             if (operatingSystem == null) {
                 s= s + "<em>null</em>";
@@ -855,10 +863,12 @@ public class BugzillaChangeRequest
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+    
         // Start of user code operatingSystemtoHtml_finalize
 		// End of user code
-
+    
         return s;
     }
+    
+    
 }

@@ -4,7 +4,7 @@
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
- *  
+ *
  * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
  * and the Eclipse Distribution License is available at
  * http://www.eclipse.org/org/documents/edl-v10.php.
@@ -62,47 +62,46 @@ import org.eclipse.lyo.oslc4j.core.model.OslcConstants;
 import org.eclipse.lyo.oslc4j.core.model.Representation;
 import org.eclipse.lyo.oslc4j.core.model.ValueType;
 
-import se.kth.md.it.bcm.servlet.ServletListener; 
+import se.kth.md.it.bcm.servlet.ServletListener;
 import se.kth.md.it.bcm.BugzillaAdaptorConstants;
 
 // Start of user code imports
 // End of user code
 
 @OslcNamespace(BugzillaAdaptorConstants.FOAF_NAMSPACE)
-@OslcName(BugzillaAdaptorConstants.PERSON) 
+@OslcName(BugzillaAdaptorConstants.PERSON)
 @OslcResourceShape(title = "Person Resource Shape", describes = BugzillaAdaptorConstants.TYPE_PERSON)
 public interface IPerson
 {
 
 
-	@OslcName("name")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "name")
-	@OslcDescription("The full name of a person expressed as simple text string.")
-	@OslcOccurs(Occurs.ExactlyOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-	@OslcTitle("")
-    public String getName();
-
-	@OslcName("givenName")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "givenName")
-	@OslcDescription("Given name of person expressed as simple text string.")
-	@OslcOccurs(Occurs.ExactlyOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
-    public String getGivenName();
-
-	@OslcName("familyName")
-	@OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "familyName")
-	@OslcDescription("Family name of person expressed as simple text string.")
-	@OslcOccurs(Occurs.ExactlyOne)
-	@OslcValueType(ValueType.String)
-	@OslcReadOnly(false)
+    @OslcName("familyName")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "familyName")
+    @OslcDescription("Family name of person expressed as simple text string.")
+    @OslcOccurs(Occurs.ExactlyOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
     public String getFamilyName();
 
+    @OslcName("givenName")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "givenName")
+    @OslcDescription("Given name of person expressed as simple text string. ")
+    @OslcOccurs(Occurs.ExactlyOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    public String getGivenName();
 
-    public void setName(final String name );
-    public void setGivenName(final String givenName );
+    @OslcName("name")
+    @OslcPropertyDefinition(BugzillaAdaptorConstants.FOAF_NAMSPACE + "name")
+    @OslcDescription("The full name of a person expressed as simple text string.")
+    @OslcOccurs(Occurs.ExactlyOne)
+    @OslcValueType(ValueType.String)
+    @OslcReadOnly(false)
+    public String getName();
+
+
     public void setFamilyName(final String familyName );
+    public void setGivenName(final String givenName );
+    public void setName(final String name );
 }
 

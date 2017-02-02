@@ -55,11 +55,14 @@ import se.kth.md.it.bcm.services.ServiceProviderService;
 
 import se.kth.md.it.bcm.resources.BugzillaChangeRequest;
 import se.kth.md.it.bcm.resources.ChangeRequest;
+import se.kth.md.it.bcm.resources.Discussion;
 import se.kth.md.it.bcm.resources.Person;
-import se.kth.md.it.bcm.resources.Type;
+import se.kth.md.it.bcm.resources.Requirement;
 import se.kth.md.it.bcm.BugzillaAdaptorConstants;
 import se.kth.md.it.bcm.services.BugzillaChangeRequestService;
 
+// Start of user code imports
+// End of user code
 
 public class Application extends OslcWinkApplication {
 
@@ -75,8 +78,9 @@ public class Application extends OslcWinkApplication {
             RESOURCE_CLASSES.add(BugzillaChangeRequestService.class);
             RESOURCE_CLASSES.add(BugzillaChangeRequest.class);
             RESOURCE_CLASSES.add(ChangeRequest.class);
+            RESOURCE_CLASSES.add(Discussion.class);
             RESOURCE_CLASSES.add(Person.class);
-            RESOURCE_CLASSES.add(Type.class);
+            RESOURCE_CLASSES.add(Requirement.class);
             RESOURCE_CLASSES.add(Class.forName("org.eclipse.lyo.server.oauth.webapp.services.ConsumersService"));
             RESOURCE_CLASSES.add(Class.forName("org.eclipse.lyo.server.oauth.webapp.services.OAuthService"));
 
@@ -111,8 +115,9 @@ public class Application extends OslcWinkApplication {
 
         RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP.put(BugzillaAdaptorConstants.PATH_BUGZILLACHANGEREQUEST, BugzillaChangeRequest.class);
         RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP.put(BugzillaAdaptorConstants.PATH_CHANGEREQUEST, ChangeRequest.class);
+        RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP.put(BugzillaAdaptorConstants.PATH_DISCUSSION, Discussion.class);
         RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP.put(BugzillaAdaptorConstants.PATH_PERSON, Person.class);
-        RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP.put(BugzillaAdaptorConstants.PATH_TYPE, Type.class);
+        RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP.put(BugzillaAdaptorConstants.PATH_REQUIREMENT, Requirement.class);
     }
 
     public Application()

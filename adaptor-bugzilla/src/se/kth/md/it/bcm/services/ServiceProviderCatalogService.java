@@ -61,9 +61,20 @@ import se.kth.md.it.bcm.servlet.ServiceProviderCatalogSingleton;
 @Path("catalog")
 public class ServiceProviderCatalogService
 {
-	@Context private HttpServletRequest httpServletRequest;
-	@Context private HttpServletResponse httpServletResponse;
-	@Context private UriInfo uriInfo;
+    @Context private HttpServletRequest httpServletRequest;
+    @Context private HttpServletResponse httpServletResponse;
+    @Context private UriInfo uriInfo;
+
+    /**
+     * Redirect requests to /catalog to /catalog/singleton
+     *
+     * By default, OSLC4J returns an OSLC query response for /catalog.  We really just
+     * want the catalog itself which lives at /catalog/{serviceProviderCatalogId}
+     *
+     * @return
+     * @throws IOException
+     * @throws URISyntaxException
+     */
     @OslcDialog
     (
          title = "Service Provider Catalog Selection Dialog",
@@ -82,85 +93,63 @@ public class ServiceProviderCatalogService
         resourceTypes = {OslcConstants.TYPE_SERVICE_PROVIDER_CATALOG},
         usages = {OslcConstants.OSLC_USAGE_DEFAULT}
     )
-    
-    /**
-     * Redirect requests to /catalog to /catalog/singleton
-     * 
-     * By default, OSLC4J returns an OSLC query response for /catalog.  We really just
-     * want the catalog itself which lives at /catalog/{serviceProviderCatalogId}
-     * 
-     * @return
-     * @throws IOException
-     * @throws URISyntaxException
-     */
     @GET
     public Response getServiceProviderCatalogs() throws IOException, URISyntaxException
     {
-    	String forwardUri = uriInfo.getAbsolutePath() + "/singleton";
-    	httpServletResponse.sendRedirect(forwardUri);
+        String forwardUri = uriInfo.getAbsolutePath() + "/singleton";
+        httpServletResponse.sendRedirect(forwardUri);
         return Response.seeOther(new URI(forwardUri)).build();
     }
 
-
     /**
      * Return the OSLC service provider catalog as RDF/XML, XML or JSON
-     * 
+     *
      * @return
      */
-    
-
-     
     @GET
     @Path("{serviceProviderCatalogId}") // Required to distinguish from array result.  But, ignored.
     @Produces({OslcMediaType.APPLICATION_RDF_XML, OslcMediaType.APPLICATION_XML, OslcMediaType.APPLICATION_JSON})
     public ServiceProviderCatalog getServiceProviderCatalog()
     {
         ServiceProviderCatalog catalog =  ServiceProviderCatalogSingleton.getServiceProviderCatalog(httpServletRequest);
-        
-        if (catalog != null) {
 
-        	httpServletResponse.addHeader(BugzillaAdaptorConstants.HDR_OSLC_VERSION,"2.0");
-        	return catalog;
+        if (catalog != null) {
+            httpServletResponse.addHeader(BugzillaAdaptorConstants.HDR_OSLC_VERSION,"2.0");
+            return catalog;
         }
-        
+
         throw new WebApplicationException(Status.NOT_FOUND);
     }
 
-    
     /**
      * Return the catalog singleton as HTML
-     * 
+     *
      * Forwards to serviceprovidercatalog_html.jsp to build the html
-     * 
+     *
      * @param serviceProviderId
      */
-    
-
     @GET
     @Path("{someId}")
     @Produces(MediaType.TEXT_HTML)
     public void getHtmlServiceProvider(@PathParam("someId") final String someId)
     {
-    	ServiceProviderCatalog catalog = ServiceProviderCatalogSingleton.getServiceProviderCatalog(httpServletRequest);
-    	
+        ServiceProviderCatalog catalog = ServiceProviderCatalogSingleton.getServiceProviderCatalog(httpServletRequest);
 
-    	if (catalog !=null )
-    	{
-	        httpServletRequest.setAttribute("catalog",catalog);
-			// Start of user code getHtmlServiceProvider_setAttributes
+        if (catalog !=null )
+        {
+            httpServletRequest.setAttribute("catalog",catalog);
+            // Start of user code getHtmlServiceProvider_setAttributes
 	        httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
 			// End of user code
 
-
-	        RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/serviceprovidercatalog.jsp");
-    		try {
-				rd.forward(httpServletRequest, httpServletResponse);
-			} catch (Exception e) {				
-				e.printStackTrace();
-				throw new WebApplicationException(e);
-			} 
-    	}
+            RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/serviceprovidercatalog.jsp");
+            try {
+                rd.forward(httpServletRequest, httpServletResponse);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new WebApplicationException(e);
+            }
+        }
     }
-
 }
 

@@ -4,13 +4,13 @@
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  and Eclipse Distribution License v. 1.0 which accompanies this distribution.
- *  
+ *
  *  The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
  *  and the Eclipse Distribution License is available at
  *  http://www.eclipse.org/org/documents/edl-v10.php.
- *  
+ *
  *  Contributors:
- *  
+ *
  *	   Sam Padgett	       - initial API and implementation
  *     Michael Fiedler     - adapted for OSLC4J
  *     Jad El-khoury        - initial implementation of code generator (https://bugs.eclipse.org/bugs/show_bug.cgi?id=422448)
@@ -34,44 +34,42 @@ import se.kth.md.it.bcm.BugzillaAdaptorManager;
 // Start of user code imports
 // End of user code
 
-
 public class ServletListener implements ServletContextListener  {
+    private static String servletBase = null;
+    private static String servicesBase = null;
 
-	private static String servletBase = null;
-	private static String servicesBase = null;
+    private static final String SERVICES_PATH = "/services";
 
-	private static final String SERVICES_PATH = "/services";
-
-	private static final String PROPERTY_SCHEME = ServletListener.class.getPackage().getName() + ".scheme";
-    private static final String PROPERTY_PORT   = ServletListener.class.getPackage().getName() + ".port";
+    private static final String PROPERTY_SCHEME = ServletListener.class.getPackage().getName() + ".scheme";
+    private static final String PROPERTY_PORT = ServletListener.class.getPackage().getName() + ".port";
     private static final Logger LOGGER = Logger.getLogger(ServletListener.class.getName());
     private static final String HOST = getHost();
 
-	// Start of user code class_attributes
+    // Start of user code class_attributes
 	// End of user code
-	
-	// Start of user code class_methods
+
+    // Start of user code class_methods
 	// End of user code
 
     public ServletListener() {
         super();
     }
 
-	private static String getHost() {
+    private static String getHost() {
         try {
             return InetAddress.getLocalHost().getCanonicalHostName();
         } catch (final UnknownHostException exception) {
             return "localhost";
         }
-	}
+    }
 
-	public static String getServletBase() {
-		return servletBase;
-	}
+    public static String getServletBase() {
+        return servletBase;
+    }
 
-	public static String getServicesBase() {
-		return servicesBase;
-	}
+    public static String getServicesBase() {
+        return servicesBase;
+    }
 
     private static String generateBasePath(final ServletContextEvent servletContextEvent)
     {
@@ -97,34 +95,34 @@ public class ServletListener implements ServletContextListener  {
     @Override
     public void contextInitialized(final ServletContextEvent servletContextEvent)
     {
-		// Start of user code contextInitialized_init
+        // Start of user code contextInitialized_init
 		// End of user code
 
-    	String basePath=generateBasePath(servletContextEvent);
-    	servletBase = basePath;
-    	servicesBase = basePath + SERVICES_PATH;
+        String basePath=generateBasePath(servletContextEvent);
+        servletBase = basePath;
+        servicesBase = basePath + SERVICES_PATH;
 
-		LOGGER.log(Level.INFO, "servletListner contextInitialized.");
+        LOGGER.log(Level.INFO, "servletListner contextInitialized.");
 
-		// Establish connection to data backbone etc ...
-		BugzillaAdaptorManager.contextInitializeServletListener(servletContextEvent);	
+        // Establish connection to data backbone etc ...
+        BugzillaAdaptorManager.contextInitializeServletListener(servletContextEvent);
 
-		// Start of user code contextInitialized_final
+        // Start of user code contextInitialized_final
 		// End of user code
     }
 
-	@Override
-	public void contextDestroyed(ServletContextEvent servletContextEvent) 
-	{
-		// Start of user code contextDestroyed_init
+    @Override
+    public void contextDestroyed(ServletContextEvent servletContextEvent)
+    {
+        // Start of user code contextDestroyed_init
 		// End of user code
 
-		// Shutdown connections to data backbone etc...
-		BugzillaAdaptorManager.contextDestroyServletListener(servletContextEvent);	
+        // Shutdown connections to data backbone etc...
+        BugzillaAdaptorManager.contextDestroyServletListener(servletContextEvent);
 
-		// Start of user code contextDestroyed_final
+        // Start of user code contextDestroyed_final
 		// End of user code
-	}
+    }
 
 }
 
