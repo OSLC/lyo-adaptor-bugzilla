@@ -7,7 +7,7 @@ This application uses the [OSLC4J] SDK to build up the adapter from Plain Old Ja
 ## Getting started
 
 1. Sign up for the Bugzilla landfill account: https://landfill.bugzilla.org/bugzilla-4.4-branch/
-1. Run the adaptor: `mvn clean jetty:run-exploded`
+1. Run the adaptor: `mvn clean jetty:run-exploded`. **If you run with `jetty:run` only, the container will silently fail to load.***
 1. Navigate to http://localhost:8080/BugzillaAdaptor/
 1. Use your Landfill credentials to log into the adaptor. It will pass them to the Landfill server (as specified in `test/resources/bugz.properties`).
 
