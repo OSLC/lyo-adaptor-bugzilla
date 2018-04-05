@@ -22,6 +22,7 @@
 <%@page import="org.eclipse.lyo.oslc4j.core.model.ServiceProvider"%>
 <%@page import="se.kth.md.it.bcm.resources.BugzillaChangeRequest"%>
 <%@page import="se.kth.md.it.bcm.servlet.ServletListener"%>
+<%@ page import="org.eclipse.lyo.oslc4j.core.OSLC4JUtils" %>
 <%--
 Start of user code imports
 --%>
@@ -56,7 +57,7 @@ Start of user code (RECOMMENDED) headStuff
 		<%-- 
 End of user code
     --%>
-    <script type="text/javascript" src="<%=ServletListener.getServletBase() %>/delegatedUI.js"></script>
+    <script type="text/javascript" src="<%=OSLC4JUtils.getPublicURI() %>/delegatedUI.js"></script>
   </head>
   <body style="padding: 10px;">
     <div id="selector-body">

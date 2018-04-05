@@ -19,6 +19,11 @@
     <param-name>se.kth.md.it.bcm.servlet.port</param-name>
     <param-value>8080</param-value>
   </context-param>
+  <context-param>
+    <description>Port used for URI when registering ServiceProvider.  Can be overridden by System property of the same name.</description>
+    <param-name>se.kth.md.it.bcm.servlet.baseurl</param-name>
+    <param-value>http://localhost:8080</param-value>
+  </context-param>
   <listener>
     <description>Listener for ServletContext lifecycle changes</description>
     <listener-class>se.kth.md.it.bcm.servlet.ServletListener</listener-class>

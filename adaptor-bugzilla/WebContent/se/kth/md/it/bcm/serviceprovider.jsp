@@ -77,7 +77,7 @@ End of user code
         <tr>
           <td id="title">
             <p>
-              <%= serviceProvider.getTitle() %></title>
+              <%= serviceProvider.getTitle() %>
             </p>
           </td>
           <td id="information">

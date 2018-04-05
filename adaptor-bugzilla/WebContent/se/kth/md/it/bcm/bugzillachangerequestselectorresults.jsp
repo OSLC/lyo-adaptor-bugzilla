@@ -22,7 +22,7 @@
 <%@ page import="java.util.*" %>
 <%@page import="org.eclipse.lyo.oslc4j.core.model.ServiceProvider"%>
 <%@page import="org.eclipse.lyo.oslc4j.core.model.AbstractResource"%>
-<%@page import="se.kth.md.it.bcm.resources.BugzillaChangeRequest"%>
+<%@page import="se.kth.md.it.bcm.resources.BugzillaChangeRequest"%><%@ page import="org.eclipse.lyo.oslc4j.bugzilla.utils.StringUtils"%>
 <%--
 Start of user code imports
 --%>
@@ -48,7 +48,7 @@ End of user code
 <% int i = 0; for (BugzillaChangeRequest r : resources) { %>
   <% if (i > 0) { %>,<% } %>
   {
-    "oslc:label" : "<%= r.toString() %>",
+    "oslc:label" : <%= StringUtils.quote(r.toString()) %>,
     "rdf:resource" : "<%= r.getAbout() %>"
   }
 <% i++; } %>

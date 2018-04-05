@@ -31,4 +31,5 @@
     </domainSpecifications>
     <domainPrefixes name="bugz"/>
   </specification>
+  <vocabularies/>
 </oslc4j_tc:Toolchain>
