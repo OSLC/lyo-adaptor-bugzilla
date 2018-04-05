@@ -33,6 +33,8 @@ import org.eclipse.lyo.oslc4j.core.OSLC4JConstants;
 import org.eclipse.lyo.oslc4j.core.OSLC4JUtils;
 import org.eclipse.lyo.oslc4j.core.model.ServiceProvider;
 import org.eclipse.lyo.oslc4j.core.model.AbstractResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import se.kth.md.it.bcm.servlet.ServiceProviderCatalogSingleton;
 import se.kth.md.it.bcm.ServiceProviderInfo;
 import se.kth.md.it.bcm.resources.BugzillaChangeRequest;
@@ -92,34 +94,13 @@ import java.util.HashSet;
 public class BugzillaAdaptorManager {
 
     // Start of user code class_attributes
-	public final static String REALM = "Bugzilla";
+	private final static Logger log   = LoggerFactory.getLogger(BugzillaAdaptorManager.class);
+	public final static  String REALM = "Bugzilla";
 	
     private static String bugzillaUri = null;
 	private static String admin = null;
 
     //Bugzilla adapter properties from bugz.properties 
-    static {
-        Properties props = new Properties();
-        try {
-        	//bugz.properties file is placed out of package of BugzillaAdaptorManager, getResourceAsStream can't be used.
-        	//FileInputStream is used instead.
-        	String dir = System.getProperty("user.dir");
-        	FileInputStream propertyFilePath = new FileInputStream(dir+"/test/resources/bugz.properties");
-        	props.load(propertyFilePath);
-        	bugzillaUri = props.getProperty("bugzilla_uri");
-        	// normalize the URI so it never ends with '/'
-        	if (bugzillaUri != null && bugzillaUri.endsWith("/")) {
-        		bugzillaUri = bugzillaUri.substring(0, bugzillaUri.length() - 1);
-        	}
-           	admin = props.getProperty("admin");
-            System.out.println("bugzilla_uri: " + bugzillaUri);
-            System.out.println("admin: " + admin);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public static <T> HashSet<T> h(T item) {
 		final HashSet<Object> objects = new HashSet<>();
 		objects.add(item);
@@ -426,7 +407,12 @@ public class BugzillaAdaptorManager {
     {
         
         // Start of user code contextInitializeServletListener
-		// End of user code
+        final ServletContext ctx = servletContextEvent.getServletContext();
+        bugzillaUri = ctx.getInitParameter("se.kth.md.it.bcm.bugzilla.uri");
+        admin = ctx.getInitParameter("se.kth.md.it.bcm.bugzilla.admin");
+        log.info("Starting Bugzilla adaptor for '{}' server ('{}' Bugzilla account is treated as "
+						 + "an admin)", bugzillaUri, admin);
+        // End of user code
     }
 
     public static void contextDestroyServletListener(ServletContextEvent servletContextEvent) 

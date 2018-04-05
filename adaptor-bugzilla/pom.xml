@@ -18,12 +18,12 @@
 		<oauth-core.version>2.3.0</oauth-core.version>
 	</properties>
 	<build>
-		<sourceDirectory>${basedir}/src/</sourceDirectory>
+<!--		<sourceDirectory>${basedir}/src/</sourceDirectory>
 		<testResources>
 			<testResource>
 				<directory>test/resources</directory>
 			</testResource>
-		</testResources>
+		</testResources>-->
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
@@ -38,9 +38,9 @@
 					<!-- enable hot deploy -->
 					<reload>automatic</reload>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
-					<scanTargets>
-						<scanTarget>WebContent</scanTarget>
-					</scanTargets>
+					<!--<scanTargets>-->
+						<!--<scanTarget>WebContent</scanTarget>-->
+					<!--</scanTargets>-->
 					<systemProperties>
 						 
 						<systemProperty>
@@ -73,8 +73,9 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.3</version>
 				<configuration>
-					<warSourceDirectory>WebContent</warSourceDirectory>
-					<webXml>WebContent/WEB-INF/web.xml</webXml>
+					<!--<warSourceDirectory>WebContent</warSourceDirectory>-->
+					<!--<webXml>WebContent/WEB-INF/web.xml</webXml>-->
+<!--
 					<webResources>
 						<resource>
 							<directory>src</directory>
@@ -83,11 +84,17 @@
 						</resource>
 					</webResources>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+-->
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.25</version>
+		</dependency>
 		<dependency>
 			<groupId>org.eclipse.lyo.oslc4j.core</groupId>
 			<artifactId>oslc4j-core</artifactId>
