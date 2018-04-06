@@ -172,17 +172,24 @@ public class ServiceProviderService1
             // End of user code
 
             httpServletRequest.setAttribute("queryUri",
-                    uriInfo.getAbsolutePath().toString() + "?oslc.paging=true");
+                                            getAbsoluteUri() + "?oslc.paging=true");
             if (resources.size() > limit) {
                 resources.remove(resources.size() - 1);
                 httpServletRequest.setAttribute("nextPageUri",
-                        uriInfo.getAbsolutePath().toString() + "?oslc.paging=true&amp;page=" + (page + 1));
+                                                getAbsoluteUri() + "?oslc.paging=true&amp;page=" + (page + 1));
             }
             RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequestscollection.jsp");
             rd.forward(httpServletRequest,httpServletResponse);
         }
 
         throw new WebApplicationException(Status.NOT_FOUND);
+    }
+
+    // FIXME Andrew@2018-04-06: https://bugs.eclipse.org/bugs/show_bug.cgi?id=533289
+    private String getAbsoluteUri() {
+        return OSLC4JUtils.getServletURI() + uriInfo
+                .getPath();
+//        return uriInfo.getAbsolutePath().toString();
     }
 
     @OslcDialog
@@ -207,8 +214,9 @@ public class ServiceProviderService1
             // Start of user code BugzillaChangeRequestSelector_init
             // End of user code
 
-            httpServletRequest.setAttribute("selectionUri",uriInfo.getAbsolutePath().toString());
+            httpServletRequest.setAttribute("selectionUri", getAbsoluteUri());
             // Start of user code BugzillaChangeRequestSelector_setAttributes
+            // FIXME Andrew@2018-04-06: https://bugs.eclipse.org/bugs/show_bug.cgi?id=533289
             httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
             // End of user code
 
@@ -286,7 +294,8 @@ public class ServiceProviderService1
         httpServletRequest.setAttribute("bugzillaUri", BugzillaAdaptorManager.getBugzillaUri());
         // End of user code
 
-        httpServletRequest.setAttribute("creatorUri", uriInfo.getAbsolutePath().toString());
+        // FIXME Andrew@2018-04-06: https://bugs.eclipse.org/bugs/show_bug.cgi?id=533289
+        httpServletRequest.setAttribute("creatorUri", getAbsoluteUri());
         httpServletRequest.setAttribute("serviceProviderId", serviceProviderId);
 
         RequestDispatcher rd = httpServletRequest.getRequestDispatcher("/se/kth/md/it/bcm/bugzillachangerequestcreator.jsp");

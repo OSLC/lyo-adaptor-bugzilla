@@ -24,6 +24,7 @@
 				<directory>test/resources</directory>
 			</testResource>
 		</testResources>-->
+		<finalName>bugz</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
