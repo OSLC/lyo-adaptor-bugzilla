@@ -1,10 +1,12 @@
-# Sample OSLC Bugzilla application
+# Experimental OSLC Bugzilla application
 
 [![Build Status](https://semaphoreci.com/api/v1/berezovskyi/lyo-adaptor-bugzilla/branches/master/badge.svg)](https://semaphoreci.com/berezovskyi/lyo-adaptor-bugzilla)
 [![Discourse status](https://img.shields.io/discourse/https/meta.discourse.org/status.svg)](https://forum.open-services.net/)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/OSLC/chat)
 
-This application is an example of what Eclipse Lyo can be used for, in the form of an OSLC-CM compatible adapter for the Bugzilla bugtracker application. It wraps Bugzilla (interacting with it through Bugzilla's native XMLRPC API) with an OSLC-CM provider server accessible through REST calls.
+If you are looking for the OSLC tutorial on building an adaptor for Bugzilla, please refer to the tutorials under the [OSLC Developer Guide](https://oslc.github.io/developing-oslc-applications/tutorials.html).
+
+This repository is an experimental variant that shows what [Eclipse Lyo Designer](https://oslc.github.io/developing-oslc-applications/eclipse_lyo/lyo-designer.html) can do.
 
 This application uses the [OSLC4J] SDK to build up the adapter from Plain Old Java Objects and relatively simple JAX-RS web services.
 
