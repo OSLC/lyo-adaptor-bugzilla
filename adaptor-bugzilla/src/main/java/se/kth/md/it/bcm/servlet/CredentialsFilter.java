@@ -149,8 +149,11 @@ public class CredentialsFilter implements Filter {
 	public static BugzillaConnector getBugzillaConnector(Credentials credentials)
 			throws ConnectionException, UnauthorizedException {
 		BugzillaConnector bc = new BugzillaConnector();
-		bc.connectTo(BugzillaAdaptorManager.getBugzillaUri() + "/xmlrpc.cgi");
-		LogIn login = new LogIn(credentials.getUsername(), credentials.getPassword());
+		final String uri = BugzillaAdaptorManager.getBugzillaUri() + "/xmlrpc.cgi";
+		final String username = credentials.getUsername();
+		final String password = credentials.getPassword();
+		bc.connectTo(uri);
+		LogIn login = new LogIn(username, password);
 		try {
 			bc.executeMethod(login);
 		} catch (BugzillaException e) {
