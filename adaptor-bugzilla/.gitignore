@@ -1,3 +1,10 @@
 build/
 target/
+overlays/
 
+.idea/
+*.iml
+
+.settings/
+.classpath
+.project
