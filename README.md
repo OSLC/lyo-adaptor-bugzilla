@@ -1,8 +1,8 @@
 # Experimental OSLC Bugzilla application
 
+[![](https://img.shields.io/badge/project-Eclipse%20Lyo-blue?color=418eeb)](https://github.com/eclipse/lyo)
 [![Build Status](https://semaphoreci.com/api/v1/berezovskyi/lyo-adaptor-bugzilla/branches/master/badge.svg)](https://semaphoreci.com/berezovskyi/lyo-adaptor-bugzilla)
-[![Discourse status](https://img.shields.io/discourse/https/meta.discourse.org/status.svg)](https://forum.open-services.net/)
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/OSLC/chat)
+[![Discourse users](https://img.shields.io/discourse/users?color=28bd84&server=https%3A%2F%2Fforum.open-services.net%2F)](https://forum.open-services.net/)
 
 If you are looking for the OSLC tutorial on building an adaptor for Bugzilla, please refer to the tutorials under the [OSLC Developer Guide](https://oslc.github.io/developing-oslc-applications/tutorials.html).
 
