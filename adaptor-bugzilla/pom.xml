@@ -7,7 +7,7 @@
   <packaging>war</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <v.lyo>2.3.0</v.lyo>
+    <v.lyo>4.0.0</v.lyo>
     <v.lyo-oauth>${v.lyo}</v.lyo-oauth>
   </properties>
   <build>
