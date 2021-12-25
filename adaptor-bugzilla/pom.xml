@@ -7,7 +7,9 @@
   <packaging>war</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <v.lyo>2.3.0</v.lyo>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <v.lyo>2.4.0</v.lyo>
     <v.lyo-oauth>${v.lyo}</v.lyo-oauth>
   </properties>
   <build>
@@ -16,7 +18,7 @@
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
-        <version>9.3.9.v20160517</version>
+        <version>9.4.44.v20210927</version>
         <configuration>
           <webAppConfig>
             <contextPath>/BugzillaAdaptor</contextPath>
@@ -39,14 +41,6 @@
               <value>8180</value>
             </systemProperty>
           </systemProperties>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
         </configuration>
       </plugin>
       <plugin>
