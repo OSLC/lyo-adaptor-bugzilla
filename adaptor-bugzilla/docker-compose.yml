@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  bugzilla-adaptor:
+    build: ./
+    depends_on:
+      - bugzilla
+    ports:
+      - "127.0.0.1:8180:8080"
+  bugzilla:
+    image: smarx008/bugzilla-dev-lyo
+    ports:
+      - "127.0.0.1:8000:80"

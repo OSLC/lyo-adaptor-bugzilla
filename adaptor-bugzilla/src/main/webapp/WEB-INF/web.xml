@@ -25,7 +25,7 @@
   </context-param>
   <context-param>
     <param-name>se.kth.md.it.bcm.bugzilla.uri</param-name>
-    <param-value>http://localhost/bugzilla</param-value>
+    <param-value>http://bugzilla/bugzilla</param-value>
   </context-param>
 <!--  <context-param>
     <param-name>se.kth.md.it.bcm.bugzilla.admin</param-name>
