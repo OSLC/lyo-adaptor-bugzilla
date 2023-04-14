@@ -32,4 +32,6 @@ jobs:
         with:
           compose-file: "./adaptor-bugzilla/docker-compose.yml"
       - name: Run Postman tests
-        run: newman run ./test/Bugzilla.postman_collection.json
+        run: |
+          sleep 30
+          newman run ./test/Bugzilla.postman_collection.json
