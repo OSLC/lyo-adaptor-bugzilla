@@ -1,4 +1,4 @@
-name: Maven CI
+name: CI
 
 on:
   push:
@@ -17,7 +17,21 @@ jobs:
       - uses: actions/setup-java@v2
         with:
           distribution: 'temurin'
-          java-version: '11'
+          java-version: '17'
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: Install newman
+        run: npm install -g newman 
       - name: 'Build :: Bugzilla adaptor'
         run: |
           mvn -B clean verify --file adaptor-bugzilla/pom.xml
+      - uses: isbang/compose-action@v1.4.1
+        with:
+          compose-file: "./adaptor-bugzilla/docker-compose.yml"
+      - name: Run Postman tests
+        run: |
+          sleep 30
+          newman run ./test/Bugzilla.postman_collection.json

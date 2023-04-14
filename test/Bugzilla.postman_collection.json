@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "a782dee5-fdd6-4f98-8ac9-12de45232845",
+		"name": "Bugzilla Adaptor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bugzilla homepage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/bugzilla/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bugzilla",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
