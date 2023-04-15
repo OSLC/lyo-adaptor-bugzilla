@@ -9,7 +9,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <v.lyo>2.4.0</v.lyo>
+    <v.lyo>4.1.0</v.lyo>
     <v.lyo-oauth>${v.lyo}</v.lyo-oauth>
   </properties>
   <build>
