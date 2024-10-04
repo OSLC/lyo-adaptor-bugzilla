@@ -12,7 +12,7 @@ This application uses the [OSLC4J] SDK to build up the adapter from Plain Old Ja
 
 ## Getting started
 
-1. Run Bugzilla: `docker run -p 80:80 --rm smarx008/bugzilla-dev-lyo`
+1. Run Bugzilla: `docker run -p 80:80 --rm docker.io/smarx008/bugzilla-dev-lyo`
 1. Run the adaptor: `mvn clean jetty:run-exploded`. **If you run with `jetty:run` only, the container will silently fail to load.***
 1. Navigate to http://localhost:8180/BugzillaAdaptor/
 1. Use admin:password as credentials to log in. It will pass them to the Bugzilla server (as specified in `adaptor-bugzilla/src/main/webapp/WEB-INF/web.xml`).
