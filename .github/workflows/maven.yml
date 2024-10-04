@@ -28,7 +28,7 @@ jobs:
       - name: 'Build :: Bugzilla adaptor'
         run: |
           mvn -B clean verify --file adaptor-bugzilla/pom.xml
-      - uses: isbang/compose-action@v1.4.1
+      - uses: "isbang/compose-action@v2.0.2"
         with:
           compose-file: "./adaptor-bugzilla/docker-compose.yml"
       - name: Run Postman tests
