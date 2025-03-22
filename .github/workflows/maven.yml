@@ -12,25 +12,48 @@ on:
 jobs:
   build-jdk11:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        jdk: ['8', '11', '17', '21']
+        distribution: ['temurin']
+        experimental: [false]
+        include:
+          - jdk: '23'
+            distribution: 'zulu'
+            experimental: true
+          - jdk: '24-ea'
+            distribution: 'zulu'
+            experimental: true
+    continue-on-error: ${{ matrix.experimental }}
+    
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+
+      - name: Set up JDK ${{ matrix.jdk }}
+        uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: ${{ matrix.distribution }}
+          java-version: ${{ matrix.jdk }}
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      
       - name: Install newman
         run: npm install -g newman 
+      
       - name: 'Build :: Bugzilla adaptor'
         run: |
           mvn -B clean verify --file adaptor-bugzilla/pom.xml
+      
       - uses: "isbang/compose-action@v2.0.2"
         with:
           compose-file: "./adaptor-bugzilla/docker-compose.yml"
+      
       - name: Run Postman tests
         run: |
           sleep 30
