@@ -7,6 +7,7 @@ on:
     branches: [master]
   schedule:
     - cron: "17 4 * * 4" # catch SNAPSHOT breaking changes
+  merge_group:
   workflow_dispatch:
 
 jobs:
@@ -16,20 +17,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        jdk: ['8', '11', '17', '21']
+        jdk: ['21', '25']
         distribution: ['temurin']
         experimental: [false]
-        include:
-          - jdk: '23'
-            distribution: 'zulu'
-            experimental: true
-          - jdk: '24-ea'
-            distribution: 'zulu'
-            experimental: true
+        # include:
+        #   - jdk: '23'
+        #     distribution: 'zulu'
+        #     experimental: true
+        #   - jdk: '24-ea'
+        #     distribution: 'zulu'
+        #     experimental: true
     continue-on-error: ${{ matrix.experimental }}
     
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up JDK ${{ matrix.jdk }}
         uses: actions/setup-java@v5
@@ -38,7 +39,7 @@ jobs:
           java-version: ${{ matrix.jdk }}
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
@@ -50,9 +51,9 @@ jobs:
         run: |
           mvn -B clean verify --file adaptor-bugzilla/pom.xml
       
-      - uses: "isbang/compose-action@v2.3.0"
+      - uses: "isbang/compose-action@v2.4.1"
         with:
-          compose-file: "./adaptor-bugzilla/docker-compose.yml"
+          compose-file: "./docker-compose.yml"
       
       - name: Run Postman tests
         run: |
