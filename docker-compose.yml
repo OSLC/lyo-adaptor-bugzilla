@@ -1,0 +1,51 @@
+# version: "3.9"
+services:
+  bugzilla-adaptor:
+    build: ./adaptor-bugzilla
+    depends_on:
+      - bugzilla-server-app
+    ports:
+      - "127.0.0.1:8180:8080"
+    restart: unless-stopped
+
+  # bugzilla-server:
+  #   # image: smarx008/bugzilla-dev-lyo
+  #   build: ./bugzilla-server
+  #   ports:
+  #     - "127.0.0.1:8000:80"
+  bugzilla-server-mariadb:
+    image: mariadb:10.11
+    # container_name: bugzilla-mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: Unfreeze-Joystick-Leotard8-Steadfast-Liquid-Plus
+      MYSQL_USER: bugzilla
+      MYSQL_PASSWORD: Unfreeze-Joystick-Leotard8-Steadfast-Liquid-Plus    
+      MYSQL_DATABASE: bugzilla
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+  
+  bugzilla-server-app:
+    build: ./bugzilla-server
+    container_name: bugzilla
+    depends_on:
+      - bugzilla-server-mariadb
+    environment:
+      - DB_HOST=bugzilla-server-mariadb
+      - DB_NAME=bugzilla
+      - DB_USER=bugzilla
+      - "DB_PASS=Unfreeze-Joystick-Leotard8-Steadfast-Liquid-Plus"
+      - ADMIN_EMAIL=admin@bugzilla.local
+      - ADMIN_PASSWORD=bugzadmin
+      - BUGZILLA_URL=http://localhost:8000    
+    volumes:
+      - ./show_bug.cgi.xml:/import/bugs.xml:ro
+      - bugzilla_data:/var/www/html/bugzilla/data
+    ports:
+      - "127.0.0.1:8000:80"
+    restart: unless-stopped
+
+volumes:
+  mariadb_data:
+  bugzilla_data:
