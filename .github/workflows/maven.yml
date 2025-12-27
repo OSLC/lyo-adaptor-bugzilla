@@ -38,7 +38,7 @@ jobs:
           java-version: ${{ matrix.jdk }}
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
@@ -50,7 +50,7 @@ jobs:
         run: |
           mvn -B clean verify --file adaptor-bugzilla/pom.xml
       
-      - uses: "isbang/compose-action@v2.3.0"
+      - uses: "isbang/compose-action@v2.4.1"
         with:
           compose-file: "./adaptor-bugzilla/docker-compose.yml"
       
