@@ -7,6 +7,7 @@ on:
     branches: [master]
   schedule:
     - cron: "17 4 * * 4" # catch SNAPSHOT breaking changes
+  merge_group:
   workflow_dispatch:
 
 jobs:
@@ -16,16 +17,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        jdk: ['8', '11', '17', '21']
+        jdk: ['21', '25']
         distribution: ['temurin']
         experimental: [false]
-        include:
-          - jdk: '23'
-            distribution: 'zulu'
-            experimental: true
-          - jdk: '24-ea'
-            distribution: 'zulu'
-            experimental: true
+        # include:
+        #   - jdk: '23'
+        #     distribution: 'zulu'
+        #     experimental: true
+        #   - jdk: '24-ea'
+        #     distribution: 'zulu'
+        #     experimental: true
     continue-on-error: ${{ matrix.experimental }}
     
     steps:
@@ -52,7 +53,7 @@ jobs:
       
       - uses: "isbang/compose-action@v2.4.1"
         with:
-          compose-file: "./adaptor-bugzilla/docker-compose.yml"
+          compose-file: "./docker-compose.yml"
       
       - name: Run Postman tests
         run: |

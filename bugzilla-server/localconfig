@@ -1,0 +1,25 @@
+# Bugzilla local configuration
+$db_driver = 'mariadb';
+$db_host = $ENV{'DB_HOST'} || 'mariadb';
+$db_name = $ENV{'DB_NAME'} || 'bugzilla';
+$db_user = $ENV{'DB_USER'} || 'bugzilla';
+$db_pass = $ENV{'DB_PASS'} || 'bugzilla_password1';
+$db_port = 3306;
+$db_sock = '';
+
+# New database configuration variables
+$db_check = 1;
+$db_mysql_ssl_ca_file = '';
+$db_mysql_ssl_ca_path = '';
+$db_mysql_ssl_client_cert = '';
+$db_mysql_ssl_client_key = '';
+
+# Web server configuration
+$webservergroup = 'www-data';
+$use_suexec = 0;
+
+# Index page redirect
+$index_html = 0;
+
+# Set site wide secret
+$site_wide_secret = $ENV{'SITE_SECRET'} || '61b10281851168b54b46c8f95318eb1c4e4fbf39421b14ba34405a218a085e67cd442da04f2221cb17e99a5e3c05c945';

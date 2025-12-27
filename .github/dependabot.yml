@@ -5,11 +5,15 @@
 
 version: 2
 updates:
-  - package-ecosystem: "maven" # See documentation for possible values
-    directory: "/adaptor-bugzilla/" # Location of package manifests
+  - package-ecosystem: "maven"
+    directory: "/adaptor-bugzilla/"
     schedule:
-      interval: "monthly"
-  - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
+      interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "daily"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"

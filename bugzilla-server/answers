@@ -1,0 +1,19 @@
+# Bugzilla answers file for automated setup
+$answer{'ADMIN_EMAIL'} = '$ADMIN_EMAIL';
+$answer{'ADMIN_REALNAME'} = 'Bugzilla Administrator';
+$answer{'ADMIN_PASSWORD'} = '$ADMIN_PASSWORD';
+$answer{'create_htaccess'} = 1;
+$answer{'cvsbin'} = '';
+$answer{'diffpath'} = '/usr/bin/diff';
+$answer{'interdiffbin'} = '';
+$answer{'use_suexec'} = 0;
+$answer{'webservergroup'} = 'www-data';
+$answer{'db_driver'} = 'mysql';
+$answer{'db_host'} = '$DB_HOST';
+$answer{'db_name'} = '$DB_NAME';
+$answer{'db_user'} = '$DB_USER';
+$answer{'db_pass'} = '$DB_PASS';
+$answer{'db_port'} = 3306;
+$answer{'db_sock'} = '';
+$answer{'urlbase'} = '$BUGZILLA_URL';
+$answer{'ssl_redirect'} = 0;

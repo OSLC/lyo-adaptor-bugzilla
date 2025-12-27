@@ -42,15 +42,15 @@ if (assigneePerson != null)
 <html>
 <head>
 <title>Change Request: <%=title %> (<%=identifier %>)</title>
-<link href="<%= bugzillaUri %>/skins/standard/global.css" rel="stylesheet" type="text/css">
-<link href="<%= bugzillaUri %>/skins/standard/index.css" rel="stylesheet" type="text/css">
-<link href="<%= bugzillaUri %>/skins/standard/global.css" rel="alternate stylesheet" title="Classic" type="text/css">
-<link href="<%= bugzillaUri %>/skins/standard/index.css" rel="alternate stylesheet" title="Classic" type="text/css">
-<link href="<%= bugzillaUri %>/skins/contrib/Dusk/global.css" rel="stylesheet" title="Dusk" type="text/css">
-<link href="<%= bugzillaUri %>/skins/contrib/Dusk/index.css" rel="stylesheet" title="Dusk" type="text/css">
-<link href="<%= bugzillaUri %>/skins/custom/global.css" rel="stylesheet" type="text/css">
-<link href="<%= bugzillaUri %>/skins/custom/index.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="<%= bugzillaUri %>/images/favicon.ico">
+<link href="<%= request.getContextPath() %>/static/bugzilla/skins/standard/global.css" rel="stylesheet" type="text/css">
+<link href="<%= request.getContextPath() %>/static/bugzilla/skins/standard/index.css" rel="stylesheet" type="text/css">
+<link href="<%= request.getContextPath() %>/static/bugzilla/skins/standard/global.css" rel="alternate stylesheet" title="Classic" type="text/css">
+<link href="<%= request.getContextPath() %>/static/bugzilla/skins/standard/index.css" rel="alternate stylesheet" title="Classic" type="text/css">
+<link href="<%= request.getContextPath() %>/static/bugzilla/skins/contrib/Dusk/global.css" rel="stylesheet" title="Dusk" type="text/css">
+<link href="<%= request.getContextPath() %>/static/bugzilla/skins/contrib/Dusk/index.css" rel="stylesheet" title="Dusk" type="text/css">
+<link href="<%= request.getContextPath() %>/static/bugzilla/skins/custom/global.css" rel="stylesheet" type="text/css">
+<link href="<%= request.getContextPath() %>/static/bugzilla/skins/custom/index.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="<%= request.getContextPath() %>/static/bugzilla/images/favicon.ico">
 </head>
 <body>
 
