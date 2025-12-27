@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/bugzilla/",
+					"raw": "http://localhost:8000/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -134,12 +134,12 @@
 		"basic": [
 			{
 				"key": "password",
-				"value": "password",
+				"value": "bugzadmin",
 				"type": "string"
 			},
 			{
 				"key": "username",
-				"value": "admin",
+				"value": "admin@bugzilla.local",
 				"type": "string"
 			}
 		]
