@@ -51,7 +51,7 @@ jobs:
         run: |
           mvn -B clean verify --file adaptor-bugzilla/pom.xml
       
-      - uses: "isbang/compose-action@v2.4.2"
+      - uses: "isbang/compose-action@v2.4.3"
         with:
           compose-file: "./docker-compose.yml"
       
