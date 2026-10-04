@@ -1,6 +1,6 @@
-# version: "3.9"
 services:
   bugzilla-adaptor:
+    image: ghcr.io/oslc/lyo-adaptor-bugzilla:latest
     build: ./adaptor-bugzilla
     depends_on:
       - bugzilla-server-app
@@ -8,14 +8,8 @@ services:
       - "127.0.0.1:8180:8080"
     restart: unless-stopped
 
-  # bugzilla-server:
-  #   # image: smarx008/bugzilla-dev-lyo
-  #   build: ./bugzilla-server
-  #   ports:
-  #     - "127.0.0.1:8000:80"
   bugzilla-server-mariadb:
-    image: mariadb:10.11
-    # container_name: bugzilla-mariadb
+    image: docker.io/library/mariadb:10.11
     environment:
       MYSQL_ROOT_PASSWORD: Unfreeze-Joystick-Leotard8-Steadfast-Liquid-Plus
       MYSQL_USER: bugzilla
@@ -23,10 +17,10 @@ services:
       MYSQL_DATABASE: bugzilla
     volumes:
       - mariadb_data:/var/lib/mysql
-      - ./mysql-init:/docker-entrypoint-initdb.d
     restart: unless-stopped
   
   bugzilla-server-app:
+    image: ghcr.io/oslc/lyo-adaptor-bugzilla-backend:latest
     build: ./bugzilla-server
     container_name: bugzilla
     depends_on:
@@ -40,7 +34,7 @@ services:
       - ADMIN_PASSWORD=bugzadmin
       - BUGZILLA_URL=http://localhost:8000    
     volumes:
-      - ./show_bug.cgi.xml:/import/bugs.xml:ro
+      - ./bugzilla-server/show_bug.cgi.xml:/import/bugs.xml:ro
       - bugzilla_data:/var/www/html/bugzilla/data
     ports:
       - "127.0.0.1:8000:80"

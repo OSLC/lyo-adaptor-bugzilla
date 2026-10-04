@@ -11,10 +11,20 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <v.lyo>2.4.0</v.lyo>
     <v.lyo-oauth>${v.lyo}</v.lyo-oauth>
+    <maven.compiler.testRelease>17</maven.compiler.testRelease>
   </properties>
   <build>
     <finalName>bugz</finalName>
     <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.16.0</version>
+        <configuration><compilerArgs><arg>-Xlint:deprecation</arg></compilerArgs></configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.6.0</version>
+      </plugin>
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
@@ -47,15 +57,43 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>3.5.1</version>
         <configuration>
+          <packagingExcludes>WEB-INF/lib/slf4j-api-1*.jar,WEB-INF/lib/slf4j-simple-*.jar</packagingExcludes>
         </configuration>
       </plugin>
     </plugins>
   </build>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>6.0.3</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <dependencies>
     <dependency>
       <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
+      <artifactId>slf4j-api</artifactId>
       <version>2.0.17</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mock-server</groupId>
+      <artifactId>mockserver-netty</artifactId>
+      <version>5.15.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.5.32</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.lyo.oslc4j.core</groupId>
@@ -87,6 +125,9 @@
       <groupId>com.j2bugzilla</groupId>
       <artifactId>j2bugzilla</artifactId>
       <version>2.2.1</version>
+      <exclusions>
+        <exclusion><groupId>junit</groupId><artifactId>junit</artifactId></exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.eclipse.lyo.server</groupId>

@@ -4,3 +4,4 @@ overlays/
 
 .idea/
 *.iml
+node_modules/
