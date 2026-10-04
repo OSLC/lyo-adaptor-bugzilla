@@ -23,3 +23,11 @@ Navigate to http://localhost:8180/
 
 Use login: **admin@bugzilla.local**, password: **bugzadmin** as credentials to log in. It will pass them to the Bugzilla server (as specified in `adaptor-bugzilla/src/main/webapp/WEB-INF/web.xml`).
 
+Docker users can use `docker compose up --build` after the same Maven build.
+Bugzilla is available at http://localhost:8000/. Both ports bind to localhost.
+
+See [DEVELOPMENT.md](DEVELOPMENT.md) for tests and
+[CONTRIBUTING.md](CONTRIBUTING.md) for contribution rules.
+
+[OSLC4J]: https://github.com/eclipse/lyo
+

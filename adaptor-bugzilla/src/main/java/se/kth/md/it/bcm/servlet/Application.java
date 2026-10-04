@@ -71,6 +71,8 @@ import se.kth.md.it.bcm.resources.Oslc_rmDomainConstants;
 import se.kth.md.it.bcm.services.ServiceProviderService1;
 
 // Start of user code imports
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 // End of user code
 
 // Start of user code pre_class_code
@@ -82,6 +84,7 @@ public class Application extends OslcWinkApplication {
     private static final Map<String, Class<?>> RESOURCE_SHAPE_PATH_TO_RESOURCE_CLASS_MAP = new HashMap<String, Class<?>>();
 
     // Start of user code class_attributes
+    private static final Logger log = LoggerFactory.getLogger(Application.class);
     // End of user code
 
     // Start of user code class_methods
@@ -105,8 +108,7 @@ public class Application extends OslcWinkApplication {
         RESOURCE_CLASSES.add(Class.forName("org.eclipse.lyo.server.oauth.webapp.services.OAuthService"));
         } catch (ClassNotFoundException e)
         {
-            e.printStackTrace();
-            System.err.println("Application failed to initialize");
+            log.error("Application failed to initialize OAuth resource classes", e);
         }
         // End of user code
 

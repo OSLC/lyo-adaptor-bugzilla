@@ -17,6 +17,8 @@
 package se.kth.md.it.bcm.servlet;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -53,6 +55,7 @@ import com.j2bugzilla.base.ConnectionException;
 import com.j2bugzilla.rpc.LogIn;
 
 public class CredentialsFilter implements Filter {
+    private static final Logger log = LoggerFactory.getLogger(CredentialsFilter.class);
 
 
 	
@@ -132,7 +135,7 @@ public class CredentialsFilter implements Filter {
 					} catch (UnauthorizedException e)
 					{
 						HttpUtils.sendUnauthorizedResponse(response, e);
-						System.err.println(e.getMessage());
+						log.warn("Bugzilla authentication rejected", e);
 						return;
 					} catch (ConnectionException ce)
 					{
@@ -157,7 +160,7 @@ public class CredentialsFilter implements Filter {
 		try {
 			bc.executeMethod(login);
 		} catch (BugzillaException e) {
-			e.printStackTrace();
+			log.warn("Bugzilla login failed", e);
 			throw new UnauthorizedException(e.getCause().getMessage());
 		}
 		return bc;
@@ -244,7 +247,7 @@ public class CredentialsFilter implements Filter {
 			// For now, hard-code the consumers.
 			config.setConsumerStore(new FileSystemConsumerStore("bugzillaOAuthStore.xml"));
 		} catch (Throwable t) {
-			//t.printStackTrace();
+			log.debug("Could not initialize the OAuth consumer store", t);
 		}
 
 	}

@@ -18,12 +18,24 @@
 					],
 					"port": "8000",
 					"path": [
-						"bugzilla",
 						""
 					]
 				}
 			},
-			"response": []
+			"response": [],
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"HTTP 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Adaptor landing",
@@ -42,7 +54,20 @@
 					]
 				}
 			},
-			"response": []
+			"response": [],
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"HTTP 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Adaptor SPC",
@@ -69,7 +94,20 @@
 					]
 				}
 			},
-			"response": []
+			"response": [],
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"HTTP 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Adaptor SPC (no auth)",
@@ -78,7 +116,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.expect(pm.response.code).to.be.oneOf([401]);"
+							"pm.test(\"Unauthenticated catalogue returns HTTP 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});"
 						],
 						"type": "text/javascript"
 					}

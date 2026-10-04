@@ -2,60 +2,67 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    branches: [main, master]
   pull_request:
-    branches: [master]
+    branches: [main, master]
   schedule:
-    - cron: "17 4 * * 4" # catch SNAPSHOT breaking changes
+    - cron: '17 4 * * 4'
   merge_group:
+    types: [checks_requested]
   workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
+    name: build (${{ matrix.jdk }}, ${{ matrix.distribution }}, ${{ matrix.experimental }})
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
         jdk: ['21', '25']
         distribution: ['temurin']
         experimental: [false]
-        # include:
-        #   - jdk: '23'
-        #     distribution: 'zulu'
-        #     experimental: true
-        #   - jdk: '24-ea'
-        #     distribution: 'zulu'
-        #     experimental: true
-    continue-on-error: ${{ matrix.experimental }}
-    
     steps:
-      - uses: actions/checkout@v6
-
-      - name: Set up JDK ${{ matrix.jdk }}
-        uses: actions/setup-java@v5
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Set up JDK
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         with:
           distribution: ${{ matrix.distribution }}
           java-version: ${{ matrix.jdk }}
-
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      
-      - name: Install newman
-        run: npm install -g newman 
-      
-      - name: 'Build :: Bugzilla adaptor'
+          node-version: '24'
+      - name: Install Newman
+        run: npm ci --prefix test --ignore-scripts
+      - name: Build Bugzilla adaptor
+        run: mvn -B --no-transfer-progress clean verify --file adaptor-bugzilla/pom.xml
+      - name: Start stack
+        run: docker compose up --build -d
+      - name: Wait for services
         run: |
-          mvn -B clean verify --file adaptor-bugzilla/pom.xml
-      
-      - uses: "isbang/compose-action@v2.4.3"
-        with:
-          compose-file: "./docker-compose.yml"
-      
+          for attempt in $(seq 1 120); do
+            if curl --fail --silent http://localhost:8000/ >/dev/null && curl --fail --silent http://localhost:8180/ >/dev/null; then
+              exit 0
+            fi
+            sleep 5
+          done
+          docker compose logs
+          exit 1
       - name: Run Postman tests
-        run: |
-          sleep 30
-          newman run ./test/Bugzilla.postman_collection.json
+        run: test/node_modules/.bin/newman run test/Bugzilla.postman_collection.json
+      - name: Container logs
+        if: always()
+        run: docker compose logs --no-color
+      - name: Stop stack
+        if: always()
+        run: docker compose down

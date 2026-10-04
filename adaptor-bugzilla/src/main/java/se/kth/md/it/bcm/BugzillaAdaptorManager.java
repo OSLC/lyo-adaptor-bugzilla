@@ -266,7 +266,7 @@ public class BugzillaAdaptorManager {
 			bc.executeMethod(bugSearch);
 			results = bugSearch.getSearchResults();
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Bugzilla operation failed", e);
 			throw new WebApplicationException(e);
 		}
     	
@@ -320,7 +320,7 @@ public class BugzillaAdaptorManager {
 				throw new WebApplicationException(Status.NOT_FOUND);
 			}  
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Bugzilla operation failed", e);
 			throw new WebApplicationException(e);
 		}
 		
@@ -338,7 +338,7 @@ public class BugzillaAdaptorManager {
 			bc.executeMethod(getProducts);
 			product = getProducts.getProduct();
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Bugzilla operation failed", e);
 			throw new WebApplicationException(e);
 		}
 		return product;
@@ -366,7 +366,7 @@ public class BugzillaAdaptorManager {
 			}
 		} catch (Exception e)
 		{
-			e.printStackTrace();
+			log.error("Bugzilla operation failed", e);
 			throw new WebApplicationException(e);
 		}
 	}
@@ -447,7 +447,7 @@ public class BugzillaAdaptorManager {
 	        	index++;
 	        }
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Bugzilla operation failed", e);
 			throw new WebApplicationException(e,Status.INTERNAL_SERVER_ERROR);
 		}
 		// End of user code
@@ -463,7 +463,7 @@ public class BugzillaAdaptorManager {
 	        List<Bug> bugList = BugzillaAdaptorManager.getBugsByProduct(httpServletRequest, serviceProviderId, page, limit);      
 	        resources = BugzillaAdaptorManager.changeRequestsFromBugList(httpServletRequest, bugList, serviceProviderId);		
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Bugzilla operation failed", e);
 			throw new WebApplicationException(e,Status.INTERNAL_SERVER_ERROR);
 		}
 		// End of user code
@@ -540,7 +540,7 @@ public class BugzillaAdaptorManager {
     		newResource = BugzillaAdaptorManager.fromBug(newBug, httpServletRequest, serviceProviderId);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Bugzilla operation failed", e);
 			throw new WebApplicationException(e);
 		}
 		// End of user code
@@ -559,7 +559,7 @@ public class BugzillaAdaptorManager {
 	        	aResource = BugzillaAdaptorManager.fromBug(bug, httpServletRequest, serviceProviderId);
 	        }
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Bugzilla operation failed", e);
 			throw new WebApplicationException(e,Status.INTERNAL_SERVER_ERROR);
 		}
 		// End of user code
