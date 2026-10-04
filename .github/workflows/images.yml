@@ -2,9 +2,9 @@ name: Container images
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
   merge_group:
     types: [checks_requested]
   workflow_dispatch:
