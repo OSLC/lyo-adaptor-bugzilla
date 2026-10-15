@@ -23,7 +23,7 @@ services:
       MYSQL_DATABASE: bugzilla
     volumes:
       - mariadb_data:/var/lib/mysql
-      - ./mysql-init:/docker-entrypoint-initdb.d
+      - ./bugzilla-server/mysql-init:/docker-entrypoint-initdb.d
     restart: unless-stopped
   
   bugzilla-server-app:
@@ -40,7 +40,7 @@ services:
       - ADMIN_PASSWORD=bugzadmin
       - BUGZILLA_URL=http://localhost:8000    
     volumes:
-      - ./show_bug.cgi.xml:/import/bugs.xml:ro
+      - ./bugzilla-server/show_bug.cgi.xml:/import/bugs.xml:ro
       - bugzilla_data:/var/www/html/bugzilla/data
     ports:
       - "127.0.0.1:8000:80"
