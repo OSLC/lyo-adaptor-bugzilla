@@ -1,5 +1,5 @@
 # Dockerfile for Bugzilla with XML import support
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
@@ -8,7 +8,8 @@ ENV BUGZILLA_USER=bugzilla
 ENV BUGZILLA_ROOT=/var/www/html/bugzilla
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
     apache2 \
     libapache2-mod-perl2 \
     build-essential \
