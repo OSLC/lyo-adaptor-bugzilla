@@ -2,12 +2,13 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
   schedule:
     - cron: "17 4 * * 4" # catch SNAPSHOT breaking changes
   merge_group:
+    types: [checks_requested]
   workflow_dispatch:
 
 jobs:
